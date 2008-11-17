@@ -1,0 +1,24 @@
+<%= render_headline "Hostgroups"  %>
+The following host groups are currently configured:
+
+<% if @hostgroups.length > 0 %>
+	<ul>
+		<% @hostgroups.each do |hostgroup| %>
+			<li><%= link_to hostgroup.name, :action => "show", :id => hostgroup.id %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<strong>No groups found</strong>
+<% end %>
+
+<div id="new-hostgroup">
+	<h2>Add host group</h2>
+	<% form_for :newGroup, :url => { :action => "create" } do |f| %>
+		<dl>
+			<dt><%= f.label :name, "Name of the new group" %></dt>
+			<dd><%= f.text_field :name %></dd>
+			<dt>&nbsp;</dt>
+			<dd><%= submit_tag "Add group" %></dd>
+		</dl>
+	<% end %>
+</div>

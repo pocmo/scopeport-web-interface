@@ -1,0 +1,31 @@
+<%= render_headline "Services" %>
+Total monitored services: <%= @serviceCount %>
+
+<% if @serviceCount > 0 %>
+	<table id="services">
+		<tr class="doNotHighlightMe">
+			<th>Name</th>
+			<th>Host:Port</th>
+			<th>Protocol</th>
+			<th>Response</th>
+			<th>Last checked</th>
+			<th>Notification group</th>
+			<th>Linked to host</th>
+		</tr>
+		<% @services.each do |service| %>
+		<tr class="<%= getErrorStyle service.state %>">
+			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
+			<td><%= service.host %>:<%= service.port %></td>
+			<td><%= service.service_type.upcase %></td>
+			<td><%= service.responsetime %> ms</td>
+			<td><%= Time.at service.lastcheck %></td>
+			<td><%= getNameOfWarningGroup service.warninggroup %></td>
+			<td><%= getNameOfHost service.linkedhost %></td>
+		</tr>
+		<% end %>
+	</table>
+<% else %>
+	<p>
+		No services defined. Add some <%= link_to "here", :action => "new" %>.
+	</p>
+<% end %>

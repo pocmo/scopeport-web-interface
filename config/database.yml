@@ -1,0 +1,8 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: scopeport-rails_development
+  username: scopeport
+  password: scopeportpw
+  socket: /var/run/mysqld/mysqld.sock
+

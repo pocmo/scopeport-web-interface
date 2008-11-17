@@ -1,0 +1,20 @@
+<%= render_headline "Setup" %>
+
+<div id="setup">
+	<h3>Hosts</h3>
+	<ul>
+		<li><%= link_to "Add host", :controller => "hosts" , :action => "new" %></li>
+		<li><%= link_to "Host groups", :controller => "hostgroups" %></li>
+	</ul>
+
+	<h3>Services</h3>
+	<ul>
+		<li><%= link_to "Add service", :controller => "services", :action => "new" %></li>
+	</ul>
+	
+	<h3>Notifications</h3>
+	<ul>
+		<li><%= link_to "Notification groups", :controller => "notificationgroups" %></li>
+	</ul>
+
+</div>

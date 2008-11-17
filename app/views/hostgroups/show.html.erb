@@ -1,0 +1,20 @@
+<%= render_headline "Host group &raquo;" + @group.name + "&laquo;" %>
+The following hosts are in this group. You cannot add hosts here because group membership is defined in the specific host configuration.
+
+<% if @members.length > 0 %>
+	<ul>
+		<% @members.each do |member| %>
+			<li><%= member.name %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<p>
+		<strong>No hosts in this group</strong>
+	</p>
+<% end %>
+
+<div id="hostgroup-delete">
+  <% form_tag :action => "delete", :id => @group.id do %>
+    <%= submit_tag "Delete this host group", :disable_with => "Please wait" %>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<%= render_headline "Add service" %>
+
+<div id="service-new">
+	<% form_for :service, :url => { :action => "create" } do |f| %>
+		<dl>
+			<dt><%= label :name, "Name" %></dt>
+			<dd><%= f.text_field :name %> Name/identifier of the service <%= error_message_on(:service, :name) %></dd>
+			<dt><%= label :host, "Host" %></dt>
+			<dd><%= f.text_field :host %> The host where the service is running. IP or hostame allowed. <%= error_message_on(:service, :host) %></dd>
+			<dt><%= label :port, "Port" %></dt>
+			<dd><%= f.text_field :port %> The port of the serivce. (eg. HTTP would have 80) <%= error_message_on(:service, :port) %></dd>
+			<dt><%= label :service_type, "Protocol check" %></dt>
+			<dd><%= f.select :service_type, getServiceTypes.sort %> The protocol that should be checked for. Choose "none" if you just want to check if a connection to the port can be established. <%= error_message_on(:service_type, :type) %></dd>
+			<dt><%= label :timeout, "Timeout (seconds)" %></dt>
+			<dd><%= f.text_field :timeout, :value => "5" %> A timeout value for this check. Standard is 15 seconds. <%= error_message_on(:service, :timeout) %></dd>
+			<dt><%= label :maxres, "Max. response time (ms)" %></dt>
+			<dd><%= f.text_field :maxres, :value => "250" %> An alarm is caused if the response time is higher than the defined value <%= error_message_on(:service, :maxres) %></dd>
+			<dt><%= label :warninggroup, "Notification group" %></dt>
+      <dd>
+				<%= f.select :warninggroup, @notigroups %>
+				The notification group that shall be informed if the service fails.
+				<%= error_message_on(:service, :warninggroup) %>
+ 	  	</dd>
+			<dt><%= label :linkedhost, "Link to host" %></dt>
+     	<dd>
+      	<%= f.select :linkedhost, @hosts %>
+				You can link this service to a host. The status of this service will then be displayed in the hosts details. 
+       	<%= error_message_on(:service, :linkedhost) %>
+ 	  	</dd>
+		</dl>
+		<p>
+			<%= submit_tag "Add service" %>
+		</p>
+	<% end %>
+</div>

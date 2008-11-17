@@ -1,0 +1,12 @@
+<%= render_headline "Vitals" %>
+
+<div id="databasesizes">
+	<dl>
+		<dt>Total size of ScopePort database:</dt>
+		<dd><%= number_to_human_size @dbTotalSize %></dd>
+		<dt>Size of sensordata table:</dt>
+		<dd><%=h number_to_human_size @dbSensorSize %></dd>
+		<dt>Size of servicedata table:</dt>
+		<dd><%=h number_to_human_size @dbServiceSize %></dd>
+	</dl>
+</div>

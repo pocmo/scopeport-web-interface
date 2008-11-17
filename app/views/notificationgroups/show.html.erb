@@ -1,0 +1,49 @@
+<%= render_headline "Notificationgroup &raquo;" + @group.name + "&laquo;" %>
+The following notification receivers are in this group:
+
+<div id="notigroupdetails">
+	<%= showIcon "email", "float: left" %> <h3>Email</h3>
+	<ul>
+	<% @emailReceivers.each do |recv| %>
+		<li><%= recv.mail %> <%= link_to showIcon("delete"), :action => "deletereceiver", :id => recv.id  %></li>
+	<% end %>
+	</ul>
+
+	<%= showIcon "xmpp", "float: left;" %> <h3>XMPP/Jabber</h3>
+	<ul>
+	<% @jabberReceivers.each do |recv| %>
+		<li><%= recv.jid %> <%= link_to showIcon("delete"), :action => "deletereceiver", :id => recv.id  %></li>
+	<% end %>
+	</ul>
+
+	<%= showIcon "mobilec", "float: left;" %> <h3>Clickatell SMS API</h3>
+	<ul>
+	<% @mobilecReceivers.each do |recv| %>
+		<li>+<%= recv.numberc %> <%= link_to showIcon("delete"), :action => "deletereceiver", :id => recv.id  %></li>
+	<% end %>
+	</ul>
+</div>
+
+<div id="new-notireceiver">
+	<h3>Add receiver to this group</h3>
+	<% form_for :newGroup, :url => { :controller => "notificationgroups", :action => "addreceiver", :id => params[:id] } do |f| %>
+		<dl>
+			<dt><%= label :newGroup, :mail, "Email" %></dt>
+			<dd><%= f.text_field :mail, :onfocus => "disableOtherReceiverFields(\"mail\")" %></dd>
+			<dt><%= label :newGroup, :jid, "JID" %></dt>
+			<dd><%= f.text_field :jid, :onfocus => "disableOtherReceiverFields(\"jid\")" %></dd>
+			<dt><%= label :newGroup, :numberc, "Mobile (Clickatell)" %></dt>
+			<dd><%= f.text_field :numberc,
+														:onfocus => "disableOtherReceiverFields(\"numberc\"); clearFieldWithText(this, \"e.g. 4912345678\")",
+														:value => "e.g. 4912345678" %></dd>
+			<dt>&nbsp;</dt>
+			<dd><%= submit_tag "Add receiver", :disable_with => "Please wait" %></dd>
+		</dl>		
+	<% end %>
+</div>
+
+<div id="notigroup-delete">
+	<% form_tag :action => "deletegroup", :id => @group.id do %>
+		<%= submit_tag "Delete this notification group", :disable_with => "Please wait" %>
+	<% end %>
+</div>

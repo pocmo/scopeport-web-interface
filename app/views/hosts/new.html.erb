@@ -1,0 +1,28 @@
+<%= render_headline "Add host" %>
+
+<div id="add-host">
+	<% form_for :host, :url => { :action => "create" } do |f| %>
+		<fieldset>
+			<legend>Main</legend>
+			<dl>
+				<dt><label for="host_name">Name</label></dt>
+				<dd><%= f.text_field :name %> <%= error_message_on(:host, :name) %></dd>
+				<dt><label for="host_password">Password</label></dt>
+				<dd><%= f.text_field :password %> <%= error_message_on(:host, :password) %></dd>
+				<dt><%= f.label :description, "Short description" %></dt>
+				<dd><%= f.text_field :description %> <%= error_message_on(:host, :description) %></dd>
+				<dt><%= f.label :os, "OS type" %></dt>
+				<dd><%= f.select :os, getOSTypes.sort %> <%= error_message_on(:host, :os) %></dd>
+				<dt><%= f.label :hostgroup, "Host group" %></dt>
+				<dd>
+					<%= f.select :hostgroup, @hostgroups.collect {|p| [p.name, p.id] } %>
+					<%= error_message_on(:host, :os) %>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>Control</legend>
+			<%= submit_tag "Add host" %>
+		</fieldset>
+	<% end %>
+</div>

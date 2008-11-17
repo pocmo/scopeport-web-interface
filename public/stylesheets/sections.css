@@ -1,0 +1,150 @@
+/*
+ * Log
+ */
+
+#loglist {
+	margin-top: 15px;
+}
+
+#loglist table {
+	width: 100%;
+}
+
+#clearlog {
+	margin-top: 15px;
+}
+
+/*
+ * Vitals
+ */
+
+#databasesizes dt {
+	font-weight: bold;
+	float: left;
+}
+
+#databasesizes dd {
+	margin-left: 200px;
+}
+
+/*
+ * Setup
+ */
+
+#setup {
+	margin-top: 20px;
+}
+
+/*
+ * Hosts
+ */
+
+#add-host dl {
+	padding: 0px;
+	margin: 0px;
+}
+
+#add-host dt {
+	float: left;
+}
+
+#add-host dd {
+	padding-left: 90px;
+}
+
+/*
+ * Notification groups
+ */
+
+#notigroupdetails{
+	margin-top: 15px;
+}
+
+#notigroupdetails a {
+	border-bottom: 0px;
+}
+
+#new-notigroup {
+	margin-top: 15px;
+}
+
+#new-notigroup dt {
+	float: left;
+	font-weight: bold;
+}
+
+#new-notigroup dd {
+	padding-left: 110px;
+}
+
+#new-notireceiver {
+	margin-top: 25px;
+}
+
+#new-notireceiver dt {
+	float: left;
+	font-weight: bold;
+}
+
+#new-notireceiver dd {
+	padding-left: 70px;
+}
+
+#notigroup-delete {
+	margin-top: 15px;
+}
+
+/*
+ * Host groups
+ */
+
+#new-hostgroup {
+	margin-top: 15px;
+}
+
+#new-hostgroup dt {
+	float: left;
+	font-weight: bold;
+}
+
+#new-hostgroup dd {
+	padding-left: 110px;
+}
+
+/*
+ * Services
+ */
+
+#service-new {
+	margin-top: 5px;
+}
+
+#service-new dl {
+	margin: 0px;
+	padding: 0px;
+}
+
+#service-new dt {
+	float: left;
+}
+
+#service-new dd {
+	padding-left: 145px;
+}
+
+#services {
+	margin-top: 20px;
+}
+
+#service dl {
+	margin: 0px;
+	padding: 0px;
+}
+
+#service dt {
+	float: left;
+}
+
+#service dd {
+	padding-left: 50px;
+}

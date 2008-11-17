@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
+   'http://www.w3.org/TR/html4/loose.dtd'>
+<html>
+<head>
+	<title>ScopePort Web Interface</title>
+	<%= stylesheet_link_tag 'core' %>
+	<%= stylesheet_link_tag 'sections' %>
+	<%= javascript_include_tag 'scopeport' %>
+</head>
+<body>
+	<div id="maintop">
+		<div id="top">
+			<img src="/images/layout/top.png" alt="ScopePort" id="toplogo">
+			<div id="logmsg">
+				<%= getLastLogMessage %>
+				[<%= link_to ">", :controller => "logmessages" %>]
+			</div>
+			<div id="bigredbutton-activate">
+				<a onclick="bigRedButtonSlide()" title="Declare emergency!">
+					!
+				</a>
+			</div>
+			<div id="bigredbutton" style="display: none;">
+				<%= link_to "Declare emergency!", :controller => "emergencies", :action => "declare" %>
+			</div>
+			<div id="usermenu">
+				<div id="usermenuwelcome">
+					<strong>Welcome</strong>, lennart!
+				</div>
+				<div id="usermenulinks">
+					<%= link_to "Settings", :controller => "usersettings" %>
+					|
+					<%= link_to "Logout", :controller => "system", :action => "logout" %>
+				</div>
+				<div id="usermenudate">
+					<i><%= Time.now %></i>
+				</div>
+			</div>
+			<div id="navigation">
+				<div class="topbutton">
+					<%= navigationLink "overview", "Overview" %>
+				</div>
+				<div class="topbutton">
+					<%= navigationLink "services", "Services" %>
+				</div>
+				<div class="topbutton-sectionspacer"></div>
+
+				<div class="topbutton">
+					<%= navigationLink "alarms", "Alarms" %>
+				</div>
+				<div class='topbutton'>
+					<%= navigationLink "downtimes", "Downtimes" %>
+				</div>
+				<div class="topbutton-sectionspacer">
+				</div>
+				<div id="adminsubnavigation">
+					<div id="adminnotice">
+						Admin
+					</div>
+					<div class="admintopbutton">
+						<%= navigationLink "setup", "Setup" %>
+					</div>
+					<div class="admintopbutton">
+						<%= navigationLink "logmessages", "Log" %>
+					</div>
+					<div class="admintopbutton">
+						<%= navigationLink "vitals", "Vitals" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="maincontent">
+		<noscript>
+			<div id="enablejs">
+				You should enable JavaScript to get full functionality
+			</div>
+		</noscript>
+
+		<div id="flash-notice"><%= flash[:notice] %></div>
+		<div id="flash-error"><%= flash[:error] %></div>
+		
+		<%= yield %>
+
+	</div>
+	<div id="footer">
+		ScopePort is free software. (Free as in &raquo;free speech&laquo;)
+		<br>
+		Page generated in 0.080 seconds.
+	</div>
+</div>
+</body>
+</html>
+
