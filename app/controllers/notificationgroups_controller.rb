@@ -131,4 +131,8 @@ class NotificationgroupsController < ApplicationController
 		redirect_to :action => "index"
 	end
 
+	def show_receivers
+		render :text => showAllNotificationReceivers
+	end
+
 end

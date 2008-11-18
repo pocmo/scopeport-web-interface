@@ -22,7 +22,7 @@
 			<%= f.text_field :maxres, :value => "250" %> <%= error_message_on(:service, :maxres) %>
 
 			<%= label :warninggroup, "Notification group" %>
-			<%= f.select :warninggroup, @notigroups %> 	<%= error_message_on(:service, :warninggroup) %>
+			<%= f.select :warninggroup, @notigroups, {}, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('0bc93d3d03a3df6b18704c9c0a3016ebc9c710d5')}); return false;" } %> 	<%= error_message_on(:service, :warninggroup) %>
  	  	
 			<%= label :linkedhost, "Link to host" %>
      	<%= f.select :linkedhost, @hosts %> <%= error_message_on(:service, :linkedhost) %>
@@ -32,6 +32,7 @@
 			</p>
 		<% end %>
 	</div>
+
 	<div id="service-new-help">
 		<h2>Help</h2>
 		<dl>
@@ -58,5 +59,14 @@
 			</dd>
 		</dl>
 	</div>
+
+	<div id="service-new-receivers">
+			<h2>Notification receveivers</h2>
+			The following receivers <%= @token %> will be informed in case of an alarm related to this service:
+			<div id="service-new-receivers-list">
+			</div>
+	</div>
+
 	<br class="clear" />
+
 </div>

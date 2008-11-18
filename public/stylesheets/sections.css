@@ -121,12 +121,24 @@
 
 #service-new-form {
 	float: left;
+	height: 100%;
 }
 
 #service-new-help {
 	margin-left: 350px;
 	border-left: 1px dotted #444444;
 	padding-left: 10px;
+}
+
+#service-new-receivers {
+	margin-top: 25px;
+	margin-left: 350px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
+}
+
+#service-new-receivers-list {
+	margin-top: 10px;
 }
 
 #service-new-help dt {

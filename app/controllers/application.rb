@@ -52,4 +52,51 @@ class ApplicationController < ActionController::Base
 		return "None"
 	end
 
+	def showAllNotificationReceivers
+		emailReceivers = Notificationgroup.find_all_by_email_and_warninggroup 1, params[:id]
+		xmppReceivers = Notificationgroup.find_all_by_xmpp_and_warninggroup 1, params[:id]
+		mobilecReceivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, params[:id]
+
+		returnage = "
+				<div id=\"notigroupdetails\">
+					<img alt=\"Email\" src=\"/images/icons/email.png\" style=\"float: left\" /> <h3>Email</h3>
+					<ul>"
+		if emailReceivers.length > 0
+			emailReceivers.each do |receiver|
+				returnage << "<li>" + receiver.mail + "</li>"
+			end
+		else
+			returnage << "<li>No email receivers</li>"
+		end
+		returnage << "</ul></div>";
+		
+		returnage << "
+				<div id=\"notigroupdetails\">
+					<img alt=\"XMPP\" src=\"/images/icons/xmpp.png\" style=\"float: left\" /> <h3>Jabber/XMPP</h3>
+					<ul>"
+		if xmppReceivers.length > 0
+			xmppReceivers.each do |receiver|
+				returnage << "<li>" + receiver.jid + "</li>"
+			end
+		else
+			returnage << "<li>No XMPP/Jabber receivers</li>"
+		end
+		returnage << "</ul></div>";
+
+		returnage << "
+				<div id=\"notigroupdetails\">
+					<img alt=\"Mobile - Clickatell API\" src=\"/images/icons/mobilec.png\" style=\"float: left\" /> <h3>Clickatell SMS API</h3>
+					<ul>"
+		if mobilecReceivers.length > 0
+			mobilecReceivers.each do |receiver|
+				returnage << "<li>+" + receiver.numberc + "</li>"
+			end
+		else
+			returnage << "<li>No Clickatell SMS API receivers</li>"
+		end
+		returnage << "</ul></div>";
+
+		return returnage
+	end
+
 end
