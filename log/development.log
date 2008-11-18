@@ -61411,3 +61411,2465 @@ Rendering overview/index
   [4;36;1mLogmessage Load (0.001398)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
   [4;35;1mLogmessage Columns (0.003425)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
 Completed in 0.04398 (22 reqs/sec) | Rendering: 0.03368 (76%) | DB: 0.00482 (10%) | 200 OK [http://127.0.0.1/]
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2008-11-18 11:46:17) [GET]
+  Session ID: 29db24dff5b3b32f50881b60a21bb788
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+DEPRECATION WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library will be REMOVED FROM RAILS 2.2. Please switch to the offical mysql gem: `gem install mysql`  See http://www.rubyonrails.org/deprecation for details. (called from mysql_connection at /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/mysql_adapter.rb:81)
+  [4;36;1mSQL (0.000329)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000312)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering overview/index
+  [4;36;1mLogmessage Load (0.020807)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002079)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22061 (4 reqs/sec) | Rendering: 0.19259 (87%) | DB: 0.02353 (10%) | 200 OK [http://localhost/]
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2008-11-18 11:46:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--c02faaef8385c9ce40e7d9e62f087e4a503945a8
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;36;1mLogmessage Load (0.014706)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004178)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.05028 (19 reqs/sec) | Rendering: 0.02730 (54%) | DB: 0.01888 (37%) | 200 OK [http://localhost/]
+
+
+Processing SetupController#index (for 127.0.0.1 at 2008-11-18 11:47:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--c02faaef8385c9ce40e7d9e62f087e4a503945a8
+  Parameters: {"action"=>"index", "controller"=>"setup"}
+Rendering template within layouts/application
+Rendering setup/index
+  [4;36;1mLogmessage Load (0.001431)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004035)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.05432 (18 reqs/sec) | Rendering: 0.04179 (76%) | DB: 0.00547 (10%) | 200 OK [http://localhost/setup]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:47:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--c02faaef8385c9ce40e7d9e62f087e4a503945a8
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.015907)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002162)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008836)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.012851)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001444)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003594)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31487 (3 reqs/sec) | Rendering: 0.14026 (44%) | DB: 0.04479 (14%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:50:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.005281)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000778)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001928)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007939)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000799)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003150)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.11535 (8 reqs/sec) | Rendering: 0.04437 (38%) | DB: 0.01988 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:50:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007356)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001408)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008185)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008246)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001656)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009062)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19649 (5 reqs/sec) | Rendering: 0.07290 (37%) | DB: 0.03591 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:53:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006525)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.011575)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003723)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005097)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002191)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003054)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.51191 (1 reqs/sec) | Rendering: 0.05521 (10%) | DB: 0.03216 (6%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:53:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.005976)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003814)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003481)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.014239)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.032185)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008810)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27319 (3 reqs/sec) | Rendering: 0.10772 (39%) | DB: 0.06851 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:55:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009257)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005896)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003485)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009212)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001625)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006721)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20093 (4 reqs/sec) | Rendering: 0.08189 (40%) | DB: 0.03620 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:55:50) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018907)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001474)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003499)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007403)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001790)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005262)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27616 (3 reqs/sec) | Rendering: 0.09444 (34%) | DB: 0.03834 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:56:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019193)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001444)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008137)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.037003)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.019459)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008975)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.30927 (3 reqs/sec) | Rendering: 0.12234 (39%) | DB: 0.09421 (30%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:56:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006305)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005002)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003710)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018081)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.006316)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008194)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28802 (3 reqs/sec) | Rendering: 0.14034 (48%) | DB: 0.04761 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:57:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.027991)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001864)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007669)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.016377)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001401)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003581)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.29636 (3 reqs/sec) | Rendering: 0.10655 (35%) | DB: 0.05888 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:57:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009306)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001834)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.023904)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007185)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002266)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009647)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28962 (3 reqs/sec) | Rendering: 0.14115 (48%) | DB: 0.05414 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:57:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008863)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001432)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.032069)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006956)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001484)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.012093)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28075 (3 reqs/sec) | Rendering: 0.11010 (39%) | DB: 0.06290 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:57:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021849)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001424)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.016075)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008175)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000899)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003098)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.39269 (2 reqs/sec) | Rendering: 0.26285 (66%) | DB: 0.05152 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:57:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011114)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.013260)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003780)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018676)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002748)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003894)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19290 (5 reqs/sec) | Rendering: 0.06793 (35%) | DB: 0.05347 (27%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:58:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.025169)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001430)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003630)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011236)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.003719)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003686)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27450 (3 reqs/sec) | Rendering: 0.09447 (34%) | DB: 0.04887 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:59:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.032680)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004728)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.018324)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017667)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001469)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003519)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27476 (3 reqs/sec) | Rendering: 0.08561 (31%) | DB: 0.07839 (28%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 11:59:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019601)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.029723)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005566)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.024985)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001692)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004514)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23403 (4 reqs/sec) | Rendering: 0.07686 (32%) | DB: 0.08608 (36%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:00:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007373)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001439)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005295)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011099)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001442)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004518)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23466 (4 reqs/sec) | Rendering: 0.09203 (39%) | DB: 0.03117 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:00:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020607)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.007339)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006324)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007616)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001418)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006417)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19147 (5 reqs/sec) | Rendering: 0.07479 (39%) | DB: 0.04972 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:00:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008353)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002665)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014433)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006076)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001461)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008200)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.54263 (1 reqs/sec) | Rendering: 0.07381 (13%) | DB: 0.04119 (7%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:01:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009272)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001662)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.018535)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017753)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001420)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003763)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24066 (4 reqs/sec) | Rendering: 0.09404 (39%) | DB: 0.05240 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:01:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008086)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001393)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007807)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007570)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.013578)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009171)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21126 (4 reqs/sec) | Rendering: 0.05897 (27%) | DB: 0.04761 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:01:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009297)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004066)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004250)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008808)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.006992)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003659)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27282 (3 reqs/sec) | Rendering: 0.07878 (28%) | DB: 0.03707 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:02:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018398)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.008237)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014988)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017900)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001390)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.016941)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21742 (4 reqs/sec) | Rendering: 0.07338 (33%) | DB: 0.07785 (35%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:04:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003603)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000761)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001894)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.004641)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000743)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001944)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07981 (12 reqs/sec) | Rendering: 0.03178 (39%) | DB: 0.01359 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:05:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007646)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001393)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.016628)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.021767)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001396)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006999)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.30200 (3 reqs/sec) | Rendering: 0.11904 (39%) | DB: 0.05583 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:05:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003070)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000766)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001888)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005104)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000769)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003466)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07575 (13 reqs/sec) | Rendering: 0.02635 (34%) | DB: 0.01506 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:05:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.034970)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.011519)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.027221)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.026821)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.006937)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.015294)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.50774 (1 reqs/sec) | Rendering: 0.15916 (31%) | DB: 0.12276 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:06:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.005979)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.008301)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003519)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.020893)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.008199)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005618)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.63675 (1 reqs/sec) | Rendering: 0.47622 (74%) | DB: 0.05251 (8%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:06:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009209)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004479)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003739)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.037468)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000743)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002104)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24653 (4 reqs/sec) | Rendering: 0.09658 (39%) | DB: 0.05774 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:07:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.005893)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001416)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003500)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007264)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.005903)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005602)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24710 (4 reqs/sec) | Rendering: 0.07846 (31%) | DB: 0.02958 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:08:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016875)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001501)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014583)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019891)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001647)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.015752)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25577 (3 reqs/sec) | Rendering: 0.08089 (31%) | DB: 0.07025 (27%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:09:50) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010373)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003558)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.019271)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.025226)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001382)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009151)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.29060 (3 reqs/sec) | Rendering: 0.11657 (40%) | DB: 0.06896 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:10:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003169)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000755)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001907)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.003577)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000770)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001852)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07803 (12 reqs/sec) | Rendering: 0.03028 (38%) | DB: 0.01203 (15%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:10:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.022387)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001397)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.018919)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007960)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001400)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.016516)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23184 (4 reqs/sec) | Rendering: 0.08438 (36%) | DB: 0.06858 (29%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:12:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.023730)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001662)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005664)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.020289)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004017)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001889)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.63554 (1 reqs/sec) | Rendering: 0.09451 (14%) | DB: 0.05725 (9%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:12:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009859)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001400)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.026265)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.023810)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.006848)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.026911)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31266 (3 reqs/sec) | Rendering: 0.10830 (34%) | DB: 0.09509 (30%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:12:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011317)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003416)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003495)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010260)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001418)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009220)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23901 (4 reqs/sec) | Rendering: 0.08910 (37%) | DB: 0.03913 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:13:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.025079)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001445)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014890)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.029605)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001428)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003577)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.30104 (3 reqs/sec) | Rendering: 0.11042 (36%) | DB: 0.07602 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:14:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007862)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001441)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008350)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007858)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001414)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.021859)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23339 (4 reqs/sec) | Rendering: 0.05595 (23%) | DB: 0.04878 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:14:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.029338)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.017567)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.009242)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009077)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001492)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003738)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28577 (3 reqs/sec) | Rendering: 0.10354 (36%) | DB: 0.07045 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:15:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008052)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.015396)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004024)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005648)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.007024)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001913)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23785 (4 reqs/sec) | Rendering: 0.08779 (36%) | DB: 0.04206 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:15:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009277)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004717)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007031)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019789)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001431)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005660)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22075 (4 reqs/sec) | Rendering: 0.07622 (34%) | DB: 0.04790 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:15:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018463)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001423)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005906)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019339)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001654)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003670)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27039 (3 reqs/sec) | Rendering: 0.10391 (38%) | DB: 0.05045 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:15:50) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010123)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001416)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007190)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017461)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.005757)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005922)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.57180 (1 reqs/sec) | Rendering: 0.09502 (16%) | DB: 0.04787 (8%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:16:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009266)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.014222)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003536)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018750)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.007002)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003604)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20155 (4 reqs/sec) | Rendering: 0.06095 (30%) | DB: 0.05638 (27%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:16:13) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019080)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001423)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.012045)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.028031)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001533)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005354)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21216 (4 reqs/sec) | Rendering: 0.07258 (34%) | DB: 0.06747 (31%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:16:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.026918)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005333)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003880)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.016732)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001449)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.016688)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22132 (4 reqs/sec) | Rendering: 0.06569 (29%) | DB: 0.07100 (32%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:16:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006172)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.014671)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008940)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.037720)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004883)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006131)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.39603 (2 reqs/sec) | Rendering: 0.15465 (39%) | DB: 0.07852 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:17:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011124)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001466)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003600)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.021069)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001879)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003599)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19932 (5 reqs/sec) | Rendering: 0.07452 (37%) | DB: 0.04274 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:17:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011973)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001490)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008114)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007852)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.003403)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003684)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27506 (3 reqs/sec) | Rendering: 0.15627 (56%) | DB: 0.03652 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:17:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.017548)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001442)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008771)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007608)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001490)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006450)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31313 (3 reqs/sec) | Rendering: 0.09533 (30%) | DB: 0.04331 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:18:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007304)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001726)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005469)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.020997)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001454)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009135)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28056 (3 reqs/sec) | Rendering: 0.13616 (48%) | DB: 0.04608 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:18:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021925)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001417)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014696)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019641)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004036)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003551)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.55492 (1 reqs/sec) | Rendering: 0.42366 (76%) | DB: 0.06527 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:26:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.022712)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001460)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003873)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010568)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002714)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.020334)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23797 (4 reqs/sec) | Rendering: 0.06924 (29%) | DB: 0.06166 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:26:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.013176)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001411)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006763)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009644)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001503)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006025)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27930 (3 reqs/sec) | Rendering: 0.09043 (32%) | DB: 0.03852 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:26:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021663)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.017874)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007677)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.014436)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001464)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003662)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24779 (4 reqs/sec) | Rendering: 0.10566 (42%) | DB: 0.06678 (26%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:27:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008664)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001544)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008781)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002704)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000759)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003310)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.13278 (7 reqs/sec) | Rendering: 0.02632 (19%) | DB: 0.02576 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:27:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006005)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001433)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.017816)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010400)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.015529)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008193)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.26711 (3 reqs/sec) | Rendering: 0.08610 (32%) | DB: 0.05938 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:28:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019493)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001411)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005874)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.016877)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001478)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003498)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21873 (4 reqs/sec) | Rendering: 0.08468 (38%) | DB: 0.04863 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:28:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010310)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001434)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.019131)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.015706)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.027433)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003918)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.63258 (1 reqs/sec) | Rendering: 0.09679 (15%) | DB: 0.07793 (12%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:28:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021546)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001656)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.021006)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005882)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001424)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.007193)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25534 (3 reqs/sec) | Rendering: 0.09257 (36%) | DB: 0.05871 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:32:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010188)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.017119)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007283)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.016226)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002501)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.019786)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.35832 (2 reqs/sec) | Rendering: 0.21642 (60%) | DB: 0.07310 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:35:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016522)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001414)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007380)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006260)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001593)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.018745)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23052 (4 reqs/sec) | Rendering: 0.09328 (40%) | DB: 0.05191 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:37:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009566)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000736)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003618)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002755)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000728)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002166)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.09141 (10 reqs/sec) | Rendering: 0.03308 (36%) | DB: 0.01957 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:42:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.012566)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001464)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006459)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.023385)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001829)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003536)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23458 (4 reqs/sec) | Rendering: 0.08780 (37%) | DB: 0.04924 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:42:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020199)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004076)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003556)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008864)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001420)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003674)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27507 (3 reqs/sec) | Rendering: 0.11645 (42%) | DB: 0.04179 (15%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:46:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003796)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000889)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007689)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002857)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000728)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001890)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.08893 (11 reqs/sec) | Rendering: 0.02738 (30%) | DB: 0.01785 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:47:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006098)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001413)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007069)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008481)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001693)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.018243)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20909 (4 reqs/sec) | Rendering: 0.06646 (31%) | DB: 0.04300 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:47:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010216)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001493)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003533)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.027225)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001855)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.014308)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23776 (4 reqs/sec) | Rendering: 0.07917 (33%) | DB: 0.05863 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:47:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006332)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.006845)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003660)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010512)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.003349)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004962)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20071 (4 reqs/sec) | Rendering: 0.07229 (36%) | DB: 0.03566 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:48:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007962)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001377)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003509)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.032468)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004183)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003477)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.65975 (1 reqs/sec) | Rendering: 0.49841 (75%) | DB: 0.05298 (8%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:48:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011147)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001423)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.022371)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008797)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.010292)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.012192)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.26102 (3 reqs/sec) | Rendering: 0.09818 (37%) | DB: 0.06622 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:49:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.022255)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002132)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006054)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011730)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001683)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.013420)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21150 (4 reqs/sec) | Rendering: 0.06661 (31%) | DB: 0.05727 (27%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:49:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.025973)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.012389)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008030)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010374)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001775)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003499)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27785 (3 reqs/sec) | Rendering: 0.09719 (34%) | DB: 0.06204 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:50:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008785)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001421)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003531)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007696)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001428)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003421)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20091 (4 reqs/sec) | Rendering: 0.07619 (37%) | DB: 0.02628 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:50:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016713)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001447)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.025261)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009538)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001454)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003528)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22607 (4 reqs/sec) | Rendering: 0.08713 (38%) | DB: 0.05794 (25%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:51:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.012959)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001436)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007974)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002662)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000766)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001867)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.18991 (5 reqs/sec) | Rendering: 0.02842 (14%) | DB: 0.02766 (14%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:51:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.041585)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000795)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001931)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010482)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000798)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001945)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.49405 (2 reqs/sec) | Rendering: 0.03767 (7%) | DB: 0.05754 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:51:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018269)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001410)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006814)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018114)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001433)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.029751)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21958 (4 reqs/sec) | Rendering: 0.08279 (37%) | DB: 0.07579 (34%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:52:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016181)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001445)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.013578)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010372)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002045)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009144)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.41158 (2 reqs/sec) | Rendering: 0.17456 (42%) | DB: 0.05276 (12%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:53:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011573)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001437)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006409)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005753)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.013170)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003501)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24128 (4 reqs/sec) | Rendering: 0.07514 (31%) | DB: 0.04184 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 12:54:08) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.013327)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003620)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003791)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009419)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001447)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.010398)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28710 (3 reqs/sec) | Rendering: 0.08279 (28%) | DB: 0.04200 (14%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:22:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008853)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001473)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.009710)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.012853)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.009935)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009124)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24084 (4 reqs/sec) | Rendering: 0.08682 (36%) | DB: 0.05195 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:23:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.004193)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000737)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001910)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002669)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000788)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003102)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.09756 (10 reqs/sec) | Rendering: 0.03052 (31%) | DB: 0.01340 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:24:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010148)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000788)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001939)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002716)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000792)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005661)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25253 (3 reqs/sec) | Rendering: 0.03882 (15%) | DB: 0.02204 (8%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:24:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008821)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001433)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003831)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005623)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001463)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003937)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19656 (5 reqs/sec) | Rendering: 0.06032 (30%) | DB: 0.02511 (12%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:24:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009352)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001428)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008613)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005732)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001410)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005740)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19228 (5 reqs/sec) | Rendering: 0.07714 (40%) | DB: 0.03227 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:25:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020556)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002142)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.013916)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007563)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001420)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003518)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31342 (3 reqs/sec) | Rendering: 0.09006 (28%) | DB: 0.04912 (15%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:25:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008255)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.016894)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003687)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.014239)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002149)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003677)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20606 (4 reqs/sec) | Rendering: 0.07913 (38%) | DB: 0.04890 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:26:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.007498)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001438)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.018883)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010140)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001484)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008779)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19892 (5 reqs/sec) | Rendering: 0.07065 (35%) | DB: 0.04822 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:26:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010734)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.015957)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007312)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010085)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001493)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003664)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19754 (5 reqs/sec) | Rendering: 0.08531 (43%) | DB: 0.04925 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:26:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003101)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000781)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007925)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002664)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000773)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001929)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.09867 (10 reqs/sec) | Rendering: 0.03044 (30%) | DB: 0.01717 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:27:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006405)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001467)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005418)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010315)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001424)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.014570)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20170 (4 reqs/sec) | Rendering: 0.06649 (32%) | DB: 0.03960 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:27:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.026964)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004955)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003524)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018647)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001461)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003520)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.57906 (1 reqs/sec) | Rendering: 0.09594 (16%) | DB: 0.05907 (10%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:27:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021483)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.007152)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003613)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005733)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004809)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003511)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27683 (3 reqs/sec) | Rendering: 0.07630 (27%) | DB: 0.04630 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:27:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.005986)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005721)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005727)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019915)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001461)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.011428)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27466 (3 reqs/sec) | Rendering: 0.10644 (38%) | DB: 0.05024 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:28:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006000)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001421)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003549)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017176)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001615)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.012567)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21059 (4 reqs/sec) | Rendering: 0.07573 (35%) | DB: 0.04233 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:28:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006125)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001614)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003755)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009204)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001428)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.017704)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.19945 (5 reqs/sec) | Rendering: 0.06139 (30%) | DB: 0.03983 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:28:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009814)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001217)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.002181)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002839)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000763)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001913)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.10380 (9 reqs/sec) | Rendering: 0.03054 (29%) | DB: 0.01873 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:29:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.015368)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001843)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003560)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017153)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.012697)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003804)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23758 (4 reqs/sec) | Rendering: 0.07961 (33%) | DB: 0.05443 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:29:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.015625)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005527)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004303)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018936)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.007747)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.007521)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.32019 (3 reqs/sec) | Rendering: 0.13829 (43%) | DB: 0.05966 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:29:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006310)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000756)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001895)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.003608)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001773)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001876)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07747 (12 reqs/sec) | Rendering: 0.02986 (38%) | DB: 0.01622 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:29:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018936)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001723)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.016189)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.015958)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001467)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.018195)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.53225 (1 reqs/sec) | Rendering: 0.06472 (12%) | DB: 0.07247 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:30:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016867)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.005961)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003768)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.027041)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001467)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.012763)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.29203 (3 reqs/sec) | Rendering: 0.11789 (40%) | DB: 0.06787 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:30:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006801)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000764)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.002044)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002752)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000799)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002886)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07123 (14 reqs/sec) | Rendering: 0.03079 (43%) | DB: 0.01605 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:31:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018575)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001743)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003560)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010156)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001462)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.017610)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25384 (3 reqs/sec) | Rendering: 0.06330 (24%) | DB: 0.05311 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:31:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006594)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001733)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.005220)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011544)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001446)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003520)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25503 (3 reqs/sec) | Rendering: 0.08539 (33%) | DB: 0.03006 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:32:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.025385)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001418)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003986)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006334)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001501)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003788)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23760 (4 reqs/sec) | Rendering: 0.06714 (28%) | DB: 0.04241 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:32:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009081)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.017608)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003490)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006924)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.008746)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.011265)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.21835 (4 reqs/sec) | Rendering: 0.06969 (31%) | DB: 0.05711 (26%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:33:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021635)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001423)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003511)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008668)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001425)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003505)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25380 (3 reqs/sec) | Rendering: 0.11331 (44%) | DB: 0.04017 (15%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:34:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.024433)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.011141)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014334)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.014215)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.013154)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004688)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.45854 (2 reqs/sec) | Rendering: 0.14755 (32%) | DB: 0.08196 (17%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:36:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006053)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001488)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007174)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009740)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001488)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.007793)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.70652 (1 reqs/sec) | Rendering: 0.08314 (11%) | DB: 0.03374 (4%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:36:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019557)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.010778)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006543)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009672)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001437)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.013248)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.20977 (4 reqs/sec) | Rendering: 0.07061 (33%) | DB: 0.06123 (29%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:37:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.017868)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002176)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.018666)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.037238)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001430)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.015894)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31326 (3 reqs/sec) | Rendering: 0.07311 (23%) | DB: 0.09327 (29%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:37:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.014172)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001408)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003866)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018724)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001451)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009087)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28971 (3 reqs/sec) | Rendering: 0.10334 (35%) | DB: 0.04871 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:37:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021673)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.006599)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.011128)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.013038)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.003808)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003535)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25399 (3 reqs/sec) | Rendering: 0.07037 (27%) | DB: 0.05978 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:38:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021836)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004406)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014997)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.024655)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.007940)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.009341)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.44049 (2 reqs/sec) | Rendering: 0.18595 (42%) | DB: 0.08318 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:38:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009622)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000841)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.002237)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.003124)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000833)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003188)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.08287 (12 reqs/sec) | Rendering: 0.03182 (38%) | DB: 0.01985 (23%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:39:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006057)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001443)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004668)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006715)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.006385)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.020876)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23335 (4 reqs/sec) | Rendering: 0.08648 (37%) | DB: 0.04614 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:39:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019721)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001420)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008201)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005654)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001714)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006138)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22351 (4 reqs/sec) | Rendering: 0.07454 (33%) | DB: 0.04285 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:40:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003105)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002967)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.002996)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002672)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000763)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001874)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.79466 (1 reqs/sec) | Rendering: 0.02800 (3%) | DB: 0.01438 (1%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:41:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019741)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001480)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.020322)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008033)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001532)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003492)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24772 (4 reqs/sec) | Rendering: 0.08729 (35%) | DB: 0.05460 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:41:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020500)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.008895)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008385)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009628)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001432)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.013537)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.34002 (2 reqs/sec) | Rendering: 0.11356 (33%) | DB: 0.06238 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:42:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008583)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001436)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.006806)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008788)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001426)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005361)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23328 (4 reqs/sec) | Rendering: 0.08757 (37%) | DB: 0.03240 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:42:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016988)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.008849)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004342)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.018145)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.005738)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.011596)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27149 (3 reqs/sec) | Rendering: 0.08090 (29%) | DB: 0.06566 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:43:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006445)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001603)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004366)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.024555)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.005349)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006312)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22844 (4 reqs/sec) | Rendering: 0.08015 (35%) | DB: 0.04863 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:43:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.012965)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001470)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003508)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.010412)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001429)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003823)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.26468 (3 reqs/sec) | Rendering: 0.10274 (38%) | DB: 0.03361 (12%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:43:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.030944)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.008686)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.013464)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005742)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000781)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001958)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24698 (4 reqs/sec) | Rendering: 0.03592 (14%) | DB: 0.06157 (24%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:44:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.019687)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001408)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003545)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011486)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004752)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003936)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22798 (4 reqs/sec) | Rendering: 0.07491 (32%) | DB: 0.04481 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:45:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.011462)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003532)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003590)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.011628)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001454)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.004918)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.65976 (1 reqs/sec) | Rendering: 0.08380 (12%) | DB: 0.03658 (5%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:45:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.021083)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.011821)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.015699)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017888)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001425)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.006971)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.32788 (3 reqs/sec) | Rendering: 0.10313 (31%) | DB: 0.07489 (22%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:46:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020459)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001473)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.017008)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019633)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.015009)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003474)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.57572 (1 reqs/sec) | Rendering: 0.39537 (68%) | DB: 0.07706 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:47:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.017395)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.003629)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003645)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008273)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001458)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003617)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.27186 (3 reqs/sec) | Rendering: 0.09904 (36%) | DB: 0.03802 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:47:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.004878)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000756)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001997)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002689)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000834)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002063)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.07292 (13 reqs/sec) | Rendering: 0.03079 (42%) | DB: 0.01322 (18%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:48:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.020206)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001445)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007091)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019111)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001406)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.014443)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.24269 (4 reqs/sec) | Rendering: 0.07086 (29%) | DB: 0.06370 (26%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:48:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010930)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.004915)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003552)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.028270)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001417)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.015080)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.23148 (4 reqs/sec) | Rendering: 0.07490 (32%) | DB: 0.06416 (27%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:49:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008083)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001454)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.023733)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.017506)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.004781)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.008419)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.32282 (3 reqs/sec) | Rendering: 0.10814 (33%) | DB: 0.06398 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:49:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.012660)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002430)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003487)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.006180)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001474)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003612)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25075 (3 reqs/sec) | Rendering: 0.10319 (41%) | DB: 0.02984 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:50:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.010298)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002118)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003525)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.009272)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001785)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003587)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.22490 (4 reqs/sec) | Rendering: 0.09048 (40%) | DB: 0.03059 (13%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 13:51:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008389)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001615)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.025010)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.016804)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001404)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003461)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.25939 (3 reqs/sec) | Rendering: 0.08758 (33%) | DB: 0.05668 (21%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:02:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.018683)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001486)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.011417)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.014896)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001456)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003591)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.58682 (1 reqs/sec) | Rendering: 0.39420 (67%) | DB: 0.05153 (8%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:03:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.003234)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.002860)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001938)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.003815)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.009789)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.001900)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.14401 (6 reqs/sec) | Rendering: 0.04390 (30%) | DB: 0.02354 (16%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:04:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009032)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001412)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.003701)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.005904)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.009820)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.005590)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.31811 (3 reqs/sec) | Rendering: 0.10893 (34%) | DB: 0.03546 (11%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:07:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.016404)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.006087)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007013)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019000)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.014003)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.012628)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.28757 (3 reqs/sec) | Rendering: 0.08587 (29%) | DB: 0.07513 (26%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:08:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.028415)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001592)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.004097)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019578)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.008588)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.010162)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.35807 (2 reqs/sec) | Rendering: 0.12295 (34%) | DB: 0.07243 (20%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:10:51) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.022789)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001425)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.014708)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.002660)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.002183)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.002204)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.13794 (7 reqs/sec) | Rendering: 0.02533 (18%) | DB: 0.04597 (33%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:11:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.012598)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.010782)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.011753)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.013648)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001733)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.020837)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.36345 (2 reqs/sec) | Rendering: 0.11208 (30%) | DB: 0.07135 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 127.0.0.1 at 2008-11-18 14:11:51) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlM2UyZmI1MDc1NGVhMTRjNWRiY2MyODVhMWRkNzU4
+NDciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--4d903eb84b5f1be9fee147b8f73ad25514148953
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.006186)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.000771)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.001913)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.004507)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.000777)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003065)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.08839 (11 reqs/sec) | Rendering: 0.03497 (39%) | DB: 0.01722 (19%) | 200 OK [http://localhost/services/new]
+
+
+Processing ServicesController#new (for 192.168.0.198 at 2008-11-18 14:12:26) [GET]
+  Session ID: e49e2c05b38f64fda352387b06e15f22
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008830)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.015680)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.008662)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.008647)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001811)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.016270)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.33105 (3 reqs/sec) | Rendering: 0.08383 (25%) | DB: 0.05990 (18%) | 200 OK [http://192.168.0.198/services/new]
+
+
+Processing ServicesController#new (for 192.168.0.198 at 2008-11-18 14:12:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYjFiZjI3MzcxNmRjNmZkYmMwYTU0NWRmYmRlZjMx
+NjEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--cffeb1f28ec9870859d5db091c4c5bec6106103a
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.009718)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001703)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.015809)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.019052)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.017631)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.011164)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.79648 (1 reqs/sec) | Rendering: 0.12433 (15%) | DB: 0.07508 (9%) | 200 OK [http://192.168.0.198/services/new]
+
+
+Processing ServicesController#new (for 192.168.0.193 at 2008-11-18 14:13:28) [GET]
+  Session ID: d3d8f65319448b73576e7efca08c9860
+  Parameters: {"action"=>"new", "controller"=>"services"}
+  [4;36;1mService Columns (0.008721)[0m   [0;1mSHOW FIELDS FROM `services`[0m
+  [4;35;1mNotificationgroupdetail Load (0.001415)[0m   [0mSELECT * FROM `notificationgroupdetails` [0m
+  [4;36;1mNotificationgroupdetail Columns (0.007373)[0m   [0;1mSHOW FIELDS FROM `notificationgroupdetails`[0m
+  [4;35;1mHost Load (0.007830)[0m   [0mSELECT * FROM `hosts` [0m
+Rendering template within layouts/application
+Rendering services/new
+  [4;36;1mLogmessage Load (0.001439)[0m   [0;1mSELECT * FROM `logmessages` ORDER BY logtime ASC LIMIT 1[0m
+  [4;35;1mLogmessage Columns (0.003450)[0m   [0mSHOW FIELDS FROM `logmessages`[0m
+Completed in 0.14872 (6 reqs/sec) | Rendering: 0.06067 (40%) | DB: 0.03023 (20%) | 200 OK [http://192.168.0.198/services/new]

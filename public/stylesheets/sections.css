@@ -119,17 +119,23 @@
 	margin-top: 5px;
 }
 
-#service-new dl {
-	margin: 0px;
-	padding: 0px;
-}
-
-#service-new dt {
+#service-new-form {
 	float: left;
 }
 
-#service-new dd {
-	padding-left: 145px;
+#service-new-help {
+	margin-left: 350px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
+}
+
+#service-new-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#service-new-help dd {
+	margin-left: 140px;
 }
 
 #services {

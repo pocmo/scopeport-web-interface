@@ -28,16 +28,17 @@ legend {
 
 label {
 	font-weight: bold;
-	font-size: 12px;
-	line-height: 25px;
+	font-size: 13px;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 2px;
 }
 
 input, select, textarea {
 	border: 1px solid #CCCCCC;
 	color: #333333;
-	padding: 5px;
-	font-size: 13px;
-	font-weight: bold;
+	padding: 4px;
+	font-size: 12px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -334,4 +335,16 @@ dd {
 
 .sensor-warn {
 	background-color: #FBCF00;
+}
+
+.clear {
+	clear: both;
+}
+
+.formhelp-normal {
+	color: none;
+}
+
+.formhelp-highlighted {
+	color: #FF0000;
 }

@@ -1,35 +1,62 @@
 <%= render_headline "Add service" %>
 
 <div id="service-new">
-	<% form_for :service, :url => { :action => "create" } do |f| %>
-		<dl>
-			<dt><%= label :name, "Name" %></dt>
-			<dd><%= f.text_field :name %> Name/identifier of the service <%= error_message_on(:service, :name) %></dd>
-			<dt><%= label :host, "Host" %></dt>
-			<dd><%= f.text_field :host %> The host where the service is running. IP or hostame allowed. <%= error_message_on(:service, :host) %></dd>
-			<dt><%= label :port, "Port" %></dt>
-			<dd><%= f.text_field :port %> The port of the serivce. (eg. HTTP would have 80) <%= error_message_on(:service, :port) %></dd>
-			<dt><%= label :service_type, "Protocol check" %></dt>
-			<dd><%= f.select :service_type, getServiceTypes.sort %> The protocol that should be checked for. Choose "none" if you just want to check if a connection to the port can be established. <%= error_message_on(:service_type, :type) %></dd>
-			<dt><%= label :timeout, "Timeout (seconds)" %></dt>
-			<dd><%= f.text_field :timeout, :value => "5" %> A timeout value for this check. Standard is 15 seconds. <%= error_message_on(:service, :timeout) %></dd>
-			<dt><%= label :maxres, "Max. response time (ms)" %></dt>
-			<dd><%= f.text_field :maxres, :value => "250" %> An alarm is caused if the response time is higher than the defined value <%= error_message_on(:service, :maxres) %></dd>
-			<dt><%= label :warninggroup, "Notification group" %></dt>
-      <dd>
-				<%= f.select :warninggroup, @notigroups %>
-				The notification group that shall be informed if the service fails.
-				<%= error_message_on(:service, :warninggroup) %>
- 	  	</dd>
-			<dt><%= label :linkedhost, "Link to host" %></dt>
-     	<dd>
-      	<%= f.select :linkedhost, @hosts %>
-				You can link this service to a host. The status of this service will then be displayed in the hosts details. 
-       	<%= error_message_on(:service, :linkedhost) %>
- 	  	</dd>
-		</dl>
-		<p>
+	<div id="service-new-form">
+		<% form_for :service, :url => { :action => "create" } do |f| %>
+			<%= label :name, "Name" %>
+			<%= f.text_field :name %> <%= error_message_on(:service, :name) %>
+
+			<%= label :host, "Host" %>
+			<%= f.text_field :host %> <%= error_message_on(:service, :host) %>
+
+			<%= label :port, "Port" %>
+			<%= f.text_field :port %> <%= error_message_on(:service, :port) %>
+
+			<%= label :service_type, "Protocol check" %>
+			<%= f.select :service_type, getServiceTypes.sort %> <%= error_message_on(:service_type, :type) %>
+
+			<%= label :timeout, "Timeout (seconds)" %>
+			<%= f.text_field :timeout, :value => "5" %> <%= error_message_on(:service, :timeout) %>
+
+			<%= label :maxres, "Max. response time (ms)" %>
+			<%= f.text_field :maxres, :value => "250" %> <%= error_message_on(:service, :maxres) %>
+
+			<%= label :warninggroup, "Notification group" %>
+			<%= f.select :warninggroup, @notigroups %> 	<%= error_message_on(:service, :warninggroup) %>
+ 	  	
+			<%= label :linkedhost, "Link to host" %>
+     	<%= f.select :linkedhost, @hosts %> <%= error_message_on(:service, :linkedhost) %>
+
+			<p>
 			<%= submit_tag "Add service" %>
-		</p>
-	<% end %>
+			</p>
+		<% end %>
+	</div>
+	<div id="service-new-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>Name</dt>
+			<dd id="formhelp-name">The name of the new service</dd>
+			<dt>Host</dt>
+			<dd id="formhelp-host">The host this service is running on. Hostname or IP allowed.</dd>
+			<dt>Port</dt>
+			<dd id="formhelp-port">The port this service is listening on.</dd>
+			<dt>Protocol check</dt>
+			<dd id="formhelp-service_type">
+					Check if the service behind the defined host and port is spaeking this protocol.
+					Select "None" if you just want to checkif a connection can be established.
+			</dd>
+			<dt>Timeout</dt>
+			<dd id="formhelp-timeout">After how long the service check is aborted. Standard: 5 seconds.</dd>
+			<dt>Max. response time</dt>
+			<dd id="formhelp-maxres">How high the response time of this service must at least be to cause an alarm.</dd>
+			<dt>Notification group</dt>
+			<dd id="formhelp-warninggroup">Which notification group to inform in case of an alarm related to this service.</dd>
+			<dt>Link to host</dt>
+			<dd id="formhelp-linkedhost">
+				You can link this service to a host. The status of this service will then appear in the details of the host.
+			</dd>
+		</dl>
+	</div>
+	<br class="clear" />
 </div>
