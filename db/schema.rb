@@ -173,9 +173,9 @@ ActiveRecord::Schema.define(:version => 20081115152126) do
     t.integer  "timeout"
     t.integer  "warninggroup"
     t.integer  "linkedhost"
-    t.integer  "lastwarn"
-    t.integer  "lastcheck"
     t.integer  "state"
+    t.integer  "lastcheck",    :default => 0
+    t.integer  "lastwarn",     :default => 0
     t.boolean  "disabled",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"

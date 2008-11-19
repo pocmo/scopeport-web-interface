@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
 
 	def	create
 		@service = Service.new(params[:service])
-		@notigroups = Notificationgroupdetail.find(:all)
+		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
 		@notigroups << ["None", "0"]	
 		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
 		@hosts << ["None", "0"]

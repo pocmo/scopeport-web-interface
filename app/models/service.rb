@@ -17,17 +17,10 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class Service < ActiveRecord::Base
-	validates_presence_of :name
-	validates_presence_of :host
-	validates_presence_of :service_type
-	validates_presence_of :port
-	validates_presence_of :maxres
-	validates_presence_of :timeout
-	validates_presence_of :warninggroup
+	validates_presence_of :name, :host, :service_type, :port, :maxres, :timeout, :warninggroup
+	validates_numericality_of :maxres, :timeout, :warninggroup, :linkedhost
 
-	validates_numericality_of :port
-	validates_numericality_of :maxres
-	validates_numericality_of :timeout
-	validates_numericality_of :warninggroup
-	validates_numericality_of :linkedhost
+	# The port must be between 0 and 65535
+	validates_numericality_of :port, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port"
+
 end

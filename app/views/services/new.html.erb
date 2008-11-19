@@ -13,7 +13,7 @@
 			<%= f.text_field :port %> <%= error_message_on(:service, :port) %>
 
 			<%= label :service_type, "Protocol check" %>
-			<%= f.select :service_type, getServiceTypes.sort %> <%= error_message_on(:service_type, :type) %>
+			<%= f.select :service_type, getServiceTypes.sort, { :selected => "none" } %> <%= error_message_on(:service_type, :type) %>
 
 			<%= label :timeout, "Timeout (seconds)" %>
 			<%= f.text_field :timeout, :value => "5" %> <%= error_message_on(:service, :timeout) %>
@@ -22,10 +22,10 @@
 			<%= f.text_field :maxres, :value => "250" %> <%= error_message_on(:service, :maxres) %>
 
 			<%= label :warninggroup, "Notification group" %>
-			<%= f.select :warninggroup, @notigroups, {}, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); return false;" } %> 	<%= error_message_on(:service, :warninggroup) %>
+			<%= f.select :warninggroup, @notigroups, { :selected => "0" }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); return false;", } %> 	<%= error_message_on(:service, :warninggroup) %>
  	  	
 			<%= label :linkedhost, "Link to host" %>
-     	<%= f.select :linkedhost, @hosts %> <%= error_message_on(:service, :linkedhost) %>
+     	<%= f.select :linkedhost, @hosts, { :selected => "0" }%> <%= error_message_on(:service, :linkedhost) %>
 
 			<p>
 			<%= submit_tag "Add service" %>
