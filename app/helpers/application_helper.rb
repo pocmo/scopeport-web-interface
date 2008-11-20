@@ -40,30 +40,20 @@ module ApplicationHelper
 
 	# Displays a commonly used icon specified by parameter "type".
 	def showIcon type, style=nil
-		case type
-			when "email"
-				return image_tag "icons/email.png", { :style => style }
-			when "xmpp"
-				return image_tag "icons/xmpp.png", { :style => style }
-			when "mobilec"
-				return image_tag "icons/mobilec.png", { :style => style }
-			when "delete"
-				return image_tag "icons/delete.png", { :style => style }
-		end
-		return
+		return image_tag "icons/" + type + ".png", { :style => style }
 	end
 
 	# Returns the CSS class that represents the colors of an service state.
 	def getErrorStyle sensorState
 		case sensorState
 			when 0:
-				return "sensor-error"
+				return "error"
 			when 1:
-				return "sensor-okay"
+				return "okay"
 			when 2:
-				return "sensor-warn"
+				return "warn"
 		end
-		return "sensor-none"
+		return "none"
 	end
 
 	# Returns a descriptive name for a service state.

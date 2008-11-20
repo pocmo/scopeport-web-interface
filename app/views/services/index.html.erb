@@ -13,12 +13,24 @@ Total monitored services: <%= @serviceCount %>
 			<th>Linked to host</th>
 		</tr>
 		<% @services.each do |service| %>
-		<tr class="<%= getErrorStyle service.state %>">
+		<tr class="sensor-<%= getErrorStyle service.state %>">
 			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
 			<td><%= service.host %>:<%= service.port %></td>
-			<td><%= service.service_type.upcase %></td>
-			<td><%= service.responsetime %> ms</td>
-			<td><%= Time.at service.lastcheck %></td>
+			<% if service.service_type == "none" %>
+				<td>None</td>
+			<% else %>
+				<td><%= service.service_type.upcase %></td>
+			<% end %>
+			<% if !service.responsetime.blank? %>
+				<td><%= service.responsetime %> ms</td>
+			<% else %>
+				<td>Unknown</td>
+			<% end %>
+			<% if service.lastcheck == 0 %>
+				<td>Never</td>
+			<% else %>
+				<td><%= Time.at service.lastcheck %></td>
+			<% end %>
 			<td><%= getNameOfWarningGroup service.warninggroup %></td>
 			<td><%= getNameOfHost service.linkedhost %></td>
 		</tr>

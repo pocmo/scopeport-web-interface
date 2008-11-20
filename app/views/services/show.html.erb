@@ -1,21 +1,48 @@
 <%= render_headline "Service &raquo;" + @service.name  + "&laquo; on &raquo;" + @service.host + "&laquo;" %>
 
 <div id="service">
-	<fieldset>
-		<legend>Main</legend>
-		<dl>
-			<dt>Host</dt>
-			<dd><%= @service.host %></dd>
-			<dt>Port</dt>
-			<dd><%= @service.port %></dd>
-			<dt>Protocol check</dt>
-			<dd><%= @service.service_type.upcase %></dd>
-			<dt>Response time</dt>
-			<dd><%= @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
-			<dt>Status</dt>
-			<dd><strong><%= getErrorName @service.state %></strong></dd>
-			<dt>Timeout</dt>
-			<dd><%= @service.timeout %></dd>
-		</dl>
-	</fieldset>
+	<% if @service.state.blank? %>
+		<div class="instantstate-warn">
+			<%= showIcon "warning", "float: left; margin-right: 3px;" %>
+			This service has not been checked yet!
+		</div>
+	<% end %>
+	<% if @service.state == 0 %>
+		<div class="instantstate-error">
+			<%= showIcon "error", "float: left; margin-right: 3px;" %>
+			The service is not reachable!
+		</div>
+	<% end %>
+	<% if @service.state == 1 %>
+		<div class="instantstate-okay">
+			<%= showIcon "okay", "float: left; margin-right: 3px;" %>
+			The service is reachable and responses fast enough!
+		</div>
+	<% end %>
+	<% if @service.state == 2 %>
+		<div class=="instantstate-warn">
+			<%= showIcon "warn", "float: left; margin-right: 3px;" %>
+			The service is reachable but has a too high response time!
+		</div>
+	<% end %>
+
+  <dl>
+	 <dt>Host</dt>
+   <dd><%= @service.host %></dd>
+   <dt>Port</dt>
+   <dd><%= @service.port %></dd>
+   <dt>Protocol check</dt>
+   <dd><%= @service.service_type.upcase %></dd>
+   <dt>Response time</dt>
+   <dd><%= @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
+   <dt>Timeout</dt>
+   <dd><%= @service.timeout %> Seconds</dd>
+  </dl>
+
+</div>
+
+<div id="service-delete">
+	<% form_tag :action => "delete", :id => @service.id do %>
+		<%= submit_tag "Delete this service", :disable_with => "Please wait" %>
+	<% end %>
 </div>

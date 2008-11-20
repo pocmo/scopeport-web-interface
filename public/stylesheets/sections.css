@@ -154,15 +154,19 @@
 	margin-top: 20px;
 }
 
-#service dl {
-	margin: 0px;
-	padding: 0px;
+#service {
+	margin-top: 10px;
 }
 
 #service dt {
+	font-weight: bold;
 	float: left;
 }
 
 #service dd {
-	padding-left: 50px;
+	padding-left: 60px;
+}
+
+#service-delete {
+	margin-top: 20px;
 }

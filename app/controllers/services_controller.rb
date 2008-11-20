@@ -29,7 +29,18 @@ class ServicesController < ApplicationController
 	end
 
 	def show
-		@service = Service.find_by_id(params[:id])
+		@service = Service.find_by_id params[:id]
+	end
+
+	def delete
+		service = Service.find_by_id params[:id]
+		if service.destroy
+			flash[:notice] = "Service has been deleted!"
+			redirect_to :action => "index"
+		else
+			flash[:notice] = "Service could not be deleted."
+			redirect_to :action => "show", :id => params[:id]
+		end
 	end
 
 end

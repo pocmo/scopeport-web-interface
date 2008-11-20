@@ -337,6 +337,33 @@ dd {
 	background-color: #FBCF00;
 }
 
+.instantstate-okay {
+	background-color: #91ff74;
+	margin-bottom: 5px;
+	margin-top: 2px;
+	padding: 5px;
+	font-size: 13px;
+}
+
+.instantstate-error {
+	color: #000000;
+  background-image: url("../images/errorbg-blink.gif");
+  background-repeat: repeat-y repeat-x;
+	margin-bottom: 5px;
+	margin-top: 2px;
+	padding: 5px;
+	font-size: 13px;
+}
+
+
+.instantstate-warn {
+	background-color: #FBCF00;
+	margin-bottom: 5px;
+	margin-top: 2px;
+	padding: 5px;
+	font-size: 13px;
+}
+
 .clear {
 	clear: both;
 }

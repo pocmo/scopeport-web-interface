@@ -1,4 +1,3 @@
-
 # This file is part of ScopePort (Web Interface).
 #
 # Copyright 2007, 2008 Lennart Koopmann
