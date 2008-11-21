@@ -25,20 +25,19 @@ The following notification receivers are in this group:
 </div>
 
 <div id="new-notireceiver">
-	<h3>Add receiver to this group</h3>
+	<h2>Add receiver to this group</h2>
 	<% form_for :newGroup, :url => { :controller => "notificationgroups", :action => "addreceiver", :id => params[:id] } do |f| %>
-		<dl>
-			<dt><%= label :newGroup, :mail, "Email" %></dt>
-			<dd><%= f.text_field :mail, :onfocus => "disableOtherReceiverFields(\"mail\")" %></dd>
-			<dt><%= label :newGroup, :jid, "JID" %></dt>
-			<dd><%= f.text_field :jid, :onfocus => "disableOtherReceiverFields(\"jid\")" %></dd>
-			<dt><%= label :newGroup, :numberc, "Mobile (Clickatell)" %></dt>
-			<dd><%= f.text_field :numberc,
-														:onfocus => "disableOtherReceiverFields(\"numberc\"); clearFieldWithText(this, \"e.g. 4912345678\")",
-														:value => "e.g. 4912345678" %></dd>
-			<dt>&nbsp;</dt>
-			<dd><%= submit_tag "Add receiver", :disable_with => "Please wait" %></dd>
-		</dl>		
+		<%= label :newGroup, :mail, "Email" %>
+		<%= f.text_field :mail, :onfocus => "disableOtherReceiverFields(\"mail\")" %>
+		<%= label :newGroup, :jid, "JID" %>
+		<%= f.text_field :jid, :onfocus => "disableOtherReceiverFields(\"jid\")" %>
+		<%= label :newGroup, :numberc, "Mobile (Clickatell)" %>
+		<%= f.text_field :numberc,
+													:onfocus => "disableOtherReceiverFields(\"numberc\"); clearFieldWithText(this, \"e.g. 4912345678\")",
+													:value => "e.g. 4912345678" %>
+		<p>
+			<%= submit_tag "Add receiver", :disable_with => "Please wait" %>
+		</p>
 	<% end %>
 </div>
 

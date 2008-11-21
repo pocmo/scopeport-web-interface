@@ -11,13 +11,9 @@ Notification groups are used as receiver for warnings. When you set the notifica
 <% end %>
 
 <div id="new-notigroup">
-	<h2>Add notification group</h2>
 	<% form_for :newGroup, :url => { :action => "creategroup" } do |f| %>
-		<dl>
-			<dt><%= label :newGroup, :name, "Name of the new group" %></dt>
-			<dd><%= f.text_field :name %> <%= error_message_on(:newGroup, :name) %></dd>
-			<dt>&nbsp;</dt>
-			<dd><%= submit_tag "Add group", :disable_with => "Please wait" %></dd>
-		</dl>
+		<%= label :newGroup, :name, "Name of new notification group" %>
+		<%= f.text_field :name %> <%= error_message_on(:newGroup, :name) %>
+		<%= submit_tag "Add group", :disable_with => "Please wait" %>
 	<% end %>
 </div>
