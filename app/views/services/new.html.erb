@@ -1,5 +1,7 @@
 <%= render_headline "Add service" %>
 
+<%= javascript_include_tag "scopeport-forms" %>
+
 <div id="service-new">
 	<div id="service-new-form">
 		<% form_for :service, :url => { :action => "create" } do |f| %>
