@@ -5,4 +5,3 @@ development:
   username: scopeport
   password: scopeportpw
   socket: /var/run/mysqld/mysqld.sock
-
