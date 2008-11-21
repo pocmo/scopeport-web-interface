@@ -12,13 +12,9 @@ The following host groups are currently configured:
 <% end %>
 
 <div id="new-hostgroup">
-	<h2>Add host group</h2>
 	<% form_for :newGroup, :url => { :action => "create" } do |f| %>
-		<dl>
-			<dt><%= f.label :name, "Name of the new group" %></dt>
-			<dd><%= f.text_field :name %></dd>
-			<dt>&nbsp;</dt>
-			<dd><%= submit_tag "Add group" %></dd>
-		</dl>
+		<%= f.label :name, "Name of new host group" %>
+		<%= f.text_field :name %>
+		<%= submit_tag "Add group" %>
 	<% end %>
 </div>

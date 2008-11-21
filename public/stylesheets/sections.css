@@ -102,15 +102,6 @@
 	margin-top: 15px;
 }
 
-#new-hostgroup dt {
-	float: left;
-	font-weight: bold;
-}
-
-#new-hostgroup dd {
-	padding-left: 110px;
-}
-
 /*
  * Services
  */
