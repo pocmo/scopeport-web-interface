@@ -26,17 +26,19 @@
 		</div>
 	<% end %>
 
-  <dl>
-	 <dt>Host</dt>
-   <dd><%= @service.host %></dd>
-   <dt>Port</dt>
-   <dd><%= @service.port %></dd>
-   <dt>Protocol check</dt>
-   <dd><%= @service.service_type.upcase %></dd>
-   <dt>Response time</dt>
-   <dd><%= @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
-   <dt>Timeout</dt>
-   <dd><%= @service.timeout %> Seconds</dd>
+	<dl>
+		<dt>Host</dt>
+  	<dd><%= @service.host %></dd>
+  	<dt>Port</dt>
+  	<dd><%= @service.port %></dd>
+  	<dt>Protocol check</dt>
+		<dd><%= @service.service_type.upcase %></dd>
+		<dt>Last checked</dt>
+		<dd><%= time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
+   	<dt>Response time</dt>
+   	<dd><%= @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
+   	<dt>Timeout</dt>
+   	<dd><%= @service.timeout %> Seconds</dd>
   </dl>
 
 </div>
