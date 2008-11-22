@@ -15,14 +15,14 @@ Total monitored services: <%= @serviceCount %>
 		<% @services.each do |service| %>
 		<tr class="sensor-<%= getErrorStyle service.state %>">
 			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
-			<td><%= service.host %>:<%= service.port %></td>
+			<td><%=h service.host %>:<%=h service.port %></td>
 			<% if service.service_type == "none" %>
 				<td>None</td>
 			<% else %>
-				<td><%= service.service_type.upcase %></td>
+				<td><%=h service.service_type.upcase %></td>
 			<% end %>
 			<% if !service.responsetime.blank? %>
-				<td><%= service.responsetime %> ms</td>
+				<td><%=h service.responsetime %> ms</td>
 			<% else %>
 				<td>Unknown</td>
 			<% end %>

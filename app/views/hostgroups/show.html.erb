@@ -4,7 +4,7 @@ The following hosts are in this group. You cannot add hosts here because group m
 <% if @members.length > 0 %>
 	<ul>
 		<% @members.each do |member| %>
-			<li><%= member.name %></li>
+			<li><%=h member.name %></li>
 		<% end %>
 	</ul>
 <% else %>
