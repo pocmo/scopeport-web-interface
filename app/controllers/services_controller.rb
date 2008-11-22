@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
 	def index
 		#@services = Service.find(:all)
 		@services = Service.find_all_by_disabled 0
-		@serviceCount = @services.count
+		@serviceCount = @services.size
 	end
 	
 	def new
