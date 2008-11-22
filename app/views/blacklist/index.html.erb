@@ -1,0 +1,20 @@
+<%= render_headline "Blacklist" %>
+All hosts listed here have been blacklisted because they violated the ScopePort protocol or sent invalid passwords.
+
+<div id="blacklist">
+	<% if @blacklisted_hosts.length > 0%>
+		<ul>
+			<% @blacklisted_hosts.each do |host| %>
+				<li>
+					<%=h host.host %>
+					(added: <%=h host.created_at %>)
+					<%= link_to showIcon("delete"), :action => "delete", :id => host.id %>
+				</li>
+			<% end %>
+		</ul>
+	<% else %>
+		<p>
+			<strong>No hosts on the blacklist!</strong>
+		</p>
+	<% end %>
+</div>
