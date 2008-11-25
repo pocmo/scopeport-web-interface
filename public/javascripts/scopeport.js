@@ -2,7 +2,7 @@ window.onload = function(){
   var rows = document.getElementsByTagName("tr");
   for(var i=0,l=rows.length;i<l;i++){
     row = rows[i];
-    if(row.className != "sensor-error" && row.className != "sensor-okay" && row.className != "sensor-none" && row.className != "sensor-warn" || !row.className){
+    if(row.className != "sensor-error" && row.className != "sensor-okay" && row.className != "sensor-none" && row.className != "sensor-warn" && row.className != "sensor-internal-error" || !row.className){
       if(row.className != "doNotHighlightMe"){
         row.onmouseover = function(){
             this.className = "rowHighlighted";

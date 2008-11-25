@@ -3,8 +3,11 @@ class Services < ActiveRecord::Migration
 		create_table :services do |t|
 			t.string :name, :host, :service_type
 			t.integer :port, :responsetime, :maxres, :timeout, :warninggroup, :linkedhost, :state
+			t.integer :handler, :default => 0
 			t.integer :lastcheck, :default => 0
 			t.integer :lastwarn, :default => 0
+			t.integer :fails, :default => 0
+			t.integer :allowed_fails, :default => 0
 			t.boolean :disabled, :default => 0
 			t.timestamps
 		end

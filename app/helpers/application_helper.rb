@@ -52,21 +52,10 @@ module ApplicationHelper
 				return "okay"
 			when 2:
 				return "warn"
+			when 3:
+				return "internal-error"
 		end
 		return "none"
-	end
-
-	# Returns a descriptive name for a service state.
-	def getErrorName sensorState
-		case sensorState
-			when 0:
-				return "Error. Service not reachable or speaking wrong protocol."
-			when 1:
-				return "Okay. No errors reported."
-			when 2:
-				return "Warning. Too high response time."
-		end
-		return "sensor-none"
 	end
 
 end

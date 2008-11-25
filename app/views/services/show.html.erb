@@ -20,9 +20,15 @@
 		</div>
 	<% end %>
 	<% if @service.state == 2 %>
-		<div class=="instantstate-warn">
+		<div class="instantstate-warn">
 			<%= showIcon "warn", "float: left; margin-right: 3px;" %>
 			The service is reachable but has a too high response time!
+		</div>
+	<% end %>
+	<% if @service.state == 3 %>
+		<div class="instantstate-internal-error">
+			<%= showIcon "error", "float: left; margin-right: 3px;" %>
+			Internal ScopePort error. Service could not be checked.
 		</div>
 	<% end %>
 

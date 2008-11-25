@@ -337,6 +337,16 @@ dd {
 	background-color: #FBCF00;
 }
 
+.sensor-internal-error {
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+.sensor-internal-error  a{
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+}
+
 .instantstate-okay {
 	background-color: #91ff74;
 	margin-bottom: 5px;
@@ -358,6 +368,15 @@ dd {
 
 .instantstate-warn {
 	background-color: #FBCF00;
+	margin-bottom: 5px;
+	margin-top: 2px;
+	padding: 5px;
+	font-size: 13px;
+}
+
+.instantstate-internal-error {
+	background-color: #000000;
+	color: #FFFFFF;
 	margin-bottom: 5px;
 	margin-top: 2px;
 	padding: 5px;
