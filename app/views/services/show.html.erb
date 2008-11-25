@@ -10,7 +10,7 @@
 	<% if @service.state == 0 %>
 		<div class="instantstate-error">
 			<%= showIcon "error", "float: left; margin-right: 3px;" %>
-			The service is not reachable!
+			The service is not reachable or responses with a wrong protocol!
 		</div>
 	<% end %>
 	<% if @service.state == 1 %>
