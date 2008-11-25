@@ -40,7 +40,11 @@
   	<dt>Protocol check</dt>
 		<dd><%=h @service.service_type.upcase %></dd>
 		<dt>Last checked</dt>
-		<dd><%=h time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
+		<% if @service.lastcheck == 0 %>
+			<dd><Never</dd>
+		<% else %>
+			<dd><%=h time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
+		<% end %>
    	<dt>Response time</dt>
    	<dd><%=h @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
    	<dt>Timeout</dt>
