@@ -31,14 +31,17 @@
 			Internal ScopePort error. Service could not be checked.
 		</div>
 	<% end %>
-
 	<dl>
 		<dt>Host</dt>
   	<dd><%=h @service.host %></dd>
   	<dt>Port</dt>
   	<dd><%=h @service.port %></dd>
   	<dt>Protocol check</dt>
-		<dd><%=h @service.service_type.upcase %></dd>
+		<% if @service.service_type == "none" %>
+			<dd>None</dd>
+		<% else %>
+			<dd><%=h @service.service_type.upcase %></dd>
+		<% end %>
 		<dt>Last checked</dt>
 		<% if @service.lastcheck == 0 %>
 			<dd><Never</dd>
