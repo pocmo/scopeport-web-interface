@@ -18,8 +18,12 @@
 class CreateAlarms < ActiveRecord::Migration
   def self.up
 		create_table :alarms do |t|
-			t.integer :type, :timestamp, :hostid, :st, :checkid
-			t.float :sv
+			t.integer :type, :timestamp
+			t.integer :hostid, :default => 0
+			t.integer :st, :default => 0
+			t.integer :serviceid, :default => 0
+			t.integer :ms, :default => 0
+			t.float :sv, :default => 0
 			t.boolean :status
 		end
   end
