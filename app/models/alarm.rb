@@ -15,20 +15,5 @@
 # You should have received a copy of the GNU General Public License
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
-class CreateAlarms < ActiveRecord::Migration
-  def self.up
-		create_table :alarms do |t|
-			t.integer :alarm_type, :timestamp
-			t.integer :hostid, :default => 0
-			t.integer :st, :default => 0
-			t.integer :serviceid, :default => 0
-			t.integer :ms, :default => 0
-			t.float :sv, :default => 0
-			t.boolean :status
-		end
-  end
-
-  def self.down
-		drop_table :alarms
-  end
+class Alarm < ActiveRecord::Base
 end
