@@ -1,6 +1,11 @@
 <%= render_headline "Setup" %>
 
 <div id="setup">
+	<h3>General Settings</h3>
+	<ul>
+		<li><%= link_to "General Settings", :controller => 'settings' %></li>
+	</ul>
+	
 	<h3>Hosts</h3>
 	<ul>
 		<li><%= link_to "Add host", :controller => "hosts" , :action => "new" %></li>

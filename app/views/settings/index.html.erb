@@ -1,0 +1,75 @@
+<%= render_headline "General Settings" %>
+
+<div id="general-settings">
+	<% form_for :setting, :url => { :action => 'save' } do |f| %>
+		<fieldset>
+			<legend>ScopePort Server Settings</legend>
+			<dl>
+				<dt><%= f.label :spserver, 'ScopePort Ip or Hostname'  %></dt>
+				<dd><%= f.text_field :spserver, :value => friendly_nil(@settings.spserver)  %> <%= error_message_on(:setting, :spserver) %> </dd>
+				<dt><%= f.label	:spport, 'Port the ScopePort Server is listening on (default: 12200)' %></dt>
+				<dd><%= f.text_field :spport, :size => '3', :value => friendly_nil(@settings.spport) %> <%= error_message_on(:setting, :spport) %> </dd>
+		</fieldset>
+		<fieldset>	
+			<legend>Mail Server Settings</legend>	
+				<dt><%= f.label	:mail_server, 'SMTP server to mail service'	%></dt>
+				<dd><%= f.text_field :mail_server, :value => friendly_nil(@settings.mail_server) %> <%= error_message_on(:setting, :mail_server) %> </dd>		
+				<dt><%= f.label	:mail_user, 'SMTP username' %></dt>
+				<dd><%= f.text_field :mail_user, :value => friendly_nil(@settings.mail_user)	%> <%= error_message_on(:setting, :mail_user) %> </dd>
+				<dt><%= f.label	:mail_pass, 'SMTP password' %></dt>
+				<dd><%= f.text_field :mail_pass, :value => friendly_nil(@settings.mail_pass)	%> <%= error_message_on(:setting, :mail_pass)  %> </dd>
+				<dt><%= f.label	:mail_hostname, 'SMTP hostname of ScopePort server'	%></dt>
+				<dd><%= f.text_field	:mail_hostname, :value => friendly_nil(@settings.mail_hostname) %> <%= error_message_on(:setting, :mail_hostname) %> </dd>
+				<dt><%= f.label	:mail_from, 'mail-from part of sent emails' %></dt>
+				<dd><%= f.text_field	:mail_from, :value => friendly_nil(@settings.mail_from) %> <%= error_message_on(:setting, :mail_from) %> </dd>
+				<dt><%= f.label	:mail_port, 'Port used for SMTP' %></dt>
+				<dd><%= f.text_field :mail_port, :size => '3', :value => friendly_nil(@settings.mail_port) %> <%= error_message_on(:setting, :mail_port) %> </dd>
+				<dt><%= f.label	:mail_enabled, 'Send emails?' %></dt>
+				<dd><%= f.check_box :mail_enabled, :value => true %> <%= error_message_on(:setting, :mail_enabled) %> </dd>
+				<dt><%= f.label	:mail_useauth, 'Authenticate for SMTP?' %></dt>
+				<dd><%= f.check_box :mail_useauth %> <%= error_message_on(:setting,:mail_useauth) %> </dd>
+				<dt><%= f.label	:mail_usetls, 'Use TLS encryption?' %></dt>
+				<dd><%= f.check_box :mail_usetls %> <%= error_message_on(:setting, :mail_usetls) %> </dd>
+		</fieldset>
+		<fieldset>		
+			<legend>XMPP/Jabber Server Settings</legend>	
+				<dt><%= f.label	:xmpp_server, 'XMPP/Jabber server for IM service' %></dt>
+				<dd><%= f.text_field :xmpp_server, :value => friendly_nil(@settings.xmpp_server) %> <%= error_message_on(:setting, :xmpp_server) %> </dd>
+				<dt><%= f.label	:xmpp_user, 'XMPP/Jabber username' %></dt>
+				<dd><%= f.text_field :xmpp_user, :value => friendly_nil(@settings.xmpp_server) %> <%= error_message_on(:setting, :xmpp_user) %> </dd>
+				<dt><%= f.label	:xmpp_pass, 'XMPP/Jabber password' %></dt>
+				<dd><%= f.text_field :xmpp_pass, :value => friendly_nil(@settings.xmpp_pass)	%> <%= error_message_on(:setting, :xmpp_pass) %> </dd>
+				<dt><%= f.label	:xmpp_resource, 'XMPP/Jabber resource' %></dt>
+				<dd><%= f.text_field :xmpp_resource, :value => friendly_nil(@settings.xmpp_resource) %> <%= error_message_on(:setting, :xmpp_resource) %> </dd>
+				<dt><%= f.label	:xmpp_port, 'Port used for Jabber/XMPP' 		   %></dt>
+				<dd><%= f.text_field :xmpp_port, :size => '3', :value => friendly_nil(@settings.xmpp_port) %> <%= error_message_on(:setting, :xmpp_port) %> </dd>
+				<dt><%= f.label	:xmpp_enabled, 'Send XMPP/Jabber messages?' %></dt>
+				<dd><%= f.check_box :xmpp_enabled %> <%= error_message_on(:setting, :xmpp_enabled) %> </dd>
+		</fieldset>
+		<fieldset>	
+			<legend>Clickatell API Settings</legend>	
+				<dt><%= f.label	:mobilecUsername, 'Username for Clickatell SMS API' %></dt>
+				<dd><%= f.text_field :mobilecUsername, :value => friendly_nil(@settings.mobilecUsername) %> <%= error_message_on(:setting, :mobilecUsername)  %> </dd>
+				<dt><%= f.label	:mobilecPassword, 'Password for Clickatell SMS API'	%></dt>
+				<dd><%= f.text_field :mobilecPassword, :value => friendly_nil(@settings.mobilecPassword)%> <%= error_message_on(:setting, :mobilecPassword) %> </dd>
+				<dt><%= f.label	:mobilecAPIID, 'Clickatell API ID' %></dt>
+				<dd><%= f.text_field :mobilecAPIID, :value => friendly_nil(@settings.mobilecAPIID) %> <%= error_message_on(:setting, :mobilecAPIID) %> </dd>
+				<dt><%= f.label	:gnotigroup %></dt>
+				<dd><%= f.text_field :gnotigroup %> <%= error_message_on(:setting, :gnotigroup) %> </dd>
+				<dt><%= f.label	:eg1 %></dt>
+				<dd><%= f.text_field :eg1 %> <%= error_message_on(:setting, :eg1) %> </dd>
+				<dt><%= f.label	:eg2 %></dt>
+				<dd><%= f.text_field :eg2 %> <%= error_message_on(:setting,:eg2) %> </dd>
+				<dt><%= f.label	:eg3 %></dt>
+				<dd><%= f.text_field :eg3 %> <%= error_message_on(:setting, :eg3) %> </dd>
+				<dt><%= f.label	:doMobileClickatell, 'Send SMS via Clickatell API?' %></dt>
+				<dd><%= f.check_box :doMobileClickatell %> <%= error_message_on(:setting, :doMobileClickatell) %> </dd>
+			
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>Control</legend>
+			<%= submit_tag "Save Settings" %>
+		</fieldset>
+	<% end %>
+</div>
