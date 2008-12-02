@@ -44,7 +44,7 @@
 		<% end %>
 		<dt>Last checked</dt>
 		<% if @service.lastcheck == 0 %>
-			<dd><Never</dd>
+			<dd>Never</dd>
 		<% else %>
 			<dd><%=h time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
 		<% end %>
