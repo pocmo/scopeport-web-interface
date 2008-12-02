@@ -16,4 +16,20 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class Setting < ActiveRecord::Base
+  
+#  ScopePort Server Settings
+  validates_presence_of :spport, :server
+  
+#  Ports fields
+  validates_numericality_of :spport, :mail_port, :xmpp_port, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port"
+  
+# Mail Server Settings
+  validates_presence_of :mail_server, :mail_user, :mail_pass, :if => Proc.new  {|setting| setting.mail_enabled }
+  validates_presence_of :mail_user, :mail_pass, :if => Proc.new  {|setting| setting.mail_useauth }
+  
+# XMPP/Jabber Server Settings
+  validates_presence_of :xmpp_server, :xmpp_user, :xmpp_pass, :xmpp_port, :if => Proc.new  {|setting| setting.xmpp_enabled }
+  
+# Clickatell API Settings   
+  validates_presence_of :mobilecUsername, :mobilecPassword, :mobilecAPIID, :if => Proc.new  {|setting| setting.doMobileClickatell }
 end

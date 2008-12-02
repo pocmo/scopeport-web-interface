@@ -22,6 +22,8 @@ class SettingsController < ApplicationController
   
   def index
    
+   @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
+   @notigroups << ["None", "0"]
    @settings = Setting.find(:first) || Setting.new()
     
   end
@@ -38,13 +40,14 @@ class SettingsController < ApplicationController
     @settings = Setting.new(params[:setting])
     
    end
- 
+   @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
+   @notigroups << ["None", "0"]
     
    if @settings.save
       flash[:notice] = "Settings saved"
       redirect_to :controller => "setup"      
    else
-      flash[:notice] = "An error has occurred"
+      flash[:error] = "An error has occurred"
       render :action => "index"
    end
  
