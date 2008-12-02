@@ -15,42 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
-class SettingsController < ApplicationController
-  
-#  auto-incrematation is working even when the table is empty
-#  better solution ?
+class DowntimesController < ApplicationController
   
   def index
-   
-   @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
-   @notigroups << ["None", "0"]
-   @settings = Setting.find(:first) || Setting.new()
-    
+    @downtimes = Downtime.find(:all)
   end
-
-
-  def save
-   
-   begin
-   
-    @settings = Setting.update(:first, params[:setting])
-   
-   rescue
-   
-    @settings = Setting.new(params[:setting])
-    
-   end
-   @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
-   @notigroups << ["None", "0"]
-    
-   if @settings.save
-      flash[:notice] = "Settings saved"
-      redirect_to :controller => "setup"      
-   else
-      flash[:error] = "An error has occurred"
-      render :action => "index"
-   end
- 
+  
+  def show
+    @service = Service.find_by_id params[:id]
   end
-
+  
 end
