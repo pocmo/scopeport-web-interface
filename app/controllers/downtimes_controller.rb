@@ -21,8 +21,4 @@ class DowntimesController < ApplicationController
     @downtimes = Downtime.find(:all)
   end
   
-  def show
-    @service = Service.find_by_id params[:id]
-  end
-  
 end

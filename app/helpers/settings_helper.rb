@@ -1,6 +1,7 @@
 module SettingsHelper
   
-  def friendly_nil(object)
+   # Avoid the NULL from database going through the forms and checks the check_boxes if true
+def friendly_nil(object)
     
     if object === nil
       return ''
@@ -11,6 +12,7 @@ module SettingsHelper
     end
   end
   
+#  Concatenation of the most used fields
   def label_txtfd_err(form, attr_key, label_description, object_attr, object)
     
       label_field = form.label(attr_key, label_description)
@@ -19,5 +21,6 @@ module SettingsHelper
       
       return "#{label_field}#{text_field}#{error_field}"
   end
+
   
 end

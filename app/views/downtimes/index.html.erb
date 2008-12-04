@@ -1,1 +1,43 @@
 <%= render_headline "Downtimes" %>
+
+<% if @downtimes.length > 0 %>
+
+	<table id="downtime-table">
+		<tr class="doNotHighlightMe">
+			<th>Host id</th>
+			<th>Service id</th>
+			<th>From</th>
+			<th>To</th>
+			<th>Type</th>
+			<th>Scheduled?</th>
+		</tr>
+		<% @downtimes.each do |downtime| %>	
+			<tr>
+				<td>
+				<%= h @downtimes.hostid %>		
+				</td>
+				<td>
+				<%= h @downtimes.serviceid %>		
+				</td>
+				<td>
+				<%= h @downtimes.from %>		
+				</td>
+				<td>
+				<%= h @downtimes.to %>		
+				</td>
+				<td>
+				<%= h @downtimes.type %>		
+				</td>
+				<td>
+				<%= h @downtimes.scheduled %>		
+				</td>
+			</tr>
+			
+		<%end%>
+		
+	</table>
+<% else %>
+	<p>
+		No downtime records
+	</p>
+<% end %>
