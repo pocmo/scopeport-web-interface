@@ -29,7 +29,7 @@ Total monitored services: <%= @serviceCount %>
 			<% if service.lastcheck == 0 %>
 				<td>Never</td>
 			<% else %>
-				<td><%= distance_of_time_in_words_to_now(Time.at(service.lastcheck), true)  %> ago</td>
+				<td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
 			<% end %>
 			<td><%= getNameOfWarningGroup service.warninggroup %></td>
 			<td><%= getNameOfHost service.linkedhost %></td>
