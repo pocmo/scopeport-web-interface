@@ -394,3 +394,10 @@ dd {
 .formhelp-highlighted {
 	color: #FF0000;
 }
+
+#server-not-running {
+	width: 100%;
+	text-align: center;
+	color: #FF0000;
+	font-weight: bold;
+}

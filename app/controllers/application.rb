@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
 
 	helper_method :getLastLogMessage
+	helper_method :getServerNotRunningMessage
+
 	helper_method :getNameOfWarningGroup
 	helper_method :getNameOfHost
 
@@ -37,6 +39,24 @@ class ApplicationController < ActionController::Base
 			return "No log messages"
 		return message.logmsg
 		end
+	end
+
+	# Returns if this is a production version. I.e. used to not display
+	# "server not running" message in development versions.
+	def isProductionVersion?
+		return false
+	end
+
+	# Tries to find out if the ScopePort server is running by
+	# investigating the timestamps in the vitals table.
+	def getServerNotRunningMessage
+		status = Vital.find(:first)
+		last_update = Time.now - Time.at(status.timestamp)
+		if isProductionVersion? && (status.blank? || last_update > 300)
+			return "<div id='server-not-running'>It seems like your ScopePort server is not running.</div>"
+		end
+		# Everything up to date. The server is running.
+		return
 	end
 
 	def getNameOfWarningGroup groupID
