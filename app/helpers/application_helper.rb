@@ -57,6 +57,4 @@ module ApplicationHelper
 		end
 		return "none"
 	end
-
-
 end

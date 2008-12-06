@@ -6,6 +6,6 @@
 		<dt>Date</dt>
 		<dd><%= Time.at @alarm.timestamp %></dd>
 		<dt>Status</dt>
-		<dd><%= getAlarmStatus @alarm.status, :colored => true %></dd>
+		<dd><%= getAlarmStatus @alarm.status, true %></dd>
 	</dl>
 </div>

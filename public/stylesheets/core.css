@@ -337,6 +337,14 @@ dd {
 	background-color: #FBCF00;
 }
 
+.sensor-error-text {
+	color: #FF0000;
+}
+
+.sensor-okay-text {
+	color: #91ff74;
+}
+
 .sensor-internal-error {
 	color: #FFFFFF;
 	background-color: #000000;
