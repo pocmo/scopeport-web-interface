@@ -186,3 +186,7 @@
 #alarms-alarmdetails dd {
 	padding-left: 25px;
 }
+
+#alarms-attendalarm {
+	margin-top: 15px;
+}
