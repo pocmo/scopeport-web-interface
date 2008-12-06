@@ -9,3 +9,9 @@
 		<dd><%= getAlarmStatus @alarm.status, true %></dd>
 	</dl>
 </div>
+
+<div id="alarms-attendalarm">
+	<% form_tag :action => "attend" do %>
+		<%= submit_tag "Mark this alarm as \"Okay/Attended\"", :disable_with => "Please wait" %>
+	<% end %>
+</div>

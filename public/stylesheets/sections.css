@@ -169,3 +169,20 @@
 #blacklist a {
 	border-bottom: 0px;
 }
+
+/*
+ * Alarms
+ */
+
+#alarms-service-alarms {
+	margin-top: 15px;
+}
+
+#alarms-alarmdetails dt {
+	float: left;
+	font-weight: bold;
+}
+
+#alarms-alarmdetails dd {
+	padding-left: 25px;
+}

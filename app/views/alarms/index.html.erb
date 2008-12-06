@@ -9,16 +9,20 @@ Every alarm that has been caused is listed here. Click on an alarm to get the de
 			<th>Time</th>
 			<th>Service</th>
 			<th>Status</th>
-			<th>Message</th>
+			<th colspan="2">Message</th>
 		</tr>
 		<% @service_alarms.each do |alarm| %>
-			<tr>
+			<tr class="<%= getAlarmStatusBackgroundClass alarm.status %>">
 				<td><%=h alarm.id %></td>
 				<td><%=h Time.at alarm.timestamp %></td>
-				<td><%=h alarm.servicename %></td>
+				<td class="bold"><%=h alarm.servicename %></td>
 				<td><%=h getAlarmStatus alarm.status %></td>
-				<td><%= link_to getServiceAlarmMessage(alarm.ms), :action => "showservicealarm", :id => alarm.id %></td>
+				<td class="bold"><%= getServiceAlarmMessage(alarm.ms) %></td>
+				<td class="no-background-content"><%= link_to "Details", :action => "showservicealarm", :id => alarm.id %></td>
 			</tr>
 		<% end %>
 	</table>
+	<div class="pagination">
+		<%= will_paginate @service_alarms %>
+	</div>
 </div>

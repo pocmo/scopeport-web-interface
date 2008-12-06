@@ -409,3 +409,7 @@ dd {
 	color: #FF0000;
 	font-weight: bold;
 }
+
+.no-background-content {
+	background-color: #F8F8F8;
+}

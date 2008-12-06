@@ -24,6 +24,11 @@ module AlarmsHelper
 		return message
 	end
 
+	def getAlarmStatusBackgroundClass status
+		return "sensor-error" if status.nil?
+		return "sensor-okay"
+	end
+
 	# Returns the alarm message of a service.
 	def getServiceAlarmMessage ms
 		return "The service could not be reached" if ms.blank?
