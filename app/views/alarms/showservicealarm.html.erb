@@ -1,0 +1,11 @@
+<%= render_headline "Service alarm #" + @alarm.id.to_s + " (Caused by: &raquo;" + @alarm.servicename + "&laquo;)" %>
+<%= getServiceAlarmMessage @alarm.ms %>
+
+<div id="alarms-alarmdetails">
+	<dl>
+		<dt>Date</dt>
+		<dd><%= Time.at @alarm.timestamp %></dd>
+		<dt>Status</dt>
+		<dd><%= getAlarmStatus @alarm.status, :colored => true %></dd>
+	</dl>
+</div>
