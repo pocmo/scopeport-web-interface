@@ -58,10 +58,16 @@
 
 </div>
 
+<div id="service-graph-response">
+	<% if @graphStatus == true %>
+		<%= image_tag "graphs/" + @graphName %>
+	<% else %>
+		<%= image_tag "graphs/nograph.png" %>	
+	<% end %>
+</div>
+
 <div id="service-delete">
 	<% form_tag :action => "delete", :id => @service.id do %>
 		<%= submit_tag "Delete this service", :disable_with => "Please wait" %>
 	<% end %>
 </div>
-
-<%= @graphStatus %>

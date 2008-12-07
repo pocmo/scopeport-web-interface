@@ -162,6 +162,11 @@
 	margin-top: 20px;
 }
 
+#service-graph-response {
+	margin-top: 15px;
+	padding: 0px auto;
+}
+
 /*
  * Blacklist
  */

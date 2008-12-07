@@ -30,6 +30,8 @@ class ServicesController < ApplicationController
 
 	def show
 		@service = Service.find_by_id params[:id]
+		@graphStatus = generateServiceGraphs @service.id
+		@graphName = "service_" + @service.id.to_s + "-response.png"
 	end
 
 	def delete

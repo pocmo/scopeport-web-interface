@@ -127,9 +127,13 @@ class ApplicationController < ActionController::Base
 		# Config.
 		rrdtool_path = "/usr/bin/rrdtool"
 		rrd_path = "/home/lennart/workspace/scopeport-web-interface/rrds/"
+		png_path = "/home/lennart/workspace/scopeport-web-interface/public/images/graphs/"
 		
 		# The complete path to this RRD.
 		rrd = rrd_path + "service_" + service_id.to_s + "-response.rrd"
+		
+		# The complete path to this graph PNG.
+		png = png_path + "service_" + service_id.to_s + "-response.png"
 
 		# Return false if calling rrdtool fails.
 		return false if !File.executable? rrdtool_path
@@ -143,8 +147,34 @@ class ApplicationController < ActionController::Base
 			return false if !system command
 		end
 
-		# We now have a correct RRD in variable rrd. Fetch the service data to plot.
-		data = Servicerecord.find :all
+		# Get the timestamp of the last update of this RRD.
+		fetch_last_command = rrdtool_path + " last " + rrd
+		lastupdate = `#{fetch_last_command}`
+		yesterday = (Time.now - 86400).to_i
+
+		# We now have a correct RRD in variable rrd and its last update time in variable lastupdate.
+		
+		# Fetch the service data to plot.
+		data = Servicerecord.find :all, :conditions => ["timestamp > ? AND timestamp > ?", yesterday.to_s, lastupdate]
+
+		# Insert every fetched record into the RRD.
+		fails = 0
+		data.each do |d|
+			update_command = rrdtool_path + " update " + rrd + " " + d.timestamp.to_s + ":" + d.ms.to_s
+			fails+=1 if !system update_command
+		end
+
+		# Return false if _every_ insert command failed.
+		return false if fails == data.size && data.size > 0
+
+		# Generate the graph.
+		
+		line1 = "DEF:response=" + rrd + ":response:AVERAGE LINE:response#eb7f00:'Response time (ms)'";
+
+		make_graph = rrdtool_path + " graph " + png + " --start " + yesterday.to_s + " --end N " + line1 + " -t 'Response time of THIS SERVICE' -w 830 -h 140 -c SHADEA#f8f8f8 -c SHADEB#f8f8f8 -c FONT#000000 -c BACK#f8f8f8 -c CANVAS#f8f8f8 -c GRID#696969 -c MGRID#877254 -c AXIS#bdbdbd -c ARROW#bdbdbd -Y -X 1"
+
+		# Execute the command that creates the graph.
+		return false if !system make_graph
 
 		# Everything went fine. - The graph has been updated.
 		return true
