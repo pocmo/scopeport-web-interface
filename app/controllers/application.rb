@@ -52,6 +52,9 @@ class ApplicationController < ActionController::Base
 	def getServerNotRunningMessage
 		status = Vital.find(:first)
 		last_update = Time.now - Time.at(status.timestamp)
+
+		return if last_update.blank?
+
 		if isProductionVersion? && (status.blank? || last_update > 300)
 			return "<div id='server-not-running'>It seems like your ScopePort server is not running.</div>"
 		end
@@ -117,6 +120,34 @@ class ApplicationController < ActionController::Base
 		returnage << "</ul></div>";
 
 		return returnage
+	end
+
+	# This will generate the graphs of a given service. Returns true or false.
+	def generateServiceGraphs service_id
+		# Config.
+		rrdtool_path = "/usr/bin/rrdtool"
+		rrd_path = "/home/lennart/workspace/scopeport-web-interface/rrds/"
+		
+		# The complete path to this RRD.
+		rrd = rrd_path + "service_" + service_id.to_s + "-response.rrd"
+
+		# Return false if calling rrdtool fails.
+		return false if !File.executable? rrdtool_path
+		
+		# RRD does not exist - Create it.
+		if !File.exists? rrd
+			# Command to create RRD.
+			command = rrdtool_path + " create " + rrd + " --start NOW --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
+
+			# Return false if creating RRD failed.
+			return false if !system command
+		end
+
+		# We now have a correct RRD in variable rrd. Fetch the service data to plot.
+		data = Servicerecord.find :all
+
+		# Everything went fine. - The graph has been updated.
+		return true
 	end
 
 end
