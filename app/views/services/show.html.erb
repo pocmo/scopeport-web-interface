@@ -52,6 +52,8 @@
    	<dd><%=h @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
    	<dt>Timeout</dt>
    	<dd><%=h @service.timeout %> Seconds</dd>
+   	<dt>Handler</dt>
+   	<dd>#<%=h @service.handler %></dd>
   </dl>
 
 </div>
@@ -61,3 +63,5 @@
 		<%= submit_tag "Delete this service", :disable_with => "Please wait" %>
 	<% end %>
 </div>
+
+<%= @graphStatus %>
