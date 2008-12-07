@@ -45,4 +45,18 @@ class ServicesController < ApplicationController
 		end
 	end
 
+	def show_graph
+		graphStatus = generateServiceGraphs params[:id]
+		graphName = "service_" + params[:id] + "-response.png"
+
+		# Output the graph if generating worked.
+		if graphStatus == 1
+			render :text => '<img src="/images/graphs/' + graphName + '" alt="" />'
+			return
+		end
+
+		# Generating the graph failed.
+		render :text => '<strong>Internal error. Could not create graph</strong>'
+	end
+
 end
