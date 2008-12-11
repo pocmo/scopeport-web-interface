@@ -1,6 +1,6 @@
 <%= render_headline "Downtimes" %>
+Dowtime Section
 
-<% if @downtimes.length > 0 %>
 
 	<table id="downtime-table">
 		<tr class="doNotHighlightMe">
@@ -11,6 +11,7 @@
 			<th>Type</th>
 			<th>Scheduled?</th>
 		</tr>
+	<% if @downtimes.length > 0 %>
 		<% @downtimes.each do |downtime| %>	
 			<tr>
 				<td>
@@ -35,9 +36,10 @@
 			
 		<%end%>
 		
-	</table>
+	
 <% else %>
 	<p>
-		No downtime records
+		No downtime record
 	</p>
+	</table>
 <% end %>
