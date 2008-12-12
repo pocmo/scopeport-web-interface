@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 	# Returns if this is a production version. I.e. used to not display
 	# "server not running" message in development versions.
 	def isProductionVersion?
-		return false
+		return true
 	end
 
 	# Tries to find out if the ScopePort server is running by
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
 		return if last_update.blank?
 
 		if isProductionVersion? && (status.blank? || last_update > 300)
-			return "<div id='server-not-running'>It seems like your ScopePort server is not running.</div>"
+			return "<div id='server-not-running'>Warning: It seems like your ScopePort server is not running.</div>"
 		end
 		# Everything up to date. The server is running.
 		return
@@ -161,7 +161,7 @@ class ApplicationController < ActionController::Base
 		# We now have a correct RRD in variable rrd and its last update time in variable lastupdate.
 		
 		# Fetch the service data to plot.
-		data = Servicerecord.find :all, :conditions => ["timestamp > ? AND timestamp > ?", yesterday.to_s, lastupdate]
+		data = Servicerecord.find :all, :conditions => ["timestamp > ? AND timestamp > ? AND serviceid = ?", yesterday.to_s, lastupdate, service_id]
 
 		# Return 2 if there is too much data. The user then must click on a link to reload the graph.
 		# This avoids waiting times if the user doesn't even want to see the graph.
