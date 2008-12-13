@@ -79,9 +79,15 @@
 		</noscript>
 		<%= getServerNotRunningMessage  %>
 
-		<div id="flash-notice"><%= flash[:notice] %></div>
-		<div id="flash-error"><%= flash[:error] %></div>
-		
+		<div id="flashs">
+			<div id="flash-notice">
+				<%= flash[:notice] %>
+			</div>
+			<div id="flash-error">
+				<%= flash[:error] %>
+			</div>
+		</div>
+
 		<%= yield %>
 
 	</div>
@@ -93,4 +99,3 @@
 </div>
 </body>
 </html>
-
