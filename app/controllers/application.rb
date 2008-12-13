@@ -51,6 +51,8 @@ class ApplicationController < ActionController::Base
 	# investigating the timestamps in the vitals table.
 	def getServerNotRunningMessage
 		status = Vital.find(:first)
+		return if status.blank?
+		
 		last_update = Time.now - Time.at(status.timestamp)
 
 		return if last_update.blank?
