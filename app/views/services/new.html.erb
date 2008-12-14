@@ -24,7 +24,8 @@
 			<%= f.text_field :maxres, :value => "250" %> <%= error_message_on(:service, :maxres) %>
 
 			<%= label :warninggroup, "Notification group" %>
-			<%= f.select :warninggroup, @notigroups, { :selected => "0" }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); return false;", } %> 	<%= error_message_on(:service, :warninggroup) %>
+			<%= f.select :warninggroup, @notigroups, { :selected => "0" }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
+			<%= error_message_on(:service, :warninggroup) %>
  	  	
 			<%= label :linkedhost, "Link to host" %>
      	<%= f.select :linkedhost, @hosts, { :selected => "0" }%> <%= error_message_on(:service, :linkedhost) %>
@@ -63,7 +64,7 @@
 	</div>
 
 	<div id="service-new-receivers">
-			<h2>Notification receveivers</h2>
+			<h2 id="receivers-head">Notification receveivers</h2>
 			The following receivers <%= @token %> will be informed in case of an alarm related to this service:
 			<div id="service-new-receivers-list">
 			</div>

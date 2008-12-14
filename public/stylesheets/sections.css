@@ -126,6 +126,8 @@
 	margin-left: 350px;
 	border-left: 1px dotted #444444;
 	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 #service-new-receivers-list {
