@@ -197,3 +197,31 @@
 #alarms-attendalarm {
 	margin-top: 15px;
 }
+
+/*
+ * General Settings
+ */
+
+#general_settings {
+	margin-top: 5px;
+}
+
+#general_settings-form {
+	float: left;
+	height: 100%;
+}
+
+#general_settings-help {
+	margin-left: 350px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
+}
+ 
+#general_settings-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#general_settings-help dd {
+	margin-left: 140px;
+}

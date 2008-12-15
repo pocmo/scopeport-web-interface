@@ -2,8 +2,8 @@
 
 <%= javascript_include_tag "scopeport-forms" %>
 
-<div id="general-settings">
-	<div id="setting-form">
+<div id="general_settings">
+	<div id="general_settings-form">
 	
 	<% form_for :setting, :url => { :action => 'save' } do |f| %>
 		<fieldset>
@@ -11,6 +11,7 @@
 				
 				<%= label_txtfd_err(f, :spserver, 'ScopePort Ip or Hostname', @settings.spserver, :settings) %>
 				<%= label_txtfd_err(f, :spport, 'Port the ScopePort Server is listening on (default: 12200)', @settings.spport, :settings) %>
+		
 				
 		</fieldset>
 		<fieldset>	
@@ -51,11 +52,17 @@
 				<%= label_txtfd_err(f,	:mobilecPassword, 'Password for Clickatell SMS API', @settings.mobilecPassword, :settings) %>
 				<%= label_txtfd_err(f,	:mobilecAPIID, 'Clickatell API ID', @settings.mobilecAPIID, :settings) %>
 				
+										
+		<%= f.label	:doMobileClickatell, 'Send SMS via Clickatell API?' %></dt>
+				<%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>		
+				
+		</fieldset>
+		<fieldset>	
+			<legend>Notifications</legend>
 				
 				<%= label :gnotigroup, "Notification group" %>
 				<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
-				
-				
+					
 				<%= f.label	:eg1,'Emergency notification group for emergency with severity "warning"' %>
 				<%= f.select :eg1, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg1) %>
 				<%= f.label	:eg2,'Emergency notification group for emergency with severity "alert"' %>
@@ -64,8 +71,6 @@
 				<%= f.select :eg3, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg3) %>
 				
 				
-				<%= f.label	:doMobileClickatell, 'Send SMS via Clickatell API?' %></dt>
-				<%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>
 		</fieldset>
 		<fieldset>
 			<legend>Control</legend>
@@ -74,8 +79,45 @@
 	<% end %>
 	</div>
 	
-	<div id="setting-help">
-		
+	<div id="general_settings-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>Hostname</dt>
+			<dd id="formhelp-spserver">The ScopeServer's IP or DNS</dd>
+			<dt>Server Port</dt>
+			<dd id="formhelp-spport">The port the server will listen</dd>
+			<dt>Mail server</dt>
+			<dd id="formhelp-mail_server">The SMTP server to use the e-mail service</dd>
+			<dt>E-mail username</dt>
+			<dd id="formhelp-mail_user">The SMTP server login</dd>
+			<dt>E-mail password</dt>
+			<dd id="formhelp-mail_pass">The login password</dd>
+			<dt>E-mail server</dt>
+			<dd id="formhelp-mail_hostname">SMTP server name</dd>
+			<dt>E-mail "from"</dt>
+			<dd id="formhelp-mail_from">E-mail "from"</dd>
+			<dt>XMPP server</dt>
+			<dd id="formhelp-xmpp_server">XMPP/Jabber server to use the IM service</dd>
+			<dt>XMPP username</dt>
+			<dd id="formhelp-xmpp_user">XMPP/Jabber login</dd>
+			<dt>XMPP password</dt>
+			<dd id="formhelp-xmpp_pass">XMPP/Jabber password</dd>
+			<dt>XMPP resources</dt>
+			<dd id="formhelp-xmpp_resource">XMPP resources</dd>
+			<dt>SMS username</dt>
+			<dd id="formhelp-mobilecUsername">Username to use the Clickatell SMS service</dd>
+			<dt>SMS password</dt>
+			<dd id="formhelp-mobilecPassword">Clickatell SMS password</dd>
+			<dt>SMS API ID</dt>
+			<dd id="formhelp-mobilecAPIID">Clickatell API ID</dd>
+			<dt>"Warning" group</dt>
+			<dd id="formhelp-eg1">Select the group for this kind of alert</dd>
+			<dt>"Alert" group</dt>
+			<dd id="formhelp-eg2">Select the group for this kind of alert</dd>
+			<dt>"Critical" group</dt>
+			<dd id="formhelp-eg3">Select the group for this kind of alert</dd>
+			
+		</dl>
 		
 	</div>
-</div
+</div>
