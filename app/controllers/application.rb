@@ -17,6 +17,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  include AuthenticatedSystem
 
 	helper_method :getLastLogMessage
 	helper_method :getServerNotRunningMessage

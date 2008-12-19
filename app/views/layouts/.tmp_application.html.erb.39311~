@@ -27,11 +27,7 @@
 			</div>
 			<div id="usermenu">
 				<div id="usermenuwelcome">
-					<% if logged_in? -%>
-  					<strong>Welcome</strong>, <%= link_to_current_user :content_method => :login %>
-					<% else %>
-					<%= link_to "Log in",  login_path,  { :title => "Log in" } %>
-					<% end %>
+					<strong>Welcome</strong>, lennart!
 				</div>
 				<div id="usermenulinks">
 					<%= link_to "Settings", :controller => "usersettings" %>
