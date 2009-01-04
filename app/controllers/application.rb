@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
 	helper_method :getNameOfWarningGroup
 	helper_method :getNameOfHost
 
-  before_filter :login_required
-  
+  before_filter :login_required, :admin?
+
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '7ff73c4e87f55ca1949926d59b1ec12d'
@@ -194,6 +194,17 @@ class ApplicationController < ActionController::Base
 		# Everything went fine. - The graph has been updated.
 		return 1
 	end
+	
 
-  
+
+	#A method to block the admin pages to non-admin users
+	def admin?
+		admin_controllers = %w{logmessages vitals setup}
+		user = current_user
+		if user != nil and !user.admin and admin_controllers.include?(params[:controller]) 
+			flash[:error] = "You must be admin to peform this action"
+			redirect_back_or_default('/')
+		end
+	end
+
 end
