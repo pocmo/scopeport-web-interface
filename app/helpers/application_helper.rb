@@ -57,4 +57,9 @@ module ApplicationHelper
 		end
 		return "none"
 	end
+
+	#Returns the Admin attribute of the current user
+	def admin?
+		current_user.admin	
+	end
 end
