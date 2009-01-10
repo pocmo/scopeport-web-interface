@@ -223,7 +223,7 @@
 }
 
 #general_settings-help {
-	margin-left: 470px;
+	margin-left: 440px;
 	padding-left: 10px;
 	border-left: 1px dotted #444444;
 }
@@ -235,16 +235,4 @@
 
 #general_settings-help dd {
 	margin-left: 150px;
-}
-
-#mailing {
-  margin-bottom: 10px;
-}
-
-#xmpp {
-  margin-bottom: 10px;
-}
-
-#mobilec {
-  margin-bottom: 10px;
 }

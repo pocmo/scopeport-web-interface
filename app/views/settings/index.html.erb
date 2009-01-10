@@ -11,10 +11,11 @@
 
     <br /><br />
 
-    <span class="general_settings-area-head">
+    <fieldset>
+    <legend class="general_settings-area-head">
       <%= showIcon "arrow_down", "float: left;" %>
       <a style="cursor: pointer;" onclick="document.getElementById('mailing').style.display='block';">SMTP/Mailing</a>
-    </span>
+    </legend>
     <div id="mailing" style="display: none;">
   		<%= f.label	:mail_enabled, 'Send emails?' %></dt>
   		<%= f.check_box :mail_enabled, :checked => friendly_nil(@settings.mail_enabled)  %> <%= error_message_on(:settings, :mail_enabled) %>
@@ -29,11 +30,13 @@
   		<%= f.label	:mail_usetls, 'Use TLS encryption?' %></dt>
   		<%= f.check_box :mail_usetls, :checked => friendly_nil(@settings.mail_usetls) %> <%= error_message_on(:settings, :mail_usetls) %> 
 		</div>
+    </fieldset>
   				
-    <span class="general_settings-area-head">
+    <fieldset>
+    <legend class="general_settings-area-head">
       <%= showIcon "arrow_down", "float: left;" %>
       <a style="cursor: pointer;" onclick="document.getElementById('xmpp').style.display='block';">XMPP/Jabber</a>
-    </span>
+    </legend>
     <div id="xmpp" style="display: none;">
   		<%= f.label	:xmpp_enabled, 'Send XMPP/Jabber messages?' %>
   		<%= f.check_box :xmpp_enabled, :checked => friendly_nil(@settings.xmpp_enabled) %> <%= error_message_on(:settings, :xmpp_enabled) %>
@@ -43,11 +46,13 @@
   		<%= label_txtfd_err(f, :xmpp_pass, 'XMPP password', @settings.xmpp_pass, :settings) %>
   		<%= label_txtfd_err(f, :xmpp_resource, 'XMPP resource', @settings.xmpp_resource, :settings) %>
 		</div>
+    </fieldset>
 
-    <span class="general_settings-area-head">
+    <fieldset>
+    <legend class="general_settings-area-head">
       <%= showIcon "arrow_down", "float: left;" %>
       <a style="cursor: pointer;" onclick="document.getElementById('mobilec').style.display='block';">Clickatell SMS API</a>
-    </span>
+    </legend>
     <div id="mobilec" style="display: none;">
       <%= f.label	:doMobileClickatell, 'Send SMS (Clickatell API)?' %></dt>
       <%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>		
@@ -55,6 +60,7 @@
 			<%= label_txtfd_err(f, :mobilecUsername, 'API username', @settings.mobilecUsername, :settings) %>
 			<%= label_txtfd_err(f, :mobilecPassword, 'API password', @settings.mobilecPassword, :settings) %>
     </div>
+    </fieldset>
 
 		<%= label :gnotigroup, "General notification group" %>
 		<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
