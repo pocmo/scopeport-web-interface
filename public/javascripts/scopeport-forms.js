@@ -21,7 +21,7 @@ window.onload = function(){
 
 			// Get the element we want to change the class of.
     	helptext = document.getElementById("formhelp-" + fieldname);
-			if(helptext != null)
+			if(helptext)
 				helptext.className = "formhelp-highlighted";
     }
 
@@ -34,7 +34,7 @@ window.onload = function(){
 
 			// Get the element we want to change the class of.
     	helptext = document.getElementById("formhelp-" + fieldname);
-			if(helptext != null)
+			if(helptext)
 				helptext.className = "formhelp-normal";
     }
   }
@@ -61,7 +61,7 @@ window.onload = function(){
 
 			// Get the element we want to change the class of.
 			helptext = document.getElementById("formhelp-" + fieldname);
-			if(helptext != null)
+			if(helptext)
 				helptext.className = "formhelp-highlighted";
     }
     
@@ -74,7 +74,7 @@ window.onload = function(){
 
 			// Get the element we want to change the class of.
     	helptext = document.getElementById("formhelp-" + fieldname);
-			if(helptext != null);
+			if(helptext)
 				helptext.className = "formhelp-normal";
 		}
 	}
