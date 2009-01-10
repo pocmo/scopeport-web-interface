@@ -6,16 +6,9 @@
 	<div id="general_settings-form">
 	
 	<% form_for :setting, :url => { :action => 'save' } do |f| %>
-		<fieldset>
-			<legend>ScopePort Server Settings</legend>
-				
 				<%= label_txtfd_err(f, :spserver, 'ScopePort Ip or Hostname', @settings.spserver, :settings) %>
 				<%= label_txtfd_err(f, :spport, 'Port the ScopePort Server is listening on (default: 12200)', @settings.spport, :settings) %>
 		
-				
-		</fieldset>
-		<fieldset>	
-			<legend>Mail Server Settings</legend>	
 				<%= label_txtfd_err(f,	:mail_server, 'SMTP server to mail service', @settings.mail_server, :settings) %> 		
 				<%= label_txtfd_err(f,	:mail_user, 'SMTP username', @settings.mail_user, :settings) %> 
 				<%= label_txtfd_err(f, :mail_pass, 'SMTP password', @settings.mail_pass, :settings)  %> 
@@ -31,9 +24,7 @@
 				<%= f.check_box :mail_useauth, :checked => friendly_nil(@settings.mail_useauth) %> <%= error_message_on(:settings,:mail_useauth) %>
 				<%= f.label	:mail_usetls, 'Use TLS encryption?' %></dt>
 				<%= f.check_box :mail_usetls, :checked => friendly_nil(@settings.mail_usetls) %> <%= error_message_on(:settings, :mail_usetls) %> 
-		</fieldset>
-		<fieldset>		
-			<legend>XMPP/Jabber Server Settings</legend>	
+				
 				<%= label_txtfd_err(f, :xmpp_server, 'XMPP/Jabber server for IM service', @settings.xmpp_server, :settings) %>
 				<%= label_txtfd_err(f, :xmpp_user, 'XMPP/Jabber username', @settings.xmpp_user, :settings) %>
 				<%= label_txtfd_err(f, :xmpp_pass, 'XMPP/Jabber password', @settings.xmpp_pass, :settings) %>
@@ -42,11 +33,6 @@
 				
 				<%= f.label	:xmpp_enabled, 'Send XMPP/Jabber messages?' %>
 				<%= f.check_box :xmpp_enabled, :checked => friendly_nil(@settings.xmpp_enabled) %> <%= error_message_on(:settings, :xmpp_enabled) %>
-		</fieldset>
-		<fieldset>	
-			<legend>Clickatell API Settings</legend>	
-				
-				
 				
 				<%= label_txtfd_err(f,	:mobilecUsername, 'Username for Clickatell SMS API', @settings.mobilecUsername, :settings) %>
 				<%= label_txtfd_err(f,	:mobilecPassword, 'Password for Clickatell SMS API', @settings.mobilecPassword, :settings) %>
@@ -55,10 +41,6 @@
 										
 		<%= f.label	:doMobileClickatell, 'Send SMS via Clickatell API?' %></dt>
 				<%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>		
-				
-		</fieldset>
-		<fieldset>	
-			<legend>Notifications</legend>
 				
 				<%= label :gnotigroup, "Notification group" %>
 				<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
@@ -70,12 +52,7 @@
 				<%= f.label	:eg3,'Emergency notification group for emergency with severity "critical"'%>
 				<%= f.select :eg3, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg3) %>
 				
-				
-		</fieldset>
-		<fieldset>
-			<legend>Control</legend>
 			<%= submit_tag "Save Settings" %>
-		</fieldset>
 	<% end %>
 	</div>
 	
@@ -121,3 +98,5 @@
 		
 	</div>
 </div>
+
+<br style="clear: both;">
