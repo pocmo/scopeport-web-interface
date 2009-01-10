@@ -9,7 +9,13 @@
 		<%= label_txtfd_err(f, :spserver, 'IP or Hostname of ScopePort server', @settings.spserver, :settings) %>
 		<%= label_txtfd_err(f, :spport, 'Port of ScopePort server', @settings.spport, :settings) %>
 
-    <div class="settings-mailing">
+    <br /><br />
+
+    <span class="general_settings-area-head">
+      <%= showIcon "arrow_down", "float: left;" %>
+      <a style="cursor: pointer;" onclick="document.getElementById('mailing').style.display='block';">SMTP/Mailing</a>
+    </span>
+    <div id="mailing" style="display: none;">
   		<%= f.label	:mail_enabled, 'Send emails?' %></dt>
   		<%= f.check_box :mail_enabled, :checked => friendly_nil(@settings.mail_enabled)  %> <%= error_message_on(:settings, :mail_enabled) %>
   		<%= label_txtfd_err(f,	:mail_server, 'SMTP server', @settings.mail_server, :settings) %> 		
@@ -24,7 +30,11 @@
   		<%= f.check_box :mail_usetls, :checked => friendly_nil(@settings.mail_usetls) %> <%= error_message_on(:settings, :mail_usetls) %> 
 		</div>
   				
-    <div class="settings-xmpp">
+    <span class="general_settings-area-head">
+      <%= showIcon "arrow_down", "float: left;" %>
+      <a style="cursor: pointer;" onclick="document.getElementById('xmpp').style.display='block';">XMPP/Jabber</a>
+    </span>
+    <div id="xmpp" style="display: none;">
   		<%= f.label	:xmpp_enabled, 'Send XMPP/Jabber messages?' %>
   		<%= f.check_box :xmpp_enabled, :checked => friendly_nil(@settings.xmpp_enabled) %> <%= error_message_on(:settings, :xmpp_enabled) %>
   		<%= label_txtfd_err(f, :xmpp_server, 'XMPP server', @settings.xmpp_server, :settings) %>
@@ -34,7 +44,11 @@
   		<%= label_txtfd_err(f, :xmpp_resource, 'XMPP resource', @settings.xmpp_resource, :settings) %>
 		</div>
 
-    <div class="settings-mobilec">
+    <span class="general_settings-area-head">
+      <%= showIcon "arrow_down", "float: left;" %>
+      <a style="cursor: pointer;" onclick="document.getElementById('mobilec').style.display='block';">Clickatell SMS API</a>
+    </span>
+    <div id="mobilec" style="display: none;">
       <%= f.label	:doMobileClickatell, 'Send SMS (Clickatell API)?' %></dt>
       <%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>		
 			<%= label_txtfd_err(f, :mobilecAPIID, 'API ID', @settings.mobilecAPIID, :settings) %>
@@ -45,11 +59,11 @@
 		<%= label :gnotigroup, "General notification group" %>
 		<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
 					
-		<%= f.label	:eg1,'Emergency notification group for emergency with severity "warning"' %>
+		<%= f.label	:eg1,'Notification group for emergencies with severity "warning"' %>
 		<%= f.select :eg1, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg1) %>
-		<%= f.label	:eg2,'Emergency notification group for emergency with severity "alert"' %>
+		<%= f.label	:eg2,'Notification group for emergencies with severity "alert"' %>
 		<%= f.select :eg2, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg2) %>
-		<%= f.label	:eg3,'Emergency notification group for emergency with severity "critical"'%>
+		<%= f.label	:eg3,'Notification group for emergencies with severity "critical"' %>
 		<%= f.select :eg3, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg3) %>
 		
     <br /><br />

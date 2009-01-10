@@ -211,6 +211,17 @@
 	height: 100%;
 }
 
+.general_settings-area-head {
+  font-size: 13px;
+  font-weight: bold;
+  display: block;
+}
+
+.general_settings-area-head a {
+  color: #333333;
+  border: 0px;
+}
+
 #general_settings-help {
 	margin-left: 470px;
 	padding-left: 10px;
@@ -223,5 +234,17 @@
 }
 
 #general_settings-help dd {
-	margin-left: 140px;
+	margin-left: 150px;
+}
+
+#mailing {
+  margin-bottom: 10px;
+}
+
+#xmpp {
+  margin-bottom: 10px;
+}
+
+#mobilec {
+  margin-bottom: 10px;
 }
