@@ -118,6 +118,40 @@ dd {
 	color: #000000;
 }
 
+#loginbox {
+  margin: 0px auto;
+  margin-top: 45px;
+  width: 510px;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  background-image: url(/images/loginboxend.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+#loginbox label {
+  font-size: 10px;
+}
+
+#loginbox input {
+  font-size: 10px;
+  padding: 0px;
+}
+
+#logintop {
+  padding-bottom: 15px;
+}
+
+#loginnotice{
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  color: #AAAAAA;
+}
+
 #maintop {
 	width: 100%;
 	background-color: #182221;
