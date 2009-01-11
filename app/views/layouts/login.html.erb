@@ -10,6 +10,16 @@
 	<%= javascript_include_tag "effects" %>
 </head>
 <body>
+	<div id="flash-notice" style="display: none;"><%= flash[:notice] %></div>
+	<div id="flash-error" style="display: none;"><%= flash[:error] %></div>
+	<script type="text/javascript">
+		noticediv = document.getElementById("flash-notice").innerHTML;
+		errordiv = document.getElementById("flash-error").innerHTML;
+		if(noticediv != "")
+			Effect.toggle('flash-notice', 'appear', { delay: 0.0, duration: 3.0 });
+		if(errordiv != "")
+			Effect.toggle('flash-error', 'appear', { delay: 0.0, duration: 3.0 });
+	</script>
   <%= yield %>
 </body>
 </html>
