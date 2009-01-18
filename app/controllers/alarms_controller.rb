@@ -9,5 +9,10 @@ class AlarmsController < ApplicationController
 		@alarm = Alarm.find(params[:id],
 														:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, services.name AS servicename",
 														:joins => "LEFT JOIN services ON services.id = alarms.serviceid")
+
+    if @alarm.servicename.blank?
+      flash[:error] = "This alarm does not exist."
+      redirect_to :controller => "alarms"
+    end
 	end
 end
