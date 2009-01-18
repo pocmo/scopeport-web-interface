@@ -36,7 +36,8 @@ class ServicesController < ApplicationController
 
 	def delete
 		service = Service.find_by_id params[:id]
-		if service.destroy
+    alarms = Alarm.find_by_serviceid params[:id]
+		if service.destroy && alarms.destroy
 			flash[:notice] = "Service has been deleted!"
 			redirect_to :action => "index"
 		else
