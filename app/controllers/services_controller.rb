@@ -1,6 +1,5 @@
 class ServicesController < ApplicationController
 	def index
-		#@services = Service.find(:all)
 		@services = Service.find_all_by_disabled 0
 		@serviceCount = @services.size
 	end
@@ -30,8 +29,12 @@ class ServicesController < ApplicationController
 
 	def show
 		@service = Service.find_by_id params[:id]
+    redirect_to :action => "index" if @service.blank?
+
 		@graphStatus = generateServiceGraphs @service.id
 		@graphName = "service_" + @service.id.to_s + "-response.png"
+
+    @new_comment = Servicecomment.new
 	end
 
 	def delete
@@ -59,5 +62,27 @@ class ServicesController < ApplicationController
 		# Generating the graph failed.
 		render :text => '<strong>Internal error. Could not create graph</strong>'
 	end
+
+  def store_comment
+    comment = Servicecomment.new params[:new_comment]
+
+    service_id = params[:new_comment][:service_id]
+    user_id = current_user.id
+    if service_id.blank? || user_id.blank?
+      flash[:error] = "Could not add comment: Missing parameters."
+      redirect_to :action => "index"
+      return
+    end
+
+    comment.service_id = service_id
+    comment.user_id = user_id
+
+    if comment.save
+      flash[:notice] = "Comment has been added."
+    else
+      flash[:error] = "Could not add comment! Please fill out all fields."
+    end
+    redirect_to :action => "show", :id => service_id
+  end
 
 end

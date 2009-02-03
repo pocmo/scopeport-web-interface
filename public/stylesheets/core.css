@@ -464,3 +464,36 @@ dd {
 .no-background-content {
 	background-color: #F8F8F8;
 }
+
+.new-comment textarea {
+ float: left;
+}
+
+.new-comment p {
+  clear: both;
+  padding-top: 5px;
+}
+
+.comment-description {
+  margin-left: 600px;
+}
+
+.comment {
+  padding: 3px;
+}
+
+.comments {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.comment-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.comment-body {
+  margin-left: 25px;
+  border-left: 3px solid #000000;
+  padding-left: 5px;
+}

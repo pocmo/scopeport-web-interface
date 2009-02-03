@@ -78,6 +78,56 @@
 	<% end %>
 </div>
 
+<div class="comments">
+  <h2>Comments</h2><br />
+  <% if @service.servicecomments.blank? %>
+    <div class="comment-body">
+      <strong>No comments on this service yet.</strong>
+    </strong>
+  <% end %>
+
+  <% @service.servicecomments.each do |comment| %>
+    <div class="comment">
+      <div class="comment-head">
+        <%= showIcon "comment" %>
+        <span class="comment-title">
+          <%= link_to h(comment.user.login), :controller => "users",
+                                             :action => "show",
+                                             :id => comment.user.id  %>:
+          <%=h comment.title %>
+        </span>
+        <span class="comment-date"><%=h comment.created_at %></span>
+      </div>
+      <div class="comment-body">
+        <%= simple_format h(comment.comment) %>
+      </div>
+    </div>
+    - TODO: Show all comments, Order -
+  <% end %>
+</div>
+
+<div class="new-comment">
+  <h2>New comment</h2>
+  <% form_for :new_comment, :url => { :action => "store_comment" } do |f| %>
+    <%= f.hidden_field :service_id, :value => @service.id %>
+    <%= f.label :title, "Title", :float => "left" %>
+    <%= f.text_field :title %>
+    <%= f.label :comment, "Comment", :float => "left" %>
+    <%= f.text_area :comment, :cols => "80", :rows => "5" %>
+    <div class="comment-description">
+      <strong>Use this form to leave a comment on this service.</strong>
+      You can delete your own comments at any time. Note that your name
+      will be visible above the comment.
+
+      <br /><br />
+
+      No HTML allowed. Lines break automatically.
+    </div>
+    <p><%= submit_tag "Add comment", :disable_with => "Please wait" %></p>
+  <% end %>
+</div>
+
+
 <div id="service-delete">
 	<% form_tag :action => "delete", :id => @service.id do %>
 		<%= submit_tag "Delete this service", :disable_with => "Please wait" %>
