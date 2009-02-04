@@ -33,3 +33,8 @@ function clearFieldWithText(field, standardtext){
   if(field.value == standardtext)
     field.value = "";
 }
+
+function hideComment(id){
+  comment = document.getElementById("comment_" + id);
+  comment.style.display = "none";
+}

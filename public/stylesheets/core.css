@@ -465,7 +465,7 @@ dd {
 	background-color: #F8F8F8;
 }
 
-.new-comment textarea {
+.new-comment-form {
  float: left;
 }
 
@@ -474,7 +474,8 @@ dd {
   padding-top: 5px;
 }
 
-.comment-description {
+.new-comment-description {
+  padding-top: 80px;
   margin-left: 600px;
 }
 

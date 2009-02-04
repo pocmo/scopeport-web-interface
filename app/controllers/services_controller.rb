@@ -85,4 +85,23 @@ class ServicesController < ApplicationController
     redirect_to :action => "show", :id => service_id
   end
 
+  def deletecomment
+    comment = Servicecomment.find params[:id]
+    if comment.nil?
+      render :text => "Comment not found"
+      return
+    end
+
+    # Only allow deletion of comments owned by this user.
+    if comment.user_id == current_user.id
+      if comment.destroy
+        render :text => "Comment deleted."
+      else
+        render :text => "Could not delete comment."
+      end
+      return
+    end
+
+    render :text => "This is not your comment."
+  end
 end
