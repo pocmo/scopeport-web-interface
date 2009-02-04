@@ -1,12 +1,57 @@
-<%= render_headline "Vitals" %>
+<h1>Database</h1>
 
 <div id="databasesizes">
 	<dl>
 		<dt>Total size of ScopePort database:</dt>
-		<dd><%= number_to_human_size @dbTotalSize %></dd>
+		<dd><%= number_to_human_size @db_total_size %></dd>
 		<dt>Size of sensordata table:</dt>
-		<dd><%=h number_to_human_size @dbSensorSize %></dd>
+		<dd><%=h number_to_human_size @db_sensor_size %></dd>
 		<dt>Size of servicedata table:</dt>
-		<dd><%=h number_to_human_size @dbServiceSize %></dd>
+		<dd><%=h number_to_human_size @db_service_size %></dd>
 	</dl>
+</div>
+
+<h1>Service handlers</h1>
+<div id="service-handler">
+
+</div>
+
+<h1>Processes</h1>
+<div id="processes">
+  <% @main_processes.each do |process| %>
+    <% if Time.at(process.timestamp) >= 6.minutes.ago %>
+      <div class="process mainprocess">
+        <span class="mainprocess-head process-running">Main process</span>
+        <br />
+        <span class="process-last-seen">Last seen: <%= Time.at process.timestamp %></span>
+        <br />
+        PID: <%=h process.pid %> | Virtual Memory: <%=h process.vmem %> | Threads: <%=h process.threads %>
+      </div>
+    <% else %>
+      <div class="process mainprocess">
+        <span class="mainprocess-head process-not-running">Main process</span>
+        <br />
+        This process is <strong>NOT</strong> running!
+      </div>
+    <% end %>
+  <% end %>
+
+  <% @client_handler_processes.each do |process| %>
+    <% if Time.at(process.timestamp) >= 6.minutes.ago %>
+      <div class="process client-handler-process">
+        <span class="client-handler-head process-running">Client handler</span>
+        <br />
+        <span class="process-last-seen">Last seen: <%= Time.at process.timestamp %></span>
+        <br />
+        PID: <%=h process.pid %> | Virtual Memory: <%=h process.vmem %> | Threads: <%=h process.threads %>
+      </div>
+    <% else %>  
+      <div class="process client-handler-process">
+        <span class="client-handler-head process-not-running">Client handler</span>
+        <br />
+        This process is <strong>NOT</strong> running!
+      </div>
+    <% end %>
+  <% end %>
+
 </div>

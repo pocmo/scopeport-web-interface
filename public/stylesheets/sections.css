@@ -27,6 +27,34 @@
 	margin-left: 200px;
 }
 
+#processes {
+  margin-top: 15px;
+}
+
+.process {
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: Monospace;
+  font-size: 12px;
+}
+
+.process-running {
+  color: #008E00;
+}
+
+.process-not-running {
+  color: #FF0000;
+}
+
+.mainprocess-head {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.client-handler-head {
+  font-size: 15px;
+}
+
 /*
  * Setup
  */

@@ -17,21 +17,21 @@
 
 class VitalsController < ApplicationController
 	def index
-		@databaseSizes = Vital.find(:last, :select => "dbtotalsize, dbsensorsize, dbservicesize",
+		@database_sizes = Vital.find(:last, :select => "dbtotalsize, dbsensorsize, dbservicesize",
 																		:order => "timestamp",
 																		:conditions => "clienthandler = 0")
-		@mainThreads = Vital.find(:all, :conditions => "clienthandler = 0")
-		@clienthandlerThreads = Vital.find(:all, :conditions => "clienthandler = 1")
+		@main_processes = Vital.find_all_by_clienthandler 0
+		@client_handler_processes = Vital.find_all_by_clienthandler 1
 
 		# Convert to byte.  
-		if !@databaseSizes.blank?
-			@dbTotalSize = @databaseSizes.dbtotalsize.to_f*1024*1024
-			@dbSensorSize = @databaseSizes.dbsensorsize.to_f*1024*1024
-			@dbServiceSize = @databaseSizes.dbservicesize.to_f*1024*1024
+		if !@database_sizes.blank?
+			@db_total_size = @database_sizes.dbtotalsize.to_f*1024*1024
+			@db_sensor_size = @database_sizes.dbsensorsize.to_f*1024*1024
+			@db_service_size = @database_sizes.dbservicesize.to_f*1024*1024
 		else
-			@dbTotalSize = 0
-			@dbSensorSize = 0
-			@dbServiceSize = 0
+			@db_total_size = 0
+			@db_sensor_size = 0
+			@db_service_size = 0
 		end
 
 	end
