@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   # Allow to create a first admin user.
-  skip_before_filter :login_required if User.find(:all).size == 0
+  skip_before_filter :login_required, :only => [:new, :create] if User.find(:all).size == 0
 
-  # render new.rhtml
+  def index
+    @users = User.find :all 
+  end
+
   def new
     # Is this the first admin user form?
     if User.find(:all).size == 0
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     @user = User.new
+    @departments = Department.find :all
   end
  
   def create
@@ -22,6 +26,7 @@ class UsersController < ApplicationController
       @first_admin = false
     end
 
+    @departments = Department.find :all
     @user = User.new(params[:user])
     success = @user && @user.save
     if success && @user.errors.empty?
@@ -29,7 +34,7 @@ class UsersController < ApplicationController
         redirect_to :controller => "sessions", :action => "new"
         flash[:notice] = "User has been created. You can login now!"
       else
-        redirect_back_or_default('/')
+        redirect_to :action => "index"
         flash[:notice] = "User created."
       end
     else

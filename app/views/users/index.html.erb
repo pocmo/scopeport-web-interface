@@ -1,0 +1,41 @@
+<h1>Manage users</h1>
+
+The following users are currently configured:
+
+<table>
+  <tr class="doNotHighlightMe">
+    <th>Username</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Email address</th>
+    <th>Last login</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%=h friendly_nil(user.login) %></td>
+      <td><%=h friendly_nil(user.name) %></td>
+      <td>
+        <% unless user.department.blank? %>
+          <%=h friendly_nil(user.department.name) %>
+        <% else %>
+          None
+        <% end %>
+      </td>
+      <td><%=h friendly_nil(user.email) %></td>
+      <td>
+        <% unless user.last_login.blank? %>
+          <%=h friendly_nil(user.last_login) %>
+        <% else %>
+          Never
+        <% end %>
+      </td>
+     <td><%= link_to "Show profile", :action => "show", :id => user.id %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+<%= link_to "Add user", :action => "new" %>
