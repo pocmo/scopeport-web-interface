@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
   
   # render new.rhtml
   def new
+    # Is this the first admin user form?
+    if User.find(:all).size == 0
+      @first_admin = true
+    else
+      @first_admin = false
+    end
   end
 
   def create

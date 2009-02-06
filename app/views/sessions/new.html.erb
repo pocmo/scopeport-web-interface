@@ -1,18 +1,29 @@
-<div id="loginbox">
-  <img src="/images/logintop.png" id="logintop">
-  <% form_tag sessions_path do -%>
-    Username:
-    <%= text_field_tag 'login', @login %>
-    &nbsp;&nbsp;
-    Password:
-    <%= password_field_tag 'password', nil %>
+<% if @first_admin == false %>
+  <div id="loginbox">
+    <img src="/images/logintop.png" id="logintop">
+    <% form_tag sessions_path do -%>
+      Username:
+      <%= text_field_tag 'login', @login %>
+      &nbsp;&nbsp;
+      Password:
+      <%= password_field_tag 'password', nil %>
 
-    <div id="loginbox-submit">
-      <%= submit_tag 'Login' %>
-    </div>
+      <div id="loginbox-submit">
+        <%= submit_tag 'Login' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="loginnotice">
+    The time of this login will be visible to the administrators as your "last login time". 
+  </div>
+
+<% else %>
+
+  <div id="loginbox">
+    <img src="/images/logintop.png" id="logintop">
+    <p>Congratulations! Your brand new ScopePort Web Interface is running.</p>
+    <p>Click <%= link_to "here", :controller => "users", :action => "new" %> to create your first user!</p>
+  </div>
+
 <% end %>
-</div>
-
-<div id="loginnotice">
- The time of this login will be visible to the administrators as your "last login time". 
-</div>

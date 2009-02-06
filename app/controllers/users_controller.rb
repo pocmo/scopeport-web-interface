@@ -1,19 +1,43 @@
 class UsersController < ApplicationController
+  # Allow to create a first admin user.
+  skip_before_filter :login_required if User.find(:all).size == 0
+
   # render new.rhtml
   def new
+    # Is this the first admin user form?
+    if User.find(:all).size == 0
+      @first_admin = true
+    else
+      @first_admin = false
+    end
+
     @user = User.new
   end
  
   def create
-#Uncomment to logout automatically on creation
-#    logout_keeping_session!
+    # Is this the first admin user form?
+    if User.find(:all).size == 0
+      @first_admin = true
+    else
+      @first_admin = false
+    end
+
     @user = User.new(params[:user])
     success = @user && @user.save
     if success && @user.errors.empty?
-      redirect_back_or_default('/')
-      flash[:notice] = "User created."
+      if @first_admin == true
+        redirect_to :controller => "sessions", :action => "new"
+        flash[:notice] = "User has been created. You can login now!"
+      else
+        redirect_back_or_default('/')
+        flash[:notice] = "User created."
+      end
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      if @first_admin == true
+        flash[:error]  = "Error! Could not set up first administrator account. Please try again.."
+      else
+        flash[:error]  = "Could not create user!"
+      end
       render :action => 'new'
     end
   end
