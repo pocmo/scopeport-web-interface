@@ -264,3 +264,31 @@
 #general_settings-help dd {
 	margin-left: 150px;
 }
+
+/*
+ * Users
+ */
+
+#user-new {
+  margin-top: 5px;
+}
+
+#user-new-form {
+  float: left;
+}
+
+#user-new-help {
+  border-left: 1px dotted #444444;
+  margin-left: 350px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+#user-new-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#user-new-help dd {
+	margin-left: 130px;
+}

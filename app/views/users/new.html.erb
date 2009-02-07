@@ -8,36 +8,108 @@
 
 <% @user.password = @user.password_confirmation = nil %>
 
-<%= error_messages_for :user %>
+<%= javascript_include_tag "scopeport-forms" %>
 
-<% form_for :user, :url => users_path do |f| -%>
-<p><%= f.label :login, "Username" %>
-<%= f.text_field :login %></p>
+<div id="user-new">
+  <%= error_messages_for :user %>
 
-<p><%= f.label :name,  "Real name" %>
-<%= f.text_field :name %></p>
+  <div id="user-new-form">
+    <% form_for :user, :url => users_path do |f| -%>
+      <p><%= f.label :login, "Username" %>
+      <%= f.text_field :login %></p>
 
-<p><%= f.label :email,  "Email address" %>
-<%= f.text_field :email %></p>
+      <p><%= f.label :name,  "Real name" %>
+      <%= f.text_field :name %></p>
 
-<p><%= f.label :telephone_number,  "Telephone number" %>
-<%= f.text_field :telephone_number %></p>
+      <p><%= f.label :email,  "Email address" %>
+      <%= f.text_field :email %></p>
 
-<p><%= f.label :department_id,  "Department" %>
-<%= f.select :department_id, @departments.collect {|dep| [ dep.name, dep.id ] }, { :include_blank => "None" } %></p>
+      <p><%= f.label :telephone_number,  "Telephone number (Optional)" %>
+      <%= f.text_field :telephone_number %></p>
 
-<p><%= f.label :password, "Password" %>
-<%= f.password_field :password %></p>
+      <p><%= f.label :department_id,  "Department" %>
+      <%= f.select :department_id, @departments.collect {|dep| [ dep.name, dep.id ] }, { :include_blank => "None" } %></p>
 
-<p><%= f.label :password_confirmation, "Confirm password" %>
-<%= f.password_field :password_confirmation %></p>
+      <p><%= f.label :password, "Password" %>
+      <%= f.password_field :password %></p>
 
-<% if @first_admin == true %>
-  <%= f.hidden_field :admin, :value => 1 %>
-<% else %>
-  <p><%= label_tag :admin, 'Admin?' %>
-  <%= f.check_box :admin, :checked_value => "True" %></p>
-<% end %>
+      <p><%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag "Create user" %></p>
-<% end -%>
+      <% if @first_admin == true %>
+        <%= f.hidden_field :admin, :value => 1 %>
+      <% else %>
+        <p><%= label_tag :admin, 'Admin?' %>
+        <%= f.check_box :admin, :checked_value => "True" %></p>
+      <% end %>
+
+      <p><%= submit_tag "Create user" %></p>
+    <% end -%>
+  </div>
+
+  <div id="user-new-help">
+    <h2>Help</h2>
+    <dl>
+      <dt>Username</dt>
+      <dd id="formhelp-login">
+        <% if @first_admin == true %>
+          Your desired username
+        <% else %>
+          The username of the new user
+        <% end %>
+        (Cannot be changed later)
+      </dd>
+      
+      <dt>Real name</dt>
+      <dd id="formhelp-name">
+        <% if @first_admin == true %>
+          Your full name
+        <% else %>
+          The full name of the new user
+        <% end %>
+      </dd>
+
+      <dt>Email address</dt>
+      <dd id="formhelp-email">
+        <% if @first_admin == true %>
+          Your email address
+        <% else %>
+          The email address of the new user
+        <% end %>
+      </dd>
+
+      <dt>Telephone number</dt>
+      <dd id="formhelp-telephone_number">
+        <% if @first_admin == true %>
+          Your telephone number. (Optional)
+        <% else %>
+          The telephone number of the new user. (Optional)
+        <% end %>
+      </dd>
+
+      <% if @first_admin == false %>
+        <dt>Department</dt>
+        <dd id="formhelp-department_id">The department your new user is working in.</dd>
+      <% end %>
+      
+      <dt>Password</dt>
+      <dd id="formhelp-password">
+        <% if @first_admin == true %>
+          Your desired password.
+        <% else %>
+          The password of the new user.
+        <% end %>
+      </dd>
+
+      <dt>Confirm password</dt>
+      <dd id="formhelp-password_confirmation">Type the password again to avoid typos.</dd>
+
+      <% if @first_admin == false %>
+        <dt>Admin</dt>
+        <dd id="admin">Check this box to make this user and administrator</dd>
+      <% end %>
+
+    </dl>
+  </div>
+  <br style="clear: both;"/>
+</div>
