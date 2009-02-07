@@ -12,11 +12,21 @@
 </div>
 
 <h1>Service handlers</h1>
+<% if @main_processes.blank? %>
+  <strong>No service handlers found</strong>
+<% end %>
+
 <div id="service-handler">
 
 </div>
 
+<br />
+
 <h1>Processes</h1>
+<% if @main_processes.blank? %>
+  <strong>No processes found</strong>
+<% end %>
+
 <div id="processes">
   <% @main_processes.each do |process| %>
     <% if Time.at(process.timestamp) >= 6.minutes.ago %>
