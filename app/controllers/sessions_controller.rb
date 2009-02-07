@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   skip_before_filter :login_required, :except => :destroy
   layout "login"
   
-  # render new.rhtml
   def new
     # Is this the first admin user form?
     if User.find(:all).size == 0
@@ -25,20 +24,20 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
+      redirect_to :controller => "overview"
       flash[:notice] = "Logged in successfully"
     else
       note_failed_signin
       @login       = params[:login]
       @remember_me = params[:remember_me]
-      render :action => 'new'
+      redirect_to :action => 'new'
     end
   end
 
   def destroy
     logout_killing_session!
     flash[:notice] = "You have been logged out"
-    redirect_back_or_default('/')
+    redirect_to :action => "new"
   end
 
 protected
