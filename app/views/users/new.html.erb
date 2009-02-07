@@ -27,8 +27,12 @@
       <p><%= f.label :telephone_number,  "Telephone number (Optional)" %>
       <%= f.text_field :telephone_number %></p>
 
-      <p><%= f.label :department_id,  "Department" %>
-      <%= f.select :department_id, @departments.collect {|dep| [ dep.name, dep.id ] }, { :include_blank => "None" } %></p>
+      <% if @first_admin == true %>
+        <% f.hidden_field :department_id, :value => "0" %>
+      <% else %>
+        <p><%= f.label :department_id,  "Department" %>
+        <%= f.select :department_id, @departments.collect {|dep| [ dep.name, dep.id ] }, { :include_blank => "None" } %></p>
+      <% end %>
 
       <p><%= f.label :password, "Password" %>
       <%= f.password_field :password %></p>
