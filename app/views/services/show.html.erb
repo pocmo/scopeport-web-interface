@@ -49,11 +49,23 @@
 			<dd><%=h time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
 		<% end %>
    	<dt>Response time</dt>
-   	<dd><%=h @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)</dd>
+   	<dd>
+      <% if @service.responsetime.blank? %>
+        Not checked yet
+      <% else %>
+        <%=h @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)
+      <% end %>
+    </dd>
    	<dt>Timeout</dt>
    	<dd><%=h @service.timeout %> seconds</dd>
    	<dt>Handler</dt>
-   	<dd>#<%=h @service.handler %></dd>
+   	<dd>
+      <% if @service.handler == 0 %>
+        None
+      <% else %>
+        #<%=h @service.handler %>
+      <% end %>
+    </dd>
   </dl>
 
 </div>
