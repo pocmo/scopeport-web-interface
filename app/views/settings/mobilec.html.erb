@@ -1,0 +1,32 @@
+<h1>Clickatell SMS API settings</h1>
+
+<%= javascript_include_tag "scopeport-forms" %>
+
+<div id="settings-mobilec">
+	<div id="settings-mobilec-form">
+	<% form_for :setting, :url => { :action => 'save' } do |f| %>
+    <%= f.check_box :doMobileClickatell, { :style => "float: left;", :checked => friendly_nil(@settings.doMobileClickatell) } %>
+    <%= f.label	:doMobileClickatell, 'Enable' %></dt>
+    <%= error_message_on(:settings, :doMobileClickatell) %>		
+		
+    <%= label_txtfd_err(f, :mobilecAPIID, 'API ID', @settings.mobilecAPIID, :settings) %>
+		<%= label_txtfd_err(f, :mobilecUsername, 'API username', @settings.mobilecUsername, :settings) %>
+		<%= label_pwdfd_err(f, :mobilecPassword, 'API password', @settings.mobilecPassword, :settings) %>
+		<p><%= submit_tag "Save Settings", :id => "submit" %></p>
+	<% end %>
+	</div>
+	
+	<div id="settings-mobilec-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>Clickatell API ID</dt>
+			<dd id="formhelp-mobilecAPIID">Clickatell API ID</dd>
+			<dt>Clickatell username</dt>
+			<dd id="formhelp-mobilecUsername">Username to use for the Clickatell API</dd>
+			<dt>Clickatell password</dt>
+			<dd id="formhelp-mobilecPassword">Password of you Clickatell API user (This is stored unencrypted)</dd>
+		</dl>
+	</div>
+</div>
+
+<br style="clear: both;">

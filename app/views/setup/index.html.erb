@@ -6,6 +6,13 @@
 		<li><%= link_to "General settings", :controller => 'settings' %></li>
 		<li><%= link_to "Manage users", :controller => 'users' %></li>
 	</ul>
+
+  <h3>Notification methods</h3>
+  <ul>
+		<li><%= link_to "Email", :controller => 'settings', :action => "email" %></li>
+		<li><%= link_to "XMPP/Jabber", :controller => 'settings', :action => "xmpp" %></li>
+		<li><%= link_to "Clickatell SMS API", :controller => 'settings', :action => "mobilec" %></li>
+  </ul>
 	
 	<h3>Hosts</h3>
 	<ul>

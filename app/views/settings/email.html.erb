@@ -1,0 +1,56 @@
+<h1>Email settings</h1>
+
+<%= javascript_include_tag "scopeport-forms" %>
+
+<div id="settings-email">
+	<div id="settings-email-form">
+	<% form_for :setting, :url => { :action => 'save' } do |f| %>
+    <p>
+   		<%= f.check_box :mail_enabled, { :checked => friendly_nil(@settings.mail_enabled), :style => "float: left;" }  %>
+    	<%= f.label	:mail_enabled, "Enable" %>
+      <%= error_message_on(:settings, :mail_enabled) %>
+
+   		<%= label_txtfd_err(f,	:mail_server, 'SMTP server', @settings.mail_server, :settings) %> 		
+   		<%= label_txtfd_err(f, :mail_port, 'SMTP port', @settings.mail_port, :settings)  %>
+   		<%= label_txtfd_err(f, :mail_hostname, 'SMTP hostname to use', @settings.mail_hostname, :settings)  %>
+   		<%= label_txtfd_err(f, :mail_from, '', @settings.mail_from, :settings)  %>
+    </p>
+
+    <p>
+   		<%= f.check_box :mail_useauth, { :checked => friendly_nil(@settings.mail_useauth), :style => "float: left;" } %>
+   		<%= f.label	:mail_useauth, 'Server needs authentication' %>
+      <%= error_message_on(:settings,:mail_useauth) %>
+   		<%= label_txtfd_err(f,	:mail_user, 'SMTP username', @settings.mail_user, :settings) %> 
+   		<%= label_pwdfd_err(f, :mail_pass, 'SMTP password', @settings.mail_pass, :settings)  %> 
+    </p>
+
+    <p>
+   		<%= f.check_box :mail_usetls, { :checked => friendly_nil(@settings.mail_usetls), :style => "float: left;" } %>
+   		<%= f.label	:mail_usetls, 'Use TLS encryption?' %>
+      <%= error_message_on(:settings, :mail_usetls) %> 
+    </p>
+
+		<p><%= submit_tag "Save Settings" %></p>
+	<% end %>
+	</div>
+	
+	<div id="settings-email-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>SMTP server</dt>
+			<dd id="formhelp-mail_server">IP or hostname of the SMTP server you want to use to send emails</dd>
+			<dt>SMTP port</dt>
+			<dd id="formhelp-mail_port">The port your SMTP server is listening on (Standard: 25)</dd>
+			<dt>SMTP hostname</dt>
+			<dd id="formhelp-mail_hostname">A hostname that will be used as your hostname when talking to the SMTP server.</dd>
+			<dt>Mail from</dt>
+			<dd id="formhelp-mail_from">This will be used as the sender of ScopePort mails. E.g. noreply@monitoring.example.org</dd>
+			<dt>SMTP username</dt>
+			<dd id="formhelp-mail_user">A username to use if your SMTP server requires authentication</dd>
+			<dt>SMTP password</dt>
+			<dd id="formhelp-mail_pass">The password of your SMTP user (This is stored unencrypted)</dd>
+		</dl>
+	</div>
+</div>
+
+<br style="clear: both;">

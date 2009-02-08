@@ -2,65 +2,12 @@
 
 <%= javascript_include_tag "scopeport-forms" %>
 
-<div id="general_settings">
-	<div id="general_settings-form">
+<div id="settings-general">
+	<div id="settings-general-form">
 	
 	<% form_for :setting, :url => { :action => 'save' } do |f| %>
 		<%= label_txtfd_err(f, :spserver, 'IP or Hostname of ScopePort server', @settings.spserver, :settings) %>
 		<%= label_txtfd_err(f, :spport, 'Port of ScopePort server', @settings.spport, :settings) %>
-
-    <br /><br />
-
-    <fieldset>
-    <legend class="general_settings-area-head">
-      <%= showIcon "arrow_down", "float: left;" %>
-      <a style="cursor: pointer;" onclick="document.getElementById('mailing').style.display='block';">SMTP/Mailing</a>
-    </legend>
-    <div id="mailing" style="display: none;">
-  		<%= f.label	:mail_enabled, 'Send emails?' %></dt>
-  		<%= f.check_box :mail_enabled, :checked => friendly_nil(@settings.mail_enabled)  %> <%= error_message_on(:settings, :mail_enabled) %>
-  		<%= label_txtfd_err(f,	:mail_server, 'SMTP server', @settings.mail_server, :settings) %> 		
-  		<%= label_txtfd_err(f, :mail_port, 'SMTP port', @settings.mail_port, :settings)  %>
-  		<%= label_txtfd_err(f, :mail_hostname, 'SMTP hostname to use', @settings.mail_hostname, :settings)  %>
-  		<%= label_txtfd_err(f, :mail_from, '', @settings.mail_from, :settings)  %>
-  		<%= f.label	:mail_useauth, 'Server needs authentication' %></dt>
-  		<%= f.check_box :mail_useauth, :checked => friendly_nil(@settings.mail_useauth) %> <%= error_message_on(:settings,:mail_useauth) %>
-  		<%= label_txtfd_err(f,	:mail_user, 'SMTP username', @settings.mail_user, :settings) %> 
-  		<%= label_txtfd_err(f, :mail_pass, 'SMTP password', @settings.mail_pass, :settings)  %> 
-  		<%= f.label	:mail_usetls, 'Use TLS encryption?' %></dt>
-  		<%= f.check_box :mail_usetls, :checked => friendly_nil(@settings.mail_usetls) %> <%= error_message_on(:settings, :mail_usetls) %> 
-		</div>
-    </fieldset>
-  				
-    <fieldset>
-    <legend class="general_settings-area-head">
-      <%= showIcon "arrow_down", "float: left;" %>
-      <a style="cursor: pointer;" onclick="document.getElementById('xmpp').style.display='block';">XMPP/Jabber</a>
-    </legend>
-    <div id="xmpp" style="display: none;">
-  		<%= f.label	:xmpp_enabled, 'Send XMPP/Jabber messages?' %>
-  		<%= f.check_box :xmpp_enabled, :checked => friendly_nil(@settings.xmpp_enabled) %> <%= error_message_on(:settings, :xmpp_enabled) %>
-  		<%= label_txtfd_err(f, :xmpp_server, 'XMPP server', @settings.xmpp_server, :settings) %>
-  		<%= label_txtfd_err(f, :xmpp_port, 'Port of XMPP server', @settings.xmpp_port, :settings) %>
-  		<%= label_txtfd_err(f, :xmpp_user, 'XMPP username', @settings.xmpp_user, :settings) %>
-  		<%= label_txtfd_err(f, :xmpp_pass, 'XMPP password', @settings.xmpp_pass, :settings) %>
-  		<%= label_txtfd_err(f, :xmpp_resource, 'XMPP resource', @settings.xmpp_resource, :settings) %>
-		</div>
-    </fieldset>
-
-    <fieldset>
-    <legend class="general_settings-area-head">
-      <%= showIcon "arrow_down", "float: left;" %>
-      <a style="cursor: pointer;" onclick="document.getElementById('mobilec').style.display='block';">Clickatell SMS API</a>
-    </legend>
-    <div id="mobilec" style="display: none;">
-      <%= f.label	:doMobileClickatell, 'Send SMS (Clickatell API)?' %></dt>
-      <%= f.check_box :doMobileClickatell, :checked => friendly_nil(@settings.doMobileClickatell) %> <%= error_message_on(:settings, :doMobileClickatell) %>		
-			<%= label_txtfd_err(f, :mobilecAPIID, 'API ID', @settings.mobilecAPIID, :settings) %>
-			<%= label_txtfd_err(f, :mobilecUsername, 'API username', @settings.mobilecUsername, :settings) %>
-			<%= label_txtfd_err(f, :mobilecPassword, 'API password', @settings.mobilecPassword, :settings) %>
-    </div>
-    </fieldset>
 
 		<%= label :gnotigroup, "General notification group" %>
 		<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
@@ -71,48 +18,32 @@
 		<%= f.select :eg2, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg2) %>
 		<%= f.label	:eg3,'Notification group for emergencies with severity "critical"' %>
 		<%= f.select :eg3, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg3) %>
-		
+	
+    <%= f.label :allow_gravatar, "Allow gravatar" %>
+    <%= f.check_box :allow_gravatar %>	
+
     <br /><br />
 
 		<%= submit_tag "Save Settings" %>
 	<% end %>
 	</div>
 	
-	<div id="general_settings-help">
+	<div id="settings-general-help">
 		<h2>Help</h2>
 		<dl>
 			<dt>ScopePort hostname</dt>
 			<dd id="formhelp-spserver">IP or hostname of your ScopePort server installation</dd>
 			<dt>ScopePort port</dt>
 			<dd id="formhelp-spport">The port your ScopePort server is listening on (Standard: 12200)</dd>
-			<dt>SMTP server</dt>
-			<dd id="formhelp-mail_server">IP or hostname of the SMTP server you want to use to send emails</dd>
-			<dt>SMTP port</dt>
-			<dd id="formhelp-mail_port">The port your SMTP server is listening on (Standard: 25)</dd>
-			<dt>SMTP hostname</dt>
-			<dd id="formhelp-mail_hostname">A hostname that will be used as your hostname when talking to the SMTP server.</dd>
-			<dt>Mail from</dt>
-			<dd id="formhelp-mail_from">This will be used as the sender of ScopePort mails. E.g. noreply@monitoring.example.org</dd>
-			<dt>SMTP username</dt>
-			<dd id="formhelp-mail_user">A username to use if your SMTP server requires authentication</dd>
-			<dt>SMTP password</dt>
-			<dd id="formhelp-mail_pass">The password of your SMTP user</dd>
-			<dt>XMPP server</dt>
-			<dd id="formhelp-xmpp_server">XMPP server to use for sending instant messages</dd>
-			<dt>XMPP port</dt>
-			<dd id="formhelp-xmpp_port">The port your XMPP server is listening on</dd>
-			<dt>XMPP username</dt>
-			<dd id="formhelp-xmpp_user">Username for logging in to your XMPP server</dd>
-			<dt>XMPP password</dt>
-			<dd id="formhelp-xmpp_pass">The password of your XMPP user</dd>
-			<dt>XMPP resource</dt>
-			<dd id="formhelp-xmpp_resource">A XMPP resource to use. Just leave blank if you don't know what this is</dd>
-			<dt>Clickatell API ID</dt>
-			<dd id="formhelp-mobilecAPIID">Clickatell API ID</dd>
-			<dt>Clickatell username</dt>
-			<dd id="formhelp-mobilecUsername">Username to use for the Clickatell API</dd>
-			<dt>Clickatell password</dt>
-			<dd id="formhelp-mobilecPassword">Password of you Clickatell API user</dd>
+			<dt>General notification group</dt>
+			<dd id="formhelp-gnotigroup">The notification group used for general notifications like a failure
+        of the ScopePort database connection. This group should include the administrators responsible for
+        this ScopePort installation.</dd>
+			<dt>Allow gravatar</dt>
+			<dd id="formhelp-allow_gravatar">
+        Allow users to use the Gravatar service for their avatars?
+        Learn more at <%= link_to "gravatar.com", "http://www.gravatar.com/", :class => "link-not-bold", :target => "_blank" %>
+      </dd>
 		</dl>
 		
 	</div>

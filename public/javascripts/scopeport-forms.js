@@ -79,3 +79,23 @@ window.onload = function(){
 		}
 	}
 };
+
+function triggerOtherFormFields(caller){
+	// Fetch every input field.  
+  var inputs = document.getElementsByTagName("input");
+
+	// Go through every input field.  
+  for(i=0,l=inputs.length;i<l;i++){
+		// Get the current field.  
+    field = inputs[i];
+
+    if(field != caller && field.id != "submit" && field.name != "authenticity_token"){
+      if(field.disabled == 0){
+        field.disabled = 1;
+      }else{
+        field.disabled = 0;
+      }
+    }
+
+  } 
+}

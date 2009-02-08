@@ -230,39 +230,28 @@
  * General Settings
  */
 
-#general_settings {
+#settings-general {
 	margin-top: 5px;
 }
 
-#general_settings-form {
+#settings-general-form {
 	float: left;
 	height: 100%;
 }
 
-.general_settings-area-head {
-  font-size: 13px;
-  font-weight: bold;
-  display: block;
-}
-
-.general_settings-area-head a {
-  color: #333333;
-  border: 0px;
-}
-
-#general_settings-help {
+#settings-general-help {
 	margin-left: 440px;
 	padding-left: 10px;
 	border-left: 1px dotted #444444;
 }
  
-#general_settings-help dt {
+#settings-general-help dt {
 	float: left;
 	font-weight: bold;
 }
 
-#general_settings-help dd {
-	margin-left: 150px;
+#settings-general-help dd {
+	margin-left: 160px;
 }
 
 /*
@@ -290,5 +279,89 @@
 }
 
 #user-new-help dd {
+	margin-left: 130px;
+}
+
+/*
+ * Clickatell SMS API settings
+ */
+
+#settings-mobilec {
+  margin-top: 5px;
+}
+
+#settings-mobilec-form {
+  float: left;
+}
+
+#settings-mobilec-help {
+  border-left: 1px dotted #444444;
+  margin-left: 350px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+#settings-mobilec-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#settings-mobilec-help dd {
+	margin-left: 130px;
+}
+
+/*
+ * XMPP/Jabber settings
+ */
+
+#settings-xmpp {
+  margin-top: 5px;
+}
+
+#settings-xmpp-form {
+  float: left;
+}
+
+#settings-xmpp-help {
+  border-left: 1px dotted #444444;
+  margin-left: 350px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+#settings-xmpp-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#settings-xmpp-help dd {
+	margin-left: 130px;
+}
+
+/*
+ * Email settings
+ */
+
+#settings-email {
+  margin-top: 5px;
+}
+
+#settings-email-form {
+  float: left;
+}
+
+#settings-email-help {
+  border-left: 1px dotted #444444;
+  margin-left: 350px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+#settings-email-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#settings-email-help dd {
 	margin-left: 130px;
 }

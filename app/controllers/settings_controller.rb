@@ -21,25 +21,31 @@ class SettingsController < ApplicationController
 #  better solution ?
   
   def index
-   
    @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
    @notigroups << ["None", "0"]
    @settings = Setting.find(:first) || Setting.new()
-    
   end
 
+  def email
+   @settings = Setting.find(:first) || Setting.new()
+  end
+
+  def xmpp
+   @settings = Setting.find(:first) || Setting.new()
+  end
+
+  def mobilec
+   @settings = Setting.find(:first) || Setting.new()
+  end
 
   def save
-   
-   begin
-   
+  @count = Setting.find :all
+   if @count.count > 0
     @settings = Setting.update(:first, params[:setting])
-   
-   rescue
-   
+   else
     @settings = Setting.new(params[:setting])
-    
    end
+
    @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
    @notigroups << ["None", "0"]
     
@@ -47,10 +53,9 @@ class SettingsController < ApplicationController
       flash[:notice] = "Settings saved"
       redirect_to :controller => "setup"      
    else
-      flash[:error] = "An error has occurred"
-      render :action => "index"
+      flash[:error] = "Could not store settings. Please try again."
+      redirect_to :controller => "setup"
    end
- 
   end
 
 end

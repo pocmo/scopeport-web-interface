@@ -120,6 +120,10 @@ dd {
 	color: #000000;
 }
 
+.link-not-bold {
+  font-weight: normal;
+}
+
 #loginbox {
   margin: 0px auto;
   margin-top: 45px;

@@ -1,0 +1,38 @@
+<h1>XMPP/Jabber settings</h1>
+
+<%= javascript_include_tag "scopeport-forms" %>
+
+<div id="settings-xmpp">
+	<div id="settings-xmpp-form">
+	<% form_for :setting, :url => { :action => 'save' } do |f| %>
+  	<%= f.check_box :xmpp_enabled, { :checked => friendly_nil(@settings.xmpp_enabled), :style => "float: left;" } %>
+  	<%= f.label	:xmpp_enabled, "Enable" %>
+    <%= error_message_on(:settings, :xmpp_enabled) %>
+
+  	<%= label_txtfd_err(f, :xmpp_server, 'XMPP server', @settings.xmpp_server, :settings) %>
+  	<%= label_txtfd_err(f, :xmpp_port, 'Port of XMPP server', @settings.xmpp_port, :settings) %>
+  	<%= label_txtfd_err(f, :xmpp_user, 'XMPP username', @settings.xmpp_user, :settings) %>
+  	<%= label_pwdfd_err(f, :xmpp_pass, 'XMPP password', @settings.xmpp_pass, :settings) %>
+  	<%= label_txtfd_err(f, :xmpp_resource, 'XMPP resource', @settings.xmpp_resource, :settings) %>
+		<p><%= submit_tag "Save Settings" %></p>
+	<% end %>
+	</div>
+	
+	<div id="settings-xmpp-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>XMPP server</dt>
+			<dd id="formhelp-xmpp_server">XMPP server to use for sending instant messages</dd>
+			<dt>XMPP port</dt>
+			<dd id="formhelp-xmpp_port">The port your XMPP server is listening on (Standard: 5222)</dd>
+			<dt>XMPP username</dt>
+			<dd id="formhelp-xmpp_user">Username for logging in to your XMPP server</dd>
+			<dt>XMPP password</dt>
+			<dd id="formhelp-xmpp_pass">The password of your XMPP user (This is stored unencrypted)</dd>
+			<dt>XMPP resource</dt>
+			<dd id="formhelp-xmpp_resource">A XMPP resource to use. Just leave blank if you don't know what this is</dd>
+		</dl>
+	</div>
+</div>
+
+<br style="clear: both;">
