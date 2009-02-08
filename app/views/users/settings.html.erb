@@ -1,0 +1,21 @@
+<h1>Your settings</h1>
+
+<%= error_messages_for :user %>
+
+<% form_for @user, :url => { :action => "saveusersettings" } do |f| %>
+  <p>
+    <% if @gravatar_allowed %>
+      <%= f.check_box :use_gravatar, { :checked => @user.use_gravatar, :style => "float: left;" } %>
+      <%= f.label :use_gravatar, "Use Gravatar for my avatar" %>
+      <%= f.label :gravatar_email, "Email address for Gravatar" %>
+      <%= f.text_field :gravatar_email %>
+    <% else %>
+      <%= f.check_box :use_gravatar, { :checked => @user.use_gravatar, :style => "float: left;", :disabled => true } %>
+      <%= f.label :use_gravatar, "Use Gravatar for my avatar" %>
+      <%= f.label :gravatar_email, "Email address for Gravatar" %>
+      <%= f.text_field :gravatar_email, :disabled => true %>
+    <% end %>
+  </p>
+
+  <p><%= submit_tag "Save my settings", :disable_with => "Please wait" %></p>
+<% end %>

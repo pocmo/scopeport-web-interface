@@ -506,3 +506,29 @@ dd {
 .errorExplanation {
   margin-top: 10px;
 }
+
+a.with-avatar {
+  position: relative;
+  text-decoration: none;
+}
+
+a.with-avatar span {
+  display: none;
+}
+
+a.with-avatar:hover {
+  background: none; /* IE hack */
+  z-index: 100;
+}
+
+a.with-avatar:hover span {
+  display:block!important;
+  display:inline-block;
+  max-width:200px;
+  position: absolute;
+  top: -85px;
+  left: 20px;
+  background: #000000;
+  text-align: center;
+  border: 3px solid #000000;
+}

@@ -25,6 +25,8 @@ class ApplicationController < ActionController::Base
 	helper_method :getNameOfWarningGroup
 	helper_method :getNameOfHost
 
+  helper_method :buildUserLink
+
   before_filter :login_required, :admin?
 
   # See ActionController::RequestForgeryProtection for details
@@ -126,6 +128,24 @@ class ApplicationController < ActionController::Base
 
 		return returnage
 	end
+
+  def buildUserLink user_id
+    user = User.find user_id
+    settings = Setting.find :first
+
+    if settings.blank? || settings.allow_gravatar.blank? || settings.allow_gravatar == false || user.blank? || user.gravatar_email.blank? || user.login.blank?
+      return "<a href=\"/users/show/#{user.id}\">#{user.login}</a>"
+    end
+
+    require "md5"
+    email_hash = MD5::md5 user.gravatar_email
+    returnage = ""
+    returnage << "<a href=\"/users/show/#{user.id}\" class=\"with-avatar\">"
+    returnage << "<span><img src=\"http://www.gravatar.com/avatar/#{email_hash}?s=80\" alt=\"User avatar\" class=\"with-avatar\"></span>"
+    returnage << "#{user.login}</a>"
+
+    return returnage
+  end
 
 	# This will generate the graphs of a given service. Returns 0 (fail), 1 (success) or 2 (too much data).
 	def generateServiceGraphs service_id

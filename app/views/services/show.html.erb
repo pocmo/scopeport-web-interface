@@ -91,9 +91,7 @@
       <div class="comment-head">
         <%= showIcon "comment" %>
         <span class="comment-title">
-          <%= link_to h(comment.user.login), :controller => "users",
-                                             :action => "show",
-                                             :id => comment.user.id  %>:
+          <%= buildUserLink comment.user.id %>
           <%=h comment.title %>
         </span>
         <span class="comment-date"><%=h comment.created_at %></span>

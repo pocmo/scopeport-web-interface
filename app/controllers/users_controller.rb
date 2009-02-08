@@ -46,4 +46,43 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def settings
+    @user = User.find current_user.id
+    
+    settings = Setting.find :first
+    if settings.allow_gravatar == true
+      @gravatar_allowed = true
+    else
+      @gravatar_allowed = false
+    end
+  end
+
+  def saveusersettings
+    @user = User.update current_user.id, params[:user]
+
+    settings = Setting.find :first
+    if settings.allow_gravatar == true
+      @gravatar_allowed = true
+    else
+      @gravatar_allowed = false
+    end
+
+    # Set use_gravatar to false if it is not allowed.
+    if @gravatar_allowed == true
+      @user.use_gravatar = params[:user][:use_gravatar]
+    else
+      @user.use_gravatar = false
+    end
+
+    if @user.save
+      flash[:notice] = "Your settings have been saved."
+      redirect_to :action => "settings"
+    else
+      flash[:error] = "Could not save your settings. Please try again!"
+      render :action => "settings"
+    end
+    
+  end
+
 end

@@ -29,13 +29,13 @@
   			<div id="usermenu">
   				<div id="usermenuwelcome">
   					<% if logged_in? -%>
-    					<strong>Welcome</strong>, <%= link_to_current_user :content_method => :login %>
+    					<strong>Welcome</strong>, <%= current_user.login %>
   					<% else %>
     					<%= link_to "Log in",  login_path,  { :title => "Log in" } %>
   					<% end %>
   		    </div>
   				<div id="usermenulinks">
-  					<%= link_to "Settings", :controller => "usersettings" %>
+  					<%= link_to "Settings", :controller => "users", :action => "settings" %>
   					|
   					<%= link_to "Logout", logout_path %>
   				</div>

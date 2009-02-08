@@ -21,12 +21,14 @@ class User < ActiveRecord::Base
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
-  
+
+  # Only validate presence of :gravatar_email if use_gravatar is true
+  validates_presence_of :gravatar_email, :if => Proc.new { |user| user.use_gravatar == true }
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :admin, :telephone_number, :description, :department_id
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :admin, :telephone_number, :description, :department_id, :use_gravatar, :gravatar_email
 
 
 
