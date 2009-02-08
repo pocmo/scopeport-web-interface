@@ -13,67 +13,69 @@
 	<div id="maintop">
 		<div id="top">
 			<img src="/images/layout/top.png" alt="ScopePort" id="toplogo">
-			<div id="logmsg">
-				<%= getLastLogMessage %>
-				[<%= link_to ">", :controller => "logmessages" %>]
-			</div>
-			<div id="bigredbutton-activate">
-				<a onclick="bigRedButtonSlide()" title="Declare emergency!">
-					!
-				</a>
-			</div>
-			<div id="bigredbutton" style="display: none;">
-				<%= link_to "Declare emergency!", :controller => "emergencies", :action => "declare" %>
-			</div>
-			<div id="usermenu">
-				<div id="usermenuwelcome">
-					<% if logged_in? -%>
-  					<strong>Welcome</strong>, <%= link_to_current_user :content_method => :login %>
-					<% else %>
-					<%= link_to "Log in",  login_path,  { :title => "Log in" } %>
-					<% end %>
-				</div>
-				<div id="usermenulinks">
-					<%= link_to "Settings", :controller => "usersettings" %>
-					|
-					<%= link_to "Logout", logout_path %>
-				</div>
-				<div id="usermenudate">
-					<i><%= Time.now %></i>
-				</div>
-			</div>
-			<div id="navigation">
-				<div class="topbutton">
-					<%= navigationLink "overview", "Overview" %>
-				</div>
-				<div class="topbutton">
-					<%= navigationLink "services", "Services" %>
-				</div>
-				<div class="topbutton-sectionspacer"></div>
+      <% unless @first_admin %>
+			  <div id="logmsg">
+  				<%= getLastLogMessage %>
+  				[<%= link_to ">", :controller => "logmessages" %>]
+  			</div>
+			  <div id="bigredbutton-activate">
+  				<a onclick="bigRedButtonSlide()" title="Declare emergency!">
+  					!
+  				</a>
+  			</div>
+  			<div id="bigredbutton" style="display: none;">
+  				<%= link_to "Declare emergency!", :controller => "emergencies", :action => "declare" %>
+  			</div>
+  			<div id="usermenu">
+  				<div id="usermenuwelcome">
+  					<% if logged_in? -%>
+    					<strong>Welcome</strong>, <%= link_to_current_user :content_method => :login %>
+  					<% else %>
+    					<%= link_to "Log in",  login_path,  { :title => "Log in" } %>
+  					<% end %>
+  		    </div>
+  				<div id="usermenulinks">
+  					<%= link_to "Settings", :controller => "usersettings" %>
+  					|
+  					<%= link_to "Logout", logout_path %>
+  				</div>
+  				<div id="usermenudate">
+  					<i><%= Time.now %></i>
+  				</div>
+  			</div>
+  			<div id="navigation">
+  				<div class="topbutton">
+  					<%= navigationLink "overview", "Overview" %>
+  				</div>
+  				<div class="topbutton">
+  					<%= navigationLink "services", "Services" %>
+  				</div>
+  				<div class="topbutton-sectionspacer"></div>
 
-				<div class="topbutton">
-					<%= navigationLink "alarms", "Alarms" %>
-				</div>
-				<div class='topbutton'>
-					<%= navigationLink "downtimes", "Downtimes" %>
-				</div>
-				<div class="topbutton-sectionspacer">
-				</div>
-				<div id="adminsubnavigation">
-					<div id="adminnotice">
-						Admin
-					</div>
-					<div class="admintopbutton">
-						<%= navigationLink "setup", "Setup" %>
-					</div>
-					<div class="admintopbutton">
-						<%= navigationLink "logmessages", "Log" %>
-					</div>
-					<div class="admintopbutton">
-						<%= navigationLink "vitals", "Vitals" %>
-					</div>
-				</div>
-			</div>
+  				<div class="topbutton">
+  					<%= navigationLink "alarms", "Alarms" %>
+  				</div>
+  				<div class='topbutton'>
+  					<%= navigationLink "downtimes", "Downtimes" %>
+  				</div>
+  				<div class="topbutton-sectionspacer">
+  				</div>
+  				<div id="adminsubnavigation">
+  					<div id="adminnotice">
+  						Admin
+  					</div>
+  					<div class="admintopbutton">
+  						<%= navigationLink "setup", "Setup" %>
+  					</div>
+  					<div class="admintopbutton">
+  						<%= navigationLink "logmessages", "Log" %>
+  					</div>
+  					<div class="admintopbutton">
+  						<%= navigationLink "vitals", "Vitals" %>
+  					</div>
+  				</div>
+  			</div>
+      <% end %>
 		</div>
 	</div>
 	<div id="maincontent">
