@@ -10,19 +10,19 @@
 		<%= label_txtfd_err(f, :spport, 'Port of ScopePort server', @settings.spport, :settings) %>
 
 		<%= label :gnotigroup, "General notification group" %>
-		<%= f.select :gnotigroup, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :gnotigroup) %>
+		<%= f.select :gnotigroup, @notigroups, { :selected => friendly_nil(@settings.gnotigroup) } %> 	<%= error_message_on(:settings, :gnotigroup) %>
 					
 		<%= f.label	:eg1,'Notification group for emergencies with severity "warning"' %>
-		<%= f.select :eg1, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg1) %>
+		<%= f.select :eg1, @notigroups, { :selected => friendly_nil(@settings.eg1) } %> 	<%= error_message_on(:settings, :eg1) %>
 		<%= f.label	:eg2,'Notification group for emergencies with severity "alert"' %>
-		<%= f.select :eg2, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg2) %>
+		<%= f.select :eg2, @notigroups, { :selected => friendly_nil(@settings.eg2) } %> 	<%= error_message_on(:settings, :eg2) %>
 		<%= f.label	:eg3,'Notification group for emergencies with severity "critical"' %>
-		<%= f.select :eg3, @notigroups, { :selected => "0" } %> 	<%= error_message_on(:settings, :eg3) %>
-	
-    <%= f.label :allow_gravatar, "Allow gravatar" %>
-    <%= f.check_box :allow_gravatar %>	
+		<%= f.select :eg3, @notigroups, { :selected => friendly_nil(@settings.eg3) } %> 	<%= error_message_on(:settings, :eg3) %>
 
-    <br /><br />
+    <p>	
+      <%= f.check_box :allow_gravatar, { :checked => friendly_nil(@settings.allow_gravatar), :style => "float: left;" } %>	
+      <%= f.label :allow_gravatar, "Allow gravatar" %>
+    </p>
 
 		<%= submit_tag "Save Settings" %>
 	<% end %>
