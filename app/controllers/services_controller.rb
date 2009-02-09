@@ -31,8 +31,35 @@ class ServicesController < ApplicationController
 		@service = Service.find_by_id params[:id]
     redirect_to :action => "index" if @service.blank?
 
-		@graphStatus = generateServiceGraphs @service.id
-		@graphName = "service_" + @service.id.to_s + "-response.png"
+    # Create graph (will be skipped if it already exists)
+    @graph = RRDGraph.new "service-#{@service.id}"
+    @graph.create_rrd "--start NOW --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
+
+    # Fill graph
+    yesterday = (Time.now - 86400).to_i
+    data = Servicerecord.find :all,
+            :conditions => ["timestamp > ? AND timestamp > ? AND serviceid = ?",
+                              yesterday.to_s, @graph.get_last_rrd_update, @service.id]
+    data.each do |d|
+      @graph.insert "#{d.timestamp}:#{d.ms}"
+    end
+
+    # Graph image
+    lines = ["DEF:response=#{@graph.get_path_of_rrd}:response:AVERAGE LINE:response#eb7f00:'Response time (ms)'"]
+    title = "Response time of \"#{@service.name}\" - #{Time.now.to_s}"
+    width = "800"
+    height = "150"
+    options = "-Y -X 1"
+    colors = { "SHADEA" => "#F8F8F8",
+               "SHADEB" => "#F8F8F8",
+               "FONT" => "#000000",
+               "BACK" => "#F8F8F8",
+               "CANVAS" => "#F8F8F8",
+               "GRID" => "#696969",
+               "MGRID" => "#877254",
+               "AXIS" => "#BDBDBD",
+               "ARROW" => "#BDBDBD" }
+    @graph.update_image yesterday, Time.now.to_i, lines, title, width, height, colors, options
 
     @new_comment = Servicecomment.new
 	end
@@ -47,20 +74,6 @@ class ServicesController < ApplicationController
 			flash[:notice] = "Service could not be deleted."
 			redirect_to :action => "show", :id => params[:id]
 		end
-	end
-
-	def show_graph
-		graphStatus = generateServiceGraphs params[:id]
-		graphName = "service_" + params[:id] + "-response.png"
-
-		# Output the graph if generating worked.
-		if graphStatus == 1
-			render :text => '<img src="/images/graphs/' + graphName + '" alt="" />'
-			return
-		end
-
-		# Generating the graph failed.
-		render :text => '<strong>Internal error. Could not create graph</strong>'
 	end
 
   def store_comment

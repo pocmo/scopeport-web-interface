@@ -71,23 +71,7 @@
 </div>
 
 <div id="service-graph-response">
-	<% if @graphStatus == 1 %>
-		<%= image_tag "graphs/" + @graphName %>
-	<% elsif @graphStatus == 2 %>
-		<div id="graph">
-			<strong>
-				This graph has a lot of data that needs to be updated. Please 
-				<%= link_to_remote( "click here",
-						:update => "graph",
-						:url =>{ :action => :show_graph, :id => @service.id }) %>
-		 		to load it.
-			</strong>
-			<br />
-			This has not been done automatically to avoid unnecessary waiting time.
-		</div>
-	<% else %>
-		<strong>Internal error. Could not create graph</strong>
-	<% end %>
+  <%= show_graph "service-#{@service.id}" %>
 </div>
 
 <div class="comments">
