@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.find current_user.id
     
     settings = Setting.find :first
-    if settings.allow_gravatar == true
+    if !settings.blank? && settings.allow_gravatar == true
       @gravatar_allowed = true
     else
       @gravatar_allowed = false
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     @user = User.update current_user.id, params[:user]
 
     settings = Setting.find :first
-    if settings.allow_gravatar == true
+    if !settings.allow_gravatar.blank? && settings.allow_gravatar == true
       @gravatar_allowed = true
     else
       @gravatar_allowed = false
