@@ -62,4 +62,9 @@ module ApplicationHelper
 	def admin?
 		current_user.admin	
 	end
+	
+	#Generation time in seconds
+	def load_time
+		return Time.now - @start_time
+	end
 end

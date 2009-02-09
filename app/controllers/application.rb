@@ -16,6 +16,8 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class ApplicationController < ActionController::Base
+  before_filter :start_time
+  
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
 
@@ -27,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :buildUserLink
 
-  before_filter :login_required, :admin?
+  before_filter :login_required, :admin? 
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -156,5 +158,9 @@ class ApplicationController < ActionController::Base
 			redirect_back_or_default('/')
 		end
 	end
-
+	
+	#"Timer" to show in "Page generated in..."
+	def start_time
+		@start_time = Time.now
+	end
 end
