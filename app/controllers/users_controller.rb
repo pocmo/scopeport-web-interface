@@ -85,4 +85,15 @@ class UsersController < ApplicationController
     
   end
 
+	def delete
+		
+		if User.find(params[:id]).destroy
+			flash[:notice] = "User deleted successfully."
+		else
+		 	flash[:error] = "An error has occurred."
+		end
+		
+		redirect_to :action => "index"	
+	end
+
 end

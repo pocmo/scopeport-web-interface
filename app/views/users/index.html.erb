@@ -10,6 +10,7 @@ The following users are currently configured:
     <th>Email address</th>
     <th>Last login</th>
     <th>&nbsp;</th>
+    <th>&nbsp;</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -32,6 +33,10 @@ The following users are currently configured:
         <% end %>
       </td>
      <td><%= link_to "Show profile", :action => "show", :id => user.id %></td>
+     <td><% if admin? %> 
+     <%= link_to "Delete user", :action => "delete", :id => user.id %>
+     <% end %>
+     </td>
     </tr>
   <% end %>
 
