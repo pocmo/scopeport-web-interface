@@ -96,12 +96,13 @@ class UsersController < ApplicationController
 		redirect_to :action => "index"	
 	end
 	
-	def show
+	def edit
 		@user = User.find(params[:id])
 		@departments = Department.find :all
 	end
 	
 	def update
+		@departments = Department.find :all
 		@user = User.find(params[:id])
 		p params[:user]
 		if @user.update_attributes(params[:user])
@@ -109,7 +110,7 @@ class UsersController < ApplicationController
 			 redirect_to :action => "index"
 		else
 		 	flash[:error] = "An error has occurred."
-		 	render :action => :show, :id => params[:id]
+		 	render :action => :edit, :id => params[:id]
 		end
 	end
 

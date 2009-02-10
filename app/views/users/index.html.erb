@@ -32,7 +32,7 @@ The following users are currently configured:
           Never
         <% end %>
       </td>
-     <td><%= link_to "Show profile", :action => "show", :id => user.id %></td>
+     <td><%= link_to "Edit user", :action => "edit", :id => user.id %></td>
      <td><% if admin? %> 
      <%= link_to "Delete user", :action => "delete", :id => user.id %>
      <% end %>
