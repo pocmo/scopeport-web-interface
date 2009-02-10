@@ -12,7 +12,7 @@ module ApplicationHelper
 		if section.downcase == request.path_parameters["controller"]
 			cssclass = "activenavlink"
 		end
-		return link_to name, { :controller => section }, :class => cssclass
+		return link_to(name, { :controller => section }, :class => cssclass)
 	end
 
 	# Displays the last log message.
@@ -40,7 +40,7 @@ module ApplicationHelper
 
 	# Displays a commonly used icon specified by parameter "type".
 	def showIcon type, style=nil
-		return image_tag "icons/" + type + ".png", { :style => style }
+		return image_tag("icons/" + type + ".png", { :style => style })
 	end
 
 	# Returns the CSS class that represents the colors of an service state.

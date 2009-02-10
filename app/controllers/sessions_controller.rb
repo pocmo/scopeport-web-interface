@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     logout_keeping_session!
     user = User.authenticate(params[:login], params[:password])
     if user
-      #Updates the last login collumn 
+      #Updates the last login attribute 
     	user.update_attribute("last_login", Time.now)
       # Protects against session fixation attacks, causes request forgery
       # protection if user resubmits an earlier form using back
