@@ -95,5 +95,22 @@ class UsersController < ApplicationController
 		
 		redirect_to :action => "index"	
 	end
+	
+	def show
+		@user = User.find(params[:id])
+		@departments = Department.find :all
+	end
+	
+	def update
+		@user = User.find(params[:id])
+		p params[:user]
+		if @user.update_attributes(params[:user])
+			 flash[:notice] = "User profile updated successfully."
+			 redirect_to :action => "index"
+		else
+		 	flash[:error] = "An error has occurred."
+		 	render :action => :show, :id => params[:id]
+		end
+	end
 
 end
