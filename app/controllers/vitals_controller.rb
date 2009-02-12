@@ -34,5 +34,18 @@ class VitalsController < ApplicationController
 			@db_service_size = 0
 		end
 
+    # Database connections.
+    res = ActiveRecord::Base.connection.select_one("SHOW STATUS WHERE Variable_name = 'Threads_connected'")
+    @db_connections = res["Value"].to_i
+
+    res = ActiveRecord::Base.connection.select_one("SHOW VARIABLES WHERE Variable_name = 'max_connections'")
+    @db_connections_max = res["Value"].to_i
+
+    @db_connections_difference = @db_connections_max - @db_connections
+    if @db_connections_difference < 15
+      @db_connections_difference_alarm = true
+    else
+      @db_connections_difference_alarm = false
+    end
 	end
 end

@@ -9,18 +9,21 @@
 		<dt>Size of servicedata table:</dt>
 		<dd><%=h number_to_human_size @db_service_size %></dd>
 	</dl>
+
+  <dl>
+    <dt>Database connections</dt>
+    <dd>
+      <% if @db_connections_difference_alarm %>
+        <span class="sensor-error-text"><%= @db_connections %></span>
+      <% else %>
+        <span class="sensor-okay-text"><%= @db_connections %></span>
+      <% end %>
+    </dd>
+    <dt>Maximum allowed connection</dt>
+    <dd><%= @db_connections_max %></dd>
+  </dl>
+
 </div>
-
-<h1>Service handlers</h1>
-<% if @main_processes.blank? %>
-  <strong>No service handlers found</strong>
-<% end %>
-
-<div id="service-handler">
-
-</div>
-
-<br />
 
 <h1>Processes</h1>
 <% if @main_processes.blank? %>
@@ -63,5 +66,4 @@
       </div>
     <% end %>
   <% end %>
-
 </div>
