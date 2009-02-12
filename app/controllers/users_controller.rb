@@ -86,7 +86,6 @@ class UsersController < ApplicationController
   end
 
 	def delete
-		
 		if User.find(params[:id]).destroy
 			flash[:notice] = "User deleted successfully."
 		else
