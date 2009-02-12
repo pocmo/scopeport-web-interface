@@ -47,5 +47,8 @@ class VitalsController < ApplicationController
     else
       @db_connections_difference_alarm = false
     end
+    
+    # Number of services/hosts
+
 	end
 end
