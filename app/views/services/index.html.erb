@@ -26,8 +26,12 @@ Add a service <%= link_to "here", :action => "new" %>
 				<td><%=h service.service_type.upcase %></td>
 			<% end %>
 			<% if !service.responsetime.blank? %>
-				<td><%=h service.responsetime %> ms</td>
-			<% else %>
+        <% if !service.state.blank? && service.state != 0 %>
+  				<td><%=h service.responsetime %> ms</td>
+        <% else %>
+  				<td>N/A</td>
+        <% end %>
+      <% else %>
 				<td>Unknown</td>
 			<% end %>
 			<% if service.lastcheck == 0 %>
