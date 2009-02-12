@@ -1,5 +1,9 @@
 <%= render_headline "Services" %>
-Monitored services: <%= @serviceCount %>
+Monitored services: <%= @serviceCount %>.
+
+<% if admin? %>
+Add a service <%= link_to "here", :action => "new" %>
+<% end %>
 
 <% if @serviceCount > 0 %>
 	<table id="services">
@@ -38,6 +42,6 @@ Monitored services: <%= @serviceCount %>
 	</table>
 <% else %>
 	<p>
-		No services defined. Add some <%= link_to "here", :action => "new" %>.
+		No services defined. 
 	</p>
 <% end %>

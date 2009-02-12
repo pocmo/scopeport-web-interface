@@ -128,9 +128,10 @@
   <% end %>
 </div>
 
-
+<% if admin? %>
 <div id="service-delete">
 	<% form_tag :action => "delete", :id => @service.id do %>
-		<%= submit_tag "Delete this service", :disable_with => "Please wait" %>
+		<%= submit_tag "Delete this service", :disable_with => "Please wait", :onclick => "return #{confirm_javascript_function("Are you sure you want to delete this service permanently ?")}" %>
 	<% end %>
 </div>
+<% end %>
