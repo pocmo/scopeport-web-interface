@@ -23,6 +23,6 @@ class Service < ActiveRecord::Base
 	validates_numericality_of :port, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port"
 
   # Service comments.
-  has_many :servicecomments
+  has_many :servicecomments, :order => "created_at DESC"
 
 end
