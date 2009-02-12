@@ -66,12 +66,16 @@ class ServicesController < ApplicationController
 
 	def delete
 		service = Service.find_by_id params[:id]
-    alarms = Alarm.find_by_serviceid params[:id]
-		if service.destroy && alarms.destroy
+    if service.blank?
+      flash[:error] = "Service does not exist."
+			redirect_to :action => "index"
+      return
+    end
+		if service.destroy
 			flash[:notice] = "Service has been deleted!"
 			redirect_to :action => "index"
 		else
-			flash[:notice] = "Service could not be deleted."
+			flash[:error] = "Service could not be deleted."
 			redirect_to :action => "show", :id => params[:id]
 		end
 	end
