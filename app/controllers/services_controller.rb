@@ -30,6 +30,12 @@ class ServicesController < ApplicationController
 	def show
 		@service = Service.find_by_id params[:id]
     redirect_to :action => "index" if @service.blank?
+    @new_comment = Servicecomment.new
+	end
+
+  def show_graph
+		@service = Service.find_by_id params[:id]
+    redirect_to :action => "index" if @service.blank?
 
     # Create graph (will be skipped if it already exists)
     @graph = RRDGraph.new "service-#{@service.id}"
@@ -61,8 +67,8 @@ class ServicesController < ApplicationController
                "ARROW" => "#BDBDBD" }
     @graph.update_image yesterday, Time.now.to_i, lines, title, width, height, colors, options
 
-    @new_comment = Servicecomment.new
-	end
+    render :text => "<img src=\"/images/colored-graphs/service-#{@service.id}.png?#{rand(9001)}\" alt=\"Graph\" />"
+  end
 
 	def delete
 		service = Service.find_by_id params[:id]

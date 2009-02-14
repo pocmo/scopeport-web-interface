@@ -74,9 +74,23 @@
 
 </div>
 
+<script type="text/javascript">
+<%= remote_function :url => { :action => "show_graph", :id => @service.id},
+                              :update => "service-graph-response" %>
+</script>
+
 <div id="service-graph-response">
-  <%= show_graph "service-#{@service.id}" %>
+  <div id="service-graph-response-loading">
+    <%= image_tag "ajax-loader.gif" %>
+    <p>Generating response time graph.</p>
+    <p>This may take a while if you did not open the graph for a longer time</p>
+  </div>
 </div>
+The graph is updated every minute.
+
+<%= periodically_call_remote :url => { :action => "show_graph", :id => @service.id },
+                             :update => "service-graph-response",
+                             :frequency => "6" %>
 
 <div class="comments">
   <h2>Comments</h2><br />

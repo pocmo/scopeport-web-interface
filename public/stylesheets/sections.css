@@ -193,8 +193,16 @@
 }
 
 #service-graph-response {
+  height: 230px;
+  width: 100%;
 	margin-top: 15px;
 	padding: 0px auto;
+}
+
+#service-graph-response-loading {
+  text-align: center;
+  padding-top: 55px;
+  color: #BBBBBB;
 }
 
 /*
