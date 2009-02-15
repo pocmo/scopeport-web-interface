@@ -1,0 +1,75 @@
+<h1>Edit service &raquo;<%=h @service.name %>&laquo;</h1>
+
+<%= javascript_include_tag "scopeport-forms" %>
+
+<div id="service-new">
+	<div id="service-new-form">
+		<% form_for :service, :url => { :action => "update" , :id => params[:id]} do |f| %>
+			<%= label :name, "Name" %>
+			<%= f.text_field :name %> <%= error_message_on(:service, :name) %>
+
+			<%= label :host, "Host" %>
+			<%= f.text_field :host %> <%= error_message_on(:service, :host) %>
+
+			<%= label :port, "Port" %>
+			<%= f.text_field :port %> <%= error_message_on(:service, :port) %>
+
+			<%= label :service_type, "Protocol check" %>
+			<%= f.select :service_type, getServiceTypes.sort, { :selected => @service.service_type } %> <%= error_message_on(:service_type, :type) %>
+
+			<%= label :timeout, "Timeout (seconds)" %>
+			<%= f.text_field :timeout %> <%= error_message_on(:service, :timeout) %>
+
+			<%= label :maxres, "Max. response time (ms)" %>
+			<%= f.text_field :maxres %> <%= error_message_on(:service, :maxres) %>
+
+			<%= label :warninggroup, "Notification group" %>
+			<%= f.select :warninggroup, @notigroups, { :selected => @service.warninggroup.to_s }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
+			<%= error_message_on(:service, :warninggroup) %>
+ 	  	
+			<%= label :linkedhost, "Link to host" %>
+     	<%= f.select :linkedhost, @hosts, { :selected => @service.linkedhost }%> <%= error_message_on(:service, :linkedhost) %>
+
+			<p>
+			<%= submit_tag "Edit service", :disable_with => "Please wait" %>
+			</p>
+		<% end %>
+	</div>
+
+	<div id="service-new-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>Name</dt>
+			<dd id="formhelp-name">The name of this service</dd>
+			<dt>Host</dt>
+			<dd id="formhelp-host">The host this service is running on. Hostname or IP allowed.</dd>
+			<dt>Port</dt>
+			<dd id="formhelp-port">The port this service is listening on.</dd>
+			<dt>Protocol check</dt>
+			<dd id="formhelp-service_type">
+					Check if the service behind the defined host and port is spaeking this protocol.
+					Select "None" if you just want to check if a connection can be established.
+			</dd>
+			<dt>Timeout</dt>
+			<dd id="formhelp-timeout">After how long the service check is aborted. Standard: 5 seconds.</dd>
+			<dt>Max. response time</dt>
+			<dd id="formhelp-maxres">How high the response time of this service must at least be to cause an alarm.</dd>
+			<dt>Notification group</dt>
+			<dd id="formhelp-warninggroup">Which notification group to inform in case of an alarm related to this service.</dd>
+			<dt>Link to host</dt>
+			<dd id="formhelp-linkedhost">
+				You can link this service to a host. The status of this service will then appear in the details of the host.
+			</dd>
+		</dl>
+	</div>
+
+	<div id="service-new-receivers">
+			<h2 id="receivers-head">Notification receivers</h2>
+			The following receivers <%= @token %> will be informed in case of an alarm related to this service:
+			<div id="service-new-receivers-list">
+			</div>
+	</div>
+
+	<br class="clear" />
+
+</div>

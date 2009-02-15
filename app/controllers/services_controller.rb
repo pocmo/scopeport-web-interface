@@ -70,6 +70,30 @@ class ServicesController < ApplicationController
     render :text => "<img src=\"/images/colored-graphs/service-#{@service.id}.png?#{rand(9001)}\" alt=\"Graph\" />"
   end
 
+  def edit
+    @service = Service.find params[:id]
+		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
+		@notigroups << ["None", "0"]	
+		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
+		@hosts << ["None", "0"]	
+  end
+
+  def update
+    @service = Service.update params[:id], params[:service]
+		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
+		@notigroups << ["None", "0"]	
+		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
+		@hosts << ["None", "0"]
+    
+    if @service.save
+      flash[:notice] = "Service has been saved."
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:error] = "Could not save service."
+      render :action => "edit"
+    end
+  end
+
 	def delete
 		service = Service.find_by_id params[:id]
     if service.blank?

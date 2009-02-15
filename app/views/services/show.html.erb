@@ -1,4 +1,4 @@
-<%= render_headline "Service &raquo;" + @service.name  + "&laquo; on &raquo;" + @service.host + "&laquo;" %>
+<h1>Service &raquo;<%=h @service.name %>&laquo; on &raquo;<%=h @service.host %>&laquo;</h1>
 
 <div id="service">
 	<% if @service.state.blank? %>
@@ -71,7 +71,7 @@
       <% end %>
     </dd>
   </dl>
-
+<%= link_to_if admin?, "Edit this service", :action => "edit", :id => @service.id %>
 </div>
 
 <script type="text/javascript">
