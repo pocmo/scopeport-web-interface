@@ -70,6 +70,19 @@ class ServicesController < ApplicationController
     render :text => "<img src=\"/images/colored-graphs/service-#{@service.id}.png?#{rand(9001)}\" alt=\"Graph\" />"
   end
 
+  def show_ms
+    service = Service.find params[:id]
+    returnage = ""
+    unless service.blank? && service.responsetime.blank?
+      if service.state != 0
+        returnage = "#{service.responsetime} ms (Maximum: #{service.maxres} ms)"
+      else
+        returnage = "N/A"
+      end
+    end
+    render :text => returnage
+  end
+
   def edit
     @service = Service.find params[:id]
 		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }

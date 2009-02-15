@@ -1,5 +1,12 @@
 <h1>Service &raquo;<%=h @service.name %>&laquo; on &raquo;<%=h @service.host %>&laquo;</h1>
 
+<script type="text/javascript">
+  <%= remote_function :url => { :action => "show_graph", :id => @service.id },
+                                :update => "service-graph-response" %>
+  <%= remote_function :url => { :action => "show_ms", :id => @service.id },
+                                :update => "service-ms" %>
+</script>
+
 <div id="service">
 	<% if @service.state.blank? %>
 		<div class="instantstate-warn">
@@ -49,17 +56,7 @@
 			<dd><%=h time_ago_in_words(Time.at @service.lastcheck)  %> ago</dd>
 		<% end %>
    	<dt>Response time</dt>
-   	<dd>
-      <% if @service.responsetime.blank? %>
-        Not checked yet
-      <% else %>
-        <% if @service.state != 0 %>
-          <%=h @service.responsetime %> ms (Maximum: <%= @service.maxres %> ms)
-        <% else %>
-          N/A
-        <% end %>
-      <% end %>
-    </dd>
+   	<dd id="service-ms"><%= image_tag "ajax-loader2.gif" %></dd>
    	<dt>Timeout</dt>
    	<dd><%=h @service.timeout %> seconds</dd>
    	<dt>Handler</dt>
@@ -74,11 +71,6 @@
 <%= link_to_if admin?, "Edit this service", :action => "edit", :id => @service.id %>
 </div>
 
-<script type="text/javascript">
-<%= remote_function :url => { :action => "show_graph", :id => @service.id},
-                              :update => "service-graph-response" %>
-</script>
-
 <div id="service-graph-response">
   <div id="service-graph-response-loading">
     <%= image_tag "ajax-loader.gif" %>
@@ -86,10 +78,14 @@
     <p>This may take a while if you did not open the graph for a longer time</p>
   </div>
 </div>
-The graph is updated every minute.
+Graph and response time are updated every minute.
 
 <%= periodically_call_remote :url => { :action => "show_graph", :id => @service.id },
                              :update => "service-graph-response",
+                             :frequency => "61" %>
+
+<%= periodically_call_remote :url => { :action => "show_ms", :id => @service.id },
+                             :update => "service-ms",
                              :frequency => "61" %>
 
 <div class="comments">
