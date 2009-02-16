@@ -39,7 +39,7 @@ class SettingsController < ApplicationController
 
   def save
   @count = Setting.find :all
-   if @count.count > 0
+   if @count.size > 0
     @settings = Setting.update(:first, params[:setting])
    else
     @settings = Setting.new(params[:setting])

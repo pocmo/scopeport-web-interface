@@ -95,14 +95,14 @@ class UsersController < ApplicationController
 		 	flash[:error] = "An error has occurred."
 		end
 		
-		redirect_to :action => "index"	
+		render :action => "index"	
 	end
 	
 	def delete_self
 		User.find(current_user.id).destroy
 		flash[:notice] = "User deleted successfully."
 		
-		redirect_to :action => "index"	
+		render :action => "index"	
 	end
 	
 	def edit
