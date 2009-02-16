@@ -16,6 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class VitalsController < ApplicationController
+
+	before_filter :admin?
+
 	def index
 		@database_sizes = Vital.find(:last, :select => "dbtotalsize, dbsensorsize, dbservicesize",
 																		:order => "timestamp",

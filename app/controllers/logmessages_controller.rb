@@ -16,6 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class LogmessagesController < ApplicationController
+
+	before_filter :admin?	
+	
 	def index
 		@headline = "Log"
 		@logmessages = Logmessage.paginate :page => params[:page], :order => 'logtime DESC'

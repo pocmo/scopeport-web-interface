@@ -1,4 +1,7 @@
 class BlacklistController < ApplicationController
+
+	before_filter :admin?, :except => [:index]
+	
 	def index
 		@blacklisted_hosts = BlacklistedHost.find :all
 	end

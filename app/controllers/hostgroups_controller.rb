@@ -16,6 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class HostgroupsController < ApplicationController
+	
+	before_filter :admin?, :except => [:index, :show]
+	
 	def index
 		@hostgroups = Hostgroup.find :all
 		@newGroup = Hostgroup.new

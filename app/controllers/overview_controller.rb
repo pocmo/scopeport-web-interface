@@ -16,6 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class OverviewController < ApplicationController
+
+	before_filter :admin?, :except => [:index]	
+	
 	def index
 		@headline = "Overview"
 	end

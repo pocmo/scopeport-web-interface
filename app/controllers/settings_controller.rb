@@ -16,10 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class SettingsController < ApplicationController
-  
-#  auto-incrematation is working even when the table is empty
-#  better solution ?
-  
+
+	before_filter :admin?
+	  
   def index
    @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
    @notigroups << ["None", "0"]

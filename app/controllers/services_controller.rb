@@ -1,4 +1,7 @@
 class ServicesController < ApplicationController
+
+	before_filter :admin?, :except => [:index, :show, :show_graph, :show_ms, :store_comment]
+
 	def index
 		@services = Service.find_all_by_disabled 0
 		@serviceCount = @services.size

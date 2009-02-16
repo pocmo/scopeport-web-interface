@@ -17,6 +17,8 @@
 
 class NotificationgroupsController < ApplicationController
 
+	before_filter :admin?, :except => [:index. :show]	
+	
 	def index
 		@groups = Notificationgroupdetail.find :all
 		@counts = Notificationgroup.count :conditions => "deleted = 0", :group => "warninggroup"

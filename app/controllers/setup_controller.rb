@@ -16,6 +16,9 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class SetupController < ApplicationController
+
+	before_filter :admin?
+
 	def index
 	end
 end

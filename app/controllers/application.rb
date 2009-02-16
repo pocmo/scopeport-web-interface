@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :buildUserLink
 
-  before_filter :login_required, :admin? 
+  before_filter :login_required  
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -151,10 +151,10 @@ class ApplicationController < ActionController::Base
 
 	#A method to block the admin pages to non-admin users
 	def admin?
-		admin_controllers = %w{logmessages vitals setup}
-		admin_actions = %w{delete new}
+		#admin_controllers = %w{logmessages vitals setup}
+		#admin_actions = %w{delete new}
 		user = current_user
-		if user != nil and !user.admin and admin_controllers.include?(params[:controller]) 
+		if user != nil and !user.admin
 			flash[:error] = "You must be admin to peform this action"
 			redirect_back_or_default('/')
 		end
