@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :admin?, :except => [:index, :delete, :edit, :settings]
+	before_filter :admin?, :except => [:index, :delete_self, :edit, :settings, :saveusersettings]
 
   # Allow to create a first admin user.
   skip_before_filter :login_required, :only => [:new, :create] if User.find(:all).size == 0
@@ -94,6 +94,13 @@ class UsersController < ApplicationController
 		else
 		 	flash[:error] = "An error has occurred."
 		end
+		
+		redirect_to :action => "index"	
+	end
+	
+	def delete_self
+		User.find(current_user.id).destroy
+		flash[:notice] = "User deleted successfully."
 		
 		redirect_to :action => "index"	
 	end
