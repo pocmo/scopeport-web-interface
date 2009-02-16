@@ -52,7 +52,7 @@ class VitalsController < ApplicationController
     end
     
     # Number of services/hosts
-    @monitored_hosts = Host.find(:all).count
-    @monitored_services = Service.find(:all).count
+    @monitored_hosts = Host.find(:all).size
+    @monitored_services = Service.find(:all).size
 	end
 end
