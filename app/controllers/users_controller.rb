@@ -113,7 +113,6 @@ class UsersController < ApplicationController
 	def update
 		@departments = Department.find :all
 		@user = User.find(params[:id])
-		p params[:user]
 		if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."
 			 redirect_to :action => "index"
