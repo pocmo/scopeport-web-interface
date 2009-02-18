@@ -1,0 +1,22 @@
+<h1>Service groups</h1>
+You can configure service groups to arrange your services. The following service groups are currently configured:
+
+<ul>
+<% if @servicegroups.blank? %>
+	<li>
+    <strong>No groups found</strong>
+  </li>
+<% else %>
+  <% @servicegroups.each do |group| %>
+	  <li><%= link_to group.name, :action => "show", :id => group.id %></li>
+  <% end %>
+<% end %>
+</ul>
+
+<div id="new-servicegroup">
+	<% form_for :new_group, :url => { :action => "create" } do |f| %>
+		<%= f.label :name, "Name of the new group" %>
+		<%= f.text_field :name %>
+		<%= submit_tag "Add group" %>
+	<% end %>
+</div>

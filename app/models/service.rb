@@ -22,6 +22,9 @@ class Service < ActiveRecord::Base
 	# The port must be between 0 and 65535
 	validates_numericality_of :port, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port"
 
+  # Belongs to a service group.
+  belongs_to :servicegroup
+
   # Service comments.
   has_many :servicecomments, :order => "created_at DESC"
 

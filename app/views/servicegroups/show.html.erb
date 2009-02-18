@@ -1,0 +1,20 @@
+<h1>Service group &raquo;<%= @group.name %>&laquo;</h1>
+The following services are in this group. You cannot add services here because group membership is defined in the service configuration.
+
+<% if @members.length > 0 %>
+	<ul>
+		<% @members.each do |member| %>
+			<li><%=h member.name %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<p>
+		<strong>No services in this group</strong>
+	</p>
+<% end %>
+
+<div id="servicegroup-delete">
+  <% form_tag :action => "delete", :id => @group.id do %>
+    <%= submit_tag "Delete this service group", :disable_with => "Please wait" %>
+  <% end %>
+</div>

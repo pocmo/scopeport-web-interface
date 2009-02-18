@@ -378,3 +378,11 @@
 #settings-email-help dd {
 	margin-left: 130px;
 }
+
+/*
+ * Service groups
+ */
+
+#new-servicegroup {
+	margin-top: 15px;
+}
