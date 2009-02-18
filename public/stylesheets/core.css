@@ -532,3 +532,8 @@ a.with-avatar:hover span {
   text-align: center;
   border: 3px solid #000000;
 }
+
+.centered-text {
+  width: 100%;
+  text-align: center;
+}

@@ -171,8 +171,8 @@
 	margin-left: 140px;
 }
 
-#services {
-	margin-top: 20px;
+.service-group-headline {
+  margin-top: 10px;
 }
 
 #service {

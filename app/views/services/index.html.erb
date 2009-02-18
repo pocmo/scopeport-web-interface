@@ -1,12 +1,69 @@
 <%= render_headline "Services" %>
-Monitored services: <%= @serviceCount %>.
+Monitored services: <%= @service_count %>.
 
 <% if admin? %>
-Add a service <%= link_to "here", :action => "new" %>
+  Add a service <%= link_to "here", :action => "new" %>
 <% end %>
 
-<% if @serviceCount > 0 %>
-	<table id="services">
+<% unless @service_groups.blank? %>
+  <% @service_groups.each do |group| %>
+    <div class="service-group-headline centered-text">
+      <h2><%= group.name %></h2>
+    </div>
+
+    <% unless group.services.blank? %>
+	    <table class="services">
+		    <tr class="doNotHighlightMe">
+			    <th>Name</th>
+			    <th>Host:Port</th>
+			    <th>Protocol</th>
+			    <th>Response</th>
+			    <th>Last checked</th>
+			    <th>Notification group</th>
+			    <th>Linked to host</th>
+		    </tr>
+        <% group.services.each do |service| %>
+		      <tr class="sensor-<%= getErrorStyle service.state %>">
+			      <td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
+			      <td><%=h service.host %>:<%=h service.port %></td>
+			      <% if service.service_type == "none" %>
+				      <td>None</td>
+			      <% else %>
+				      <td><%=h service.service_type.upcase %></td>
+			      <% end %>
+			      <% if !service.responsetime.blank? %>
+              <% if !service.state.blank? && service.state != 0 %>
+  				      <td><%=h service.responsetime %> ms</td>
+              <% else %>
+  				      <td>N/A</td>
+              <% end %>
+            <% else %>
+				      <td>Unknown</td>
+			      <% end %>
+			      <% if service.lastcheck == 0 %>
+				      <td>Never</td>
+			      <% else %>
+				      <td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
+			      <% end %>
+			        <td><%= getNameOfWarningGroup service.warninggroup %></td>
+			        <td><%= getNameOfHost service.linkedhost %></td>
+            </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <div class="centered-text">
+        <strong>No services in this group</strong>
+      </div>
+    <% end %>
+
+  <% end %>
+<% end %>
+
+<% unless @services_without_group.blank? %>
+  <div class="service-group-headline centered-text">
+    <h2>Ungrouped services</h2>
+  </div>
+	<table class="services">
 		<tr class="doNotHighlightMe">
 			<th>Name</th>
 			<th>Host:Port</th>
@@ -16,7 +73,7 @@ Add a service <%= link_to "here", :action => "new" %>
 			<th>Notification group</th>
 			<th>Linked to host</th>
 		</tr>
-		<% @services.each do |service| %>
+		<% @services_without_group.each do |service| %>
 		<tr class="sensor-<%= getErrorStyle service.state %>">
 			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
 			<td><%=h service.host %>:<%=h service.port %></td>
@@ -44,8 +101,10 @@ Add a service <%= link_to "here", :action => "new" %>
 		</tr>
 		<% end %>
 	</table>
-<% else %>
-	<p>
-		No services defined. 
-	</p>
+<% end %>
+
+<% if @service_groups.blank? && @services_with_group.blank? %>
+  <p>
+    <strong>No services defined</strong>
+  </p>
 <% end %>

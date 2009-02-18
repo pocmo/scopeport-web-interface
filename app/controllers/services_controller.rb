@@ -3,8 +3,15 @@ class ServicesController < ApplicationController
 	before_filter :admin?, :except => [:index, :show, :show_graph, :show_ms, :store_comment]
 
 	def index
-		@services = Service.find_all_by_disabled 0
-		@serviceCount = @services.size
+		@service_groups = Servicegroup.find :all
+    @services_without_group = Service.find_all_by_servicegroup_id nil
+
+    # Count the services
+		@service_count = 0
+    @service_count = @service_count + @services_without_group.count
+    @service_groups.each do |group|
+      @service_count = @service_count + group.services.count
+    end
 	end
 	
 	def new
