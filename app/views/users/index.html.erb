@@ -48,3 +48,23 @@ The following users are currently configured:
 </table>
 
 <%= link_to "Add user", :action => "new" %>
+
+<br /><br />
+<h1>Departments</h1>
+You can assign users to a department. Define the deparments here.
+
+<ul>
+<% if @departments.blank? %>
+  <li>No departments defined yet</li>
+<% else %>
+  <% @departments.each do |department| %>
+    <li><%=h department.name %> [<%= link_to "Delete", :action => "deletedepartment", :id => department.id %>]</li>
+  <% end %>
+<% end %>
+</ul>
+
+<% form_for :department, :url => { :action => "createdepartment" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= submit_tag "Add department", :disable_with => "Please wait" %>
+<% end %>

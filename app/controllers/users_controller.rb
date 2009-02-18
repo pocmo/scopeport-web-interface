@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.find :all 
+    @departments = Department.find :all
+    @department = Department.new
   end
 
   def new
@@ -121,5 +123,25 @@ class UsersController < ApplicationController
 		 	render :action => :edit, :id => params[:id]
 		end
 	end
+
+  def createdepartment
+    @department = Department.new params[:department]
+    if @department.save
+      flash[:notice] = "Department has been added."
+    else
+      flash[:error] = "Could not add department! Make sure to fill out the name field."
+    end
+    redirect_to :action => "index"
+  end
+
+  def deletedepartment
+    department = Department.find params[:id]
+    if department.destroy
+      flash[:notice] = "Department has been deleted."
+    else
+      flash[:error] = "Could not delete department!"
+    end
+    redirect_to :action => "index"
+  end
 
 end
