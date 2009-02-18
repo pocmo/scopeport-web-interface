@@ -16,4 +16,6 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class Notificationgroup < ActiveRecord::Base
+  validates_presence_of :sevborder
+  validates_numericality_of :sevborder, :greater_than_or_equal_to => 0, :less_than_of_equal_to => 3
 end

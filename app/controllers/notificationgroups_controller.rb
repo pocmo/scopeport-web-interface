@@ -17,7 +17,7 @@
 
 class NotificationgroupsController < ApplicationController
 
-	before_filter :admin?, :except => [:index. :show]	
+	before_filter :admin?	
 	
 	def index
 		@groups = Notificationgroupdetail.find :all
@@ -77,7 +77,7 @@ class NotificationgroupsController < ApplicationController
 
 		@receiver = Notificationgroup.new do |r|
 			r.warninggroup = params[:id]
-			r.sevborder = 0
+			r.sevborder = params[:newGroup][:sevborder]
 			
 			if !params[:newGroup][:mail].blank? && params[:newGroup][:mail].length > 0
 				r.mail = params[:newGroup][:mail]

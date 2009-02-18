@@ -35,6 +35,13 @@ The following notification receivers are in this group:
 		<%= f.text_field :numberc,
 													:onfocus => "disableOtherReceiverFields(\"numberc\"); clearFieldWithText(this, \"e.g. 4912345678\")",
 													:value => "e.g. 4912345678" %>
+    <p>
+      <%= f.label :sevborder, "Only warn user if alarm severity is higher or equal than:" %>
+      <%= f.select :sevborder, { "Ignored" => "0",
+                                 "Warning" => "1",
+                                 "Problem" => "2",
+                                 "Critical" => "3" }.sort {|a,b| a[1]<=>b[1]} %>
+    </p>
 		<p>
 			<%= submit_tag "Add receiver", :disable_with => "Please wait" %>
 		</p>
