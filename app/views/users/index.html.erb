@@ -2,7 +2,7 @@
 
 The following users are currently configured:
 
-<table>
+<table id="user-list-table">
   <tr class="doNotHighlightMe">
     <th>Username</th>
     <th>Name</th>
@@ -39,13 +39,12 @@ The following users are currently configured:
      		<% end %> 
      		<td><%= link_to "Edit user", :action => "edit", :id => user.id %></td>
      		<td>
-     <%= link_to "Delete user", { :action => action, :id => user.id }, :confirm => "If you delete this user all data will be lost. Are you sure ?" %>
+          <%= link_to "Delete user", { :action => action, :id => user.id }, :confirm => "If you delete this user all data will be lost. Are you sure ?" %>
+        </td>
      <% end %>
      </td>
     </tr>
   <% end %>
-
 </table>
-
 
 <%= link_to "Add user", :action => "new" %>

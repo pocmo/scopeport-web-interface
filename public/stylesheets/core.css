@@ -53,7 +53,7 @@ h1 {
 
 th {
 	text-align: left;
-	border-bottom: 2px solid #ec6600;
+	border-bottom: 2px dotted #ec6600;
 	font-size: 12px;
 	color: #111111;
 }
@@ -105,7 +105,7 @@ dd {
 }
 
 .rowHighlighted {
-	background-color: #CCCCCC;
+	background-color: #EEEEEE;
 }
 
 .rowNotHighlighted {

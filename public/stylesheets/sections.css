@@ -266,6 +266,11 @@
  * Users
  */
 
+#user-list-table {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 #user-new {
   margin-top: 5px;
 }
