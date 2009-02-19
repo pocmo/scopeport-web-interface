@@ -8,7 +8,7 @@ class ServicesController < ApplicationController
 
     # Count the services
 		@service_count = 0
-    @service_count = @service_count + @services_without_group.count
+    @service_count = @service_count + @services_without_group.size
     @service_groups.each do |group|
       @service_count = @service_count + group.services.count
     end
