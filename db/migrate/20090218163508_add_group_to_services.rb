@@ -1,6 +1,6 @@
 class AddGroupToServices < ActiveRecord::Migration
   def self.up
-    add_column :services, :servicegroup_id, :integer
+    add_column :services, :servicegroup_id, :integer, :default => 0
   end
 
   def self.down
