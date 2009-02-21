@@ -103,7 +103,7 @@ Monitored services: <%= @service_count %>.
 	</table>
 <% end %>
 
-<% if @service_groups.blank? && @services_with_group.blank? %>
+<% if @service_count.blank? %>
   <p>
     <strong>No services defined</strong>
   </p>
