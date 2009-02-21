@@ -26,6 +26,9 @@
 			<%= label :warninggroup, "Notification group" %>
 			<%= f.select :warninggroup, @notigroups, { :selected => @service.warninggroup.to_s }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
 			<%= error_message_on(:service, :warninggroup) %>
+      
+      <%= label :servicegroup_id, "Service group" %>
+     	<%= f.select :servicegroup_id, @service_groups, { :selected => @service.servicegroup.id }%> <%= error_message_on(:service, :servicegroup_id) %>
  	  	
 			<%= label :linkedhost, "Link to host" %>
      	<%= f.select :linkedhost, @hosts, { :selected => @service.linkedhost }%> <%= error_message_on(:service, :linkedhost) %>
@@ -56,6 +59,10 @@
 			<dd id="formhelp-maxres">How high the response time of this service must at least be to cause an alarm.</dd>
 			<dt>Notification group</dt>
 			<dd id="formhelp-warninggroup">Which notification group to inform in case of an alarm related to this service.</dd>
+			<dt>Service group</dt>
+			<dd id="formhelp-servicegroup_id">
+        You can add this service to a service group. This will help you keep the overview of services.
+      </dd>
 			<dt>Link to host</dt>
 			<dd id="formhelp-linkedhost">
 				You can link this service to a host. The status of this service will then appear in the details of the host.

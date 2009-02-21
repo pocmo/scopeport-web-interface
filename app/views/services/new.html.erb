@@ -26,6 +26,9 @@
 			<%= label :warninggroup, "Notification group" %>
 			<%= f.select :warninggroup, @notigroups, { :selected => "0" }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
 			<%= error_message_on(:service, :warninggroup) %>
+			
+      <%= label :servicegroup_id, "Service group" %>
+     	<%= f.select :servicegroup_id, @service_groups, { :selected => "0" }%> <%= error_message_on(:service, :servicegroup_id) %>
  	  	
 			<%= label :linkedhost, "Link to host" %>
      	<%= f.select :linkedhost, @hosts, { :selected => "0" }%> <%= error_message_on(:service, :linkedhost) %>
@@ -57,6 +60,10 @@
 			<dt>Notification group</dt>
 			<dd id="formhelp-warninggroup">Which notification group to inform in case of an alarm related to this service.</dd>
 			<dt>Link to host</dt>
+			<dt>Service group</dt>
+			<dd id="formhelp-servicegroup_id">
+        You can add this service to a service group. This will help you keep the overview of services.
+      </dd>
 			<dd id="formhelp-linkedhost">
 				You can link this service to a host. The status of this service will then appear in the details of the host.
 			</dd>
