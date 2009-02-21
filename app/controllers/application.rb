@@ -155,7 +155,7 @@ class ApplicationController < ActionController::Base
 		#admin_actions = %w{delete new}
 		user = current_user
 		if user != nil and !user.admin
-			flash[:error] = "You must be admin to peform this action"
+			flash[:error] = "Sorry. You must be an administrator to perform this action."
 			redirect_back_or_default('/')
 		end
 	end
