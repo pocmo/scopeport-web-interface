@@ -100,13 +100,6 @@ class UsersController < ApplicationController
 		redirect_to :action => "index"	
 	end
 	
-	def delete_self
-		User.find(current_user.id).destroy
-		flash[:notice] = "User deleted successfully."
-		
-		redirect_to :action => "index"	
-	end
-	
 	def edit
 		@user = User.find(params[:id])
 		@departments = Department.find :all

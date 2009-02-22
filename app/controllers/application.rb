@@ -152,7 +152,6 @@ class ApplicationController < ActionController::Base
 	#A method to block the admin pages to non-admin users
 	def permission?
 		user = current_user
-		puts !user.admin
 		if !user.admin
 			#Allow only "self administration"
 			unless params[:controller] == "users" and "#{user.id}" == params[:id]
