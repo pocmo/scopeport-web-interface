@@ -17,7 +17,7 @@
 
 class HostsController < ApplicationController
 
-	before_filter :admin?
+	before_filter :permission?
 
 	def new
 		@host = Host.new

@@ -17,7 +17,7 @@
 
 class NotificationgroupsController < ApplicationController
 
-	before_filter :admin?	
+	before_filter :permission?	
 	
 	def index
 		@groups = Notificationgroupdetail.find :all

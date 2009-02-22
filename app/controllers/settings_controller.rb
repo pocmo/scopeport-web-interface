@@ -17,7 +17,7 @@
 
 class SettingsController < ApplicationController
 
-	before_filter :admin?
+	before_filter :permission?
 	  
   def index
    @notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }

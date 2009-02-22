@@ -150,13 +150,15 @@ class ApplicationController < ActionController::Base
   end
 
 	#A method to block the admin pages to non-admin users
-	def admin?
-		#admin_controllers = %w{logmessages vitals setup}
-		#admin_actions = %w{delete new}
+	def permission?
 		user = current_user
-		if user != nil and !user.admin
-			flash[:error] = "You must be admin to peform this action"
-			redirect_back_or_default('/')
+		puts !user.admin
+		if !user.admin
+			#Allow only "self administration"
+			unless params[:controller] == "users" and "#{user.id}" == params[:id]
+				flash[:error] = "You must be admin to peform this action"
+				redirect_back_or_default('/')
+			end
 		end
 	end
 	

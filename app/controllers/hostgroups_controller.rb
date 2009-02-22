@@ -17,7 +17,7 @@
 
 class HostgroupsController < ApplicationController
 	
-	before_filter :admin?, :except => [:index, :show]
+	before_filter :permission?, :except => [:index, :show]
 	
 	def index
 		@hostgroups = Hostgroup.find :all

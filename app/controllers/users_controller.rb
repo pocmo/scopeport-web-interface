@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :admin?, :except => [:index, :delete_self, :settings, :saveusersettings]
+	before_filter :permission?, :except => [:index, :settings, :saveusersettings]
 
   # Allow to create a first admin user.
   skip_before_filter :login_required, :only => [:new, :create] if User.find(:all).size == 0

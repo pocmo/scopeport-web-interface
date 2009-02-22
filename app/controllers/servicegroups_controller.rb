@@ -18,7 +18,7 @@
 
 class ServicegroupsController < ApplicationController
 	
-	before_filter :admin?
+	before_filter :permission?
 	
 	def index
 		@servicegroups = Servicegroup.find :all

@@ -17,7 +17,7 @@
 
 class SetupController < ApplicationController
 
-	before_filter :admin?
+	before_filter :permission?
 
 	def index
 	end
