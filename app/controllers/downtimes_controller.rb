@@ -17,7 +17,7 @@
 
 class DowntimesController < ApplicationController
   
-  before_filter :admin?, :except => [:index]
+  before_filter :permission?, :except => [:index]
   
   def index
     @downtimes = Downtime.find(:all)

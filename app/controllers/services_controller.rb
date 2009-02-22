@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-	before_filter :admin?, :except => [:index, :show, :show_graph, :show_ms, :store_comment]
+	before_filter :authorized?, :except => [:index, :show, :show_graph, :show_ms, :store_comment]
 
 	def index
 		@service_groups = Servicegroup.find :all
