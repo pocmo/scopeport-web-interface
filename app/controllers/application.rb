@@ -155,7 +155,7 @@ class ApplicationController < ActionController::Base
 		if !user.admin
 			#Allow only "self administration"
 			unless params[:controller] == "users" and "#{user.id}" == params[:id]
-				flash[:error] = "You must be admin to peform this action"
+				flash[:error] = "Sorry. You must be an administrator to perform this action."
 				redirect_back_or_default('/')
 			end
 		end
