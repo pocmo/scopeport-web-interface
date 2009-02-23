@@ -14,10 +14,12 @@
 		<div id="top">
 			<img src="/images/layout/top.png" alt="ScopePort" id="toplogo">
       <% unless @first_admin %>
+			  <% if admin? %>
 			  <div id="logmsg">
   				<%= getLastLogMessage %>
   				[<%= link_to ">", :controller => "logmessages" %>]
   			</div>
+  			<% end %>
 			  <div id="bigredbutton-activate">
   				<a onclick="bigRedButtonSlide()" title="Declare emergency!">
   					!
@@ -60,6 +62,7 @@
   				</div>
   				<div class="topbutton-sectionspacer">
   				</div>
+  				<% if admin? %>
   				<div id="adminsubnavigation">
   					<div id="adminnotice">
   						Admin
@@ -74,6 +77,7 @@
   						<%= navigationLink "vitals", "Vitals" %>
   					</div>
   				</div>
+  				<% end %>
   			</div>
       <% end %>
 		</div>
