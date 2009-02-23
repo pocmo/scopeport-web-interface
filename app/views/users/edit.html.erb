@@ -23,10 +23,12 @@
 
       <p><%= f.label :password_confirmation, "Confirm password" %>
       <%= f.password_field :password_confirmation %></p>
-      
+     
+      <% if admin? %>
       <p><%= label_tag :admin, 'Admin?' %>
         <%= f.check_box :admin, :checked_value => "True" %></p>
-
+			<% end %> 
+     
       <p><%= submit_tag "Update user" %></p>
       <% end -%>
   </div>

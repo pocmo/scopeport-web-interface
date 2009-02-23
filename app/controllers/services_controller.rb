@@ -4,7 +4,6 @@ class ServicesController < ApplicationController
 
 	def index
 		@service_groups = Servicegroup.find :all
-    @services_without_group = Service.find_all_by_servicegroup_id nil
     @services_without_group.concat Service.find_all_by_servicegroup_id 0
     
 
