@@ -196,7 +196,7 @@
   height: 230px;
   width: 100%;
 	margin-top: 15px;
-	padding: 0px auto;
+  text-align: center;
 }
 
 #service-graph-response-loading {
