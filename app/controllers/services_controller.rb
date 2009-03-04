@@ -65,12 +65,14 @@ class ServicesController < ApplicationController
       @graph.insert "#{d.timestamp}:#{d.ms}"
     end
 
+    maxres = 0
+    maxres = @service.maxres unless @service.maxres.blank?
     # Graph image
     lines = ["DEF:response=#{@graph.get_path_of_rrd}:response:AVERAGE LINE:response#eb7f00:'Response time (ms)'"]
     title = "Response time of \"#{@service.name}\" - #{Time.now.to_s}"
     width = "800"
     height = "150"
-    options = "-Y -X 1 -E"
+    options = "HRULE:#{maxres}#FF6C6C:'Maximum response time' -Y -X 1 -E"
     colors = { "SHADEA" => "#F8F8F8",
                "SHADEB" => "#F8F8F8",
                "FONT" => "#000000",
