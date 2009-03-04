@@ -70,7 +70,7 @@ class ServicesController < ApplicationController
     title = "Response time of \"#{@service.name}\" - #{Time.now.to_s}"
     width = "800"
     height = "150"
-    options = "-Y -X 1"
+    options = "-Y -X 1 -E"
     colors = { "SHADEA" => "#F8F8F8",
                "SHADEB" => "#F8F8F8",
                "FONT" => "#000000",
