@@ -108,6 +108,10 @@ class UsersController < ApplicationController
 	def update
 		@departments = Department.find :all
 		@user = User.find(params[:id])
+
+    # ONly allow admins to change the admin flag.
+    params[:user][:admin] = false unless current_user.admin
+
 		if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."
 			 redirect_to :action => "index"
