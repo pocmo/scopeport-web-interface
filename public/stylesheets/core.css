@@ -537,3 +537,9 @@ a.with-avatar:hover span {
   width: 100%;
   text-align: center;
 }
+
+#demo-welcome {
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px dashed #000000;
+}

@@ -1,1 +1,20 @@
-<%= render_headline @headline %>
+<h1>Overview</h1>
+
+<% if @demo %>
+  <div id="demo-welcome">
+    <h3>Hey, <%= current_user.name %>! Thank you for trying out the ScopePort demo.</h3>
+    <p>
+      Please contact us if you have any questions or wishes. Just send an email to our mailing list:
+      <%= link_to "http://groups.google.com/group/scopeport-talk", "http://groups.google.com/group/scopeport-talk" %>
+    </p>
+    <p>
+      Please note that this web interface is still under heavy development. Currently we can only present the "Services" section.
+      Take a look at the Screenshots on <%= link_to "ScopePort.org", "http://www.scopeport.org/screenshots" %> if you want to see more
+      of the web interface.
+    </p>
+    <p>
+      Feel free to create some services and service groups. Do you know somebody who would also like to try out this web interface? Contact us
+      and we create an account for him/her.
+    </p>
+  </div>
+<% end %>

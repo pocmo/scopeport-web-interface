@@ -20,6 +20,7 @@ class OverviewController < ApplicationController
 	before_filter :permission?, :except => [:index]	
 	
 	def index
-		@headline = "Overview"
+    @demo = false
 	end
+
 end
