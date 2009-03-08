@@ -27,8 +27,6 @@
       <% if admin? %>
       <p><%= label_tag :admin, 'Admin?' %>
         <%= f.check_box :admin, :checked_value => "True" %></p>
-       <p><%= label_tag :service_admin, 'Service Admin?' %>
-        <%= f.check_box :service_admin, :checked_value => "True" %></p> 
 			<% end %> 
      
       <p><%= submit_tag "Update user" %></p>

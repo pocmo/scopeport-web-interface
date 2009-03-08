@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   
   def settings
     @user = User.find current_user.id
+    @departments = Department.find :all
     
     settings = Setting.find :first
     if !settings.blank? && settings.allow_gravatar == true
@@ -115,7 +116,7 @@ class UsersController < ApplicationController
     
     if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."
-			 redirect_to :action => "index"
+			 redirect_to :action => "edit", :id => current_user.id
 		else
 		 	flash[:error] = "An error has occurred."
 		 	render :action => :edit, :id => params[:id]
