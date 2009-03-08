@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :permission?, :except => [:settings, :saveusersettings]
+	#before_filter :permission?, :except => [:settings, :saveusersettings]
 
   # Allow to create a first admin user.
   skip_before_filter :login_required, :only => [:new, :create] if User.find(:all).size == 0
@@ -109,10 +109,10 @@ class UsersController < ApplicationController
 		@departments = Department.find :all
 		@user = User.find(params[:id])
 
-    # ONly allow admins to change the admin flag.
+		# Only allow admins to change the admin flag.
     params[:user][:admin] = false unless current_user.admin
-
-		if @user.update_attributes(params[:user])
+    
+    if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."
 			 redirect_to :action => "index"
 		else
