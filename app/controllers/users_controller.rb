@@ -116,7 +116,7 @@ class UsersController < ApplicationController
     
     if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."
-			 redirect_to :action => "edit", :id => current_user.id
+			 redirect_to :action => "settings"
 		else
 		 	flash[:error] = "An error has occurred."
 		 	render :action => :edit, :id => params[:id]
