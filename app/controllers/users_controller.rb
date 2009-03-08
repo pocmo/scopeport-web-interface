@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
     @departments = Department.find :all
     @user = User.new(params[:user])
+    @user.login= params[:user][:login]
     success = @user && @user.save
     if success && @user.errors.empty?
       if @first_admin == true

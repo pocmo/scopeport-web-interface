@@ -165,4 +165,12 @@ class ApplicationController < ActionController::Base
 	def start_time
 		@start_time = Time.now
 	end
+	
+	def service_admin?
+		user = current_user
+			if !user.service_admin
+				flash[:error] = "Sorry. You must be an administrator to perform this action."
+				redirect_back_or_default('/')
+			end
+	end	
 end

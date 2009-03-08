@@ -1,7 +1,7 @@
 <%= render_headline "Services" %>
 Monitored services: <%= @service_count %>.
 
-<% if admin? %>
+<% if admin_or_service_admin? %>
   Add a service <%= link_to "here", :action => "new" %>
 <% end %>
 
