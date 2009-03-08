@@ -168,9 +168,11 @@ class ApplicationController < ActionController::Base
 	
 	def service_admin?
 		user = current_user
+		if !user.admin
 			if !user.service_admin
 				flash[:error] = "Sorry. You must be an administrator to perform this action."
 				redirect_back_or_default('/')
 			end
+		end
 	end	
 end
