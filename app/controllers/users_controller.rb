@@ -111,8 +111,9 @@ class UsersController < ApplicationController
 		@departments = Department.find :all
 		@user = User.find(params[:id])
 
-		# Only allow admins to change the admin flag.
+		# Only allow admins to change the admin and service_admin flags.
     params[:user][:admin] = false unless current_user.admin
+    params[:user][:service_admin] = false unless current_user.admin
     
     if @user.update_attributes(params[:user])
 			 flash[:notice] = "User profile updated successfully."

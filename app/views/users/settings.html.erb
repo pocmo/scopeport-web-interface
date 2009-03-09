@@ -2,7 +2,7 @@
 
 <%= error_messages_for :user %>
 
-<%= render :partial => "edit" %>
+<%= render "users/edit" %>
 
 <% form_for @user, :url => { :action => "saveusersettings" } do |f| %>
   <p>
