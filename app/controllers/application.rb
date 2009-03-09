@@ -162,9 +162,9 @@ class ApplicationController < ActionController::Base
 #	end
 	def permission?
     user = current_user
-    controller = params[:controller]
-    action = params[:action]
-    id = params[:id]
+    puts controller = params[:controller]
+    puts action = params[:action]
+    puts id = params[:id]
  
     # Okay, the user is an administrator. Allow all access.
     return true if user.admin
@@ -174,7 +174,7 @@ class ApplicationController < ActionController::Base
     return true if controller == "users" and (action == "edit" or action == "update") and id == user.id.to_s
  		
  		# Service Admin
- 		return true if controller == "service" and user.service_admin
+ 		return true if controller == "services" and user.service_admin
  
     return false
   end
