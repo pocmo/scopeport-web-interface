@@ -17,7 +17,7 @@
 
 class VitalsController < ApplicationController
 
-	before_filter :permission?
+	before_filter { |controller| controller.block unless controller.permission?}
 
 	def index
 		@database_sizes = Vital.find(:last, :select => "dbtotalsize, dbsensorsize, dbservicesize",

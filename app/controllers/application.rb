@@ -150,15 +150,29 @@ class ApplicationController < ActionController::Base
   end
 
 	#A method to block the admin pages to non-admin users
-	def permission?
-		user = current_user
-		if !user.admin
-			#Allow only "self administration"
-			unless params[:controller] == "users" and "#{user.id}" == params[:id]
-				flash[:error] = "Sorry. You must be an administrator to perform this action."
-				redirect_back_or_default('/')
-			end
-		end
+def permission?
+    user = current_user
+    puts controller = params[:controller]
+    puts action = params[:action]
+    puts id = params[:id]
+ 
+    # Okay, the user is an administrator. Allow all access.
+    return true if user.admin
+ 
+    # Fine grained access rules.
+    # Allow changing own profile.
+    return true if controller == "users" and (action == "edit" or action == "update") and id == user.id.to_s
+ 		
+ 		# Service Admin
+ 		return true if controller == "services" and user.service_admin
+ 
+    return false
+  end
+	
+	#Method to redirect to root when a person don't have permission to do something
+	def block
+		flash[:error] = "Sorry. You must be an administrator to perform this action."
+		redirect_back_or_default('/')
 	end
 	
 	#"Timer" to show in "Page generated in..."
@@ -166,13 +180,6 @@ class ApplicationController < ActionController::Base
 		@start_time = Time.now
 	end
 	
-	def service_admin?
-		user = current_user
-		if !user.admin
-			if !user.service_admin
-				flash[:error] = "Sorry. You must be an administrator to perform this action."
-				redirect_back_or_default('/')
-			end
-		end
-	end	
+	
+	
 end

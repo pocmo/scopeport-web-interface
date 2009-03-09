@@ -17,7 +17,7 @@
 
 class NotificationgroupsController < ApplicationController
 
-	before_filter :permission?	
+	before_filter { |controller| controller.block unless controller.permission?}	
 	
 	def index
 		@groups = Notificationgroupdetail.find :all
