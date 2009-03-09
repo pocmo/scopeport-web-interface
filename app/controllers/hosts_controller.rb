@@ -17,7 +17,7 @@
 
 class HostsController < ApplicationController
 
-	before_filter :permission?
+	before_filter { |controller| controller.block unless controller.permission?}
 
 	def new
 		@host = Host.new

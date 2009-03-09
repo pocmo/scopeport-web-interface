@@ -17,7 +17,7 @@
 
 class LogmessagesController < ApplicationController
 
-	before_filter :permission?	
+	before_filter { |controller| controller.block unless controller.permission?}
 	
 	def index
 		@headline = "Log"

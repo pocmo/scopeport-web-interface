@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-	#before_filter :permission?, :except => [:settings, :saveusersettings]
 	before_filter(:except => [:settings, :saveusersettings]) { |controller| controller.block unless controller.permission?}
 	
   # Allow to create a first admin user.

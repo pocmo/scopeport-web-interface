@@ -17,7 +17,7 @@
 
 class HostgroupsController < ApplicationController
 	
-	before_filter :permission?, :except => [:index, :show]
+	before_filter(:except => [:index, :show]) { |controller| controller.block unless controller.permission?}
 	
 	def index
 		@hostgroups = Hostgroup.find :all
