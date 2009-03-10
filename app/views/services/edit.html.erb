@@ -2,6 +2,11 @@
 
 <%= javascript_include_tag "scopeport-forms" %>
 
+<script type="text/javascript">
+  <%= remote_function :update => "service-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => @service.id } %>
+</script>
+
+
 <div id="service-new">
 	<div id="service-new-form">
 		<% form_for :service, :url => { :action => "update" , :id => params[:id]} do |f| %>
