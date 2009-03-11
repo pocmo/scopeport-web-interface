@@ -179,7 +179,5 @@ def permission?
 	def start_time
 		@start_time = Time.now
 	end
-	
-	
-	
+  
 end

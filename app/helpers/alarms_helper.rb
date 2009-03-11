@@ -34,4 +34,18 @@ module AlarmsHelper
 		return "The service could not be reached" if ms == 0
 		return "The service had a too high response time (#{ms} ms)"
 	end
+
+  def updateAlarmStatusAJAX id, status
+    return "" if id.blank?
+
+    if status == false or status.blank?
+      action = "attend"
+    else
+      action = "unattend"
+    end
+
+    #return "new Ajax.Request('/alarms/#{action}/#{id}', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')});updateAlarmRow('#{status}', this)"
+    return (remote_function :url => { :action => action, :id => id }) + "; updateAlarmRow('#{status}', this);"
+  end
+	
 end

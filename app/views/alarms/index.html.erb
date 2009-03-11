@@ -5,6 +5,7 @@ Every alarm that has been caused is listed here. Click on an alarm to get the de
 	<h2>Service alarms</h2>
 	<table>
 		<tr class="doNotHighlightMe">
+      <th>&nbsp;</th>
 			<th>ID</th>
 			<th>Time</th>
 			<th>Service</th>
@@ -12,7 +13,8 @@ Every alarm that has been caused is listed here. Click on an alarm to get the de
 			<th colspan="2">Message</th>
 		</tr>
 		<% @service_alarms.each do |alarm| %>
-			<tr class="<%= getAlarmStatusBackgroundClass alarm.status %>">
+			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
+        <td><input type="checkbox" onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"></td>
 				<td><%=h alarm.id %></td>
 				<td><%=h Time.at alarm.timestamp %></td>
 				<td class="bold"><%=h alarm.servicename %></td>

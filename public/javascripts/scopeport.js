@@ -38,3 +38,17 @@ function hideComment(id){
   comment = document.getElementById("comment_" + id);
   comment.style.display = "none";
 }
+
+function updateAlarmRow(status, el){
+    row = el.parentNode.parentNode;
+    checkbox = el;
+
+    if(status == "true"){
+      row.style.backgroundColor= "#F8F8F8";
+      row.style.backgroundImage= "url(../images/errorbg-blink.gif)";
+    }else{
+      row.style.backgroundColor= "#91FF74";
+      row.style.backgroundImage= "url()";
+    }
+    checkbox.disabled = true;
+}
