@@ -2,7 +2,7 @@
 Monitored services: <%= @service_count %>.
 
 <% if admin_or_service_admin? %>
-  Add a service <%= link_to "here", :action => "new" %>
+  Add a service <%= link_to "here", :action => "new" %>. You can manage service groups <%= link_to "here", :controller => "servicegroups", :action => "index" %>
 <% end %>
 
 <% unless @service_groups.blank? %>
