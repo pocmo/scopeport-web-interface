@@ -20,7 +20,7 @@ class OverviewController < ApplicationController
 	before_filter(:except => [:index]) { |controller| controller.block unless controller.permission?}
 	
 	def index
-    @demo = true
+    @demo = false
 	end
 
 end
