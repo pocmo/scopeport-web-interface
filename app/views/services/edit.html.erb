@@ -33,9 +33,9 @@
 			<%= error_message_on(:service, :warninggroup) %>
       
       <%= label :servicegroup_id, "Service group" %>
-     	<%= f.select :servicegroup_id, @service_groups, { :selected => @service.servicegroup_id.to_s }%> <%= error_message_on(:service, :servicegroup_id) %>
- 	  	
-			<%= label :linkedhost, "Link to host" %>
+     	<%= f.select :servicegroup_id, @service_groups, { :selected => @service.servicegroup_id }%> <%= error_message_on(:service, :servicegroup_id) %>
+			
+      <%= label :linkedhost, "Link to host" %>
      	<%= f.select :linkedhost, @hosts, { :selected => @service.linkedhost }%> <%= error_message_on(:service, :linkedhost) %>
 
 			<p>
