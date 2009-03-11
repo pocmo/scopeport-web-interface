@@ -43,6 +43,13 @@ class ServicegroupsController < ApplicationController
 	def delete
     group = Servicegroup.find params[:id]
     if group.destroy
+      # Reset the servicegroup_id of all hosts in this group.
+      services = Service.find_all_by_servicegroup_id params[:id]
+      services.each do |service|
+        service.servicegroup_id = 0
+        service.save
+      end
+
       flash[:notice] = "Group has been deleted!"
     else
       flash[:error] = "Could not delete group."
