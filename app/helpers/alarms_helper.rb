@@ -31,7 +31,7 @@ module AlarmsHelper
 
 	# Returns the alarm message of a service.
 	def getServiceAlarmMessage ms
-		return "The service could not be reached" if ms.blank?
-		return "The service had a too high response time (" + ms.to_s + " ms)"
+		return "The service could not be reached" if ms == 0
+		return "The service had a too high response time (#{ms} ms)"
 	end
 end
