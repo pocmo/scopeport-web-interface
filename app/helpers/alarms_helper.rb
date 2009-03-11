@@ -9,10 +9,10 @@ module AlarmsHelper
 		end
 		
 		# Return standard message if status is blank.
-		return message if status.blank?
+		return message if status == false
 		
 		# Change the message if the status equals 1.
-		if status == 1
+		if status == true
 			if colored == true
 				message = "<span class='sensor-okay-text'>Okay/Attended</span>"
 			else
@@ -25,7 +25,7 @@ module AlarmsHelper
 	end
 
 	def getAlarmStatusBackgroundClass status
-		return "sensor-error" if status.nil?
+		return "sensor-error" if status.nil? or status == false
 		return "sensor-okay"
 	end
 

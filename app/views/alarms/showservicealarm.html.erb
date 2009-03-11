@@ -11,7 +11,13 @@
 </div>
 
 <div id="alarms-attendalarm">
-	<% form_tag :action => "attend" do %>
-		<%= submit_tag "Mark this alarm as \"Okay/Attended\"", :disable_with => "Please wait" %>
-	<% end %>
+  <% if @alarm.status == false or @alarm.status.blank? %>
+  	<% form_tag :action => "attend", :id => @alarm.id do %>
+  		<%= submit_tag "Mark this alarm as \"Okay/Attended\"", :disable_with => "Please wait" %>
+  	<% end %>
+  <% else %>
+  	<% form_tag :action => "unattend", :id => @alarm.id do %>
+  		<%= submit_tag "Mark this alarm as \"New/Unattended\"", :disable_with => "Please wait" %>
+  	<% end %>
+  <% end %>
 </div>
