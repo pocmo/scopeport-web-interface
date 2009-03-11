@@ -3,10 +3,11 @@ class AlarmsController < ApplicationController
 	before_filter(:except => [:index]) { |controller| controller.block unless controller.permission?}
 
 	def index
-		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC", :conditions => "alarm_type = 2",
+		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
+                                :conditions => "alarm_type = 2 AND services.name != ''",
 																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, services.name AS servicename",
 																:joins => "LEFT JOIN services ON services.id = alarms.serviceid"
-	end
+  end
 
 	def showservicealarm
 		@alarm = Alarm.find(params[:id],
