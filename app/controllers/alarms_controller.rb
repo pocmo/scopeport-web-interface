@@ -1,6 +1,6 @@
 class AlarmsController < ApplicationController
 
-	before_filter(:except => [:index]) { |controller| controller.block unless controller.permission?}
+	before_filter(:except => [:index, :showservicealarm, :attend, :unattend]) { |controller| controller.block unless controller.permission?}
 
 	def index
 		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
