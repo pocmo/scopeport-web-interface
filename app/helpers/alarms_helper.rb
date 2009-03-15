@@ -44,8 +44,7 @@ module AlarmsHelper
       action = "unattend"
     end
 
-    #return "new Ajax.Request('/alarms/#{action}/#{id}', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')});updateAlarmRow('#{status}', this)"
-    return (remote_function :url => { :action => action, :id => id }) + "; updateAlarmRow('#{status}', this);"
+    return (remote_function :url => { :action => action, :id => id }) + "; updateAlarmRow('#{status}', '#{id}', this);"
   end
 	
 end

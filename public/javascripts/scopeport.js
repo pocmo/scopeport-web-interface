@@ -39,14 +39,17 @@ function hideComment(id){
   comment.style.display = "none";
 }
 
-function updateAlarmRow(status, el){
+function updateAlarmRow(status, alarmid, el){
     row = el.parentNode.parentNode;
+    statuscol = document.getElementById("alarm-status-" + alarmid);
     checkbox = el;
 
     if(status == "true"){
+      statuscol.innerHTML = "New/Unattended";
       row.style.backgroundColor= "#F8F8F8";
       row.style.backgroundImage= "url(../images/errorbg-blink.gif)";
     }else{
+      statuscol.innerHTML = "Okay/Attended";
       row.style.backgroundColor= "#91FF74";
       row.style.backgroundImage= "url()";
     }

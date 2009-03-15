@@ -18,7 +18,7 @@ Every alarm that has been caused is listed here. Click on an alarm to get the de
 				<td><%=h alarm.id %></td>
 				<td><%=h Time.at alarm.timestamp %></td>
 				<td class="bold"><%=h alarm.servicename %></td>
-				<td><%=h getAlarmStatus alarm.status %></td>
+				<td id="alarm-status-<%=h alarm.id %>"><%=h getAlarmStatus alarm.status %></td>
 				<td class="bold"><%= getServiceAlarmMessage(alarm.ms) %></td>
 				<td class="no-background-content"><%= link_to "Details", :action => "showservicealarm", :id => alarm.id %></td>
 			</tr>
