@@ -5,7 +5,7 @@ class AlarmsController < ApplicationController
 	def index
 		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
                                 :conditions => "alarm_type = 2 AND services.name != ''",
-																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, services.name AS servicename",
+																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename",
 																:joins => "LEFT JOIN services ON services.id = alarms.service_id"
   end
 
@@ -34,6 +34,13 @@ class AlarmsController < ApplicationController
       return
     end
 
+    # Check if this alarm is already attended.
+    if alarm.status == true
+      flash[:error] = "This alarm is already attended."
+      redirect_to :controller => "alarms"
+      return
+    end
+
     # Mark the alarm as "attended".
     alarm.status = 1
     alarm.attendee = current_user.id
@@ -53,6 +60,12 @@ class AlarmsController < ApplicationController
 
     if alarm.blank?
       flash[:error] = "This alarm does not exist."
+      redirect_to :controller => "alarms"
+      return
+    end
+
+    if alarm.attendee != blank? && alarm.attendee != current_user.id
+      flash[:error] = "You don't have the right to mark this alarm as \"New/Unattended\""
       redirect_to :controller => "alarms"
       return
     end

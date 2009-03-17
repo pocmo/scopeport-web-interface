@@ -27,8 +27,10 @@
   		<%= submit_tag "Mark this alarm as \"Okay/Attended\"", :disable_with => "Please wait" %>
   	<% end %>
   <% else %>
-  	<% form_tag :action => "unattend", :id => @alarm.id do %>
-  		<%= submit_tag "Mark this alarm as \"New/Unattended\"", :disable_with => "Please wait" %>
-  	<% end %>
+    <% unless @alarm.user.blank? or @alarm.user.id.blank? or @alarm.user.id != current_user.id %>
+    	<% form_tag :action => "unattend", :id => @alarm.id do %>
+    		<%= submit_tag "Mark this alarm as \"New/Unattended\"", :disable_with => "Please wait" %>
+    	<% end %>
+    <% end %>
   <% end %>
 </div>

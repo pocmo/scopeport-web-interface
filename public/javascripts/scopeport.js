@@ -49,7 +49,7 @@ function updateAlarmRow(status, alarmid, el){
       row.style.backgroundColor= "#F8F8F8";
       row.style.backgroundImage= "url(../images/errorbg-blink.gif)";
     }else{
-      statuscol.innerHTML = "Okay/Attended";
+      statuscol.innerHTML = "Okay/Attended <strong>(me)</strong>";
       row.style.backgroundColor= "#91FF74";
       row.style.backgroundImage= "url()";
     }

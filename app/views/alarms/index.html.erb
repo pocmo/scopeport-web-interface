@@ -14,11 +14,22 @@ Every alarm that has been caused is listed here. Click on an alarm to get the de
 		</tr>
 		<% @service_alarms.each do |alarm| %>
 			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
-        <td><input type="checkbox" onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"></td>
+        <td>
+          <input type="checkbox"
+                  onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
+                  <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
+                    disabled="disabled"
+                  <% end %>>
+        </td>
 				<td><%=h alarm.id %></td>
 				<td><%=h Time.at alarm.timestamp %></td>
 				<td class="bold"><%=h alarm.servicename %></td>
-				<td id="alarm-status-<%=h alarm.id %>"><%=h getAlarmStatus alarm.status %></td>
+				<td id="alarm-status-<%=h alarm.id %>">
+            <%=h getAlarmStatus alarm.status %>
+          <% if !alarm.attendee.blank? and alarm.attendee == current_user.id %>
+            <strong>(me)</strong>
+          <% end %>
+        </td>
 				<td class="bold"><%= getServiceAlarmMessage(alarm.ms) %></td>
 				<td class="no-background-content"><%= link_to "Details", :action => "showservicealarm", :id => alarm.id %></td>
 			</tr>
