@@ -37,6 +37,7 @@ class AlarmsController < ApplicationController
     # Mark the alarm as "attended".
     alarm.status = 1
     alarm.attendee = current_user.id
+    alarm.attendance_date = Time.now
 
     if alarm.save
       flash[:notice] = "Status changed."
@@ -59,6 +60,7 @@ class AlarmsController < ApplicationController
     # Mark the alarm as "attended".
     alarm.status = 0
     alarm.attendee = nil
+    alarm.attendance_date = nil
 
     if alarm.save
       flash[:notice] = "Status changed."

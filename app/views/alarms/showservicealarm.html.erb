@@ -12,7 +12,10 @@
       <% if @alarm.user.blank? or @alarm.user.name.blank? %>
         Nobody
       <% else %>
-        <%= @alarm.user.name %>
+        <%=h @alarm.user.name %>
+        <% unless @alarm.attendance_date.blank? %>
+          (<%=h @alarm.attendance_date %>)
+        <% end %>
       <% end %>
     </dd>
 	</dl>
