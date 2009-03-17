@@ -1,4 +1,4 @@
-<%= render_headline "Service alarm ##{@alarm.id.to_s} (Caused by service &raquo;#{@alarm.servicename}&laquo;)" %>
+<%= render_headline "Service alarm ##{@alarm.id.to_s} (Caused by service &raquo;#{@alarm.service.name}&laquo;)" %>
 <%= getServiceAlarmMessage @alarm.ms %>
 
 <div id="alarms-alarmdetails">
@@ -7,6 +7,14 @@
 		<dd><%= Time.at @alarm.timestamp %></dd>
 		<dt>Status</dt>
 		<dd><%= getAlarmStatus @alarm.status, true %></dd>
+    <dt>Attended by</dt>
+    <dd>
+      <% if @alarm.user.blank? or @alarm.user.name.blank? %>
+        Nobody
+      <% else %>
+        <%= @alarm.user.name %>
+      <% end %>
+    </dd>
 	</dl>
 </div>
 

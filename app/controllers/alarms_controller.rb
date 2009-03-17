@@ -6,17 +6,22 @@ class AlarmsController < ApplicationController
 		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
                                 :conditions => "alarm_type = 2 AND services.name != ''",
 																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, services.name AS servicename",
-																:joins => "LEFT JOIN services ON services.id = alarms.serviceid"
+																:joins => "LEFT JOIN services ON services.id = alarms.service_id"
   end
 
 	def showservicealarm
-		@alarm = Alarm.find(params[:id],
-														:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, services.name AS servicename",
-														:joins => "LEFT JOIN services ON services.id = alarms.serviceid")
+    @alarm = Alarm.find params[:id]
 
-    if @alarm.servicename.blank?
+    if @alarm.service.blank?
       flash[:error] = "This alarm does not exist."
       redirect_to :controller => "alarms"
+      return
+    end
+    
+    if @alarm.service.name.blank?
+      flash[:error] = "The service of this alarm does not exist."
+      redirect_to :controller => "alarms"
+      return
     end
 	end
 
@@ -31,6 +36,7 @@ class AlarmsController < ApplicationController
 
     # Mark the alarm as "attended".
     alarm.status = 1
+    alarm.attendee = current_user.id
 
     if alarm.save
       flash[:notice] = "Status changed."
@@ -52,6 +58,7 @@ class AlarmsController < ApplicationController
 
     # Mark the alarm as "attended".
     alarm.status = 0
+    alarm.attendee = nil
 
     if alarm.save
       flash[:notice] = "Status changed."
