@@ -1,9 +1,4 @@
-<h1>Your settings - <%= @user.login %></h1>
-
-<%= error_messages_for :user %>
-
-<%= render "users/edit" %>
-
+<h1>My settings</h1>
 <% form_for @user, :url => { :action => "saveusersettings" } do |f| %>
   <p>
     <% if @gravatar_allowed %>

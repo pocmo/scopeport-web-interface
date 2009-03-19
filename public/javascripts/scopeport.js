@@ -14,7 +14,21 @@ window.onload = function(){
     }
   }
 };
- 
+
+function toggleCheckboxValue(el){
+  if(el.value == "0"){
+    el.checked = true;
+    el.value = "1";
+    return;
+  }
+
+  if(el.value == "1"){
+    el.checked = false;
+    el.value = "0";
+    return;
+  }
+}
+
 function disableOtherReceiverFields(thisfield){
   var fields = new Array( document.getElementById("newGroup_mail"),
                           document.getElementById("newGroup_jid"),

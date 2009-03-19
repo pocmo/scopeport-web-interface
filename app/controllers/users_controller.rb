@@ -111,18 +111,77 @@ class UsersController < ApplicationController
 		@departments = Department.find :all
 		@user = User.find(params[:id])
 
-		# Only allow admins to change the admin and service_admin flags.
-    params[:user][:admin] = false unless current_user.admin
-    params[:user][:service_admin] = false unless current_user.admin
-    
+    # Only admins can change foreign users.
+    if params[:id] != current_user.id && !current_user.admin
+      flash[:error] = "Only admins can change foreign users."
+		 	render :action => :edit, :id => params[:id]
+      return
+    end
+
+    # Chaging permissions is not allowed here. This is done in the permissions action.
+    params[:user][:admin] = @user.admin
+    params[:user][:service_admin] = @user.service_admin
+
     if @user.update_attributes(params[:user])
-			 flash[:notice] = "User profile updated successfully."
-			 redirect_to :action => "settings"
+		  flash[:notice] = "User profile updated successfully."
+		 	redirect_to :action => :edit, :id => params[:id]
 		else
 		 	flash[:error] = "An error has occurred."
 		 	render :action => :edit, :id => params[:id]
 		end
 	end
+
+  def permissions
+    @users = User.find :all
+  end
+
+  def set_permission
+    # Only admins can do this.
+    if current_user.admin != true
+      render :text => "no permissions"
+      return
+    end
+
+    # Check if all required parameters are set.
+    if params[:user_id].blank? or params[:type].blank? or params[:old_state].blank?
+      render :text => "missing parameters"
+      return
+    end
+
+    # Fetch the user.
+    begin
+      user = User.find params[:user_id]
+    rescue
+      render :text => "user not found"
+      return
+    end
+
+    case params[:type]
+      when "admin"
+        if params[:old_state] == "0"
+          user.admin = true
+        else
+          user.admin = false
+        end
+      when "service_admin"
+        if params[:old_state] == "0"
+          user.service_admin = true
+        else
+          user.service_admin = false
+        end
+      else
+        render :text => "invalid type"
+        return
+    end
+
+    if user.save
+      render :nil => true
+      return
+    else
+      render :text => "could not save user"
+      return
+    end
+  end
 
   def createdepartment
     @department = Department.new params[:department]

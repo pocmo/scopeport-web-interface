@@ -4,7 +4,12 @@
 	<h3>General</h3>
 	<ul>
 		<li><%= link_to "General settings", :controller => 'settings' %></li>
+  </ul>
+
+  <h3>Users</h3>
+  <ul>
 		<li><%= link_to "Manage users", :controller => 'users' %></li>
+		<li><%= link_to "User permissions", :controller => 'users', :action => "permissions" %></li>
 	</ul>
 
   <h3>Notification methods</h3>

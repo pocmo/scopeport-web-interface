@@ -1,0 +1,39 @@
+<h1>User permissions</h1>
+
+<div id="user-permissions-table">
+  <table>
+    <tr class="doNotHighlightMe">
+      <th>ID</th>
+      <th>Username</th>
+      <th>Full name</th>
+      <th>Administrator</th>
+      <th>Hosts</th>
+      <th>Services</th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%=h friendly_nil(user.id) %></td>
+        <td><strong><%=h friendly_nil(user.login) %></strong></td>
+        <td><%=h friendly_nil(user.name) %></td>
+
+        <td>
+          <input type="checkbox"  <% if user.admin == true %> checked="checked" value="1" <% else %> value="0" <% end %>
+            onclick="new Ajax.Request('/users/set_permission?old_state=' + this.value + '&type=admin&user_id=<%= user.id %>', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('<%= form_authenticity_token %>')});toggleCheckboxValue(this);" 
+          >
+        </td>
+
+        <td>
+          <input type="checkbox" disabled="disabled" />
+        </td>
+
+        <td>
+          <input type="checkbox"  <% if user.service_admin == true %> checked="checked" value="1" <% else %> value="0" <% end %>
+            onclick="new Ajax.Request('/users/set_permission?old_state=' + this.value + '&type=service_admin&user_id=<%= user.id %>', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('<%= form_authenticity_token %>')});toggleCheckboxValue(this);" 
+          >
+        </td>
+      </tr>
+    <% end %>
+  
+  </table>
+</div>

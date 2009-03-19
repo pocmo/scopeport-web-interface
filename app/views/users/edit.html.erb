@@ -1,3 +1,5 @@
+<h1>Edit user &raquo;<%=h @user.login %>&laquo;</h1>
+
 <div id="user-update">
   <%= error_messages_for :user %>
 
@@ -16,20 +18,18 @@
       <p><%= f.label :department_id,  "Department" %>
         <%= f.select :department_id, @departments.collect {|dep| [ dep.name, dep.id ] }, { :include_blank => "None" } %></p>
       
+      <p><%= submit_tag "Update user" %></p>
+    <% end %>
+
+
+    <% form_for :user, :url => { :action => "update", :id => @user.id } do |f| -%>
       <p><%= f.label :password, "Password" %>
       <%= f.password_field :password %></p>
 
       <p><%= f.label :password_confirmation, "Confirm password" %>
       <%= f.password_field :password_confirmation %></p>
      
-      <% if admin? %>
-      <p><%= label_tag :admin, 'Admin?' %>
-        <%= f.check_box :admin, :checked_value => "True" %></p>
-        <p><%= label_tag :service_admin, 'Service Admin?' %>
-        <%= f.check_box :service_admin, :checked_value => "True" %></p>
-			<% end %> 
-     
-      <p><%= submit_tag "Update user" %></p>
+      <p><%= submit_tag "Change password" %></p>
       <% end -%>
   </div>
 </div>

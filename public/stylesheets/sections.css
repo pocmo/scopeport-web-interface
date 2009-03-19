@@ -295,6 +295,10 @@
 	margin-left: 130px;
 }
 
+#user-permissions-table {
+  margin-top: 15px;
+}
+
 /*
  * Clickatell SMS API settings
  */
