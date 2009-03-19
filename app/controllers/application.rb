@@ -77,6 +77,10 @@ class ApplicationController < ActionController::Base
 		end
 		
 		group = Notificationgroupdetail.find groupID
+		if group.blank?
+			return "None"
+		end
+
 		return group.name
 	end
 
