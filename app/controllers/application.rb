@@ -141,8 +141,12 @@ class ApplicationController < ActionController::Base
 	end
 
   def buildUserLink user_id
-    user = User.find user_id
-    settings = Setting.find :first
+    begin
+      user = User.find user_id
+      settings = Setting.find :first
+    rescue
+      return "User not found"
+    end
 
     if settings.blank? || settings.allow_gravatar.blank? || settings.allow_gravatar == false || user.blank? || user.gravatar_email.blank? || user.login.blank?
       return "<a href=\"/users/show/#{user.id}\">#{user.login}</a>"
