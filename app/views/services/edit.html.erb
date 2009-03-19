@@ -29,7 +29,7 @@
 			<%= f.text_field :maxres %> <%= error_message_on(:service, :maxres) %>
 
 			<%= label :warninggroup, "Notification group" %>
-			<%= f.select :warninggroup, @notigroups, { :selected => @service.warninggroup.to_s }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
+			<%= f.select :warninggroup, @notigroups, { :selected => @service.warninggroup }, { :onchange => "new Ajax.Updater('service-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('service-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
 			<%= error_message_on(:service, :warninggroup) %>
       
       <%= label :servicegroup_id, "Service group" %>

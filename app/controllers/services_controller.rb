@@ -18,21 +18,21 @@ class ServicesController < ApplicationController
 	def new
 		@service = Service.new
 		@notigroups = Notificationgroupdetail.find(:all).collect { |p| [p.name, p.id] }
-		@notigroups << ["None", "0"]	
+		@notigroups << ["None", 0]	
 		@hosts = Host.find(:all).collect { |p| [p.name, p.id] }
-		@hosts << ["None", "0"]
+		@hosts << ["None", 0]
     @service_groups = Servicegroup.find(:all).collect { |g| [g.name, g.id] }
-    @service_groups << ["None", "0"]
+    @service_groups << ["None", 0]
 	end
 
 	def	create
 		@service = Service.new(params[:service])
 		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
-		@notigroups << ["None", "0"]	
+		@notigroups << ["None", 0]	
 		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
-		@hosts << ["None", "0"]
+		@hosts << ["None", 0]
     @service_groups = Servicegroup.find(:all).collect { |g| [g.name, g.id] }
-    @service_groups << ["None", "0"]
+    @service_groups << ["None", 0]
 		if @service.save
 			flash[:notice] = "Service has been added!"
 			redirect_to :action => "index"
@@ -103,21 +103,21 @@ class ServicesController < ApplicationController
   def edit
     @service = Service.find params[:id]
 		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
-		@notigroups << ["None", "0"]	
+		@notigroups << ["None", 0]	
 		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
-		@hosts << ["None", "0"]	
+		@hosts << ["None", 0]	
     @service_groups = Servicegroup.find(:all).collect { |g| [g.name, g.id] }
-    @service_groups << ["None", "0"]
+    @service_groups << ["None", 0]
   end
 
   def update
     @service = Service.update params[:id], params[:service]
 		@notigroups = Notificationgroupdetail.find(:all).collect {|p| [p.name, p.id] }
-		@notigroups << ["None", "0"]	
+		@notigroups << ["None", 0]	
 		@hosts = Host.find(:all).collect {|p| [p.name, p.id] }
-		@hosts << ["None", "0"]
+		@hosts << ["None", 0]
     @service_groups = Servicegroup.find(:all).collect { |g| [g.name, g.id] }
-    @service_groups << ["None", "0"]
+    @service_groups << ["None", 0]
     
     if @service.save
       flash[:notice] = "Service has been saved."
