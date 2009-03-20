@@ -177,9 +177,9 @@ def permission?
     return true if controller == "users" and (action == "edit" or action == "update") and id == user.id.to_s
  		
  		# Service Admin
- 		return true if (controller == "services" or "servicegroups" or "notificationgroups") and user.service_admin
+ 		return true if (controller == "services" or controller == "servicegroups" or controller == "notificationgroups") and user.service_admin
  
-    return false
+ 		return false
   end
 	
 	#Method to redirect to root when a person don't have permission to do something
