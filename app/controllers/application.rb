@@ -169,6 +169,9 @@ def permission?
     puts action = params[:action]
     puts id = params[:id]
  
+    #First access, permission to create the first admin user
+    return true if User.find(:all).size == 0
+    
     # Okay, the user is an administrator. Allow all access.
     return true if user.admin
  

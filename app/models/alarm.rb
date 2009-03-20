@@ -18,4 +18,8 @@
 class Alarm < ActiveRecord::Base
   belongs_to :service
   has_one :user, :primary_key => :attendee, :foreign_key => :id
+
+	
+	named_scope :created_at, lambda { |time|  { :conditions => ["timestamp > ?", time ] } }
+	
 end
