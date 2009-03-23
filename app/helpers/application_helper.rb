@@ -44,7 +44,10 @@ module ApplicationHelper
 	end
 
 	# Returns the CSS class that represents the colors of an service state.
-	def getErrorStyle sensorState
+	def getErrorStyle sensorState, lastcheck
+    # Return "none" if the service has not been checked lately.
+    return "none" if Time.at(lastcheck) < 2.minutes.ago
+
 		case sensorState
 			when 0:
 				return "error"

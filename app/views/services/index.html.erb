@@ -23,7 +23,7 @@ Monitored services: <%= @service_count %>.
 			    <th>Linked to host</th>
 		    </tr>
         <% group.services.each do |service| %>
-		      <tr class="sensor-<%= getErrorStyle service.state %>">
+		      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
 			      <td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
 			      <td><%=h service.host %>:<%=h service.port %></td>
 			      <% if service.service_type == "none" %>
@@ -74,7 +74,7 @@ Monitored services: <%= @service_count %>.
 			<th>Linked to host</th>
 		</tr>
 		<% @services_without_group.each do |service| %>
-		<tr class="sensor-<%= getErrorStyle service.state %>">
+		<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
 			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
 			<td><%=h service.host %>:<%=h service.port %></td>
 			<% if service.service_type == "none" %>
