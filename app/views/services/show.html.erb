@@ -38,6 +38,12 @@
 			Internal ScopePort error. Service could not be checked.
 		</div>
 	<% end %>
+	<% if @service.state == 4 %>
+		<div class="instantstate-error">
+			<%= showIcon "error", "float: left; margin-right: 3px;" %>
+			The service timed out!
+		</div>
+	<% end %>
 	<dl>
 		<dt>Host</dt>
   	<dd><%=h @service.host %></dd>

@@ -54,6 +54,8 @@ module ApplicationHelper
 				return "warn"
 			when 3:
 				return "internal-error"
+      when 4:
+        return "error"
 		end
 		return "none"
 	end
