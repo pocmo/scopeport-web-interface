@@ -1,5 +1,5 @@
 <%= render_headline "Service alarm ##{@alarm.id.to_s} (Caused by service &raquo;#{@alarm.service.name}&laquo;)" %>
-<%= getServiceAlarmMessage @alarm.ms %>
+<%= getServiceAlarmMessage @alarm.service_state, @alarm.ms %>
 
 <div id="alarms-alarmdetails">
 	<dl>

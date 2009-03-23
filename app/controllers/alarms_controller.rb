@@ -5,7 +5,7 @@ class AlarmsController < ApplicationController
 	def index
 		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
                                 :conditions => "alarm_type = 2 AND services.name != ''",
-																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename",
+																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename, alarms.service_state",
 																:joins => "LEFT JOIN services ON services.id = alarms.service_id"
   end
 

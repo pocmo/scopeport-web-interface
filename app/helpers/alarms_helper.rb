@@ -30,9 +30,13 @@ module AlarmsHelper
 	end
 
 	# Returns the alarm message of a service.
-	def getServiceAlarmMessage ms
-		return "The service could not be reached" if ms == 0
-		return "The service had a too high response time (#{ms} ms)"
+	def getServiceAlarmMessage status, ms
+		return "Unknown" if status.nil? or ms.nil?
+
+		return "The service could not be reached" if status == 0
+		return "The service had a too high response time (#{ms} ms)" if status == 2
+    return "The service timed out" if status == 4
+    return "Unknown"
 	end
 
   def updateAlarmStatusAJAX id, status
