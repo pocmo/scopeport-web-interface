@@ -49,14 +49,14 @@ module ApplicationHelper
     return "none" if Time.at(lastcheck) < 2.minutes.ago
 
 		case sensorState
+			when -1:
+				return "internal-error"
 			when 0:
 				return "error"
 			when 1:
 				return "okay"
 			when 2:
 				return "warn"
-			when 3:
-				return "internal-error"
       when 4:
         return "error"
 		end

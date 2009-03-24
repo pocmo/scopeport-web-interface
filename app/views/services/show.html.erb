@@ -14,6 +14,12 @@
 			This service has not been checked yet!
 		</div>
 	<% end %>
+	<% if @service.state == -1 %>
+		<div class="instantstate-internal-error">
+			<%= showIcon "error", "float: left; margin-right: 3px;" %>
+			Internal ScopePort error. Service could not be checked.
+		</div>
+	<% end %>
 	<% if @service.state == 0 %>
 		<div class="instantstate-error">
 			<%= showIcon "error", "float: left; margin-right: 3px;" %>
@@ -30,12 +36,6 @@
 		<div class="instantstate-warn">
 			<%= showIcon "warning", "float: left; margin-right: 3px;" %>
 			The service is reachable but has a too high response time!
-		</div>
-	<% end %>
-	<% if @service.state == 3 %>
-		<div class="instantstate-internal-error">
-			<%= showIcon "error", "float: left; margin-right: 3px;" %>
-			Internal ScopePort error. Service could not be checked.
 		</div>
 	<% end %>
 	<% if @service.state == 4 %>
