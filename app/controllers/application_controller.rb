@@ -141,6 +141,8 @@ class ApplicationController < ActionController::Base
 	end
 
   def buildUserLink user_id
+    returnage = ""
+
     begin
       user = User.find user_id
       settings = Setting.find :first
@@ -148,16 +150,40 @@ class ApplicationController < ActionController::Base
       return "User not found"
     end
 
-    if settings.blank? || settings.allow_gravatar.blank? || settings.allow_gravatar == false || user.blank? || user.gravatar_email.blank? || user.login.blank?
-      return "<a href=\"/users/show/#{user.id}\">#{user.login}</a>"
+    if settings.blank? or user.blank? or user.login.blank?
+      return "User not found"
+    end
+    
+    department = nil
+
+    # Add the department if the user has been assigned to one.
+    unless user.department_id.blank?
+      begin
+        department = Department.find user.department_id
+      rescue
+        department = "Unknown"
+      end
+    end
+
+    # Check if we have to deliver with Gravatar.
+    if settings.allow_gravatar.blank? or settings.allow_gravatar == false or user.gravatar_email.blank?
+      returnage << "<a href=\"/users/show/#{user.id}\">"
+      returnage << user.login
+      returnage << "</a>"
+      unless department.blank? or department.name.blank?
+        returnage << " <span style=\"font-weight: normal;\">(Department: " << department.name << ")</span>"
+      end
+      return returnage
     end
 
     require "md5"
     email_hash = MD5::md5 user.gravatar_email
-    returnage = ""
     returnage << "<a href=\"/users/show/#{user.id}\" class=\"with-avatar\">"
     returnage << "<span><img src=\"http://www.gravatar.com/avatar/#{email_hash}?s=80\" alt=\"User avatar\" class=\"with-avatar\"></span>"
     returnage << "#{user.login}</a>"
+    unless department.blank? or department.name.blank?
+      returnage << " <span style=\"font-weight: normal;\">(Department: " << department.name << ")</span>"
+    end
 
     return returnage
   end
