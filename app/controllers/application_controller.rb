@@ -166,7 +166,7 @@ class ApplicationController < ActionController::Base
     end
 
     # Check if we have to deliver with Gravatar.
-    if settings.allow_gravatar.blank? or settings.allow_gravatar == false or user.gravatar_email.blank?
+    if settings.allow_gravatar.blank? or settings.allow_gravatar == false or user.gravatar_email.blank? or user.use_gravatar.blank?
       returnage << "<a href=\"/users/show/#{user.id}\">"
       returnage << user.login
       returnage << "</a>"
