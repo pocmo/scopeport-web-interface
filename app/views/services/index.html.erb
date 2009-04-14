@@ -32,7 +32,7 @@ Monitored services: <%= @service_count %>.
 				      <td><%=h service.service_type.upcase %></td>
 			      <% end %>
 			      <% if !service.responsetime.blank? %>
-              <% if !service.state.blank? and service.state != 0 and service.state != 4 %>
+              <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
   				      <td><%=h service.responsetime %> ms</td>
               <% else %>
   				      <td>N/A</td>
@@ -83,7 +83,7 @@ Monitored services: <%= @service_count %>.
 				<td><%=h service.service_type.upcase %></td>
 			<% end %>
 			<% if !service.responsetime.blank? %>
-        <% if !service.state.blank? and service.state != 0 and service.state != 4 %>
+        <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
   				<td><%=h service.responsetime %> ms</td>
         <% else %>
   				<td>N/A</td>
