@@ -41,6 +41,13 @@ class AlarmsController < ApplicationController
       return
     end
 
+    # Set last warning time of service to 0.
+    unless alarm.service_id.blank?
+      service = Service.find_by_id alarm.service_id
+      service.lastwarn = 0
+      service.save
+    end
+
     # Mark the alarm as "attended".
     alarm.status = 1
     alarm.attendee = current_user.id
