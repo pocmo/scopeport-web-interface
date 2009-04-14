@@ -75,7 +75,9 @@ Monitored services: <%= @service_count %>.
 		</tr>
 		<% @services_without_group.each do |service| %>
 		<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
-			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %></td>
+			<td><%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %>
+					<%= new_comment_mark if new_comment?(service) %>
+			</td>
 			<td><%=h service.host %>:<%=h service.port %></td>
 			<% if service.service_type == "none" %>
 				<td>None</td>
