@@ -7,7 +7,7 @@ module ServicesHelper
 	
 	#If there's a new comment, returns a image
 	def new_comment_mark
-		image_tag("comment.JPG", :alt => "There is a new comment", :size => "13x13")
+		showIcon("comment", "margin-left: 3px;")
 	end
 
 end
