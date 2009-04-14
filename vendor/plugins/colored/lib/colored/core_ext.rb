@@ -13,6 +13,7 @@ module Colored
 			# Constructor.
 			def initialize rrd_name
 				@@rrd_name = rrd_name
+        @@rrd_name = "" if rrd_name.include? "../"
 			end
 
 			# Returns the timestamp of the last update of the RRD.
@@ -104,7 +105,7 @@ module Colored
 
 			# Get the full path to the PNG file of a graph.
 			def get_path_of_png
-				img_dir = File.dirname(__FILE__) + "/../../../../../public/images/colored-graphs/"
+				img_dir = File.dirname(__FILE__) + "/../../../../../db/colored-pngs/"
 				
 				# Check if the graph directory exists.
 				return false if !File.directory? img_dir

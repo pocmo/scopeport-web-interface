@@ -84,7 +84,11 @@ class ServicesController < ApplicationController
                "ARROW" => "#BDBDBD" }
     @graph.update_image yesterday, Time.now.to_i, lines, title, width, height, colors, options
 
-    render :text => "<img src=\"/images/colored-graphs/service-#{@service.id}.png?#{rand(9001)}\" alt=\"Graph\" />"
+    # Read the graph.
+    graph_file = File.new @graph.get_path_of_png, "r"
+
+    # Return the inlined image HTML code to avoid AJAX madness.
+    render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
   end
 
   def show_ms
