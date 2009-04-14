@@ -91,7 +91,7 @@ class ServicesController < ApplicationController
     service = Service.find params[:id]
     returnage = ""
     unless service.blank? && service.responsetime.blank?
-      if service.state != 0 and service.state != 4
+      if service.state > 0 and service.state != 4
         returnage = "#{service.responsetime} ms (Maximum: #{service.maxres} ms)"
       else
         returnage = "N/A"
