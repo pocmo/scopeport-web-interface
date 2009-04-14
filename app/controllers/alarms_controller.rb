@@ -70,7 +70,7 @@ class AlarmsController < ApplicationController
       return
     end
 
-    # Mark the alarm as "attended".
+    # Mark the alarm as "unattended".
     alarm.status = 0
     alarm.attendee = nil
     alarm.attendance_date = nil
