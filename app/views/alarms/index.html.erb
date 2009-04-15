@@ -1,7 +1,7 @@
 <%= render_headline "Alarms" %>
 Every alarm of that has been caused by an existing service is listed here. Click on an alarm to get the detail view. Note that you can only attend alarms that are not attended by someone else yet and that you can only unattend your own alarms. 
 <div id ="alarms-service-filters">
-<% render :partial => "filters", :collection => @filters %>
+<%= render :partial => "filters", :locals => { :filters => @filters } %>
 </div>
 <div id="alarms-service-alarms">
 	<h2>Service alarms</h2>
