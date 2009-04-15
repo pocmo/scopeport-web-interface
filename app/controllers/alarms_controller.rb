@@ -3,6 +3,17 @@ class AlarmsController < ApplicationController
 	before_filter(:except => [:index, :showservicealarm, :attend, :unattend]) { |controller| controller.block unless controller.permission?}
 
 	def index
+	
+		#Here it get all users, all services, all... to use as a filter
+		@filters = {}
+		
+		@filters['users'] = User.find(:all, :order => "login").collect { |p| "<option>#{p.login}</option>"  }
+		@filters['users'].insert(0, "<option>Any</option>")
+		
+		@filters['services'] = Service.find(:all, :order => "name").collect { |p| "<option>#{p.name}</option>" }
+		@filters['services'].insert(0, "<option>Any</option>")
+		
+		
 		@service_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
                                 :conditions => "alarm_type = 2 AND services.name != ''",
 																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename, alarms.service_state",
@@ -89,6 +100,10 @@ class AlarmsController < ApplicationController
       flash[:notice] = "Could not update status! Database error."
       redirect_to :action => "showservicealarm", :id => params[:id]
     end
+  end
+  
+  def filters
+  	h params
   end
 
 end

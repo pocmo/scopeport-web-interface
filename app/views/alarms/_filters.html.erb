@@ -1,0 +1,5 @@
+<% remote_form_for '@filters', :action => "filters" do %> 
+<%= select_tag "user", @filters['users'] %>
+<%= select_tag "service", @filters['services'] %>
+<%= submit_tag "filter" %>
+<% end %>

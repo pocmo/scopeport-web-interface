@@ -23,5 +23,5 @@ class Alarm < ActiveRecord::Base
 	named_scope :created_at, lambda { |time|  { :conditions => ["timestamp > ?", time ] } }
 	named_scope :attended, :conditions => { :status => 1 }
 	named_scope :from_service, lambda { |serviceid| { :conditions => { :service_id => serviceid } } }
-	
+	named_scope :by_attendee, lambda { |attendee| { :conditions => { :attendee => attendee } } }
 end
