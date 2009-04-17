@@ -20,7 +20,7 @@ class Alarm < ActiveRecord::Base
   has_one :user, :primary_key => :attendee, :foreign_key => :id
 
 	
-	named_scope :created_at, lambda { |time|  { :conditions => ["timestamp > ?", time.to_i ] } }
+	named_scope :time, lambda { |time|  { :conditions => ["timestamp > ?", time.to_i ] } }
 	named_scope :attended, lambda { |status| {:conditions => { :status => status } } }
 	named_scope :from_service, lambda { |serviceid| { :conditions => { :service_id => serviceid } } }
 	named_scope :by_attendee, lambda { |attendee| { :conditions => { :attendee => attendee } } }

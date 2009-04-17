@@ -69,4 +69,26 @@ module AlarmsHelper
 			return alarm.send(args[0][0], args[0][1]).send(returned[0], returned[1])	
 		end
 	end
+	
+	def generate_filters
+		filters = {}
+		
+		filters['users'] = User.find(:all, :order => "login").collect { |p| "<option value=#{p.id}>#{p.login}</option>"  }
+		filters['users'].insert(0, "<option>Any</option>")
+		
+		filters['services'] = Service.find(:all, :order => "name").collect { |p| "<option value=#{p.id}>#{p.name}</option>" }
+		filters['services'].insert(0, "<option>Any</option>")
+		
+		filters['hour_unit'] = generate_dropbox('min', 'h', 'd', 'w', 'm')
+		
+		filters['attended'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
+		
+		return filters
+	end
+	
+	def generate_dropbox(*args)
+		options = []
+		args.each { |p| options << "<option>#{p}</option>"}
+		return options
+	end
 end
