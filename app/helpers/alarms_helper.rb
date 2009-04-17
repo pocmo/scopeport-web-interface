@@ -57,17 +57,31 @@ module AlarmsHelper
 												filter << [key, value]
 											end }
 		
-	
+		return filter
 	end
 	
-	def call_scopes(*args, alarm)
-		if args.size == 1	
+	def call_scopes(alarm, *args)
+		args = args.first
+		if !args[0].is_a? Array	
+			puts '2'
 			return args
 		else
-			returned = call_scopes(args.slice(-1), alarms)
-			alarm.send(args.last[0], args.last[1]).send(returned[0], returned[1])			
+			puts 'args:'
+			p args
+			returned = call_scopes(alarm, args.slice(-1))
+			puts 'returned:'
+			p returned
+			p args
+			p args[0]
+			p args[0][0]
+			p args[0][1]
+			return alarm.send(args[0][0], args[0][1]).send(returned[0], returned[1])	
 		end
 	end
 	
-	
+	def teste (*args)
+		puts args
+		p args
+		return args.first
+	end
 end

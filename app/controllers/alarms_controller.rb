@@ -2,7 +2,7 @@ class AlarmsController < ApplicationController
 
 	before_filter(:except => [:index, :showservicealarm, :attend, :unattend]) { |controller| controller.block unless controller.permission?}
 
-	helper_method :format_filters
+	include AlarmsHelper
 	
 	def index
 		#Here it gets all users, all services, all... to use as a filter
@@ -104,7 +104,7 @@ class AlarmsController < ApplicationController
   end
   
   def filters
-  	format_filters params
+  	p format_filters params
   end
 
 end
