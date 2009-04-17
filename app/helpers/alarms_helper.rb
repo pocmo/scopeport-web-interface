@@ -51,4 +51,23 @@ module AlarmsHelper
     return (remote_function :url => { :action => action, :id => id }) + "; updateAlarmRow('#{status}', '#{id}', this);"
   end
 	
+	def format_filters params
+		filter = []
+		params.each { |key, value| if Alarm.scopes.has_key? key.to_sym and value != "Any"
+												filter << [key, value]
+											end }
+		
+	
+	end
+	
+	def call_scopes(*args, alarm)
+		if args.size == 1	
+			return args
+		else
+			returned = call_scopes(args.slice(-1), alarms)
+			alarm.send(args.last[0], args.last[1]).send(returned[0], returned[1])			
+		end
+	end
+	
+	
 end

@@ -2,15 +2,16 @@ class AlarmsController < ApplicationController
 
 	before_filter(:except => [:index, :showservicealarm, :attend, :unattend]) { |controller| controller.block unless controller.permission?}
 
-	def index
+	helper_method :format_filters
 	
-		#Here it get all users, all services, all... to use as a filter
+	def index
+		#Here it gets all users, all services, all... to use as a filter
 		@filters = {}
 		
-		@filters['users'] = User.find(:all, :order => "login").collect { |p| "<option>#{p.login}</option>"  }
+		@filters['users'] = User.find(:all, :order => "login").collect { |p| "<option value=#{p.id}>#{p.login}</option>"  }
 		@filters['users'].insert(0, "<option>Any</option>")
 		
-		@filters['services'] = Service.find(:all, :order => "name").collect { |p| "<option>#{p.name}</option>" }
+		@filters['services'] = Service.find(:all, :order => "name").collect { |p| "<option value=#{p.id}>#{p.name}</option>" }
 		@filters['services'].insert(0, "<option>Any</option>")
 		
 		
@@ -103,7 +104,7 @@ class AlarmsController < ApplicationController
   end
   
   def filters
-  	h params
+  	format_filters params
   end
 
 end
