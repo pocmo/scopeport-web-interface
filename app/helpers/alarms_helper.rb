@@ -63,25 +63,10 @@ module AlarmsHelper
 	def call_scopes(alarm, *args)
 		args = args.first
 		if !args[0].is_a? Array	
-			puts '2'
 			return args
 		else
-			puts 'args:'
-			p args
 			returned = call_scopes(alarm, args.slice(-1))
-			puts 'returned:'
-			p returned
-			p args
-			p args[0]
-			p args[0][0]
-			p args[0][1]
 			return alarm.send(args[0][0], args[0][1]).send(returned[0], returned[1])	
 		end
-	end
-	
-	def teste (*args)
-		puts args
-		p args
-		return args.first
 	end
 end
