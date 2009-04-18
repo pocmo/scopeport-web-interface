@@ -83,6 +83,8 @@ module AlarmsHelper
 		
 		filters['attended'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
 		
+		filters['service_state'] = ["<option>Any</option>", "<option value = 0>Not reached</option>", "<option value = 2>Too high response</option>", "<option value = 4>Timed out</option>"]
+		
 		return filters
 	end
 	
