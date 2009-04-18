@@ -54,8 +54,12 @@ module AlarmsHelper
 	def format_filters params
 		filter = []
 		params.each { |key, value| if Alarm.scopes.has_key? key.to_sym and value != "Any"
-												filter << [key, value]
-											end }
+															 	 if key == "time" and value != ""
+															 	   filter << [key, time_to_f(value.to_f, params['time_unit'])]
+															 	 else
+															 	   filter << [key, value]
+															 	 end
+															 end }
 		
 		return filter
 	end
@@ -79,7 +83,10 @@ module AlarmsHelper
 		filters['services'] = Service.find(:all, :order => "name").collect { |p| "<option value=#{p.id}>#{p.name}</option>" }
 		filters['services'].insert(0, "<option>Any</option>")
 		
-		filters['hour_unit'] = generate_dropbox('min', 'h', 'd', 'w', 'm')
+		filters['service_groups'] = Servicegroup.find(:all, :order => "name").collect { |p| "<option value=#{p.id}>#{p.name}</option>" }
+		filters['service_groups'].insert(0, "<option>Any</option>")
+		
+		filters['time_unit'] = generate_dropbox('minute', 'hour', 'day', 'week', 'month')
 		
 		filters['attended'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
 		
@@ -93,4 +100,9 @@ module AlarmsHelper
 		args.each { |p| options << "<option>#{p}</option>"}
 		return options
 	end
+	
+	def time_to_f(value, unit)
+		value.send(unit).to_f
+	end
+	
 end

@@ -99,7 +99,9 @@ class AlarmsController < ApplicationController
   def filters
   	formated_filters =	format_filters params
   	db_result = call_scopes(Alarm, formated_filters)
-  
+  	p db_result
+  	p formated_filters
+  	puts db_result.size
   end
 
 end
