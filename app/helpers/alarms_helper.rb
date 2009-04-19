@@ -105,4 +105,12 @@ module AlarmsHelper
 		value.send(unit).ago.to_f
 	end
 	
+	def apllied_filters filters
+		applied = ""
+		filters.each { |f| unless f[0] = "time" and f[1] = ""
+											   applied = applied + "| #{f[0]} -> #{f[1]} | "    
+											 end }
+		return applied
+	end
+	
 end

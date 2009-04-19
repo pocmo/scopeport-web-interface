@@ -1,4 +1,4 @@
-<% form_tag 'alarms/filters' do %> 
+<% form_tag :action => 'filters' do %> 
 User:<%= select_tag "by_attendee", @filters['users'] %>
 Service:<%= select_tag "from_service", @filters['services'] %>
 Service group:<%= select_tag "service_group", @filters['service_groups'] %>

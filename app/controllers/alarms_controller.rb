@@ -97,11 +97,16 @@ class AlarmsController < ApplicationController
   end
   
   def filters
-  	formated_filters =	format_filters params
-  	db_result = call_scopes(Alarm, formated_filters)
-  	p db_result
-  	p formated_filters
-  	puts db_result.size
+  	@formated_filters =	format_filters params
+  	db_result = call_scopes(Alarm, @formated_filters)
+  	@service_alarms = db_result.paginate :page => params[:page], :order => "alarms.timestamp DESC",
+                                :conditions => "alarm_type = 2 AND services.name != ''",
+																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename, alarms.service_state",
+																:joins => "LEFT JOIN services ON services.id = alarms.service_id"
+  	
+  	@filters = generate_filters
+  	render :controller => "alarms", :action => "index"
+  	
   end
 
 end
