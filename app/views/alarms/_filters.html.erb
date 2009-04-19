@@ -1,9 +1,9 @@
 <% form_tag 'alarms/filters' do %> 
 User:<%= select_tag "by_attendee", @filters['users'] %>
 Service:<%= select_tag "from_service", @filters['services'] %>
-<%= select_tag "service_groups", @filters['service_groups'] %>
+Service group:<%= select_tag "service_group", @filters['service_groups'] %>
 Time:<%= text_field_tag "time" %> <%= select_tag "time_unit", @filters['time_unit'] %> ago
-<%= select_tag "attended", @filters['attended'] %>
+status:<%= select_tag "status", @filters['status'] %>
 error:<%= select_tag "service_state", @filters['service_state'] %>
 <%= submit_tag "filter" %>
 <% end %>

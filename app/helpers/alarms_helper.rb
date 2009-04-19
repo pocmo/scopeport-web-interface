@@ -55,7 +55,7 @@ module AlarmsHelper
 		filter = []
 		params.each { |key, value| if Alarm.scopes.has_key? key.to_sym and value != "Any"
 															 	 if key == "time" and value != ""
-															 	   filter << [key, time_to_f(value.to_f, params['time_unit'])]
+															 	   filter << [key, time_ago_to_f(value.to_f, params['time_unit'])]
 															 	 else
 															 	   filter << [key, value]
 															 	 end
@@ -88,7 +88,7 @@ module AlarmsHelper
 		
 		filters['time_unit'] = generate_dropbox('minute', 'hour', 'day', 'week', 'month')
 		
-		filters['attended'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
+		filters['status'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
 		
 		filters['service_state'] = ["<option>Any</option>", "<option value = 0>Not reached</option>", "<option value = 2>Too high response</option>", "<option value = 4>Timed out</option>"]
 		
@@ -101,8 +101,8 @@ module AlarmsHelper
 		return options
 	end
 	
-	def time_to_f(value, unit)
-		value.send(unit).to_f
+	def time_ago_to_f(value, unit)
+		value.send(unit).ago.to_f
 	end
 	
 end
