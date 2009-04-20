@@ -25,5 +25,6 @@ class Alarm < ActiveRecord::Base
 	named_scope :from_service, lambda { |serviceid| { :conditions => { :service_id => serviceid } } }
 	named_scope :by_attendee, lambda { |attendee| { :conditions => { :attendee => attendee } } }
 	named_scope :service_state, lambda { |service_state| { :conditions => { :service_state => service_state } } }
+	#Needs improvements
 	named_scope :service_group, lambda { |id| { :conditions => { :service_id => Servicegroup.find_by_id(id).service_ids } } }
 end

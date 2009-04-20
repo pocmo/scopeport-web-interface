@@ -51,6 +51,7 @@ module AlarmsHelper
     return (remote_function :url => { :action => action, :id => id }) + "; updateAlarmRow('#{status}', '#{id}', this);"
   end
 	
+	#Formats the params to a Array
 	def format_filters params
 		filter = []
 		params.each { |key, value| if Alarm.scopes.has_key? key.to_sym and value != "Any"
@@ -64,6 +65,7 @@ module AlarmsHelper
 		return filter
 	end
 	
+	#Calls recursively the methods (scopes) from Alarm
 	def call_scopes(alarm, *args)
 		args = args.first
 		if !args[0].is_a? Array	
@@ -74,6 +76,7 @@ module AlarmsHelper
 		end
 	end
 	
+	#Creates all filters used in partial "_filters"
 	def generate_filters
 		filters = {}
 		
@@ -95,16 +98,19 @@ module AlarmsHelper
 		return filters
 	end
 	
+	#Automates a simple dropbox with just a list of options without values
 	def generate_dropbox(*args)
 		options = []
 		args.each { |p| options << "<option>#{p}</option>"}
 		return options
 	end
 	
+	#Returns "2 days ago" in seconds
 	def time_ago_to_f(value, unit)
 		value.send(unit).ago.to_f
 	end
 	
+	#Returns a string with the filters and parameters useds
 	def apllied_filters filters
 		applied = ""
 		filters.each { |f| unless f[0] = "time" and f[1] = ""
