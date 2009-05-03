@@ -89,11 +89,11 @@ module AlarmsHelper
 		filters['service_groups'] = Servicegroup.find(:all, :order => "name").collect { |p| "<option value=#{p.id}>#{p.name}</option>" }
 		filters['service_groups'].insert(0, "<option>Any</option>")
 		
-		filters['time_unit'] = generate_dropbox('minute', 'hour', 'day', 'week', 'month')
+		filters['time_unit'] = generate_dropbox('minutes', 'hours', 'days', 'weeks', 'months')
 		
 		filters['status'] = ["<option>Any</option>", "<option value = 1>Attended</option>", "<option value = 0>Not Attended</option>"]
 		
-		filters['service_state'] = ["<option>Any</option>", "<option value = 0>Not reached</option>", "<option value = 2>Too high response</option>", "<option value = 4>Timed out</option>"]
+		filters['service_state'] = ["<option>Any</option>", "<option value = 0>Not reached</option>", "<option value = 2>Too high response time</option>", "<option value = 4>Timeout</option>"]
 		
 		return filters
 	end

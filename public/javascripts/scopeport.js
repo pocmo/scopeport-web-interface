@@ -69,3 +69,8 @@ function updateAlarmRow(status, alarmid, el){
     }
     checkbox.disabled = true;
 }
+
+function showAlarmFilterOptions(link){
+  link.style.display = "none";
+  $("alarms-service-filters").appear();
+}

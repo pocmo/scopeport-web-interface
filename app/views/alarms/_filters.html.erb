@@ -1,10 +1,25 @@
 <% form_tag :action => 'filters' do %> 
-User:<%= select_tag "by_attendee", @filters['users'] %>
-Service:<%= select_tag "from_service", @filters['services'] %>
-Service group:<%= select_tag "service_group", @filters['service_groups'] %>
-Time:<%= text_field_tag "time" %> <%= select_tag "time_unit", @filters['time_unit'] %> ago
-status:<%= select_tag "status", @filters['status'] %>
-error:<%= select_tag "service_state", @filters['service_state'] %>
-<%= submit_tag "filter" %>
+<dl id="alarms-service-filters" style="display: none;">
+  <dt>Attended by:</dt>
+  <dd><%= select_tag "by_attendee", @filters['users'] %></dd>
+
+  <dt>Service:</dt>
+  <dd><%= select_tag "from_service", @filters['services'] %></dd>
+
+  <dt>Service group:</dt>
+  <dd><%= select_tag "service_group", @filters['service_groups'] %></dd>
+
+  <dt>Time:</dt>
+  <dd><%= text_field_tag "time" %> <%= select_tag "time_unit", @filters['time_unit'] %> ago</dd>
+
+  <dt>Status:</dt>
+  <dd><%= select_tag "status", @filters['status'] %></dd>
+
+  <dt>Error:</dt>
+  <dd><%= select_tag "service_state", @filters['service_state'] %></dd>
+  
+  <dt><%= submit_tag "Filter" %></dt>
+  <dd>&nbsp;</dd>
+</dl>
 <% end %>
 

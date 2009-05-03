@@ -234,6 +234,22 @@
 	margin-top: 15px;
 }
 
+#alarms-service-filters-trigger {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+#alarms-service-filters dt {
+  float: left;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+#alarms-service-filters dd {
+  padding-left: 60px;
+}
+
 /*
  * General Settings
  */
