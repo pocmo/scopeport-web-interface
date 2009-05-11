@@ -1,0 +1,90 @@
+<h1>ScopePort Nodes</h1>
+<strong>The following ScopePort Nodes are currently connected:</strong>
+
+<table id="nodes-list">
+  <tr class="doNotHighlightMe">
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>IP or hostname</th>
+    <th>CommPort</th>
+    <th>Consumption</th>
+    <th>Started</th>
+    <th>Last seen</th>
+  </tr>
+<% @nodes.each do |node| %>
+  <tr>
+    <td>
+      <% if (!node.last_update.blank? and (Time.now.to_i-15)-node.last_update > 0) or node.consumption.blank? %>
+        <%= showIcon "error" %>
+      <% else %>
+        <%= showIcon "okay" %>
+      <% end %>
+    </td>
+    <td><strong><%=h node.id %></strong></td>
+    <td><strong><%=h node.name %></strong></td>
+    <td><%=h node.ip_or_hostname %></td>
+    <td><%=h node.port %></td>
+    <td>
+      <% if node.consumption.blank? %>
+        Not started yet
+      <% else %>
+        <%=h node.consumption %>
+      <% end %>
+    </td>
+    <td>
+      <% if node.takeoff.blank? %>
+        Not started yet
+      <% else %>
+        <%=h Time.at node.takeoff %>
+      <% end %>
+    </td>
+    <td>
+      <% if node.last_update.blank? or node.consumption.blank? %>
+        Never
+      <% else %>
+        <%=h Time.at node.last_update %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<div id="nodes-master-password">
+  <h1>Set cloud master password</h1>
+  This password is used for authentication between the nodes. It is stored MD5 encrypted.
+
+  <% if @cloud_pass == "5ebe2294ecd0e0f08eab7690d2a6ee69" %>
+      <strong class="sensor-error-text">The password is still set to the standard value. Change it to an own password
+      as soon as possible!</strong>
+  <% end %>
+
+  <% form_for :cloud_settings, :url => { :action => "setpass" } do |f| %>
+    <%= f.label :cloud_master_password, "New cloud master password" %>
+    <%= f.text_field :cloud_master_password %>
+    <%= submit_tag "Set password" %>
+  <% end %>
+</div>
+
+<div id="nodes-new">
+  <h1>Add a new node</h1>
+  <% form_for :new_node, :url => { :action => "new" } do |f| %>
+      <%= f.label :name, "Name:" %>
+      <%= f.text_field :name, :value => @name_suggestion %>
+      <%= f.label :ip_or_hostname,  "IP or hostname:" %>
+      <%= f.text_field :ip_or_hostname %>
+      <%= f.label :port, "CommPort:" %>
+      <%= f.text_field :port, :id => "nodes-new-commport", :maxlength => 5 %>
+      <%= submit_tag "Add node", :id => "nodes-new-submit" %>
+  <% end %>
+</div>
+
+<div id="nodes-destroy">
+  <h1>Destroy node</h1>
+  You can destroy nodes at any time. Their tasks will be moved to other nodes. ScopePort will keep running as long as there is at
+  least one active node.
+  <% form_for :destroy_node, :url => { :action => "destroy" } do |f| %>
+    <%= f.select :node, @nodes.collect { |n| [ n.name, n.id ] } %>
+    <%= submit_tag "Destroy", :confirm => "Do you really want to destroy this node?" %>
+  <% end %>
+</div>

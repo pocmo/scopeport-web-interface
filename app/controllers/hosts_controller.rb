@@ -21,14 +21,20 @@ class HostsController < ApplicationController
 
 	def new
 		@host = Host.new
-		@hostgroups = Hostgroup.find(:all)
+		@hostgroups = Hostgroup.find(:all).collect { |h| [h.name, h.id] }
+    @os_types = { "Linux" => "linux" }
 	end
 
 	def create
-		@host = Host.new(params[:host])
-		if @host.save
+		@host = Host.new params[:host]
+		@hostgroups = Hostgroup.find(:all).collect { |h| [h.name, h.id] }
+    @os_types = { "Linux" => "linux" }
+		
+    if @host.save
+      flash[:notice] = "Host has been added!"
 			redirect_to :controller => "overview"
 		else
+      flash[:error] = "Could not add host."
 			render :action => "new"
 		end
 	end

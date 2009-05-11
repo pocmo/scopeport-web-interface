@@ -406,3 +406,49 @@
 #new-servicegroup {
 	margin-top: 15px;
 }
+
+/*
+ * ScopePort Nodes
+ */
+
+#nodes-list {
+  margin-top: 10px;
+}
+
+#nodes-master-password {
+  margin-top: 15px;
+}
+
+#nodes-new {
+  margin-top: 15px;
+}
+
+#nodes-new h1 {
+  margin-bottom: 5px;
+}
+
+#nodes-new label {
+  display: inline;
+  margin-right: 3px;
+}
+
+#nodes-new input {
+  margin-right: 8px;
+  width: 228px;
+}
+
+#nodes-new-commport {
+  width: 40px !important;
+}
+
+#nodes-new-submit {
+  width: 80px !important;
+}
+
+#nodes-destroy {
+  margin-top: 15px;
+}
+
+#nodes-destroy form {
+  margin-top: 5px;
+}

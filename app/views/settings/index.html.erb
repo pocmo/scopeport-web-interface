@@ -6,9 +6,6 @@
 	<div id="settings-general-form">
 	
 	<% form_for :setting, :url => { :action => 'save' } do |f| %>
-		<%= label_txtfd_err(f, :spserver, 'IP or Hostname of ScopePort server', @settings.spserver, :settings) %>
-		<%= label_txtfd_err(f, :spport, 'Port of ScopePort server', @settings.spport, :settings) %>
-
 		<%= label :gnotigroup, "General notification group" %>
 		<%= f.select :gnotigroup, @notigroups, { :selected => friendly_nil(@settings.gnotigroup) } %> 	<%= error_message_on(:settings, :gnotigroup) %>
 					
@@ -31,10 +28,6 @@
 	<div id="settings-general-help">
 		<h2>Help</h2>
 		<dl>
-			<dt>ScopePort hostname</dt>
-			<dd id="formhelp-spserver">IP or hostname of your ScopePort server installation</dd>
-			<dt>ScopePort port</dt>
-			<dd id="formhelp-spport">The port your ScopePort server is listening on (Standard: 12200)</dd>
 			<dt>General notification group</dt>
 			<dd id="formhelp-gnotigroup">The notification group used for general notifications like a failure
         of the ScopePort database connection. This group should include the administrators responsible for

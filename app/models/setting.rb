@@ -17,11 +17,6 @@
 
 class Setting < ActiveRecord::Base
   
-  #  ScopePort Server Settings
-  #validates_presence_of :spport, :spserver
-  
-  #  Ports fields
-  #validates_numericality_of :spport,  :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port"
   #validates_numericality_of :mail_port, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port", :if => Proc.new  {|setting| setting.mail_enabled }
   #validates_numericality_of :xmpp_port, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 65535, :message => "This is not a valid port", :if => Proc.new  {|setting| setting.xmpp_enabled }
   
