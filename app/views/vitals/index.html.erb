@@ -33,44 +33,31 @@
 </div>
 
 <h1>Processes</h1>
-<% if @main_processes.blank? %>
-  <strong>No processes found</strong>
-<% end %>
+<div id="nodes">
+  <% @nodes.each do |node| %>
+    <div class="node"> 
+      <h2>Node: &raquo;<%= node.name %>&laquo;</h2>
+      <% if node.vitals.blank? %>
+        <div class="process-head process-head-error">Has not been started yet</div>
+      <% end %>
 
-<div id="processes">
-  <% @main_processes.each do |process| %>
-    <% if Time.at(process.timestamp) >= 6.minutes.ago %>
-      <div class="process mainprocess">
-        <span class="mainprocess-head process-running">Main process</span>
-        <br />
-        <span class="process-last-seen">Last seen: <%= Time.at process.timestamp %></span>
-        <br />
-        PID: <%=h process.pid %> | Virtual Memory: <%=h process.vmem %> | Threads: <%=h process.threads %>
-      </div>
-    <% else %>
-      <div class="process mainprocess">
-        <span class="mainprocess-head process-not-running">Main process</span>
-        <br />
-        This process is <strong>NOT</strong> running!
-      </div>
-    <% end %>
+      <% node.vitals.each do |process| %>
+        <% if !process.clienthandler %>
+          <% if Time.at(process.timestamp) >= 6.minutes.ago %>
+            <div class="process-head process-head-okay">Main process</div>
+            <div class="process-details">
+              <span class="process-details-title">PID:</span> <%=h process.pid %>
+              <span class="process-details-title">Virtual memory:</span> <%=h process.vmem %>
+              <span class="process-details-title">Threads:</span> <%=h process.threads %>
+              <span class="process-details-title">Last seen:</span> <%=h Time.at process.timestamp %>
+              <span class="process-details-title">Received packages from hosts:</span> <%=h process.packetsOK %> accepted, <%=h process.packetsERR %> rejected
+            </div>
+          <% else %>
+            <div class="process-head process-head-error">Main process (not running)</div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 
-  <% @client_handler_processes.each do |process| %>
-    <% if Time.at(process.timestamp) >= 6.minutes.ago %>
-      <div class="process client-handler-process">
-        <span class="client-handler-head process-running">Client handler</span>
-        <br />
-        <span class="process-last-seen">Last seen: <%= Time.at process.timestamp %></span>
-        <br />
-        PID: <%=h process.pid %> | Virtual Memory: <%=h process.vmem %> | Threads: <%=h process.threads %>
-      </div>
-    <% else %>  
-      <div class="process client-handler-process">
-        <span class="client-handler-head process-not-running">Client handler</span>
-        <br />
-        This process is <strong>NOT</strong> running!
-      </div>
-    <% end %>
-  <% end %>
 </div>

@@ -27,32 +27,45 @@
 	margin-left: 200px;
 }
 
-#processes {
-  margin-top: 15px;
+#nodes {
+  margin-top: 5px;
 }
 
-.process {
-  margin-bottom: 10px;
+.node {
+  margin-top: 5px;
+  font-family: monospace;
+}
+
+.node h2 {
+  font-weight: bold;
+  width: 100%;
   text-align: center;
-  font-family: Monospace;
-  font-size: 12px;
+  font-size: 16px;
 }
 
-.process-running {
-  color: #008E00;
-}
-
-.process-not-running {
-  color: #FF0000;
-}
-
-.mainprocess-head {
-  font-size: 18px;
+.process-head {
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
   font-weight: bold;
 }
 
-.client-handler-head {
-  font-size: 15px;
+.process-head-okay {
+  color: #0ACA00;
+}
+
+.process-head-error {
+  color: #FF0000;
+}
+
+.process-details {
+  width: 50%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.process-details-title {
+  font-weight: bold;
 }
 
 /*

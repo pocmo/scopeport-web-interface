@@ -1,6 +1,6 @@
 # This file is part of ScopePort (Web Interface).
 #
-# Copyright 2007, 2008 Lennart Koopmann
+# Copyright 2007, 2008, 2009 Lennart Koopmann
 #
 # ScopePort (Web Interface) is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -23,8 +23,10 @@ class VitalsController < ApplicationController
 		@database_sizes = Vital.find(:last, :select => "dbtotalsize, dbsensorsize, dbservicesize",
 																		:order => "timestamp",
 																		:conditions => "clienthandler = 0")
-		@main_processes = Vital.find_all_by_clienthandler 0
-		@client_handler_processes = Vital.find_all_by_clienthandler 1
+	  #@main_processes = Vital.find_all_by_clienthandler 0
+	  #@client_handler_processes = Vital.find_all_by_clienthandler 1
+
+    @nodes = Node.find :all
 
 		# Convert to byte.  
 		if !@database_sizes.blank?
