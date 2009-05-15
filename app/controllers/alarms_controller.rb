@@ -108,5 +108,16 @@ class AlarmsController < ApplicationController
   	render :controller => "alarms", :action => "index"
   	
   end
+  
+  def customize
+  	filters = format_filters params
+  	custom_filter = CustomFilter.new(:name => params[:name], :filters => filters, :user_id => current_user.id)
+  	
+  	if custom_filter.save
+  		flash[:notice] = "Custom Filter created."
+  	else
+  		flash[:error]  = "Could not create custom Filter!"
+  	end
+  end
 
 end

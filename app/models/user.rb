@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
   belongs_to :department
-
+	
+	# Custom Filters
+	has_many :custom_filters
+	
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
