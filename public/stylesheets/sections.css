@@ -452,3 +452,7 @@
 #nodes-destroy form {
   margin-top: 5px;
 }
+
+#nodes-edit {
+  margin-top: 10px;
+}

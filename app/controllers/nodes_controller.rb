@@ -22,6 +22,21 @@ class NodesController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def edit
+    @node = Node.find params[:id]
+  end
+  
+  def update
+    @node = Node.update params[:id], params[:node]
+    if @node.save
+      flash[:notice] = "Node has been changed."
+      redirect_to :action => "index"
+    else
+      flash[:error] = "Could not change node!"
+      render :action => "edit"
+    end
+  end
+
   def destroy
     node = Node.find params[:destroy_node][:node]
     if node.destroy

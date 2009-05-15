@@ -1,0 +1,23 @@
+<h1>Edit node &raquo;<%= @node.name %>&laquo;</h1>
+
+<%= error_messages_for "node" %>
+
+<div id="nodes-edit">
+  <% form_for @node, :url => { :action => "update", :id => @node.id } do |f| %>
+    <p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    </p>
+    <p>
+    <%= f.label :ip_or_hostname,  "IP or hostname" %>
+    <%= f.text_field :ip_or_hostname %>
+    </p>
+    <p>
+    <%= f.label :port, "CommPort" %>
+    <%= f.text_field :port, :maxlength => 5 %>
+    </p>
+    <p>
+    <%= submit_tag "Edit node" %>
+    </p>
+  <% end %>
+</div>

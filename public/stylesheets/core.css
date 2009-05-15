@@ -124,6 +124,10 @@ dd {
   font-weight: normal;
 }
 
+.no-underline {
+  border-bottom: 0px;
+}
+
 #loginbox {
   margin: 0px auto;
   margin-top: 45px;
