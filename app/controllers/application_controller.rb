@@ -57,15 +57,16 @@ class ApplicationController < ActionController::Base
 	# Tries to find out if the ScopePort server is running by
 	# investigating the timestamps in the vitals table.
 	def getServerNotRunningMessage
-		status = Vital.find(:first)
-		return if status.blank?
-		
-		last_update = Time.now - Time.at(status.timestamp)
+    nodes = Node.find :all
 
-		return if last_update.blank?
+    offline = 0
+    nodes.each do |node|
+      offline+=1 if (!node.last_update.blank? and (Time.now.to_i-15)-node.last_update > 0) or node.consumption.blank?
+    end
 
-		if isProductionVersion? && (status.blank? || last_update > 300)
-			return "<div id='server-not-running'>Warning: It seems like your ScopePort server is not running.</div>"
+		if isProductionVersion? and offline == nodes.count
+			return "<div id='server-not-running'>Warning: It seems like there is no ScopePort node running.</div>
+              <script type='text/javascript'>Effect.Pulsate('server-not-running', { pulses: 9001, duration: 10002 });</script>"
 		end
 		# Everything up to date. The server is running.
 		return
