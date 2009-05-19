@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
       offline+=1 if (!node.last_update.blank? and (Time.now.to_i-15)-node.last_update > 0) or node.consumption.blank?
     end
 
-		if isProductionVersion? and offline == nodes.count
+		if isProductionVersion? and offline == nodes.size
 			return "<div id='server-not-running'>Warning: It seems like there is no ScopePort node running.</div>
               <script type='text/javascript'>Effect.Pulsate('server-not-running', { pulses: 9001, duration: 10002 });</script>"
 		end
