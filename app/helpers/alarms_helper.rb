@@ -95,12 +95,17 @@ module AlarmsHelper
 		
 		filters['service_state'] = ["<option>Any</option>", "<option value = 0>Not reached</option>", "<option value = 2>Too high response time</option>", "<option value = 4>Timeout</option>"]
 		
+		custom_f = ["None"]
+		current_user.custom_filters.each { |cf| custom_f << cf.name}
+		filters['custom_filters'] = generate_dropbox(custom_f)
+		
 		return filters
 	end
 	
 	#Automates a simple dropbox with just a list of options without values
 	def generate_dropbox(*args)
 		options = []
+		args = args[0] if args[0].is_a? Array
 		args.each { |p| options << "<option>#{p}</option>"}
 		return options
 	end
@@ -110,7 +115,7 @@ module AlarmsHelper
 		value.send(unit).ago.to_f
 	end
 	
-	#Returns a string with the filters and parameters useds
+	#Returns a string with the filters and parameters used
 	def apllied_filters filters
 		applied = ""
 		filters.each { |f| unless f[0] = "time" and f[1] = ""

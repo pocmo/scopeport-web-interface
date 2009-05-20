@@ -132,5 +132,10 @@ class AlarmsController < ApplicationController
   		redirect_to :action => :customize
   	end
   end
-
+	
+	def change_values
+		respond_to do |format|
+			format.js
+		end
+	end
 end
