@@ -97,6 +97,7 @@ class AlarmsController < ApplicationController
   end
   
   def filters
+  	params = session[:params]
   	@formated_filters =	format_filters params
   	db_result = call_scopes(Alarm, @formated_filters)
   	@service_alarms = db_result.paginate :page => params[:page], :order => "alarms.timestamp DESC",
@@ -110,6 +111,7 @@ class AlarmsController < ApplicationController
   end
   
   def customize
+  	params = session[:params]
   	filters = format_filters params
   	custom_filter = CustomFilter.new(:name => params[:name], :filters => filters, :user_id => current_user.id)
   	
@@ -117,6 +119,17 @@ class AlarmsController < ApplicationController
   		flash[:notice] = "Custom Filter created."
   	else
   		flash[:error]  = "Could not create custom Filter!"
+  	end
+  	
+  	redirect_to :action => :index
+  end
+  
+  def filter_button
+  	session[:params] = params
+  	if params[:commit] == "Filter"
+  		redirect_to :action => "filters"
+  	elsif params[:commit] == "Save Filter"
+  		redirect_to :action => :customize
   	end
   end
 

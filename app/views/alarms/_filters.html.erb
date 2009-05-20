@@ -1,4 +1,4 @@
-<% form_tag :action => 'filters' do %> 
+<% form_tag :action => 'filter_button' do %> 
 <dl id="alarms-service-filters" style="display: none;">
   <dt>Attended by:</dt>
   <dd><%= select_tag "by_attendee", @filters['users'] %></dd>
@@ -20,6 +20,11 @@
   
   <dt><%= submit_tag "Filter" %></dt>
   <dd>&nbsp;</dd>
+  
+  <dt>Name:</dt>
+  <dd><%= text_field_tag "name" %></dd>
+  
+  <dt><%= submit_tag "Save Filter" %></dt>
+  <dd>&nbsp;</dd>
 </dl>
 <% end %>
-
