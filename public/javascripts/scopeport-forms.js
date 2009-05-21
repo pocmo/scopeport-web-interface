@@ -99,3 +99,7 @@ function triggerOtherFormFields(caller){
 
   } 
 }
+
+function updateForm (fields) {
+	//Do something...
+}

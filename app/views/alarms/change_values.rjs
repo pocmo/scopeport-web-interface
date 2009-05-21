@@ -1,1 +1,2 @@
-page.alert("value")
+page.call('updateForm', page['from_service'])
+
