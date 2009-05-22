@@ -74,3 +74,23 @@ function showAlarmFilterOptions(link){
   link.style.display = "none";
   $("alarms-service-filters").appear();
 }
+
+function clearFiltersForm() {
+	elements = $('filters_form').getElements();
+	for(i = 1; i < 8; i++) {
+		if(elements[i].name == "time") {
+			elements[i].value = ""
+		}else if(elements[i].name == "time_unit") {
+		//Do nothing...
+		} else { 
+		elements[i].value = "Any"
+		}
+	}
+
+}
+
+function updateForm (fields) {
+	cf = eval("(" + fields + ")");
+	cf = cf.custom_filter.filters[0]
+	
+}

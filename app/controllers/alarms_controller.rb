@@ -134,6 +134,7 @@ class AlarmsController < ApplicationController
   end
 	
 	def change_values
+		@filters_set = CustomFilter.find_by_name(params['custom_filter']).to_json
 		respond_to do |format|
 			format.js
 		end
