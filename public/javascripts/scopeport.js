@@ -89,8 +89,18 @@ function clearFiltersForm() {
 
 }
 
+//TODO Improve
 function updateForm (fields) {
 	cf = eval("(" + fields + ")");
-	cf = cf.custom_filter.filters[0]
-	
+	if (cf == null) {
+		clearFiltersForm();
+	} else {	elements = $('filters_form').getElements();
+			elements[1].value = cf.by_attendee;	
+			elements[2].value = cf.from_service;
+			elements[3].value = cf.service_group;
+			elements[4].value = cf.time_ago;
+			elements[5].value = cf.time_unit;
+			elements[6].value = cf.status;
+			elements[7].value = cf.service_state;
+	}
 }

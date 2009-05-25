@@ -113,6 +113,10 @@ class AlarmsController < ApplicationController
   def customize
   	params = session[:params]
   	filters = format_filters params
+  	#We need to know the exact input of: time unit and the time
+  	filters << ["time_unit", params["time_unit"]]
+  	filters << ["time_ago", params["time"]]
+  	
   	custom_filter = CustomFilter.new(:name => params[:name], :filters => filters, :user_id => current_user.id)
   	
   	if custom_filter.save
