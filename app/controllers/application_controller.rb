@@ -192,10 +192,7 @@ class ApplicationController < ActionController::Base
 	#A method to block the admin pages to non-admin users
 def permission?
     user = current_user
-    puts controller = params[:controller]
-    puts action = params[:action]
-    puts id = params[:id]
- 
+    
     #First access, permission to create the first admin user
     return true if User.find(:all).size == 0
     

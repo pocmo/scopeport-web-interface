@@ -97,8 +97,7 @@ class AlarmsController < ApplicationController
   end
   
   def filters
-  	params = session[:params]
-  	@formated_filters =	format_filters params
+  	@formated_filters =	format_filters session[:params]
   	db_result = call_scopes(Alarm, @formated_filters)
   	@service_alarms = db_result.paginate :page => params[:page], :order => "alarms.timestamp DESC",
                                 :conditions => "alarm_type = 2 AND services.name != ''",
