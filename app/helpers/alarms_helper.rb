@@ -68,11 +68,11 @@ module AlarmsHelper
 	#Calls recursively the methods (scopes) from Alarm
 	def call_scopes(alarm, *args)
 		args = args.first
-		if !args[0].is_a? Array	
-			return args
+		if args.size == 1	
+			return alarm.send(args[0][0], args[0][1])
 		else
-			returned = call_scopes(alarm, args.slice(-1))
-			return alarm.send(args[0][0], args[0][1]).send(returned[0], returned[1])	
+			returned = call_scopes(alarm, args.slice(0, args.length-1))
+			return returned.send(args.last[0], args.last[1])
 		end
 	end
 	
