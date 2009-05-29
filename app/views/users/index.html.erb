@@ -8,7 +8,7 @@ The following users are currently configured:
     <th>Name</th>
     <th>Department</th>
     <th>Email address</th>
-    <th>Last login</th>
+    <th>Logout</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
   </tr>
@@ -26,8 +26,8 @@ The following users are currently configured:
       </td>
       <td><%=h friendly_nil(user.email) %></td>
       <td>
-        <% unless user.last_login.blank? %>
-          <%=h friendly_nil(user.last_login) %>
+        <% unless user.last_online.blank? %>
+          <%=h friendly_nil(user.last_online) %>
         <% else %>
           Never
         <% end %>
