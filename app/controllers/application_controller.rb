@@ -17,6 +17,7 @@
 
 class ApplicationController < ActionController::Base
   before_filter :start_time
+  before_filter :update_last_online
   
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
@@ -220,4 +221,7 @@ def permission?
 		@start_time = Time.now
 	end
   
+  def update_last_online
+  	p current_user
+  end
 end
