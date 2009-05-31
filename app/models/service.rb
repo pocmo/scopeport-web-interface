@@ -1,6 +1,6 @@
 # This file is part of ScopePort (Web Interface).
 #
-# Copyright 2007, 2008 Lennart Koopmann
+# Copyright 2007, 2008, 2009 Lennart Koopmann
 #
 # ScopePort (Web Interface) is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -27,5 +27,8 @@ class Service < ActiveRecord::Base
 
   # Service comments.
   has_many :servicecomments, :order => "created_at DESC"
+
+  # Belongs to a node
+  belongs_to :node
 
 end
