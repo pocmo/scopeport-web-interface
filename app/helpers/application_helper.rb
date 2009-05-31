@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+	private
+	
 	# Shows the standard headline of a page.
 	def render_headline headline
 		return "<h1>" + headline  + "</h1>"
@@ -84,4 +86,9 @@ module ApplicationHelper
   	
   	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "NOTICE", :logmsg => logmsg)
   end
+  
+  def teste
+  	puts "e11e1easqadasda ---------- "
+  end
+  
 end

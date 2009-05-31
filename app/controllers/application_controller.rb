@@ -40,7 +40,9 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password
- 
+ 	
+ 	private
+ 	 	
 	def getLastLogMessage
 		message = Logmessage.find(:last, :order => "logtime DESC")
 		if message.blank?
@@ -191,7 +193,7 @@ class ApplicationController < ActionController::Base
   end
 
 	#A method to block the admin pages to non-admin users
-def permission?
+	def permission?
     user = current_user
     controller = params[:controller]
     action = params[:action]
@@ -227,5 +229,7 @@ def permission?
   def update_last_online
   	current_user.update_attribute("last_online", Time.now) if current_user
   end
+  
+  public :permission?
   
 end
