@@ -65,8 +65,10 @@
    	<dd id="service-ms"><%= image_tag "ajax-loader2.gif" %></dd>
    	<dt>Timeout</dt>
    	<dd><%=h @service.timeout %> seconds</dd>
-   	<dt>Node</dt>
-   	<dd><%= @service.node.blank? ? "Main" : @service.node.name %></dd>
+    <% if Node.count > 0 %>
+   	  <dt>Node</dt>
+   	  <dd><%= @service.node.blank? ? "Main" : @service.node.name %></dd>
+    <% end %>
   </dl>
 <%= link_to_if admin_or_service_admin?, "Edit this service", :action => "edit", :id => @service.id %>
 </div>

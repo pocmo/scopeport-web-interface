@@ -21,6 +21,9 @@ Monitored services: <%= @service_count %>.
 			    <th>Last checked</th>
 			    <th>Notification group</th>
 			    <th>Linked to host</th>
+          <% if Node.count > 0 %>
+            <th>Node</th>
+          <% end %>
 		    </tr>
         <% group.services.each do |service| %>
 		      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
@@ -52,6 +55,9 @@ Monitored services: <%= @service_count %>.
 			      <% end %>
 			        <td><%= getNameOfWarningGroup service.warninggroup %></td>
 			        <td><%= getNameOfHost service.linkedhost %></td>
+              <% if Node.count > 0 %>
+                <td><%= service.node_id %></td>
+              <% end %>
             </tr>
         <% end %>
       </table>
@@ -77,6 +83,9 @@ Monitored services: <%= @service_count %>.
 			<th>Last checked</th>
 			<th>Notification group</th>
 			<th>Linked to host</th>
+      <% if Node.count > 0 %>
+        <th>Node</th>
+      <% end %>
 		</tr>
 		<% @services_without_group.each do |service| %>
 		<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
@@ -108,6 +117,9 @@ Monitored services: <%= @service_count %>.
 			<% end %>
 			<td><%= getNameOfWarningGroup service.warninggroup %></td>
 			<td><%= getNameOfHost service.linkedhost %></td>
+      <% if Node.count > 0 %>
+        <td><%= service.node_id %></td>
+      <% end %>
 		</tr>
 		<% end %>
 	</table>
