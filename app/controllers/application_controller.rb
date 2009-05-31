@@ -228,8 +228,4 @@ def permission?
   	current_user.update_attribute("last_online", Time.now) if current_user
   end
   
-  def log
-  	#logtime int, severity int, string: errorcode, logmsg
-  	
-  end
 end

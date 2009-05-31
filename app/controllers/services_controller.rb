@@ -1,6 +1,8 @@
 class ServicesController < ApplicationController
 
 	before_filter(:except => [:index, :show, :show_graph, :show_ms, :store_comment]) { |controller| controller.block unless controller.permission?}
+	
+	include ApplicationHelper
 
 	def index
 		@service_groups = Servicegroup.find :all
@@ -35,6 +37,7 @@ class ServicesController < ApplicationController
     @service_groups << ["None", 0]
 		if @service.save
 			flash[:notice] = "Service has been added!"
+			log("created", "service")
 			redirect_to :action => "index"
 		else
 			flash[:error] = "Could not add service. Check error messages."
@@ -125,6 +128,7 @@ class ServicesController < ApplicationController
     
     if @service.save
       flash[:notice] = "Service has been saved."
+      log("updated", "service")
       redirect_to :action => "show", :id => params[:id]
     else
       flash[:error] = "Could not save service."
