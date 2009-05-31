@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :buildUserLink
 
-  before_filter :login_required  
-	after_filter { |controller| puts "--- filter --- ";puts current_user ||= nil; controller.update_last_online if current_user}
-
+  before_filter :login_required
+	before_filter :update_last_online
+	
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '7ff73c4e87f55ca1949926d59b1ec12d'
@@ -225,7 +225,11 @@ def permission?
 	end
   
   def update_last_online
-  	current_user.last_online = Time.now
-  	puts "--last online --"
+  	current_user.update_attribute("last_online", Time.now) if current_user
+  end
+  
+  def log
+  	#logtime int, severity int, string: errorcode, logmsg
+  	
   end
 end
