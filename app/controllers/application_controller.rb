@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   helper_method :buildUserLink
 
   before_filter :login_required  
-	before_filter :update_last_online
+	after_filter { |controller| puts "--- filter --- ";puts current_user ||= nil; controller.update_last_online if current_user}
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -193,6 +193,9 @@ class ApplicationController < ActionController::Base
 	#A method to block the admin pages to non-admin users
 def permission?
     user = current_user
+    controller = params[:controller]
+    action = params[:action]
+    id = params[:id]
     
     #First access, permission to create the first admin user
     return true if User.find(:all).size == 0
@@ -222,8 +225,7 @@ def permission?
 	end
   
   def update_last_online
-  	#current_user.last_online = Time.now
-  	puts "--last online -- "
-  	p current_user
+  	current_user.last_online = Time.now
+  	puts "--last online --"
   end
 end
