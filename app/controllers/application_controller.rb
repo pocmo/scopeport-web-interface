@@ -17,8 +17,7 @@
 
 class ApplicationController < ActionController::Base
   before_filter :start_time
-  before_filter :update_last_online
-  
+    
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
 
@@ -31,6 +30,7 @@ class ApplicationController < ActionController::Base
   helper_method :buildUserLink
 
   before_filter :login_required  
+	before_filter :update_last_online
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -222,6 +222,8 @@ def permission?
 	end
   
   def update_last_online
+  	#current_user.last_online = Time.now
+  	puts "--last online -- "
   	p current_user
   end
 end
