@@ -230,6 +230,6 @@ class ApplicationController < ActionController::Base
   	current_user.update_attribute("last_online", Time.now) if current_user
   end
   
-  public :permission?
+  public :permission?, :block
   
 end
