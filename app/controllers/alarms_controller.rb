@@ -1,6 +1,6 @@
 class AlarmsController < ApplicationController
-
-	before_filter(:except => [:index, :showservicealarm, :attend, :unattend]) { |controller| controller.block unless controller.permission?}
+	
+	before_filter(:except => [:index, :showservicealarm, :attend, :unattend, :filter_button, :filters, :customize, :change_values]) { |controller| controller.block unless controller.permission?}
 
 	include AlarmsHelper
 	

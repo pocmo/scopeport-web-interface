@@ -1,4 +1,5 @@
 module AlarmsHelper
+	private
 	# Returns the status message of an alarm.
 	def getAlarmStatus status, colored = false
 		# Build a standard message.
