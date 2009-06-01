@@ -112,7 +112,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
     # Only admins can change foreign users.
-    if params[:id] != current_user.id && !current_user.admin
+    if params[:id] != current_user.id.to_s && !current_user.admin
       flash[:error] = "Only admins can change foreign users."
 		 	render :action => :edit, :id => params[:id]
       return
