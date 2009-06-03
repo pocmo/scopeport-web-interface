@@ -31,7 +31,7 @@ class NodesController < ApplicationController
     @node = Node.update params[:id], params[:node]
     if @node.save
       flash[:notice] = "Node has been changed."
-      log("edited", "a node group")
+      log("edited", "a node", @node.id)
       redirect_to :action => "index"
     else
       flash[:error] = "Could not change node!"
@@ -43,7 +43,7 @@ class NodesController < ApplicationController
     node = Node.find params[:destroy_node][:node]
     if node.destroy
       flash[:notice] = "Node has been destroyed!"
-      log("deleted", "a node")
+      log("deleted", "a node", node.name)
     else
       flash[:error] = "Could not destroy node."
     end

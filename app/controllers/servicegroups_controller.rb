@@ -29,7 +29,7 @@ class ServicegroupsController < ApplicationController
 		group = Servicegroup.new(params[:new_group])
 		if group.save
 			flash[:notice] = "Group has been added!"
-			log("created", "a service group")
+			log("created", "a service group", [group.name, group.id])
 		else
 			flash[:error] = "Could not add group."
 		end
@@ -52,7 +52,7 @@ class ServicegroupsController < ApplicationController
       end
 
       flash[:notice] = "Group has been deleted!"
-    	log("deleted", "a service group")
+    	log("deleted", "a service group", group.name)
     else
       flash[:error] = "Could not delete group."
     end

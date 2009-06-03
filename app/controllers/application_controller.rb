@@ -230,10 +230,20 @@ class ApplicationController < ActionController::Base
   	current_user.update_attribute("last_online", Time.now) if current_user
   end
   
-  def log(action, object, object_id = nil)
+  def log(action, object, name_or_id = nil)
   	user = current_user.login
   	
    	logmsg = "#{user} #{action} #{object}"
+   	if name_or_id
+   		if name_or_id.is_a? Fixnum
+   			logmsg += " (id: #{name_or_id})"
+   		elsif name_or_id.is_a? String
+   			logmsg += " (name: #{name_or_id})"
+   		#Array [name, id]
+   		else
+   			logmsg += " (name: #{name_or_id[0]}[id: #{name_or_id[1]}])"
+   		end
+   	end
   	
   	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "NOTICE", :logmsg => logmsg)
   end
