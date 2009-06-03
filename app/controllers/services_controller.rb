@@ -2,8 +2,6 @@ class ServicesController < ApplicationController
 
 	before_filter(:except => [:index, :show, :show_graph, :show_ms, :store_comment]) { |controller| controller.block unless controller.permission?}
 	
-	include ApplicationHelper
-
 	def index
 		@service_groups = Servicegroup.find :all
     @services_without_group = Service.find_all_by_servicegroup_id 0
@@ -145,6 +143,7 @@ class ServicesController < ApplicationController
     end
 		if service.destroy
 			flash[:notice] = "Service has been deleted!"
+			log("deleted", "a service")
 			redirect_to :action => "index"
 		else
 			flash[:error] = "Service could not be deleted."
@@ -168,6 +167,7 @@ class ServicesController < ApplicationController
 
     if comment.save
       flash[:notice] = "Comment has been added."
+      log("commented", "on a service")
     else
       flash[:error] = "Could not add comment! Please fill out all fields."
     end

@@ -27,6 +27,7 @@ class LogmessagesController < ApplicationController
 	def clear
 		Logmessage.connection.execute("TRUNCATE logmessages;")
 		flash[:notice] = "Log has been cleared!"
+		log("cleared", "the log")
 		redirect_to :controller => "logmessages"
 	end
 end

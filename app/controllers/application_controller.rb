@@ -230,6 +230,14 @@ class ApplicationController < ActionController::Base
   	current_user.update_attribute("last_online", Time.now) if current_user
   end
   
+  def log(action, object, object_id = nil)
+  	user = current_user.login
+  	
+   	logmsg = "#{user} #{action} #{object}"
+  	
+  	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "NOTICE", :logmsg => logmsg)
+  end
+  
   public :permission?, :block
   
 end

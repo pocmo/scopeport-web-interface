@@ -77,18 +77,6 @@ module ApplicationHelper
 	#Generation time in seconds
 	def load_time
 		return Time.now - @start_time
-	end
-	
-	def log(action,object)
-  	user = current_user.login
-  	
-   	logmsg = "#{user} #{action} a #{object}"
-  	
-  	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "NOTICE", :logmsg => logmsg)
-  end
-  
-  def teste
-  	puts "e11e1easqadasda ---------- "
-  end
+	end  
   
 end

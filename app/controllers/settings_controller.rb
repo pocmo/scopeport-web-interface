@@ -50,6 +50,7 @@ class SettingsController < ApplicationController
     
    if @settings.save
       flash[:notice] = "Settings saved"
+      log("edited", "the scopeport serttings")
       redirect_to :controller => "setup"      
    else
       flash[:error] = "Could not store settings. Please try again."

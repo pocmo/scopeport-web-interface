@@ -124,6 +124,7 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(params[:user])
 		  flash[:notice] = "User profile updated successfully."
+		  log("updated", "a user profile")
 		 	redirect_to :action => :index
 		else
 		 	flash[:error] = "An error has occurred."
@@ -187,6 +188,7 @@ class UsersController < ApplicationController
     @department = Department.new params[:department]
     if @department.save
       flash[:notice] = "Department has been added."
+      log("created", "a department")
     else
       flash[:error] = "Could not add department! Make sure to fill out the name field."
     end
@@ -197,6 +199,7 @@ class UsersController < ApplicationController
     department = Department.find params[:id]
     if department.destroy
       flash[:notice] = "Department has been deleted."
+      log("deleted", "a department")
     else
       flash[:error] = "Could not delete department!"
     end

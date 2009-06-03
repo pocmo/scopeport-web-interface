@@ -28,6 +28,7 @@ class HostgroupsController < ApplicationController
 		@group = Hostgroup.new(params[:newGroup])
 		if @group.save
 			flash[:notice] = "Host group has been added!"
+			log("created", "host group")
 		else
 			flash[:error] = "Could not add host group."
 		end
@@ -50,6 +51,7 @@ class HostgroupsController < ApplicationController
     group = Hostgroup.find(params[:id])
     if group.destroy
       flash[:notice] = "Group has been deleted!"
+      log("deleted", "a host group")
     else
       flash[:error] = "Could not delete group."
     end
