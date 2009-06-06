@@ -245,7 +245,7 @@ class ApplicationController < ActionController::Base
    		end
    	end
   	
-  	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "NOTICE", :logmsg => logmsg)
+  	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "LOG", :logmsg => logmsg)
   end
   
   public :permission?, :block

@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
     @service_groups << ["None", 0]
 		if @service.save
 			flash[:notice] = "Service has been added!"
-			log("created", "service", [@service.name, @service.id])
+			log("created", "a service", [@service.name, @service.id])
 			redirect_to :action => "index"
 		else
 			flash[:error] = "Could not add service. Check error messages."
@@ -126,7 +126,7 @@ class ServicesController < ApplicationController
     
     if @service.save
       flash[:notice] = "Service has been saved."
-      log("updated", "service", [@service.name, @service.id])
+      log("updated", "a service", [@service.name, @service.id])
       redirect_to :action => "show", :id => params[:id]
     else
       flash[:error] = "Could not save service."
