@@ -40,6 +40,7 @@ class NotificationgroupsController < ApplicationController
 		@group = Notificationgroupdetail.new params[:newGroup]
 		if @group.save
 			flash[:notice] = "Notification group has been added!"
+			log("created", "a notification group", [@group.name, @group.id])
 		else
 			flash[:error] = "Could not add notification group. Did you fill out all required fields?"
 		end
@@ -62,6 +63,7 @@ class NotificationgroupsController < ApplicationController
 
 		if @group.destroy
 			flash[:notice] = "Notification group has been deleted!"
+			log("deleted", "a notification group", @group.name)
 		else
 			flash[:error] = "Could not delete notification group."
 		end

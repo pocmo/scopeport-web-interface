@@ -2,8 +2,6 @@ class ServicesController < ApplicationController
 
 	before_filter(:except => [:index, :show, :show_graph, :show_ms, :store_comment]) { |controller| controller.block unless controller.permission?}
 	
-	include ApplicationHelper
-
 	def index
 		@service_groups = Servicegroup.find :all
     @services_without_group = Service.find_all_by_servicegroup_id 0
@@ -37,7 +35,7 @@ class ServicesController < ApplicationController
     @service_groups << ["None", 0]
 		if @service.save
 			flash[:notice] = "Service has been added!"
-			log("created", "service")
+			log("created", "a service", [@service.name, @service.id])
 			redirect_to :action => "index"
 		else
 			flash[:error] = "Could not add service. Check error messages."
@@ -98,7 +96,7 @@ class ServicesController < ApplicationController
     service = Service.find params[:id]
     returnage = ""
     unless service.blank? && service.responsetime.blank?
-      if service.state > 0 and service.state != 4
+      if service.state and service.state > 0 and service.state != 4
         returnage = "#{service.responsetime} ms (Maximum: #{service.maxres} ms)"
       else
         returnage = "N/A"
@@ -128,7 +126,7 @@ class ServicesController < ApplicationController
     
     if @service.save
       flash[:notice] = "Service has been saved."
-      log("updated", "service")
+      log("updated", "a service", [@service.name, @service.id])
       redirect_to :action => "show", :id => params[:id]
     else
       flash[:error] = "Could not save service."
@@ -145,6 +143,7 @@ class ServicesController < ApplicationController
     end
 		if service.destroy
 			flash[:notice] = "Service has been deleted!"
+			log("deleted", "a service", service.name)
 			redirect_to :action => "index"
 		else
 			flash[:error] = "Service could not be deleted."
@@ -168,6 +167,7 @@ class ServicesController < ApplicationController
 
     if comment.save
       flash[:notice] = "Comment has been added."
+      log("commented", "on a service", comment.service_id)
     else
       flash[:error] = "Could not add comment! Please fill out all fields."
     end

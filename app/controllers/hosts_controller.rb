@@ -32,6 +32,7 @@ class HostsController < ApplicationController
 		
     if @host.save
       flash[:notice] = "Host has been added!"
+      log("added", "a host", [@host.name, @host.id])
 			redirect_to :controller => "overview"
 		else
       flash[:error] = "Could not add host."

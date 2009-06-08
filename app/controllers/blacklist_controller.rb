@@ -16,6 +16,7 @@ class BlacklistController < ApplicationController
     host = BlacklistedHost.find(params[:id])
     if host.destroy
       flash[:notice] = "Host has been removed from blacklist!"
+      log("removed", "a host from blacklist", host.name)
     else
       flash[:error] = "Could not remove host."
     end

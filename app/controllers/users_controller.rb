@@ -42,6 +42,7 @@ class UsersController < ApplicationController
       else
         redirect_to :action => "index"
         flash[:notice] = "User created."
+        log("created", "a user", [@user.login, @user.id])
       end
     else
       if @first_admin == true
@@ -93,8 +94,10 @@ class UsersController < ApplicationController
   end
 
 	def delete
-		if User.find(params[:id]).destroy
+		user = User.find(params[:id])
+		if user.destroy
 			flash[:notice] = "User deleted successfully."
+			log("deleted", "a user profile", user.login)
 		else
 		 	flash[:error] = "An error has occurred."
 		end
@@ -124,6 +127,7 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(params[:user])
 		  flash[:notice] = "User profile updated successfully."
+		  log("edited", "a user profile", [@user.name, @user.id])
 		 	redirect_to :action => :index
 		else
 		 	flash[:error] = "An error has occurred."
@@ -187,6 +191,7 @@ class UsersController < ApplicationController
     @department = Department.new params[:department]
     if @department.save
       flash[:notice] = "Department has been added."
+      log("created", "a department", [@department.name, @department.id])
     else
       flash[:error] = "Could not add department! Make sure to fill out the name field."
     end
@@ -197,6 +202,7 @@ class UsersController < ApplicationController
     department = Department.find params[:id]
     if department.destroy
       flash[:notice] = "Department has been deleted."
+      log("deleted", "a department", department.name)
     else
       flash[:error] = "Could not delete department!"
     end
