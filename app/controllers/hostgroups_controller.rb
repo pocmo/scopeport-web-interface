@@ -38,7 +38,7 @@ class HostgroupsController < ApplicationController
 	# Fetches requested host group and it's members.
 	def show
 		@group = Hostgroup.find params[:id]
-		@members = Host.find_all_by_hostgroup_and_disabled(params[:id], 0)
+		@members = Host.find_all_by_hostgroup_id params[:id]
 	end
 
 	def delete

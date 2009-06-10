@@ -10,14 +10,15 @@
 
 			<%= label :password, "Password" %>
 			<%= f.password_field :password %> <%= error_message_on(:host, :password) %>
+			
+      <%= label :desctiption, "Short description" %>
+			<%= f.text_field :description %> <%= error_message_on(:host, :description) %>
 
 			<%= label :os, "Operating system type" %>
 			<%= f.select :os, @os_types %> <%= error_message_on(:host, :os) %>
 
 			<%= label :hostgroup, "Hostgroup" %>
-			<%= f.select :hostgroup, @hostgroups %> <%= error_message_on(:host, :hostgroup) %>
-
-
+			<%= f.select :hostgroup_id, @hostgroups, :selected => 0 %> <%= error_message_on(:host, :hostgroup) %>
 
       <p>
 			  <%= submit_tag "Add host" %>

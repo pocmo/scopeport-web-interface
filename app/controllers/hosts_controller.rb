@@ -22,12 +22,14 @@ class HostsController < ApplicationController
 	def new
 		@host = Host.new
 		@hostgroups = Hostgroup.find(:all).collect { |h| [h.name, h.id] }
+		@hostgroups << ["None", 0]
     @os_types = { "Linux" => "linux" }
 	end
 
 	def create
 		@host = Host.new params[:host]
 		@hostgroups = Hostgroup.find(:all).collect { |h| [h.name, h.id] }
+		@hostgroups << ["None", 0]
     @os_types = { "Linux" => "linux" }
 		
     if @host.save

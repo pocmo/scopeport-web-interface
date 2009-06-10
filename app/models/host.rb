@@ -1,6 +1,6 @@
 # This file is part of ScopePort (Web Interface).
 #
-# Copyright 2007, 2008 Lennart Koopmann
+# Copyright 2007, 2008, 2009 Lennart Koopmann
 #
 # ScopePort (Web Interface) is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -20,5 +20,6 @@ class Host < ActiveRecord::Base
 	validates_presence_of :password
 	validates_presence_of :description
 	validates_presence_of :os
-	validates_numericality_of :os
+	validates_presence_of :hostgroup_id
+	validates_numericality_of :hostgroup_id
 end
