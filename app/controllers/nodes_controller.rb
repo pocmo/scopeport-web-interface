@@ -8,7 +8,11 @@ class NodesController < ApplicationController
       @name_suggestion = "ScopePort Node #{Node.last.id+1}"
     end
 
-    @cloud_pass = Setting.find(:last).cloud_master_password
+    @settings = Setting.find :last
+    @cloud_pass = ""
+    unless @settings.blank?
+      @cloud_pass = @settings.cloud_master_password
+    end
 
   end
 
@@ -53,7 +57,11 @@ class NodesController < ApplicationController
   def setpass
     require 'md5'
     params[:cloud_settings][:cloud_master_password] = MD5.new(params[:cloud_settings][:cloud_master_password]).to_s
-    settings = Setting.update :last, params[:cloud_settings]
+    if Setting.count > 0
+      settings = Setting.update :last, params[:cloud_settings]
+    else
+      settings = Setting.new params[:cloud_settings]
+    end
     if settings.save
       flash[:notice] = "Master password has been changed!"
     else
