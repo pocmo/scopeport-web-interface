@@ -1,5 +1,5 @@
 module AlarmsHelper
-	private
+	protected
 	# Returns the status message of an alarm.
 	def getAlarmStatus status, colored = false
 		# Build a standard message.
@@ -123,6 +123,16 @@ module AlarmsHelper
 											   applied = applied + "| #{f[0]} -> #{f[1]} | "    
 											 end }
 		return applied
+	end
+	
+	#Is there a new comment in the last 24 hours (default) ?
+	def new_comment?(alarm, time = 24.hour.ago)
+		!alarm.alarmcomments.recent(time).empty?
+	end
+	
+	#If there's a new comment, returns a image
+	def new_comment_mark
+		showIcon("comment", "margin-left: 3px;")
 	end
 	
 end

@@ -36,7 +36,11 @@ Every alarm of that has been caused by an existing service is listed here. Click
           <% end %>
         </td>
 				<td class="bold"><%= getServiceAlarmMessage(alarm.service_state, alarm.ms) %></td>
-				<td class="no-background-content"><%= link_to "Details", :action => "showservicealarm", :id => alarm.id %></td>
+				<td class="no-background-content">
+				<%= link_to "Details", :action => "showservicealarm", :id => alarm.id %>
+				<%# Strange behavior, this is calling the helper from ServicesHelper. Trying to solve this. %>
+				<%# new_comment_mark if new_comment?(alarm) %>
+				</td>
 			</tr>
 		<% end %>
 	</table>

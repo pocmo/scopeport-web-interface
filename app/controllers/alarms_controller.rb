@@ -142,4 +142,46 @@ class AlarmsController < ApplicationController
 			format.js
 		end
 	end
+	
+	def store_comment
+    comment = Alarmcomment.new params[:new_comment]
+
+    alarm_id = params[:new_comment][:alarm_id]
+    user_id = current_user.id
+    if alarm_id.blank? || user_id.blank?
+      flash[:error] = "Could not add comment: Missing parameters."
+      redirect_to :action => "index"
+      return
+    end
+
+    comment.alarm_id = alarm_id
+    comment.user_id = user_id
+
+    if comment.save
+      flash[:notice] = "Comment has been added."
+      log("commented", "on a alarm", comment.alarm_id)
+    else
+      flash[:error] = "Could not add comment! Please fill out all fields."
+    end
+    redirect_to :action => "showservicealarm", :id => alarm_id
+  end
+  
+  def deletecomment
+    comment = Alarmcomment.find params[:id]
+    if comment.nil?
+      render :text => "Comment not found"
+      return
+    end
+    
+    if comment.user_id == current_user.id
+      if comment.destroy
+        render :text => "Comment deleted."
+      else
+        render :text => "Could not delete comment."
+      end
+      return
+    end
+
+    render :text => "This is not your comment."
+  end
 end

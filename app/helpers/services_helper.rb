@@ -1,5 +1,5 @@
 module ServicesHelper
-
+	private
 	#Is there a new comment in the last 24 hours (default) ?
 	def new_comment?(service, time = 24.hour.ago)
 		!service.servicecomments.recent(time).empty?

@@ -18,7 +18,7 @@
 class Alarm < ActiveRecord::Base
   belongs_to :service
   has_one :user, :primary_key => :attendee, :foreign_key => :id
-
+	has_many :alarmcomments, :order => "created_at DESC"
 	
 	named_scope :time, lambda { |time|  { :conditions => ["timestamp > ?", time.to_i ] } }
 	named_scope :status, lambda { |status| {:conditions => { :status => status } } }
