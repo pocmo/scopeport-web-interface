@@ -18,7 +18,6 @@
 class ApplicationController < ActionController::Base
   before_filter :start_time
     
-  helper :all # include all helpers, all the time
   include AuthenticatedSystem
 
 	helper_method :getLastLogMessage
