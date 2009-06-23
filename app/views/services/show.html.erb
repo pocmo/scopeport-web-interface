@@ -92,33 +92,7 @@ Graph and response time are updated every minute.
 
 <div class="comments">
   <h2>Comments</h2><br />
-  <% if @service.servicecomments.blank? %>
-    <div class="comment-body">
-      <strong>No comments on this service yet.</strong>
-    </div>
-  <% end %>
-
-  <% @service.servicecomments.each do |comment| %>
-    <div class="comment" id="comment_<%= comment.id %>">
-      <div class="comment-head">
-        <%= showIcon "comment" %>
-        <span class="comment-title">
-          <%= buildUserLink comment.user.id %>
-          <%=h comment.title %>
-        </span>
-        <span class="comment-date"><%=h comment.created_at %></span>
-        <% if comment.user.id == current_user.id %>
-          <span class="comment-delete">
-            <%= link_to_remote "Delete", :url => { :action => "deletecomment", :id => comment.id },
-                                         :complete => "hideComment(#{comment.id})" %>
-          </span>
-        <% end %>
-      </div>
-      <div class="comment-body">
-        <%= simple_format h(comment.comment) %>
-      </div>
-    </div>
-  <% end %>
+  <%= render :partial => "comment", :locals => { :service => @service } %>
 </div>
 
 <div class="new-comment">

@@ -193,4 +193,10 @@ class ServicesController < ApplicationController
 
     render :text => "This is not your comment."
   end
+  
+  def allcomments
+  	
+  	@services = Service.find(:all)
+  	
+  end
 end

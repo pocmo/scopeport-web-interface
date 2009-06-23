@@ -1,0 +1,8 @@
+<h1> All Service Comments </h1><br/>
+<% @services.each do |service| %>
+	<h2>Service &raquo;<%=link_to service.name, { :action => "show", :id => service.id } %>&laquo; on &raquo;<%=h service.host %>&laquo;</h2><br />
+	
+	<%= render :partial => "comment", :locals => { :service => service } %>
+	<br/>
+	
+<% end %>
