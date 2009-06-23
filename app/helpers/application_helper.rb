@@ -78,5 +78,10 @@ module ApplicationHelper
 	def load_time
 		return Time.now - @start_time
 	end  
+	
+		#If there's a new comment, returns a image
+	def new_comment_mark
+		showIcon("comment", "margin-left: 3px;")
+	end
   
 end

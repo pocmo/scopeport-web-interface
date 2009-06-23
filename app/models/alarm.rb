@@ -27,4 +27,10 @@ class Alarm < ActiveRecord::Base
 	named_scope :service_state, lambda { |service_state| { :conditions => { :service_state => service_state } } }
 	#Needs improvements
 	named_scope :service_group, lambda { |id| { :conditions => { :service_id => Servicegroup.find_by_id(id).service_ids } } }
+
+	#Is there a new comment in the last 24 hours (default) ?
+	def new_comment?(time = 24.hour.ago)
+		!alarmcomments.recent(time).empty?
+	end
+
 end

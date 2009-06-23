@@ -30,5 +30,10 @@ class Service < ActiveRecord::Base
 
   # Belongs to a node
   belongs_to :node
+  
+  #Is there a new comment in the last 24 hours (default) ?
+	def new_comment?(time = 24.hour.ago)
+		!servicecomments.recent(time).empty?
+	end
 
 end

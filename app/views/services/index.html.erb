@@ -31,7 +31,7 @@ Monitored services: <%= @service_count %>.
               <span style="float: left;">
                 <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %>
               </span>
-					    <%= new_comment_mark if new_comment?(service) %>
+					    <%= new_comment_mark if service.new_comment? %>
             </td>
 			      <td><%=h service.host %>:<%=h service.port %></td>
 			      <% if service.service_type == "none" %>
@@ -93,7 +93,7 @@ Monitored services: <%= @service_count %>.
           <span style="float: left;">
             <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %>
           </span>
-					<%= new_comment_mark if new_comment?(service) %>
+					<%= new_comment_mark if service.new_comment? %>
 			</td>
 			<td><%=h service.host %>:<%=h service.port %></td>
 			<% if service.service_type == "none" %>

@@ -124,15 +124,4 @@ module AlarmsHelper
 											 end }
 		return applied
 	end
-	
-	#Is there a new comment in the last 24 hours (default) ?
-	def new_alarm_comment?(alarm, time = 24.hour.ago)
-		!alarm.alarmcomments.recent(time).empty?
-	end
-	
-	#If there's a new comment, returns a image
-	def new_alarm_comment_mark
-		showIcon("comment", "margin-left: 3px;")
-	end
-	
 end
