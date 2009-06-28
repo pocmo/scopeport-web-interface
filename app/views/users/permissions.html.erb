@@ -14,9 +14,9 @@ You can set the permissions of every user here. The settings are saved immediate
 
     <% @users.each do |user| %>
       <tr>
-        <td><%=h friendly_nil(user.id) %></td>
-        <td><strong><%=h friendly_nil(user.login) %></strong></td>
-        <td><%=h friendly_nil(user.name) %></td>
+        <td><%=h user.id %></td>
+        <td><strong><%=h user.login %></strong></td>
+        <td><%=h user.name %></td>
 
         <td>
           <input type="checkbox"  <% if user.admin == true %> checked="checked" value="1" <% else %> value="0" <% end %>
