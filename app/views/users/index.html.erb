@@ -15,19 +15,19 @@ The following users are currently configured:
 
   <% @users.each do |user| %>
     <tr>
-      <td><%=h friendly_nil(user.login) %></td>
-      <td><%=h friendly_nil(user.name) %></td>
+      <td><%=h user.login %></td>
+      <td><%=h user.name %></td>
       <td>
         <% unless user.department.blank? %>
-          <%=h friendly_nil(user.department.name) %>
+          <%=h user.department.name %>
         <% else %>
           None
         <% end %>
       </td>
-      <td><%=h friendly_nil(user.email) %></td>
+      <td><%=h user.email %></td>
       <td>
         <% unless user.last_online.blank? %>
-          <%=h friendly_nil(user.last_online) %>
+          <%=h user.last_online %>
         <% else %>
           Never
         <% end %>
