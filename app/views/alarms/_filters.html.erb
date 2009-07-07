@@ -20,19 +20,18 @@
   
   <dt><%= submit_tag "Filter" %></dt>
   <dd>&nbsp;</dd>
-    
+   
   <% #Place to the right of the div %>
   <br/>
   <br/>
+  
   <dt>Name:</dt>
-  <dd><%= text_field_tag "name" %></dd>
-  <dt><%= submit_tag "Save Filter" %></dt>
-  <dd>&nbsp;</dd>
-  <br/>
-  <br/>
-  <dt>Custom Filters:
-  <dd><%= select_tag :custom_filters, @filters['custom_filters'] %></dd>
-	
+  <dd><%= text_field_tag "name" %>
+  <%= submit_tag "Save Filter" %></dd>
+  
+  <dt>Custom Filters:</dt>
+  <dd><%= select_tag :custom_filters, @filters['custom_filters'] %>
+	<%= submit_tag "Delete" %></dd>
 	<%= observe_field :custom_filters, :url => { :action => :change_values }, :with => 'custom_filter' %>
 	
 </dl>

@@ -133,6 +133,8 @@ class AlarmsController < ApplicationController
   		redirect_to :action => "filters"
   	elsif params[:commit] == "Save Filter"
   		redirect_to :action => :customize
+  	elsif params[:commit] == "Delete"
+  		redirect_to :action => :delete_filter
   	end
   end
 	
@@ -183,5 +185,9 @@ class AlarmsController < ApplicationController
     end
 
     render :text => "This is not your comment."
+  end
+  
+  def delete_filter
+  	
   end
 end
