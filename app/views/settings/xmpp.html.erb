@@ -14,6 +14,13 @@
   	<%= label_txtfd_err(f, :xmpp_user, 'XMPP username', @settings.xmpp_user, :settings) %>
   	<%= label_pwdfd_err(f, :xmpp_pass, 'XMPP password', @settings.xmpp_pass, :settings) %>
   	<%= label_txtfd_err(f, :xmpp_resource, 'XMPP resource', @settings.xmpp_resource, :settings) %>
+    <p>
+   		<%= f.check_box :conversation_logging_xmpp, { :checked => friendly_nil(@settings.conversation_logging_xmpp), :style => "float: left;" } %>
+   		<%= f.label	:conversation_logging_xmpp, 'Enable conversation logging?' %>
+      (Your password and username will be visible in the<br />"Notification method debugging" section for admins<br />if you enable this)
+      <%= error_message_on(:settings, :conversation_logging_xmpp) %> 
+    </p>
+
 		<p><%= submit_tag "Save Settings" %></p>
 	<% end %>
 	</div>

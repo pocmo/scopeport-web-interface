@@ -1,0 +1,34 @@
+<h1>Notification method debugging</h1>
+You can see details of the conversation between your ScopePort and messaging server here. Every conversation that took place while debugging for it's type was enabled can be seen here.
+
+<div class="conversations-conversations">
+  <h2>SMTP conversations</h2>
+
+  <% @smtp_conversations.each do |conversation| %>
+    <div class="conversations-conversation">
+      <a class="conversations-conversation-title" href="#" onclick="Effect.toggle('conversations-conversation-<%= conversation.conversation_id %>', 'slide')">
+        <%= conversation.conversation_id %>
+      </a> <%= conversation.created_at%> to <%=h conversation.remote_host %>
+      <div id="conversations-conversation-<%= conversation.conversation_id %>" style="display: none;">
+        <div>
+          <ul class="conversations-conversation-messages">
+            <% conversation.conversationmessages.each do |message| %>
+              <% if message.direction == 1 %>
+                <li class="conversations-conversation-message-received"><%=h message.message %> &nbsp;</li>
+              <% else %>
+                <li class="conversations-conversation-message-sent"><%=h message.message %> &nbsp;</li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<div id="conversations-clear">
+  <% form_tag :action => "clear" do %>
+    <%= submit_tag "Clear all conversations", :disable_with => "Please wait" %>
+  <% end %>
+</div>

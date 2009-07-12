@@ -469,3 +469,39 @@
 #nodes-edit {
   margin-top: 10px;
 }
+
+/*
+ * Notification method debugging
+ */
+
+.conversations-conversations {
+  margin-top: 15px;
+}
+
+.conversations-conversation-title {
+  font-weight: bold;
+}
+
+.conversations-conversation-messages {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.conversations-conversation-message-sent {
+  color: #000000;
+  background-color: #ffb5b5;
+  padding-left: 10px;
+}
+
+.conversations-conversation-message-received {
+  color: #000000;
+  background-color: #c1ffb5;
+  padding-left: 15px;
+}
+
+#conversations-clear {
+  margin-top: 15px;
+}
