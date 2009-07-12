@@ -3,7 +3,11 @@ You can see details of the conversation between your ScopePort and messaging ser
 
 <div class="conversations-conversations">
   <h2>SMTP conversations</h2>
-
+  <% if @smtp_conversations.blank? %>
+    No logged SMTP conversations
+    <br />
+  <% end %>
+  
   <% @smtp_conversations.each do |conversation| %>
     <div class="conversations-conversation">
       <a class="conversations-conversation-title" href="#" onclick="Effect.toggle('conversations-conversation-<%= conversation.conversation_id %>', 'slide')">
@@ -25,6 +29,33 @@ You can see details of the conversation between your ScopePort and messaging ser
     </div>
   <% end %>
 
+  <br />
+  <h2>XMPP conversations</h2>
+  <% if @xmpp_conversations.blank? %>
+    No logged XMPP conversations
+    <br />
+  <% end %>
+
+  <% @xmpp_conversations.each do |conversation| %>
+    <div class="conversations-conversation">
+      <a class="conversations-conversation-title" href="#" onclick="Effect.toggle('conversations-conversation-<%= conversation.conversation_id %>', 'slide')">
+        <%= conversation.conversation_id %>
+      </a> <%= conversation.created_at%> to <%=h conversation.remote_host %>
+      <div id="conversations-conversation-<%= conversation.conversation_id %>" style="display: none;">
+        <div>
+          <ul class="conversations-conversation-messages">
+            <% conversation.conversationmessages.each do |message| %>
+              <% if message.direction == 1 %>
+                <li class="conversations-conversation-message-received"><%=h message.message %> &nbsp;</li>
+              <% else %>
+                <li class="conversations-conversation-message-sent"><%=h message.message %> &nbsp;</li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div id="conversations-clear">
