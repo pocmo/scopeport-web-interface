@@ -16,7 +16,7 @@
       <% unless @first_admin %>
 			  <% if admin? %>
 			  <div id="logmsg">
-  				<%= getLastLogMessage %>
+  				<%= truncate getLastLogMessage, :length => 100 %>
   				[<%= link_to ">", :controller => "logmessages" %>]
   			</div>
   			<% end %>

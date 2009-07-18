@@ -43,11 +43,9 @@ class ApplicationController < ActionController::Base
  	private
  	 	
 	def getLastLogMessage
-		message = Logmessage.find(:last, :order => "logtime DESC")
-		if message.blank?
-			return "No log messages"
-		return message.logmsg
-		end
+		message = Logmessage.find(:last, :order => "logtime ASC")
+		return "No log messages" if message.blank?
+		return "#{Time.at message.logtime} #{message.logmsg}"
 	end
 
 	# Returns if this is a production version. I.e. used to not display

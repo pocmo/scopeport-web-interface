@@ -17,11 +17,6 @@ module ApplicationHelper
 		return link_to(name, { :controller => section }, :class => cssclass)
 	end
 
-	# Displays the last log message.
-	def displayLastLogMessage
-		return @lastLogMessage
-	end
-
 	# Returns the possible operating system types.
 	def getOSTypes
 		return {	"Linux" => "0",
