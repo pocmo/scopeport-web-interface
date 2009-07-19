@@ -80,6 +80,15 @@
  * Hosts
  */
 
+.hosts-list {
+  margin-top: 5px;
+}
+
+.hosts-list-column-name {
+  width: 350px;
+  font-weight: bold;
+}
+
 #add-host dl {
 	padding: 0px;
 	margin: 0px;

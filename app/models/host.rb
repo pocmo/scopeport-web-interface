@@ -22,4 +22,7 @@ class Host < ActiveRecord::Base
 	validates_presence_of :os
 	validates_presence_of :hostgroup_id
 	validates_numericality_of :hostgroup_id
+
+  has_many :recentsensorvalues
+
 end

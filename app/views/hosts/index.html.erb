@@ -1,0 +1,30 @@
+<h1>Hosts</h1>
+
+<table class="hosts-list">
+  <tr class="doNotHighlightMe">
+    <th>Name</th>
+    <th>CPU1</th>
+    <th>CPU5</th>
+    <th>CPU15</th>
+    <th>Free Mem.</th>
+    <th>Free Swap</th>
+    <th>FI</th>
+    <th>OF</th>
+    <th>RP</th>
+    <th>TP</th>
+  </tr>
+  <% @hosts.each do |host| %>
+    <tr>
+      <td class="hosts-list-column-name"><%=h host["name"] %></td>
+      <td><%=h host["cpu1"] %></td>
+      <td><%=h host["cpu5"] %></td>
+      <td><%=h host["cpu15"] %></td>
+      <td><%=h host["fm"] %>kB</td>
+      <td><%=h host["fs"] %>kB</td>
+      <td><%=h host["fi"] %></td>
+      <td><%=h host["of"] %></td>
+      <td><%=h host["rp"] %></td>
+      <td><%=h host["tp"] %></td>
+    </tr>
+  <% end %>
+</table>

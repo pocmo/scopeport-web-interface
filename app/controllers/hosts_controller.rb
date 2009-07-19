@@ -1,6 +1,6 @@
 # This file is part of ScopePort (Web Interface).
 #
-# Copyright 2007, 2008 Lennart Koopmann
+# Copyright 2007, 2008, 2009 Lennart Koopmann
 #
 # ScopePort (Web Interface) is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -18,6 +18,23 @@
 class HostsController < ApplicationController
 
 	before_filter { |controller| controller.block unless controller.permission?}
+
+  def index
+    @raw_hosts = Host.find :all
+    @hosts = Array.new
+    @raw_hosts.each do |host|
+      @hosts << { "name" => host.name,
+                  "cpu1" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_1").value,
+                  "cpu5" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_5").value,
+                  "cpu15" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_15").value,
+                  "fm" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_memory").value,
+                  "fs" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_swap").value,
+                  "of" => Recentsensorvalue.find_by_host_id_and_name(host.id, "open_files").value,
+                  "fi" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_inodes").value,
+                  "rp" => Recentsensorvalue.find_by_host_id_and_name(host.id, "running_processes").value,
+                  "tp" => Recentsensorvalue.find_by_host_id_and_name(host.id, "total_processes").value }
+    end
+  end
 
 	def new
 		@host = Host.new
