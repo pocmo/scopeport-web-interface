@@ -95,9 +95,16 @@ class ApplicationController < ActionController::Base
 	end
 
 	def showAllNotificationReceivers
-		emailReceivers = Notificationgroup.find_all_by_email_and_warninggroup 1, params[:id]
-		xmppReceivers = Notificationgroup.find_all_by_xmpp_and_warninggroup 1, params[:id]
-		mobilecReceivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, params[:id]
+    if params["emergency-severity"].blank?
+		  emailReceivers = Notificationgroup.find_all_by_email_and_warninggroup 1, params[:id]
+	  	xmppReceivers = Notificationgroup.find_all_by_xmpp_and_warninggroup 1, params[:id]
+		  mobilecReceivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, params[:id]
+    else
+      warninggroups = { "1" => Setting.first.eg1, "2" => Setting.first.eg2, "3" => Setting.first.eg3 }
+		  emailReceivers = Notificationgroup.find_all_by_email_and_warninggroup 1, warninggroups[params["emergency-severity"]]
+		  xmppReceivers = Notificationgroup.find_all_by_xmpp_and_warninggroup 1, warninggroups[params["emergency-severity"]]
+		  mobilecReceivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, warninggroups[params["emergency-severity"]]
+    end
 
 		returnage = "
 				<div id=\"notigroupdetails\">
@@ -170,7 +177,7 @@ class ApplicationController < ActionController::Base
     if settings.allow_gravatar.blank? or settings.allow_gravatar == false or user.gravatar_email.blank? or user.use_gravatar.blank?
       returnage << "<a href=\"/users/show/#{user.id}\">"
       returnage << user.login
-      returnage << "</a>"
+      returnage << "</a> (#{user.name})"
       unless department.blank? or department.name.blank?
         returnage << " <span style=\"font-weight: normal;\">(Department: " << department.name << ")</span>"
       end
@@ -181,7 +188,7 @@ class ApplicationController < ActionController::Base
     email_hash = MD5::md5 user.gravatar_email
     returnage << "<a href=\"/users/show/#{user.id}\" class=\"with-avatar\">"
     returnage << "<span><img src=\"http://www.gravatar.com/avatar/#{email_hash}?s=80\" alt=\"User avatar\" class=\"with-avatar\"></span>"
-    returnage << "#{user.login}</a>"
+    returnage << "#{user.login}</a> (#{user.name})"
     unless department.blank? or department.name.blank?
       returnage << " <span style=\"font-weight: normal;\">(Department: " << department.name << ")</span>"
     end
