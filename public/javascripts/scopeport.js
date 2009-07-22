@@ -104,3 +104,24 @@ function updateForm (fields) {
 			elements[7].value = cf.service_state;
 	}
 }
+
+function bigRedButtonSlide(){
+  document.getElementById('bigredbutton').style.display = "";
+  document.getElementById('bigredbutton-activator').style.display = "none";
+  Effect.Pulsate('bigredbutton-pulse', { pulses: 9999, duration: 9999 });
+}
+
+function appendToList(x){
+  var container = document.getElementById("emergency-chat-list");
+  var newElement = document.createElement("li");
+  newElement.innerHTML = x;
+  container.insertBefore(newElement, container.lastChild);
+}
+
+function scrollToBottom(x){
+  var scroll = document.getElementById("autoscroll");
+  if(scroll.checked){
+    var el = document.getElementById(x);
+    el.scrollTop = el.scrollHeight;
+  }
+}

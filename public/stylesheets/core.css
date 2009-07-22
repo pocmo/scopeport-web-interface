@@ -187,7 +187,7 @@ dd {
 
 #navigation {
 	height: 40px;
-	padding-top: 80px;
+	padding-top: 60px;
 }
 
 .navlink {
@@ -292,6 +292,17 @@ dd {
 #bigredbutton a {
 	color: #FFFFFF;
 	border: 0px;
+}
+
+#emergency-list {
+  height: 19px;
+  width: 200px;
+  margin: 0px auto;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 #container {

@@ -514,3 +514,77 @@
 #conversations-clear {
   margin-top: 15px;
 }
+
+/*
+ * Emergencies
+ */
+
+#emergency-new-receivers {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#emergencies-list {
+  margin-top: 15px;
+}
+
+#emergency-description {
+  margin-top: 10px;
+}
+
+.emergency-section h2 {
+  font-size: 12px;
+}
+
+.emergency-section p {
+  margin: 0px;
+  margin-bottom: 2px;
+}
+
+#emergency-chat {
+  margin-top: 10px;
+}
+
+#emergency-chat-top {
+  float: right;
+  padding-right: 5px;
+}
+
+#emergency-chat-list {
+  width: 905px;
+  height: 150px;
+  overflow: auto;
+  border-left: 1px dotted #000000;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  list-style-type: none;
+}
+
+#emergency-chat-message-field {
+  width: 849px;
+}
+
+#emergency-chat-submit-field {
+  width: 50px;
+}
+
+.emergency-chat-message-date {
+  color: #BBBBBB;
+}
+
+.emergency-chat-message-username {
+  font-weight: bold;
+}
+
+.emergency-chat-message-message {
+  font-style: italic;
+}
+
+#emergency-close {
+  margin-top: 15px;
+}

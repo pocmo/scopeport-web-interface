@@ -28,6 +28,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :buildUserLink
 
+  helper_method :activeEmergencies?
+
   before_filter :login_required
 	before_filter :update_last_online
 	
@@ -251,7 +253,12 @@ class ApplicationController < ActionController::Base
   	
   	Logmessage.create(:logtime => Time.now.to_i, :severity => 0, :errorcode => "LOG", :logmsg => logmsg)
   end
-  
+ 
+  def activeEmergencies?
+    return false if Emergency.find_by_active(true).blank?
+    return true
+  end
+ 
   public :permission?, :block
   
 end
