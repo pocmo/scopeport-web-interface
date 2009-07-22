@@ -1,0 +1,32 @@
+<h1>Declare emergency</h1>
+
+<script type="text/javascript">
+  <%= remote_function :update => "emergency-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => "#{Setting.first.eg1}" } %>
+</script>
+
+<%= error_messages_for "emergency", :header_message => "The following errors prohibited this emergency from being declared:" %>
+
+<% form_for @emergency, :url => { :action => "create" } do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  &nbsp; A descriptive name of this emergency. (e.g. "Total loss of database")
+
+  <%= f.label :severity %>
+  <%= f.select :severity, { "1: Warning" => "1", "2: Alert" => "2", "3: Critical" => "3" }, { :selected => "1" }, { :onchange => "new Ajax.Updater('emergency-new-receivers-list', '/notificationgroups/show_receivers/0?emergency-severity=' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('emergency-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, :rows => 10, :style => "width: 910px;" %>
+  <br />
+  <i>No HTML allowed. Lines break automatically.</i>
+
+	<div id="emergency-new-receivers">
+			<h2 id="receivers-head">Notification receivers</h2>
+			The following receivers will be informed about this emergency:
+			<div id="emergency-new-receivers-list">
+			</div>
+	</div>
+
+  <p>
+    <%= submit_tag "Declare Emergency!" %>
+  </p>
+<% end %>

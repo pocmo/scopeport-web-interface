@@ -1,0 +1,38 @@
+<h1>Emergency &raquo;<%=h @emergency.title %>&laquo;</h1>
+Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.id %> 
+<% unless @emergency.updated_at == @emergency.created_at %>
+  [Last update: <%=h @emergency.updated_at %>]
+<% end %>
+
+<div id="emergency-description" class="emergency-section">
+  <h2>Description</h2>
+  <%= simple_format h(@emergency.description) %>
+</div>
+
+<script type="text/javascript">
+  <%= remote_function :url => { :action => "get_chat_messages", :id => @emergency.id }, :update => "emergency-chat-list", :complete => "scrollToBottom('emergency-chat-list')" %>
+</script>
+
+<div id="emergency-chat" class="emergency-section">
+  <h2 style="display: inline;">Chat</h2>
+  <div id="emergency-chat-top">
+    <input id="autoscroll" type="checkbox" checked="checked" /> Auto scroll
+  </div>
+  <ul id="emergency-chat-list">
+  </ul>
+  <div id="emergency-chat-new-message">
+    <% form_remote_tag :url => "/emergencies/post_chat_message", :complete => "document.getElementById('emergency-chat-message-field').value='';" do %>
+      <%= hidden_field_tag "[chat_message]emergency_id", @emergency.id %>
+      <%= text_field_tag "[chat_message]message", "Type your message here", :maxlength => 250, :id => "emergency-chat-message-field", :onclick => "clearFieldWithText(this, 'Type your message here')" %>
+      <%= submit_tag "Send", :id => "emergency-chat-submit-field" %>
+    <% end %>
+  </div>
+</div>
+
+<%= periodically_call_remote :url => { :action => "get_chat_messages", :id => @emergency.id }, :frequency => 1, :update => "emergency-chat-list", :complete => "scrollToBottom('emergency-chat-list')" %>
+
+<div id="emergency-close">
+  <% form_tag "/emergencies/close" do %>
+    <%= submit_tag "Close this emergency" %>
+  <% end %>
+</div>
