@@ -115,6 +115,15 @@ class EmergenciesController < ApplicationController
     end
 
     # Clickatell SMS API
-    mobilec_receivers = Notificationgroup.find_all_by_email 1
+    if Setting.last.mail_enabled and Setting.last.doMobileClickatell
+      mobilec_receivers = Notificationgroup.find_all_by_mobilec 1
+      mobilec_receivers.each do |receiver|
+        #begin
+          EmergencyMailer.deliver_clickatell_emergency_notification emergency, receiver.numberc
+        #rescue
+          #next
+        #end
+      end
+    end
   end
 end
