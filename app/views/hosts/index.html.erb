@@ -19,8 +19,8 @@
       <td><%=h host["cpu1"] %></td>
       <td><%=h host["cpu5"] %></td>
       <td><%=h host["cpu15"] %></td>
-      <td><%=h host["fm"] %>kB</td>
-      <td><%=h host["fs"] %>kB</td>
+      <td><%=h host["fm"] %><%= host["fm"] == "N/A" ? "" : "kB" %></td>
+      <td><%=h host["fs"] %><%= host["fs"] == "N/A" ? "" : "kB" %></td>
       <td><%=h host["fi"] %></td>
       <td><%=h host["of"] %></td>
       <td><%=h host["rp"] %></td>

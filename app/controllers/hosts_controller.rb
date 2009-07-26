@@ -24,15 +24,15 @@ class HostsController < ApplicationController
     @hosts = Array.new
     @raw_hosts.each do |host|
       @hosts << { "name" => host.name,
-                  "cpu1" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_1").value,
-                  "cpu5" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_5").value,
-                  "cpu15" => Recentsensorvalue.find_by_host_id_and_name(host.id, "cpu_load_average_15").value,
-                  "fm" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_memory").value,
-                  "fs" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_swap").value,
-                  "of" => Recentsensorvalue.find_by_host_id_and_name(host.id, "open_files").value,
-                  "fi" => Recentsensorvalue.find_by_host_id_and_name(host.id, "free_inodes").value,
-                  "rp" => Recentsensorvalue.find_by_host_id_and_name(host.id, "running_processes").value,
-                  "tp" => Recentsensorvalue.find_by_host_id_and_name(host.id, "total_processes").value }
+                  "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
+                  "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),
+                  "cpu15" => getLastSensorValue(host.id, "cpu_load_average_15"),
+                  "fm" => getLastSensorValue(host.id, "free_memory"),
+                  "fs" => getLastSensorValue(host.id, "free_swap"),
+                  "of" => getLastSensorValue(host.id, "open_files"),
+                  "fi" => getLastSensorValue(host.id, "free_inodes"),
+                  "rp" => getLastSensorValue(host.id, "running_processes"),
+                  "tp" => getLastSensorValue(host.id, "total_processes") }
     end
   end
 
@@ -58,4 +58,13 @@ class HostsController < ApplicationController
 			render :action => "new"
 		end
 	end
+
+  private
+
+  def getLastSensorValue host_id, sensor_name
+    sensor = Recentsensorvalue.find_by_host_id_and_name host_id, sensor_name
+    return "N/A" if sensor.blank?
+    return sensor.value
+  end
+
 end
