@@ -69,13 +69,50 @@ class EmergenciesController < ApplicationController
 
   def sendEmergencyMessages emergency
     # Email
-    email_receivers = Notificationgroup.find_all_by_email 1
-    email_receivers.each do |receiver|
-        EmergencyMailer.deliver_emergency_notification emergency, receiver.mail
+    if Setting.last.mail_enabled
+      email_receivers = Notificationgroup.find_all_by_email 1
+      email_receivers.each do |receiver|
+        begin
+          EmergencyMailer.deliver_emergency_notification emergency, receiver.mail
+        rescue
+          next
+        end
+      end
     end
 
     # XMPP
-    xmpp_receivers = Notificationgroup.find_all_by_email 1
+    if Setting.last.xmpp_enabled
+      require 'xmpp4r/client'
+      xmpp_user = Setting.first.xmpp_user
+      xmpp_server = Setting.first.xmpp_server
+      xmpp_resource = Setting.first.xmpp_resource
+      xmpp_password = Setting.first.xmpp_pass
+      xmpp_receivers = Notificationgroup.find_all_by_xmpp 1
+      xmpp_receivers.each do |receiver|
+        begin
+          require 'xmpp4r/client'
+          jid = Jabber::JID::new "#{xmpp_user}@#{xmpp_server}/#{xmpp_resource}"
+          cl = Jabber::Client::new jid
+          cl.connect
+          cl.auth xmpp_password
+
+          # We are authenticated. Send the XMPP message.
+          to = receiver.jid
+          subject = "[ScopePort] An emergency has been declared!"
+          body = "#{emergency.user.name} (#{emergency.user.login}) has just declared an emergency:"
+          body << "\n\nTitle: #{emergency.title}"
+          body << "\nDate: #{emergency.created_at}"
+          body << "\n\n---- Description ----"
+          body << "\n#{emergency.description}"
+          body << "\n---------------------"
+          body << "\n\nCoordinate countermeasures in the ScopePort Web Interface! There will be a notification about active emergencies."
+          m = Jabber::Message::new(to, body).set_type(:normal).set_id('1').set_subject(subject)
+          cl.send m
+        rescue
+          next
+        end
+      end
+    end
 
     # Clickatell SMS API
     mobilec_receivers = Notificationgroup.find_all_by_email 1
