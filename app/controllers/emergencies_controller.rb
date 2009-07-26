@@ -17,7 +17,14 @@ class EmergenciesController < ApplicationController
     @emergency.active = true
     @emergency.user_id = current_user.id
     if @emergency.save
-      sendEmergencyMessages @emergency
+      case @emergency.severity
+        when 1: group_id = Setting.first.eg1
+        when 2: group_id = Setting.first.eg2
+        when 3: group_id = Setting.first.eg3
+      end
+      unless group_id.blank?
+        sendEmergencyMessages @emergency, group_id
+      end
       flash[:notice] = "Emergency has been declared! Sending notifications."
       redirect_to :controller => "hosts"
     else
@@ -80,10 +87,10 @@ class EmergenciesController < ApplicationController
 
   private
 
-  def sendEmergencyMessages emergency
+  def sendEmergencyMessages emergency, group_id
     # Email
     if Setting.last.mail_enabled
-      email_receivers = Notificationgroup.find_all_by_email 1
+      email_receivers = Notificationgroup.find_all_by_email_and_warninggroup 1, group_id
       email_receivers.each do |receiver|
         begin
           EmergencyMailer.deliver_emergency_notification emergency, receiver.mail
@@ -100,7 +107,7 @@ class EmergenciesController < ApplicationController
       xmpp_server = Setting.first.xmpp_server
       xmpp_resource = Setting.first.xmpp_resource
       xmpp_password = Setting.first.xmpp_pass
-      xmpp_receivers = Notificationgroup.find_all_by_xmpp 1
+      xmpp_receivers = Notificationgroup.find_all_by_xmpp_and_warninggroup 1, group_id
       xmpp_receivers.each do |receiver|
         begin
           require 'xmpp4r/client'
@@ -129,7 +136,7 @@ class EmergenciesController < ApplicationController
 
     # Clickatell SMS API
     if Setting.last.mail_enabled and Setting.last.doMobileClickatell
-      mobilec_receivers = Notificationgroup.find_all_by_mobilec 1
+      mobilec_receivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, group_id
       mobilec_receivers.each do |receiver|
         #begin
           EmergencyMailer.deliver_clickatell_emergency_notification emergency, receiver.numberc
