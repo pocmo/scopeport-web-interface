@@ -6,6 +6,7 @@ class EmergenciesController < ApplicationController
   def show
     @emergency = Emergency.find params[:id]
     @chat_message = Emergencychatmessage.new
+    @new_comment = Emergencycomment.new
   end
 
   def new
@@ -84,7 +85,50 @@ class EmergenciesController < ApplicationController
     render :text => returnage
 
   end
+  
+  def store_comment
+    comment = Emergencycomment.new params[:new_comment]
 
+    emergency_id = params[:new_comment][:emergency_id]
+    user_id = current_user.id
+    if emergency_id.blank? || user_id.blank?
+      flash[:error] = "Could not add comment: Missing parameters."
+      redirect_to :action => "index"
+      return
+    end
+
+    comment.emergency_id = emergency_id
+    comment.user_id = user_id
+
+    if comment.save
+      flash[:notice] = "Comment has been added."
+      log("commented", "on an emergency", comment.emergency_id)
+    else
+      flash[:error] = "Could not add comment! Please fill out all fields."
+    end
+    redirect_to :action => "show", :id => emergency_id
+  end
+
+  def deletecomment
+    comment = Emergencycomment.find params[:id]
+    if comment.nil?
+      render :text => "Comment not found"
+      return
+    end
+
+    # Only allow deletion of comments owned by this user.
+    if comment.user_id == current_user.id
+      if comment.destroy
+        render :text => "Comment deleted."
+      else
+        render :text => "Could not delete comment."
+      end
+      return
+    end
+
+    render :text => "This is not your comment."
+  end
+  
   private
 
   def sendEmergencyMessages emergency, group_id

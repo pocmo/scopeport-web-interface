@@ -14,9 +14,11 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
 </script>
 
 <div id="emergency-chat" class="emergency-section">
-  <h2 style="display: inline;">Chat</h2>
+  <h2 id="emergency-chat-title">Chat</h2>
   <div id="emergency-chat-top">
     <input id="autoscroll" type="checkbox" checked="checked" /> Auto scroll
+    |
+    <%= link_to "More", "#", :id => "emergency-chat-grower", :onclick => "scaleChatField()" %>
   </div>
   <ul id="emergency-chat-list">
   </ul>
@@ -30,6 +32,36 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
 </div>
 
 <%= periodically_call_remote :url => { :action => "get_chat_messages", :id => @emergency.id }, :frequency => 1, :update => "emergency-chat-list", :complete => "scrollToBottom('emergency-chat-list')" %>
+
+<div id="emergency-comments" class="emergency-section">
+  <div class="comments">
+    <h2>Comments</h2><br />
+    <%= render :partial => "comment", :locals => { :emergency => @emergency } %>
+  </div>
+
+  <div class="new-comment">
+    <h2>New comment</h2>
+    <% form_for :new_comment, :url => { :action => "store_comment" } do |f| %>
+      <div class="new-comment-form">
+        <%= f.hidden_field :emergency_id, :value => @emergency.id %>
+        <%= f.label :title, "Title", :float => "left" %>
+        <%= f.text_field :title %>
+        <%= f.label :comment, "Comment", :float => "left" %>
+        <%= f.text_area :comment, :cols => "80", :rows => "5" %>
+      </div>
+      <div class="new-comment-description">
+        <strong>Use this form to leave a comment on this emergency.</strong>
+        You can delete your own comments at any time. Note that your name
+        will be visible above the comment.
+
+        <br /><br />
+
+        No HTML allowed. Lines break automatically.
+      </div>
+      <p><%= submit_tag "Add comment", :disable_with => "Please wait" %></p>
+    <% end %>
+  </div>
+</div>
 
 <div id="emergency-close">
   <% form_tag "/emergencies/close/#{@emergency.id}" do %>

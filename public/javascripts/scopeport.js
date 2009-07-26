@@ -125,3 +125,15 @@ function scrollToBottom(x){
     el.scrollTop = el.scrollHeight;
   }
 }
+
+function scaleChatField(){
+  field = document.getElementById("emergency-chat-list");
+  link = document.getElementById("emergency-chat-grower");
+  if(link.innerHTML == "More"){
+    field.style.height = "500px";
+    link.innerHTML = "Less"
+  }else{
+    field.style.height = "150px";
+    link.innerHTML = "More"
+  }
+}

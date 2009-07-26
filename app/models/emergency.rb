@@ -4,4 +4,5 @@ class Emergency < ActiveRecord::Base
 
   belongs_to :user
   has_many :emergencychatmessages
+  has_many :emergencycomments, :order => "created_at DESC"
 end
