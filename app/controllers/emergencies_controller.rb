@@ -26,6 +26,19 @@ class EmergenciesController < ApplicationController
     end
   end
 
+  def close
+    emergency = Emergency.find params[:id]
+    emergency.active = false
+    if emergency.save
+      Emergencychatmessage.delete_all [ "id = ?", params[:id] ]
+      flash[:notice] = "Emergency has been closed."
+      redirect_to :controller => "overview"
+    else
+      flash[:error] = "Could not close emergency!"
+      redirect_to :action => "show", :id => emergency.id
+    end
+  end
+
   def post_chat_message
     message = Emergencychatmessage.new params[:chat_message]
     message.user_id = current_user.id

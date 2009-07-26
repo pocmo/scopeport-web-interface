@@ -32,7 +32,7 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
 <%= periodically_call_remote :url => { :action => "get_chat_messages", :id => @emergency.id }, :frequency => 1, :update => "emergency-chat-list", :complete => "scrollToBottom('emergency-chat-list')" %>
 
 <div id="emergency-close">
-  <% form_tag "/emergencies/close" do %>
+  <% form_tag "/emergencies/close/#{@emergency.id}" do %>
     <%= submit_tag "Close this emergency" %>
   <% end %>
 </div>
