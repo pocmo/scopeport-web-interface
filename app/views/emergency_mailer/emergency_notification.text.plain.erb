@@ -1,0 +1,10 @@
+<%= @emergency.user.name %> (<%= @emergency.user.login%>) has just declared an emergency:
+
+Title: <%= @emergency.title %>
+Date: <%= @emergency.created_at %>
+
+---- Description: ----
+<%= @emergency.description %>
+----------------------
+
+Coordinate countermeasures in the ScopePort Web Interface! There will be a notification about active emergencies.

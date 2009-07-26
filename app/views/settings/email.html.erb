@@ -27,13 +27,14 @@
     <p>
    		<%= f.check_box :mail_usetls, { :checked => friendly_nil(@settings.mail_usetls), :style => "float: left;" } %>
    		<%= f.label	:mail_usetls, 'Use TLS encryption?' %>
+      (TLS is not used for emergency notifications)
       <%= error_message_on(:settings, :mail_usetls) %> 
     </p>
 
     <p>
    		<%= f.check_box :conversation_logging_smtp, { :checked => friendly_nil(@settings.conversation_logging_smtp), :style => "float: left;" } %>
    		<%= f.label	:conversation_logging_smtp, 'Enable conversation logging?' %>
-      (Your password and username will be visible in the<br />"Notification method debugging" section for admins<br />if you enable this)
+      (Your password and username will be visible<br/>in the "Notification method debugging" section for admins<br />if you enable this)
       <%= error_message_on(:settings, :conversation_logging_smtp) %> 
     </p>
 

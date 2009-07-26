@@ -17,7 +17,8 @@ class EmergenciesController < ApplicationController
     @emergency.active = true
     @emergency.user_id = current_user.id
     if @emergency.save
-      flash[:notice] = "Emergency has been declared! Notifications will be sent in a few seconds."
+      sendEmergencyMessages @emergency
+      flash[:notice] = "Emergency has been declared! Sending notifications."
       redirect_to :controller => "hosts"
     else
       flash[:error] = "Could not declare emergency!"
@@ -64,4 +65,19 @@ class EmergenciesController < ApplicationController
 
   end
 
+  private
+
+  def sendEmergencyMessages emergency
+    # Email
+    email_receivers = Notificationgroup.find_all_by_email 1
+    email_receivers.each do |receiver|
+        EmergencyMailer.deliver_emergency_notification emergency, receiver.mail
+    end
+
+    # XMPP
+    xmpp_receivers = Notificationgroup.find_all_by_email 1
+
+    # Clickatell SMS API
+    mobilec_receivers = Notificationgroup.find_all_by_email 1
+  end
 end
