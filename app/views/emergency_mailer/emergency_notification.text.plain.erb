@@ -1,4 +1,4 @@
-<%= @emergency.user.name %> (<%= @emergency.user.login%>) has just declared an emergency:
+<% if !@resend %><%= @emergency.user.name %> (<%= @emergency.user.login%>) has just declared an emergency:<% else %>This message informs you that <%= @emergency.user.name %> (<%= @emergency.user.login%>) has declared the following emergency on <%= @emergency.created_at %>:<% end %>
 
 Title: <%= @emergency.title %>
 Date: <%= @emergency.created_at %>
@@ -7,4 +7,4 @@ Date: <%= @emergency.created_at %>
 <%= @emergency.description %>
 ----------------------
 
-Coordinate countermeasures in the ScopePort Web Interface! There will be a notification about active emergencies.
+Coordinate countermeasures in the ScopePort Web Interface! You will see a notification about active emergencies.

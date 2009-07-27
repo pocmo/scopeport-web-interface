@@ -63,6 +63,55 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
   </div>
 </div>
 
+<% if @emergency.user_id == current_user.id or current_user.admin %>
+  <script type="text/javascript">
+    <%= remote_function :update => "emergency-manually-send-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => "0" } %>
+  </script>
+  <div id="emergency-manually-send" class="emergency-section">
+    <div id="emergency-manually-send-left">
+      <h2>Manually send notifications</h2>
+      The user who declared this emergency and administrators can send the notification
+      messages about this emergency manually from here.
+
+      <br />
+      <strong>Choose a notification group you want to inform:</strong>
+
+      <div id="emergency-manually-send-form">
+        <% form_tag "/emergencies/manually_send_notification?emergency_id=#{@emergency.id}" do %>
+          <%= select_tag "notificationgroup_id", "<option value='0'></option>#{options_for_select(Notificationgroupdetail.all.collect { |w| [ w.name, w.id ]})}", :onchange => "new Ajax.Updater('emergency-manually-send-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('emergency-manually-send-receivers-list'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" %>
+          <%= submit_tag "Send the notifications", :disable_with => "Please wait" %>
+        <% end %>
+      </div>
+
+      <br />
+      All notifications will be sent immediately after you hit the button and contain the same information
+      as the regular emergency notifiations.
+
+      <br /><br />
+      <strong>Manually sent notifications:</strong>
+      <ul>
+      <% if @manually_sent_notifications.blank? %>
+        <li>None</li>
+      <% else %>
+        <% @manually_sent_notifications.each do |notification| %>
+          <li><%= notification.created_at %> by <%= buildUserLink notification.user_id %> to <%=h notification.notificationgroupdetail.name %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+
+    <div id="emergency-manually-send-right">
+	    <div id="emergency-manually-send-receivers">
+			  <h2 id="receivers-head">Notification receivers</h2>
+			  The following receivers will be receiving the manually sent notification:
+			  <div id="emergency-manually-send-receivers-list">
+			  </div>
+	    </div>
+    </div>
+  </div>
+  <br style="clear: both;" />
+<% end %>
+
 <div id="emergency-close">
   <% form_tag "/emergencies/close/#{@emergency.id}" do %>
     <%= submit_tag "Close this emergency" %>

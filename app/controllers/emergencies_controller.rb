@@ -7,6 +7,7 @@ class EmergenciesController < ApplicationController
     @emergency = Emergency.find params[:id]
     @chat_message = Emergencychatmessage.new
     @new_comment = Emergencycomment.new
+    @manually_sent_notifications = Manualemergencynotification.find_all_by_emergency_id params[:id]
   end
 
   def new
@@ -24,9 +25,9 @@ class EmergenciesController < ApplicationController
         when 3: group_id = Setting.first.eg3
       end
       unless group_id.blank?
-        sendEmergencyMessages @emergency, group_id
+        sendEmergencyMessages @emergency, group_id, false
       end
-      flash[:notice] = "Emergency has been declared! Sending notifications."
+      flash[:notice] = "Emergency has been declared! Notifications have been sent."
       redirect_to :controller => "hosts"
     else
       flash[:error] = "Could not declare emergency!"
@@ -45,6 +46,29 @@ class EmergenciesController < ApplicationController
       flash[:error] = "Could not close emergency!"
       redirect_to :action => "show", :id => emergency.id
     end
+  end
+
+  def manually_send_notification
+    emergency = Emergency.find params[:emergency_id]
+
+    # This is only allowed for admins and emergency owners.
+    if !current_user.admin or emergency.user_id != current_user.id
+      render :text => "not authorized"
+      return
+    end
+
+    if !params[:notificationgroup_id].blank? and !emergency.blank?
+      sendEmergencyMessages emergency, params[:notificationgroup_id], true
+      inform = Manualemergencynotification.new
+      inform.emergency_id = emergency.id
+      inform.user_id = current_user.id
+      inform.notificationgroupdetail_id = params[:notificationgroup_id]
+      inform.save
+      flash[:notice] = "Notifications have been sent."
+    else
+      flash[:error] = "Could not send notifications: Missing parameters!"
+    end
+    redirect_to :action => "show", :id => params[:emergency_id]
   end
 
   def post_chat_message
@@ -131,13 +155,13 @@ class EmergenciesController < ApplicationController
   
   private
 
-  def sendEmergencyMessages emergency, group_id
+  def sendEmergencyMessages emergency, group_id, resend
     # Email
     if Setting.last.mail_enabled
       email_receivers = Notificationgroup.find_all_by_email_and_warninggroup 1, group_id
       email_receivers.each do |receiver|
         begin
-          EmergencyMailer.deliver_emergency_notification emergency, receiver.mail
+          EmergencyMailer.deliver_emergency_notification emergency, receiver.mail, resend
         rescue
           next
         end
@@ -162,14 +186,22 @@ class EmergenciesController < ApplicationController
 
           # We are authenticated. Send the XMPP message.
           to = receiver.jid
-          subject = "[ScopePort] An emergency has been declared!"
-          body = "#{emergency.user.name} (#{emergency.user.login}) has just declared an emergency:"
+          if !resend
+            subject = "[ScopePort] An emergency has been declared!"
+          else
+            subject = "[ScopePort] Notification about an emergency!"
+          end
+          if !resend
+            body = "#{emergency.user.name} (#{emergency.user.login}) has just declared an emergency:"
+          else
+            body = "This messsage informs you that #{emergency.user.name} (#{emergency.user.login}) has declared the following emergency on #{emergency.created_at}:"
+          end
           body << "\n\nTitle: #{emergency.title}"
           body << "\nDate: #{emergency.created_at}"
           body << "\n\n---- Description ----"
           body << "\n#{emergency.description}"
           body << "\n---------------------"
-          body << "\n\nCoordinate countermeasures in the ScopePort Web Interface! There will be a notification about active emergencies."
+          body << "\n\nCoordinate countermeasures in the ScopePort Web Interface! You will see a notification about active emergencies."
           m = Jabber::Message::new(to, body).set_type(:normal).set_id('1').set_subject(subject)
           cl.send m
         rescue
@@ -182,11 +214,11 @@ class EmergenciesController < ApplicationController
     if Setting.last.mail_enabled and Setting.last.doMobileClickatell
       mobilec_receivers = Notificationgroup.find_all_by_mobilec_and_warninggroup 1, group_id
       mobilec_receivers.each do |receiver|
-        #begin
-          EmergencyMailer.deliver_clickatell_emergency_notification emergency, receiver.numberc
-        #rescue
-          #next
-        #end
+        begin
+          EmergencyMailer.deliver_clickatell_emergency_notification emergency, receiver.numberc, resend
+        rescue
+          next
+        end
       end
     end
   end

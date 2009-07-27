@@ -594,6 +594,28 @@
   margin-top: 15px;
 }
 
+#emergency-comments label {
+  font-size: 12px;
+}
+
 .emergency-comment-body {
   margin-top: 10px;
+}
+
+#emergency-manually-send {
+  margin-top: 10px;
+}
+
+#emergency-manually-send-form {
+  margin-top: 10px;
+}
+
+#emergency-manually-send-left {
+  width: 40%;
+  float: left;
+}
+
+#emergency-manually-send-right {
+  width: 50%;
+  float: right;
 }
