@@ -619,3 +619,24 @@
   width: 50%;
   float: right;
 }
+
+#emergency-active-users {
+  margin-top: 5px;
+}
+
+#emergency-active-users-title {
+  float: left;
+  font-weight: bold;
+}
+
+#emergency-active-users-list {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 85px;
+  list-style-type: none;
+}
+
+#emergency-active-users-list li {
+  padding-right: 5px;
+  float: left;
+}

@@ -4,19 +4,17 @@
   <tr class="doNotHighlightMe">
     <th>Title</th>
     <th>Status</th>
+    <th>Active users</th>
     <th>Comments</th>
-    <th>Users in chat</th>
     <th>Date</th>
-    <th>Last update</th>
   </tr>
   <% @emergencies.each do |emergency| %>
     <tr class="<%= emergency.active ? "sensor-error" : "sensor-okay" %>">
       <td><%= link_to emergency.title, { :action => "show", :id => emergency.id }, { :class => "link-normal" } %></td>
       <td>Active</td>
-      <td>0</td>
-      <td>0</td>
+      <td><%= emergency.active_users %></td>
+      <td><%= emergency.emergencycomments.count %></td>
       <td><%=h emergency.created_at %></td>
-      <td><%=h emergency.updated_at %></td>
     </tr>
   <% end %>
 </table>

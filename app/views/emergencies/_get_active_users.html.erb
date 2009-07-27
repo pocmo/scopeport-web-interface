@@ -1,0 +1,5 @@
+ <% @users.each do |user| %>
+   <li>
+     <%= buildUserLink user.user_id %><%= user.id == @users.last.id ? "" : ","%>
+   </li>
+ <% end %>

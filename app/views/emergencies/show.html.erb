@@ -4,6 +4,13 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
   [Last update: <%=h @emergency.updated_at %>]
 <% end %>
 
+<script type="text/javascript">
+  <%= remote_function :url => { :action => "update_user_status", :id => @emergency.id, :user_id => current_user.id } %>
+  <%= remote_function :url => { :action => "get_active_users", :id => @emergency.id }, :update => "emergency-active-users-list" %>
+</script>
+<%= periodically_call_remote :url => { :action => "update_user_status", :id => @emergency.id, :user_id => current_user.id }, :frequency => 10 %>
+<%= periodically_call_remote :url => { :action => "get_active_users", :id => @emergency.id }, :update => "emergency-active-users-list", :frequency => 10 %>
+
 <div id="emergency-description" class="emergency-section">
   <h2>Description</h2>
   <%= simple_format h(@emergency.description) %>
@@ -30,6 +37,13 @@ Declared on <%=h @emergency.created_at %> by <%= buildUserLink @emergency.user.i
     <% end %>
   </div>
 </div>
+
+<div id="emergency-active-users">
+  <span id="emergency-active-users-title">Active users:</span>
+  <ul id="emergency-active-users-list"></ul>
+</div>
+
+<br style="clear: both;" />
 
 <%= periodically_call_remote :url => { :action => "get_chat_messages", :id => @emergency.id }, :frequency => 1, :update => "emergency-chat-list", :complete => "scrollToBottom('emergency-chat-list')" %>
 

@@ -109,7 +109,37 @@ class EmergenciesController < ApplicationController
     render :text => returnage
 
   end
-  
+ 
+  def update_user_status
+    if params[:id].blank? or params[:user_id].blank?
+      render :text => nil
+      return
+    end
+    user = Emergencychatuser.find_by_user_id_and_emergency_id params[:user_id], params[:id]
+    if user.blank?
+      # The user is not stored yet. Create.
+      user = Emergencychatuser.new
+      user.emergency_id = params[:id]
+      user.user_id = params[:user_id]
+      user.created_at = Time.now
+      user.updated_at = Time.now
+    else
+      # The user is already stored. Update his timestamp.
+      user.updated_at = Time.now
+    end
+
+    user.save
+
+    render :text => nil
+    return
+  end
+
+  def get_active_users
+    emergency = Emergency.find_by_id params[:id]
+    @users = emergency.all_active_chat_users
+    render :partial => "get_active_users"
+  end
+ 
   def store_comment
     comment = Emergencycomment.new params[:new_comment]
 
