@@ -58,7 +58,7 @@ class ServicesController < ApplicationController
     @graph.create_rrd "--start NOW --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
 
     # Fill graph
-    params[:graph_days].blank? ? days = 1 : days = params[:graph_days]
+    params[:graph_days].blank? ? days = 1 : days = params[:graph_days].to_i
     backwards = (Time.now - (86400*days)).to_i
     data = Servicerecord.find :all,
             :conditions => ["timestamp > ? AND timestamp > ? AND serviceid = ?",
