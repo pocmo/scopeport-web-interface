@@ -58,10 +58,11 @@ class ServicesController < ApplicationController
     @graph.create_rrd "--start NOW --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
 
     # Fill graph
-    yesterday = (Time.now - 86400).to_i
+    params[:graph_days].blank? ? days = 1 : days = params[:graph_days]
+    backwards = (Time.now - (86400*days)).to_i
     data = Servicerecord.find :all,
             :conditions => ["timestamp > ? AND timestamp > ? AND serviceid = ?",
-                              yesterday.to_s, @graph.get_last_rrd_update, @service.id]
+                              backwards.to_s, @graph.get_last_rrd_update, @service.id]
     data.each do |d|
       @graph.insert "#{d.timestamp}:#{d.ms}"
     end
@@ -83,7 +84,7 @@ class ServicesController < ApplicationController
                "MGRID" => "#877254",
                "AXIS" => "#BDBDBD",
                "ARROW" => "#BDBDBD" }
-    @graph.update_image yesterday, Time.now.to_i, lines, title, width, height, colors, options
+    @graph.update_image backwards, Time.now.to_i, lines, title, width, height, colors, options
 
     # Read the graph.
     graph_file = File.new @graph.get_path_of_png, "r"
