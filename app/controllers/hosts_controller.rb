@@ -65,12 +65,4 @@ class HostsController < ApplicationController
 		end
 	end
 
-  private
-
-  def getLastSensorValue host_id, sensor_name
-    sensor = Recentsensorvalue.find_by_host_id_and_name host_id, sensor_name
-    return "N/A" if sensor.blank?
-    return sensor.value
-  end
-
 end
