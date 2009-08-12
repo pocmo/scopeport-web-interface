@@ -21,7 +21,8 @@ class SensorconditionsController < ApplicationController
   end
 
   def update
-    redirect_to :controller => "overview" if params[:id].blank?
+    host = Host.find params[:id]
+    redirect_to :controller => "overview" if params[:id].blank? or host.blank?
     if params[:conditions].blank? or params[:operators].blank?
       flash[:error] = "Could not save conditions: Missing parameters."
       redirect_to :action => "update", :id => params[:id]
@@ -42,6 +43,7 @@ class SensorconditionsController < ApplicationController
       cd.save
     end
     flash[:notice] = "The conditions have been saved"
+    log("changed", "sensor conditions", [host.name, host.id])
     redirect_to :action => "change", :id => params[:id]
   end
 

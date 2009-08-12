@@ -55,6 +55,7 @@ class HostsController < ApplicationController
     @os_types = { "Linux" => "linux" }
 		
     if @host.save
+      log("added", "a host", [@host.name, @host.id])
       flash[:notice] = "Host has been added!"
       log("added", "a host", [@host.name, @host.id])
 			redirect_to :controller => "overview"
