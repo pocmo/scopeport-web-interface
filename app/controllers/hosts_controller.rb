@@ -23,7 +23,8 @@ class HostsController < ApplicationController
     @raw_hosts = Host.find :all
     @hosts = Array.new
     @raw_hosts.each do |host|
-      @hosts << { "name" => host.name,
+      @hosts << { "id" => host.id,
+                  "name" => host.name,
                   "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
                   "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),
                   "cpu15" => getLastSensorValue(host.id, "cpu_load_average_15"),
@@ -34,6 +35,10 @@ class HostsController < ApplicationController
                   "rp" => getLastSensorValue(host.id, "running_processes"),
                   "tp" => getLastSensorValue(host.id, "total_processes") }
     end
+  end
+
+  def show
+    @host = Host.find params[:id]
   end
 
 	def new

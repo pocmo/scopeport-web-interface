@@ -640,3 +640,20 @@
   padding-right: 5px;
   float: left;
 }
+
+/*
+ * Sensor conditions
+ */
+
+#sensor-conditions-table {
+  margin-top: 10px;
+}
+
+#sensor-conditions-table input, select {
+  padding: 0px;
+  font-size: 10px;
+}
+
+#sensor-conditions-save {
+  margin-top: 5px;
+}

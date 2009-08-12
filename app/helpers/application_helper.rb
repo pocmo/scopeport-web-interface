@@ -1,8 +1,4 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
-	private
-	
 	# Shows the standard headline of a page.
 	def render_headline headline
 		return "<h1>" + headline  + "</h1>"
@@ -78,5 +74,5 @@ module ApplicationHelper
 	def new_comment_mark
 		showIcon("comment", "margin-left: 3px;")
 	end
-  
+ 
 end

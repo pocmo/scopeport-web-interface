@@ -406,6 +406,10 @@ dd {
 	background-color: #FBCF00;
 }
 
+.sensor-none {
+  background-color: #CCCCCC;
+}
+
 .sensor-error-text {
 	color: #FF0000;
 }
