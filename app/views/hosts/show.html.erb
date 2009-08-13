@@ -1,2 +1,41 @@
 <h1>Host &raquo;<%=h @host.name %>&laquo;</h1>
 <%= link_to "Sensor conditions", :controller => "sensorconditions", :action => "change", :id => @host.id %>
+
+<table id="hosts-host-sensors">
+  <tr class="<%= getSensorStateColumnColor @host.id, "cpu1", @sensors["cpu1"] %>">
+    <td class="hosts-host-sensors-title">CPU load average last minute</td>
+    <td><%= @sensors["cpu1"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "cpu5", @sensors["cpu5"] %>">
+    <td class="hosts-host-sensors-title">CPU load average last 5 minutes</td>
+    <td><%= @sensors["cpu5"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "cpu15", @sensors["cpu15"] %>">
+    <td class="hosts-host-sensors-title">CPU load average last 15 minutes</td>
+    <td><%= @sensors["cpu15"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "fm", @sensors["fm"] %>">
+    <td class="hosts-host-sensors-title">Free memory</td>
+    <td><%= @sensors["fm"] %> kB</td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "fs", @sensors["fs"] %>">
+    <td class="hosts-host-sensors-title">Free swap space</td>
+    <td><%= @sensors["fs"] %> kB</td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "fi", @sensors["fi"] %>">
+    <td class="hosts-host-sensors-title">Free inodes</td>
+    <td><%= @sensors["fi"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "of", @sensors["of"] %>">
+    <td class="hosts-host-sensors-title">Number of currently opened files</td>
+    <td><%= @sensors["of"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "rp", @sensors["rp"] %>">
+    <td class="hosts-host-sensors-title">Number of currently running processes</td>
+    <td><%= @sensors["rp"] %></td>
+  </tr>
+  <tr class="<%= getSensorStateColumnColor @host.id, "tp", @sensors["tp"] %>">
+    <td class="hosts-host-sensors-title">Total number of processes</td>
+    <td><%= @sensors["tp"] %></td>
+  </tr>
+</table>
