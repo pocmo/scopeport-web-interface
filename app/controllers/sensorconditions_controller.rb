@@ -6,11 +6,11 @@ class SensorconditionsController < ApplicationController
     @conditions = Hash.new
     @raw_conditions.each do |condition|
       @conditions[condition.sensor] = condition
-      long_sensor_name = shortToLongSensorName(condition.sensor)
+      long_sensor_name = Host::shortToLongSensorName(condition.sensor)
       if long_sensor_name.blank?
         @conditions[condition.sensor]["last_value"] = String.new
       else
-        @last_value = Recentsensorvalue.find_by_host_id_and_name @host.id, shortToLongSensorName(condition.sensor)
+        @last_value = Recentsensorvalue.find_by_host_id_and_name @host.id, Host::shortToLongSensorName(condition.sensor)
         if @last_value.blank? or @last_value.value.blank?
           @conditions[condition.sensor]["last_value"] = String.new
         else

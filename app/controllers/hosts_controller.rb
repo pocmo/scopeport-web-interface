@@ -59,7 +59,8 @@ class HostsController < ApplicationController
   private
 
   def get_host_sensors_hash host
-      { "id" => host.id,
+      { "outdated" => host.outdated?,
+        "id" => host.id,
         "name" => host.name,
         "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
         "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),

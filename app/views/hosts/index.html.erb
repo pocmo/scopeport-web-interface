@@ -16,19 +16,19 @@
   <% @hosts.each do |host| %>
     <tr>
       <td class="hosts-list-column-name"><%= link_to h(host["name"]), :action => "show", :id => host["id"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "cpu1", host["cpu1"] %>"><%=h host["cpu1"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "cpu5", host["cpu5"] %>"><%=h host["cpu5"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "cpu15", host["cpu15"] %>"><%=h host["cpu15"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "fm", host["fm"] %>">
+      <td class="<%= getSensorStateColumnColor host, "cpu1", host["cpu1"] %>"><%=h host["cpu1"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "cpu5", host["cpu5"] %>"><%=h host["cpu5"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "cpu15", host["cpu15"] %>"><%=h host["cpu15"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "fm", host["fm"] %>">
         <%=h host["fm"] %><%= host["fm"] == "N/A" ? "" : "kB" %>
       </td>
-      <td class="<%= getSensorStateColumnColor host["id"], "fs", host["fs"] %>">
+      <td class="<%= getSensorStateColumnColor host, "fs", host["fs"] %>">
         <%=h host["fs"] %><%= host["fs"] == "N/A" ? "" : "kB" %>
       </td>
-      <td class="<%= getSensorStateColumnColor host["id"], "fi", host["fi"] %>"><%=h host["fi"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "of", host["of"] %>"><%=h host["of"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "rp", host["rp"] %>"><%=h host["rp"] %></td>
-      <td class="<%= getSensorStateColumnColor host["id"], "tp", host["tp"] %>"><%=h host["tp"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "fi", host["fi"] %>"><%=h host["fi"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "of", host["of"] %>"><%=h host["of"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "rp", host["rp"] %>"><%=h host["rp"] %></td>
+      <td class="<%= getSensorStateColumnColor host, "tp", host["tp"] %>"><%=h host["tp"] %></td>
     </tr>
   <% end %>
 </table>
