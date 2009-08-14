@@ -30,6 +30,7 @@ class HostsController < ApplicationController
   def show
     @host = Host.find params[:id]
     @sensors = get_host_sensors_hash @host
+    @conditions = get_conditions_hash @host
   end
 
 	def new
@@ -71,6 +72,15 @@ class HostsController < ApplicationController
         "fi" => getLastSensorValue(host.id, "free_inodes"),
         "rp" => getLastSensorValue(host.id, "running_processes"),
         "tp" => getLastSensorValue(host.id, "total_processes") }
+  end
+
+  def get_conditions_hash host
+    conditions = Sensorcondition.find_all_by_host_id host.id
+    ret = Hash.new
+    conditions.each do |condition|
+      ret[condition.sensor] = "#{condition.operator} #{condition.value}"
+    end
+    return ret
   end
 
 end

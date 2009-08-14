@@ -667,3 +667,11 @@
 #sensor-conditions-save {
   margin-top: 5px;
 }
+
+#hosts-host-instantstate {
+  margin-top: 10px;
+}
+
+#hosts-host-configure-conditions {
+  float: right;
+}
