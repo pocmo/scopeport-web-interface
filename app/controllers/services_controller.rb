@@ -55,8 +55,7 @@ class ServicesController < ApplicationController
 
     # Create graph (will be skipped if it already exists)
     @graph = RRDGraph.new "service-#{@service.id}"
-    new_graph = false
-    new_graph = true if @graph.create_rrd "--start #{31.days.ago.to_i} --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
+    @graph.create_rrd "--start #{31.days.ago.to_i} --step 60 DS:response:GAUGE:600:U:U RRA:AVERAGE:0.5:6:44640"
 
     # Fill graph
     params[:graph_days].blank? ? days = 1 : days = params[:graph_days].to_i
