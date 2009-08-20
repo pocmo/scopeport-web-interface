@@ -102,6 +102,16 @@
 	padding-left: 90px;
 }
 
+#hosts-host-sensors {
+  margin-top: 10px;
+}
+
+.hosts-host-sensors-title {
+  font-weight: bold;
+  padding: 2px;
+  width: 300px;
+}
+
 /*
  * Notification groups
  */
@@ -656,4 +666,12 @@
 
 #sensor-conditions-save {
   margin-top: 5px;
+}
+
+#hosts-host-instantstate {
+  margin-top: 10px;
+}
+
+#hosts-host-configure-conditions {
+  float: right;
 }

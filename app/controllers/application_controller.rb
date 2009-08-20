@@ -263,9 +263,10 @@ class ApplicationController < ActionController::Base
  
   public :permission?, :block
 
-  def getSensorStateColumnColor host_id, sensor_name, sensor_value
-    return "sensor-internal-error" if host_id.blank? or sensor_name.blank? or sensor_value.blank?
-    condition = Sensorcondition.find_by_host_id_and_sensor host_id, sensor_name
+  def getSensorStateColumnColor host, sensor_name, sensor_value
+    return "sensor-internal-error" if host.blank? or host["id"].blank? or sensor_name.blank? or sensor_value.blank?
+    return "sensor-error" if host["outdated"]
+    condition = Sensorcondition.find_by_host_id_and_sensor host["id"], sensor_name
     return "sensor-none" if condition.blank?
     if condition.operator == ">"
       return "sensor-okay" if sensor_value > condition.value
@@ -280,22 +281,6 @@ class ApplicationController < ActionController::Base
       return "sensor-internal-error"
     end
   end
- 
-  
-  def shortToLongSensorName sensor
-    case sensor
-      when "cpu1": "cpu_load_average_1"
-      when "cpu5": "cpu_load_average_5"
-      when "cpu15": "cpu_load_average_15"
-      when "of": "open_files"
-      when "rp": "running_processes"
-      when "tp": "total_processes"
-      when "fi": "free_inodes"
-      when "fm": "free_memory"
-      when "fs": "free_swap"
-      else "unknown"
-    end
-  end 
   
   def getLastSensorValue host_id, sensor_name
     sensor = Recentsensorvalue.find_by_host_id_and_name host_id, sensor_name

@@ -23,22 +23,14 @@ class HostsController < ApplicationController
     @raw_hosts = Host.find :all
     @hosts = Array.new
     @raw_hosts.each do |host|
-      @hosts << { "id" => host.id,
-                  "name" => host.name,
-                  "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
-                  "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),
-                  "cpu15" => getLastSensorValue(host.id, "cpu_load_average_15"),
-                  "fm" => getLastSensorValue(host.id, "free_memory"),
-                  "fs" => getLastSensorValue(host.id, "free_swap"),
-                  "of" => getLastSensorValue(host.id, "open_files"),
-                  "fi" => getLastSensorValue(host.id, "free_inodes"),
-                  "rp" => getLastSensorValue(host.id, "running_processes"),
-                  "tp" => getLastSensorValue(host.id, "total_processes") }
+      @hosts << get_host_sensors_hash(host)
     end
   end
 
   def show
     @host = Host.find params[:id]
+    @sensors = get_host_sensors_hash @host
+    @conditions = get_conditions_hash @host
   end
 
 	def new
@@ -64,5 +56,31 @@ class HostsController < ApplicationController
 			render :action => "new"
 		end
 	end
+
+  private
+
+  def get_host_sensors_hash host
+      { "outdated" => host.outdated?,
+        "id" => host.id,
+        "name" => host.name,
+        "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
+        "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),
+        "cpu15" => getLastSensorValue(host.id, "cpu_load_average_15"),
+        "fm" => getLastSensorValue(host.id, "free_memory"),
+        "fs" => getLastSensorValue(host.id, "free_swap"),
+        "of" => getLastSensorValue(host.id, "open_files"),
+        "fi" => getLastSensorValue(host.id, "free_inodes"),
+        "rp" => getLastSensorValue(host.id, "running_processes"),
+        "tp" => getLastSensorValue(host.id, "total_processes") }
+  end
+
+  def get_conditions_hash host
+    conditions = Sensorcondition.find_all_by_host_id host.id
+    ret = Hash.new
+    conditions.each do |condition|
+      ret[condition.sensor] = "#{condition.operator} #{condition.value}"
+    end
+    return ret
+  end
 
 end
