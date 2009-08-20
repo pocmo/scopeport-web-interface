@@ -237,6 +237,14 @@
   color: #BBBBBB;
 }
 
+#service-graph-info {
+  float: left;
+}
+
+#service-graph-timespan {
+  float: right;
+}
+
 /*
  * Blacklist
  */

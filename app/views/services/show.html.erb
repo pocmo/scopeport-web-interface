@@ -80,7 +80,22 @@
     <p>This may take a while if you did not open the graph for a longer time</p>
   </div>
 </div>
-Graph and response time are updated every minute.
+
+<div id="service-graph-info">
+  Graph and response time are updated every minute.
+</div>
+
+<div id="service-graph-timespan">
+  <strong>Time span:</strong>
+  <%= link_to "1 days", :graph_days => 1 %> |
+  <%= link_to "2 days", :graph_days => 2 %> |
+  <%= link_to "3 days", :graph_days => 3 %> |
+  <%= link_to "1 week", :graph_days => 7 %> |
+  <%= link_to "2 weeks", :graph_days => 14 %> |
+  <%= link_to "1 month", :graph_days => 31 %> 
+</div>
+
+<br style="clear: both;" />
 
 <%= periodically_call_remote :url => { :action => "show_graph", :id => @service.id, :graph_days => params[:graph_days] },
                              :update => "service-graph-response",
