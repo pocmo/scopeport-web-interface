@@ -102,6 +102,15 @@
 	padding-left: 90px;
 }
 
+#hosts-host-profile-sensors dt {
+  float: left;
+  font-weight: bold;
+}
+
+#hosts-host-profile-sensors dd {
+  padding-left: 70px;
+}
+
 #hosts-host-sensors {
   margin-top: 10px;
 }
