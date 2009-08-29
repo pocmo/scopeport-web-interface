@@ -26,10 +26,16 @@ class Host < ActiveRecord::Base
   has_many :recentsensorvalues
   has_many :sensorconditions
 
+  def last_sensor_time
+    time = Recentsensorvalue.find_by_host_id self.id, :order => "created_at DESC", :limit => 1
+    return nil if time.blank?
+    return time.created_at
+  end
+
   def outdated?
-    val = Recentsensorvalue.find_by_host_id self.id, :order => "created_at DESC", :limit => 1
+    val = self.last_sensor_time
     return false if val.blank?
-    return true if val.created_at < 2.minutes.ago
+    return true if val < 2.minutes.ago
     return false
   end
 

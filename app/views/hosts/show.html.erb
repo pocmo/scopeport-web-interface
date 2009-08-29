@@ -21,6 +21,26 @@
   <% end %>
 </div>
 
+<div id="hosts-host-profile-sensors">
+  <dl>
+    <dt>Last contact:</dt>
+    <dd><%= @host.last_sensor_time.blank? ? "Unknown" : @host.last_sensor_time %></dd>
+    <dt>Hostname:</dt>
+    <dd><%= @sensors["profile_hostname"] %></dd>
+    <dt>Domainname:</dt>
+    <dd><%= @sensors["profile_domainname"] %></dd>
+    <dt>Kernel:</dt>
+    <dd><%= @sensors["profile_kernel"] %></dd>
+  </dl>
+
+  <dl>
+  <dt>Total Memory:</dt>
+  <dd><%= @sensors["profile_total_memory"] %></dd>
+  <dt>Total Swap:</dt>
+  <dd><%= @sensors["profile_total_swap"] %></dd>
+  </dl>
+</div>
+
 <table id="hosts-host-sensors">
   <tr class="<%= getSensorStateColumnColor @sensors, "cpu1", @sensors["cpu1"] %>">
     <td class="hosts-host-sensors-title">CPU load average last minute</td>
