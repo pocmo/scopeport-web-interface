@@ -6,14 +6,17 @@ require "mysql"
 environment = "production"
 mysql_host = "localhost"
 
+fullpath = "/var/www/scopeport-demo"
+
 begin
-  config = YAML::load File.open("../config/database.yml")
+  config = YAML::load File.open(fullpath + "/config/database.yml")
   raise "Environment '#{environment}' not configured in database.yml!" if config[environment] == nil
   mysql_user = config[environment]["username"].to_s
   mysql_pass = config[environment]["password"].to_s
   mysql_database = config[environment]["database"].to_s
 rescue => e
   puts "Could not read configuration - Error: #{e}"
+  exit
 end
 
 begin 
@@ -23,6 +26,7 @@ begin
 rescue Mysql::Error => e 
   puts "Could not connect to MySQL Server - Error: #{e.error}" 
   con.close if con
+  exit
 end  
 
 rrdtool_binary = `which rrdtool`.chop
@@ -35,7 +39,7 @@ services = con.query "SELECT id, name FROM services"
 while service = services.fetch_row
   begin
     puts "=== Service '#{service[1]}' ==="
-    rrd_filename = "../db/colored-rrds/service-#{service[0].to_s}.rrd"
+    rrd_filename = fullpath + "/db/colored-rrds/service-#{service[0].to_s}.rrd"
     rrd = File.open rrd_filename
     last_value = `#{rrdtool_binary} last #{rrd_filename} 2>/dev/null`
     puts "Last stored value is from #{Time.at last_value.to_i}"
