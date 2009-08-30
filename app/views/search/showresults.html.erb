@@ -24,7 +24,7 @@
           <% else %>
             Not checked yet
           <% end %>
-          / Response time: <%=h service.responsetime %>ms
+          / Response time: <%=h service.responsetime <= 0 ? "N/A" : "#{service.responsetime}ms" %>
         </span>
       </a>
     <% end %>
