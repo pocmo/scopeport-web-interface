@@ -7,9 +7,13 @@
 	<%= stylesheet_link_tag "sections" %>
 	<%= javascript_include_tag "scopeport" %>
 	<%= javascript_include_tag "prototype" %>
+	<%= javascript_include_tag "jquery-1.3.1.min" %>
+  <script type="text/javascript">
+    jQuery.noConflict();
+  </script>
 	<%= javascript_include_tag "effects" %>
 </head>
-<body>
+<body onclick="clearSearch()">
 	<div id="maintop">
 		<div id="top">
 			<img src="/images/layout/top.png" alt="ScopePort" id="toplogo">
@@ -115,6 +119,21 @@
 			if(errordiv != "")
 				Effect.toggle('flash-error', 'appear', { delay: 0.0, duration: 3.0 });
 		</script>
+
+    <div id="maincontent-top">
+      <div id="maincontent-top-search">
+        <form id="searchform">
+          <div>
+            <span id="searchform-title">Search:</span>
+            <input id="searchform-searchbox" type="text" size="30" onkeyup="search(this.value, '<%= form_authenticity_token %>');" />
+          </div>
+          <div id="suggestions">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <br style="clear: both;" />
 
 		<%= yield %>
 

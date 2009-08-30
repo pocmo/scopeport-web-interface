@@ -25,7 +25,7 @@ class Host < ActiveRecord::Base
 
   has_many :recentsensorvalues
   has_many :sensorconditions
-
+  
   def last_sensor_time
     time = Recentsensorvalue.find_by_host_id self.id, :order => "created_at DESC", :limit => 1
     return nil if time.blank?

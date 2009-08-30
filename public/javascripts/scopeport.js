@@ -137,3 +137,18 @@ function scaleChatField(){
     link.innerHTML = "More"
   }
 }
+
+function clearSearch(){
+  jQuery('#suggestions').fadeOut();
+}
+
+function search(inputString, token) {
+  if(inputString.length == 0) {
+    jQuery('#suggestions').fadeOut(); // Hide suggestions
+  }else{
+    jQuery.post("/search/showresults", {query_string: ""+inputString+"", authenticity_token: token}, function(data) { // AJAX call
+    jQuery('#suggestions').fadeIn(); // Show suggestions
+    jQuery('#suggestions').html(data); // Fill suggestions
+    });
+  }
+}

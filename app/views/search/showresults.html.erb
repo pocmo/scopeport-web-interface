@@ -1,0 +1,56 @@
+<p id="searchresults">
+  <span class="category">Services</span>
+  <% if @services.blank? %>
+    <span class="searchheading searchheading-no-results">None found</span>
+  <% else %>
+    <% @services.each do |service| %>
+      <a href="/services/show/<%= service.id %>">
+        <span class="searchheading">
+          <%=h service.name %>
+          (<%= service.service_type.blank? or service.service_type == "none" ? "No Protocol" : h(service.service_type.upcase) %>)
+        </span>
+        <span>
+          Status:
+          <% unless service.state.blank? %>
+            <%=
+              case service.state
+                 when -1: "Internal Error"
+                 when 0: "Error"
+                 when 1: "Okay"
+                 when 2: "Time"
+                 when 3: "Timeout"
+               end
+            %>
+          <% else %>
+            Not checked yet
+          <% end %>
+          / Response time: <%=h service.responsetime %>ms
+        </span>
+      </a>
+    <% end %>
+  <% end %>
+
+  <span class="category">Hosts</span>
+  <% if @hosts.blank? %>
+    <span class="searchheading searchheading-no-results">None found</span>
+  <% else %>
+    <% @hosts.each do |host| %>
+      <a href="/hosts/show/<%= host.id %>">
+        <span class="searchheading">
+          <%=h host.name %>
+          <%= host.hostname.blank? ? "" : "(#{h(host.hostname)})" %>
+        </span>
+        <span>
+          Status:
+          <% if host.outdated? %>
+            Outdated
+          <% elsif host.has_sensor_warnings? %>
+            Warning
+          <% else %>
+            Okay
+          <% end %>
+        </span>
+      </a>
+    <% end %>
+  <% end %>
+</p>
