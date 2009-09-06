@@ -108,17 +108,36 @@
 }
 
 #hosts-host-profile-sensors dd {
-  padding-left: 70px;
+  padding-left: 90px;
 }
 
 #hosts-host-sensors {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .hosts-host-sensors-title {
   font-weight: bold;
   padding: 2px;
   width: 300px;
+}
+
+#hosts-host-nics {
+  display: none;
+}
+
+#hosts-host-nics-table {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#hosts-host-cpus {
+  display: none;
+}
+
+#hosts-host-cpus-table {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 /*

@@ -152,3 +152,13 @@ function search(inputString, token) {
     });
   }
 }
+
+function showNics(){
+	jQuery('#hosts-host-nics').fadeIn();
+	jQuery('#hosts-host-show-nics').fadeOut();
+}
+
+function showCpus(){
+	jQuery('#hosts-host-cpus').fadeIn();
+	jQuery('#hosts-host-show-cpus').fadeOut();
+}

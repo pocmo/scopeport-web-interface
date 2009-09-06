@@ -39,54 +39,10 @@
     <dt>Total Swap:</dt>
     <dd><%= @host.total_swap.blank? || @host.total_swap == "-0-" ? "N/A" : "#{h(@host.total_swap)} kB" %></dd>
     <dt>CPU Cores:</dt>
-    <dd><%= @host.cpus.count.blank? ? "N/A" : "#{h(@host.cpus.count)} <span id='hosts-host-show-cpus'>(#{link_to "show", "#", :onclick => "showCpus()"})</span>" %></dd>
+    <dd><%= @host.cpus.count.blank? ? "N/A" : "#{h(@host.cpus.count)} (#{link_to "show"})" %></dd>
     <dt>Network interfaces:</dt>
-    <dd><%= @host.networkinterfaces.count.blank? ? "N/A" : "#{h(@host.networkinterfaces.count)} <span id='hosts-host-show-nics'>(#{link_to "show", "#", :onclick => "showNics()"})</span>" %></dd>
+    <dd><%= @host.networkinterfaces.count.blank? ? "N/A" : "#{h(@host.networkinterfaces.count)} (#{link_to "show", "#", :onclick => "alert('sachen')"})" %></dd>
   </dl>
-</div>
-
-<div id="hosts-host-cpus">
-  <h2>CPU cores</h2>
-  <% if @host.cpus.blank? %>
-	<strong>No CPU cores detected</strong>
-  <% else %>
-	<table id="hosts-host-cpus-table">
-	  <tr class="doNotHighlightMe">
-	    <th>Core Number</th>
-	    <th>Vendor</th>
-	    <th>Model</th>
-	  </tr>
-	  <% @host.cpus.each do |cpu| %>
-	    <tr>
-	      <td><strong><%=h cpu.core_number %></strong></td>
-	      <td><%=h cpu.vendor %></td>
-	      <td><%=h cpu.model %></td>
-	    </tr>
-	  <% end %>
-	</table>
-  <% end %>
-</div>
-
-<div id="hosts-host-nics">
-  <h2>Network interfaces</h2>
-  <% if @host.networkinterfaces.blank? %>
-	<strong>No network interfaces detected</strong>
-  <% else %>
-	<table id="hosts-host-nics-table">
-	  <tr class="doNotHighlightMe">
-	    <th style="width: 700px;">Interface name</th>
-	    <th>Received</th>
-	    <th>Sent</th>
-	  </tr>
-	  <% @host.networkinterfaces.each do |nic| %>
-	    <tr>
-	      <td><strong><%=h nic.name %></strong></td>
-	      <td><%= number_to_human_size nic.received.to_i %></td>
-	      <td><%= number_to_human_size nic.sent.to_i %></td>
-	    </tr>
-	  <% end %>
-	</table>
-  <% end %>
 </div>
 
 <h2>Sensors</h2>
@@ -133,6 +89,26 @@
     <td><%= @sensors["tp"] %> (<%= @conditions["tp"] %>)</td>
   </tr>
 </table>
+
+<div id="hosts-host-nics">
+	<% unless @host.networkinterfaces.blank? %>
+	  <h2>Network interfaces</h2>
+	  <table id="hosts-host-nics-table">
+	    <tr class="doNotHighlightMe">
+	      <th style="width: 700px;">Interface name</th>
+	      <th>Received</th>
+	      <th>Sent</th>
+	    </tr>
+	    <% @host.networkinterfaces.each do |nic| %>
+	      <tr>
+	        <td><strong><%=h nic.name %></strong></td>
+	        <td><%= number_to_human_size nic.received.to_i %></td>
+	        <td><%= number_to_human_size nic.sent.to_i %></td>
+	      </tr>
+	    <% end %>
+	  </table>
+	<% end %>
+</div>
 
 <div id="hosts-host-configure-conditions">
   <%= link_to "Configure sensor conditions", :controller => "sensorconditions", :action => "change", :id => @host.id %>
