@@ -269,13 +269,13 @@ class ApplicationController < ActionController::Base
     condition = Sensorcondition.find_by_host_id_and_sensor host["id"], sensor_name
     return "sensor-none" if condition.blank?
     if condition.operator == ">"
-      return "sensor-okay" if sensor_value > condition.value
+      return "sensor-okay" if sensor_value.to_i > condition.value.to_i
       return "sensor-error"
     elsif condition.operator == "<"
-      return "sensor-okay" if sensor_value < condition.value
+      return "sensor-okay" if sensor_value.to_i < condition.value.to_i
       return "sensor-error"
     elsif condition.operator == "="
-      return "sensor-okay" if sensor_value == condition.value
+      return "sensor-okay" if sensor_value.to_i == condition.value.to_i
       return "sensor-error"
     else
       return "sensor-internal-error"
