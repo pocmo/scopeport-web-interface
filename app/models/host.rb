@@ -47,13 +47,13 @@ class Host < ActiveRecord::Base
       sensor = Recentsensorvalue.find_by_host_id_and_name self.id, Host::shortToLongSensorName(condition.sensor)
       next if condition.blank? or sensor.blank?
       if condition.operator == ">"
-        next if sensor.value > condition.value
+        next if sensor.value.to_i > condition.value.to_i
         return true
       elsif condition.operator == "<"
-        next if sensor.value < condition.value
+        next if sensor.value.to_i < condition.value.to_i
         return true
       elsif condition.operator == "="
-        next if sensor.value == condition.value
+        next if sensor.value.to_i == condition.value.to_i
         return true
       end
     end
