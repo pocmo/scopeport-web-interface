@@ -265,7 +265,7 @@ class ApplicationController < ActionController::Base
 
   def getSensorStateColumnColor host, sensor_name, sensor_value
     return "sensor-internal-error" if host.blank? or host["id"].blank? or sensor_name.blank? or sensor_value.blank?
-    return "sensor-error" if host["outdated"]
+    return "sensor-none" if host["outdated"]
     condition = Sensorcondition.find_by_host_id_and_sensor host["id"], sensor_name
     return "sensor-none" if condition.blank?
     if condition.operator == ">"
