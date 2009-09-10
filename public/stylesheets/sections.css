@@ -140,6 +140,11 @@
   margin-bottom: 10px;
 }
 
+#hosts-host-graph-processes {
+  margin-top: 5px;
+  text-align: center;
+}
+
 /*
  * Notification groups
  */
@@ -257,12 +262,6 @@
   width: 100%;
 	margin-top: 15px;
   text-align: center;
-}
-
-#service-graph-response-loading {
-  text-align: center;
-  padding-top: 55px;
-  color: #BBBBBB;
 }
 
 #service-graph-info {
