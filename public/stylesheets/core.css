@@ -604,3 +604,7 @@ background-image:url(../images/shortcuts_arrow.gif); background-repeat:no-repeat
   padding-top: 55px;
   color: #BBBBBB;
 }
+
+#usermenu-user-link {
+  color: #FFFFFF;
+}
