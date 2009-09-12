@@ -382,6 +382,15 @@
   margin-top: 15px;
 }
 
+#user-details dt {
+  float: left;
+  font-weight: bold;
+}
+
+#user-details dd {
+  padding-left: 50px;
+}
+
 /*
  * Clickatell SMS API settings
  */

@@ -40,7 +40,7 @@
   			<div id="usermenu">
   				<div id="usermenuwelcome">
   					<% if logged_in? -%>
-    					<strong>Welcome</strong>, <%= current_user.login %>
+    					<strong>Welcome</strong>, <%= link_to current_user.login, { :controller => "users", :action => "show", :id => current_user.id } %>
   					<% else %>
     					<%= link_to "Log in",  login_path,  { :title => "Log in" } %>
   					<% end %>

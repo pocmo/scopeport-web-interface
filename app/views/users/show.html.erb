@@ -1,0 +1,24 @@
+<h1><%=h @user.name %></h1>
+
+<dl id="user-details">
+  <dt>Username</dt>
+  <dd><%=h @user.login %></dd>
+
+  <dt>Email</dt>
+  <dd><%= mail_to h(@user.email) %>
+  
+  <dt>Telephone</dt>
+  <dd><%= @user.telephone_number.blank? ? "N/A" : h(@user.telephone_number) %></dd>
+  
+  <dt>Department</dt>
+  <dd>
+    <% unless @user.department.blank? %>
+      <%= @user.department.name.blank? ? "N/A" : h(@user.department.name) %>
+    <% else %>
+      N/A
+    <% end %>
+  </dd>
+  
+  <dt>Last online</dt>
+  <dd><%=h @user.last_online %></dd>
+</dl>

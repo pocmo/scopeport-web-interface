@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     @departments = Department.find :all
   end
  
+  def show
+    @user = User.find params[:id]
+  end
+
   def create
     # Is this the first admin user form?
     if User.find(:all).size == 0
