@@ -75,7 +75,7 @@ class HostsController < ApplicationController
     end
 
     # Graph image
-    lines = ["DEF:runprocs=#{@graph.get_path_of_rrd}:runprocs:AVERAGE LINE2:runprocs#eb7f00:'Running processes'"]
+    lines = ["DEF:runprocs=#{@graph.get_path_of_rrd}:runprocs:AVERAGE LINE:runprocs#eb7f00:'Running processes'"]
     title = "Running processes on host \"#{@host.name}\" - #{Time.now.to_s}"
     width = "800"
     height = "150"
