@@ -140,7 +140,7 @@
   margin-bottom: 10px;
 }
 
-#hosts-host-graph-processes {
+.hosts-host-graph {
   margin-top: 5px;
   text-align: center;
 }
