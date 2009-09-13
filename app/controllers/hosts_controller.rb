@@ -122,7 +122,7 @@ class HostsController < ApplicationController
     title = "Free memory on host \"#{@host.name}\" - #{Time.now.to_s}"
     width = "800"
     height = "150"
-    options = "--base 1024"
+    options = "--base 1024 -X 0"
     colors = { "SHADEA" => "#F8F8F8",
                "SHADEB" => "#F8F8F8",
                "FONT" => "#000000",
