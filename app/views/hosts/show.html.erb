@@ -145,6 +145,8 @@
                                 :update => "hosts-host-graph-processes" %>
   <%= remote_function :url => { :action => "show_free_memory_graph", :id => @host.id, :graph_days => params[:graph_days] },
                                 :update => "hosts-host-graph-free-memory" %>
+  <%= remote_function :url => { :action => "show_open_files_graph", :id => @host.id, :graph_days => params[:graph_days] },
+                                :update => "hosts-host-graph-open-files" %>
 </script>
 
 <div id="hosts-host-graph-processes" class="hosts-host-graph">
@@ -161,10 +163,21 @@
   </div>
 </div>
 
+<div id="hosts-host-graph-open-files" class="hosts-host-graph">
+  <div id="graph-loading">
+    <%= image_tag "ajax-loader.gif" %>
+    <p>Generating free memory time graph.</p>
+  </div>
+</div>
+
 <%= periodically_call_remote :url => { :action => "show_processes_graph", :id => @host.id, :graph_days => params[:graph_days] },
                              :update => "hosts-host-graph-processes",
                              :frequency => "61" %>
 
 <%= periodically_call_remote :url => { :action => "show_free_memory_graph", :id => @host.id, :graph_days => params[:graph_days] },
                              :update => "hosts-host-graph-free-memory",
+                             :frequency => "61" %>
+
+<%= periodically_call_remote :url => { :action => "show_open_files_graph", :id => @host.id, :graph_days => params[:graph_days] },
+                             :update => "hosts-host-graph-open-files",
                              :frequency => "61" %>

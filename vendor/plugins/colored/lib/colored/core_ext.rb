@@ -39,7 +39,6 @@ module Colored
 				end
 
 				command << options + " "
-        puts "THIS: #{command}"
 
 				return false if !system command
 
