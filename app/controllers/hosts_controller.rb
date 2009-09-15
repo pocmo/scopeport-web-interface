@@ -185,6 +185,92 @@ class HostsController < ApplicationController
     # Return the inlined image HTML code to avoid AJAX madness.
     render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
   end
+  
+  def show_disk_read_ops_graph
+		@host = Host.find_by_id params[:id]
+    redirect_to :action => "index" if @host.blank?
+
+    # Create graph (will be skipped if it already exists)
+    @graph = RRDGraph.new "host-disk-read-ops-#{@host.id}"
+    @graph.create_rrd "--start #{31.days.ago.to_i} --step 60 DS:readops:COUNTER:600:U:U RRA:AVERAGE:0.5:3:44640"
+
+    # Fill graph
+    params[:graph_days].blank? ? days = 1 : days = params[:graph_days].to_i
+    data = Sensorvalue.find :all,
+              :conditions => ["created_at > ? AND host_id = ? AND name = 'read_operations'", Time.at(@graph.get_last_rrd_update.to_i), @host.id]
+
+    data.each do |d|
+      @graph.insert "#{d.created_at.to_i}:#{d.value}"
+    end
+
+    # Graph image
+    lines = ["DEF:readops=#{@graph.get_path_of_rrd}:readops:AVERAGE LINE:readops#eb7f00:'Read operations / minute'"]
+    title = "Read operations on host \"#{@host.name}\" - #{Time.now.to_s}"
+    width = "800"
+    height = "150"
+    options = ""
+    colors = { "SHADEA" => "#F8F8F8",
+               "SHADEB" => "#F8F8F8",
+               "FONT" => "#000000",
+               "BACK" => "#F8F8F8",
+               "CANVAS" => "#F8F8F8",
+               "GRID" => "#696969",
+               "MGRID" => "#877254",
+               "AXIS" => "#BDBDBD",
+               "ARROW" => "#BDBDBD" }
+
+    backwards = (Time.now - (86400*days)).to_i
+    @graph.update_image backwards, Time.now.to_i, lines, title, width, height, colors, options
+
+    # Read the graph.
+    graph_file = File.new @graph.get_path_of_png, "r"
+
+    # Return the inlined image HTML code to avoid AJAX madness.
+    render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
+  end
+  
+  def show_disk_write_ops_graph
+		@host = Host.find_by_id params[:id]
+    redirect_to :action => "index" if @host.blank?
+
+    # Create graph (will be skipped if it already exists)
+    @graph = RRDGraph.new "host-disk-write-ops-#{@host.id}"
+    @graph.create_rrd "--start #{31.days.ago.to_i} --step 60 DS:writeops:COUNTER:600:U:U RRA:AVERAGE:0.5:3:44640"
+
+    # Fill graph
+    params[:graph_days].blank? ? days = 1 : days = params[:graph_days].to_i
+    data = Sensorvalue.find :all,
+              :conditions => ["created_at > ? AND host_id = ? AND name = 'write_operations'", Time.at(@graph.get_last_rrd_update.to_i), @host.id]
+
+    data.each do |d|
+      @graph.insert "#{d.created_at.to_i}:#{d.value}"
+    end
+
+    # Graph image
+    lines = ["DEF:writeops=#{@graph.get_path_of_rrd}:writeops:AVERAGE LINE:writeops#eb7f00:'Write operations / minute'"]
+    title = "Write operations on host \"#{@host.name}\" - #{Time.now.to_s}"
+    width = "800"
+    height = "150"
+    options = ""
+    colors = { "SHADEA" => "#F8F8F8",
+               "SHADEB" => "#F8F8F8",
+               "FONT" => "#000000",
+               "BACK" => "#F8F8F8",
+               "CANVAS" => "#F8F8F8",
+               "GRID" => "#696969",
+               "MGRID" => "#877254",
+               "AXIS" => "#BDBDBD",
+               "ARROW" => "#BDBDBD" }
+
+    backwards = (Time.now - (86400*days)).to_i
+    @graph.update_image backwards, Time.now.to_i, lines, title, width, height, colors, options
+
+    # Read the graph.
+    graph_file = File.new @graph.get_path_of_png, "r"
+
+    # Return the inlined image HTML code to avoid AJAX madness.
+    render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
+  end
 
   private
 
