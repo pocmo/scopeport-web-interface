@@ -46,13 +46,12 @@
 </div>
 
 <div id="hosts-host-cpus">
-  <h2>CPU cores</h2>
   <% if @host.cpus.blank? %>
 	<strong>No CPU cores detected</strong>
   <% else %>
 	<table id="hosts-host-cpus-table">
 	  <tr class="doNotHighlightMe">
-	    <th>Core Number</th>
+	    <th>CPU</th>
 	    <th>Vendor</th>
 	    <th>Model</th>
 	  </tr>
@@ -68,13 +67,12 @@
 </div>
 
 <div id="hosts-host-nics">
-  <h2>Network interfaces</h2>
   <% if @host.networkinterfaces.blank? %>
 	<strong>No network interfaces detected</strong>
   <% else %>
 	<table id="hosts-host-nics-table">
 	  <tr class="doNotHighlightMe">
-	    <th style="width: 700px;">Interface name</th>
+	    <th style="width: 700px;">Network interface</th>
 	    <th>Received</th>
 	    <th>Sent</th>
 	  </tr>
@@ -88,8 +86,6 @@
 	</table>
   <% end %>
 </div>
-
-<h2>Sensors</h2>
 
 <table id="hosts-host-sensors">
   <tr class="doNotHighlightMe">

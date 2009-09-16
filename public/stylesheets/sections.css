@@ -113,7 +113,7 @@
 
 #hosts-host-sensors {
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .hosts-host-sensors-title {
@@ -127,7 +127,7 @@
 }
 
 #hosts-host-nics-table {
-  margin-top: 5px;
+  margin-top: 2px;
   margin-bottom: 10px;
 }
 
@@ -136,13 +136,14 @@
 }
 
 #hosts-host-cpus-table {
-  margin-top: 5px;
+  margin-top: 2px;
   margin-bottom: 10px;
 }
 
 .hosts-host-graph {
   margin-top: 5px;
   text-align: center;
+  height: 225px;
 }
 
 /*

@@ -30,7 +30,7 @@ Monitored services: <%= @service_count %>.
 		      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
 			      <td>
               <span style="float: left;">
-                <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %>
+                <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-title" %>
               </span>
 					    <%= new_comment_mark if service.new_comment? %>
             </td>
@@ -92,7 +92,7 @@ Monitored services: <%= @service_count %>.
 		<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
 			<td>
           <span style="float: left;">
-            <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-normal" %>
+            <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-title" %>
           </span>
 					<%= new_comment_mark if service.new_comment? %>
 			</td>

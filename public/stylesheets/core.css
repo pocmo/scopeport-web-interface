@@ -11,7 +11,6 @@ body {
 a {
 	color: #ec6600;
 	text-decoration: none;
-	font-weight: bold;
 	border-bottom: 1px dashed #000000;
 }
 
@@ -44,16 +43,22 @@ h1, h2, h3, h4, h5 {
 	margin: 0px;
 	padding: 0px;
 	color: #111111;
+  font-weight: bold;
 }
 
 h1 {
+  font-size: 18px;
 	width: 100%;
 	border-bottom: 1px solid #ebab4a;
 }
 
+h2 {
+  font-size: 14px;
+}
+
 th {
 	text-align: left;
-	border-bottom: 2px dotted #ec6600;
+	border-bottom: 1px dotted #ec6600;
 	font-size: 12px;
 	color: #111111;
 }
@@ -607,4 +612,9 @@ background-image:url(../images/shortcuts_arrow.gif); background-repeat:no-repeat
 
 #usermenu-user-link {
   color: #FFFFFF;
+}
+
+.link-title {
+  font-weight: bold;
+  color: #000000;
 }
