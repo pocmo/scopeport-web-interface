@@ -25,6 +25,8 @@
   <dl>
     <dt>Last contact:</dt>
     <dd><%= @host.last_sensor_time.blank? ? "Unknown" : @host.last_sensor_time %></dd>
+    <dt>Client version:</dt>
+    <dd><%= @host.clientversion.blank? ? "Unknown" : h(@host.clientversion) %></dd>
     <dt>Hostname:</dt>
     <dd><%= @host.hostname.blank? || @host.hostname == "-0-" ? "N/A" : h(@host.hostname) %></dd>
     <dt>Domainname:</dt>
