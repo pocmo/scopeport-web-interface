@@ -7,20 +7,24 @@ class BlacklistController < ApplicationController
 	end
 
 	def delete
-    if params[:id].blank? || params[:id].length <= 0
-      flash[:error] = "Could not remove host from blacklist. Missing ID."
-      redirect_to :action => "index"
-      return
-    end
-
-    host = BlacklistedHost.find(params[:id])
+    host = BlacklistedHost.find params[:id]
     if host.destroy
       flash[:notice] = "Host has been removed from blacklist!"
-      log("removed", "a host from blacklist", host.name)
+      log("removed", "a host from blacklist", host.host)
     else
       flash[:error] = "Could not remove host."
     end
     redirect_to :action => "index"
 	end
+
+  def clear
+    if BlacklistedHost.destroy_all
+      flash[:notice] = "Cleared blacklist!"
+      log("cleared", "the blacklist")
+    else
+      flash[:error] = "Could not clear blacklist."
+    end
+    redirect_to :action => "index"
+  end
 
 end

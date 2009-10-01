@@ -18,3 +18,9 @@ All hosts listed here have been blacklisted because they violated the ScopePort 
 		</p>
 	<% end %>
 </div>
+
+<div id="clearblacklist">
+    <% form_tag :action => "clear" do %>
+        <%= submit_tag "Clear blacklist", :disable_with => "Please wait", :confirm => "Really clear the blacklist?" %>
+    <% end %>
+</div>
