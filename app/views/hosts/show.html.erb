@@ -96,39 +96,39 @@
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "cpu1", @sensors["cpu1"] %>">
     <td class="hosts-host-sensors-title">CPU load average last minute</td>
-    <td><%= @sensors["cpu1"] %> (<%= @conditions["cpu1"] %>)</td>
+    <td><%= @sensors["cpu1"] %> <%= @conditions["cpu1"].blank? ? "" : "(#{@conditions["cpu1"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "cpu5", @sensors["cpu5"] %>">
     <td class="hosts-host-sensors-title">CPU load average last 5 minutes</td>
-    <td><%= @sensors["cpu5"] %> (<%= @conditions["cpu5"] %>)</td>
+    <td><%= @sensors["cpu5"] %> <%= @conditions["cpu5"].blank? ? "" : "(#{@conditions["cpu5"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "cpu15", @sensors["cpu15"] %>">
     <td class="hosts-host-sensors-title">CPU load average last 15 minutes</td>
-    <td><%= @sensors["cpu15"] %> (<%= @conditions["cpu15"] %>)</td>
+    <td><%= @sensors["cpu15"] %> <%= @conditions["cpu15"].blank? ? "" : "(#{@conditions["cpu15"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "fm", @sensors["fm"] %>">
     <td class="hosts-host-sensors-title">Free memory</td>
-    <td><%= @sensors["fm"] %> kB (<%= @conditions["fm"] %> kB)</td>
+    <td><%= @sensors["fm"] %> kB <%= @conditions["fm"].blank? ? "" : "(#{@conditions["fm"]} kB)" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "fs", @sensors["fs"] %>">
     <td class="hosts-host-sensors-title">Free swap space</td>
-    <td><%= @sensors["fs"] %> kB (<%= @conditions["fs"] %> kB)</td>
+    <td><%= @sensors["fs"] %> kB <%= @conditions["fs"].blank? ? "" : "(#{@conditions["fs"]} kB)" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "fi", @sensors["fi"] %>">
     <td class="hosts-host-sensors-title">Free inodes</td>
-    <td><%= @sensors["fi"] %> (<%= @conditions["fi"] %>)</td>
+    <td><%= @sensors["fi"] %> <%= @conditions["cpu15"].blank? ? "" : "(#{@conditions["fi"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "of", @sensors["of"] %>">
     <td class="hosts-host-sensors-title">Number of currently opened files</td>
-    <td><%= @sensors["of"] %> (<%= @conditions["of"] %>)</td>
+    <td><%= @sensors["of"] %> <%= @conditions["cpu15"].blank? ? "" : "(#{@conditions["of"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "rp", @sensors["rp"] %>">
     <td class="hosts-host-sensors-title">Number of currently running processes</td>
-    <td><%= @sensors["rp"] %> (<%= @conditions["rp"] %>)</td>
+    <td><%= @sensors["rp"] %> <%= @conditions["rp"].blank? ? "" : "(#{@conditions["rp"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "tp", @sensors["tp"] %>">
     <td class="hosts-host-sensors-title">Total number of processes</td>
-    <td><%= @sensors["tp"] %> (<%= @conditions["tp"] %>)</td>
+    <td><%= @sensors["tp"] %> <%= @conditions["tp"].blank? ? "" : "(#{@conditions["tp"]})" %></td>
   </tr>
 </table>
 

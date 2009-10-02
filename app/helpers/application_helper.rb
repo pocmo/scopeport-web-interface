@@ -63,7 +63,11 @@ module ApplicationHelper
 	
 	def admin_or_service_admin?
 		(current_user.admin or current_user.service_admin) 
-	end
+  end
+
+  def admin_or_host_admin?
+    (current_user.admin or current_user.host_admin) 
+  end
 	
 	#Generation time in seconds
 	def load_time

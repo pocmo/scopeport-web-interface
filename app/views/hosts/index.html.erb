@@ -1,5 +1,9 @@
 <h1>Hosts</h1>
 
+<% if admin_or_host_admin? %>
+  Add a host <%= link_to "here", :action => "new" %>.
+<% end %>
+
 <table class="hosts-list">
   <tr class="doNotHighlightMe">
     <th>Name</th>
