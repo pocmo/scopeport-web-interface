@@ -83,7 +83,7 @@ class HostsController < ApplicationController
 			redirect_to :action => "show", :id => @host.id
     else
       flash[:error] = "Could not update host."
-			render :action => "update"
+			render :action => "edit"
     end
   end
 
