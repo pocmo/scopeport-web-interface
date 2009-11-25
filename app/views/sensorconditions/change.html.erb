@@ -12,72 +12,72 @@
     <!-- cpu1 -->
     <tr>
       <td>CPU Load average last minute</td>
-      <td><%= buildOperatorSelectTag "cpu1", @conditions["cpu1"] %></td>
-      <td><%= text_field "conditions", "cpu1", :value => @conditions["cpu1"].blank? ? "" : h(@conditions["cpu1"].value) %></td>
+      <td><%= buildOperatorSelectTag "cpu1", @conditions["cpu1"]["condition"] %></td>
+      <td><%= text_field "conditions", "cpu1", :value => @conditions["cpu1"]["condition"].blank? ? "" : h(@conditions["cpu1"]["condition"].value) %></td>
       <td><%= @conditions["cpu1"].blank? ? "None" : @conditions["cpu1"]["last_value"] %></td>
     </tr>
     
     <!-- cpu5 -->
     <tr>
       <td>CPU Load average last 5 minutes</td>
-      <td><%= buildOperatorSelectTag "cpu5", @conditions["cpu5"] %></td>
-      <td><%= text_field "conditions", "cpu5", :value => @conditions["cpu5"].blank? ? "" : h(@conditions["cpu5"].value) %></td>
+      <td><%= buildOperatorSelectTag "cpu5", @conditions["cpu5"]["condition"] %></td>
+      <td><%= text_field "conditions", "cpu5", :value => @conditions["cpu5"]["condition"].blank? ? "" : h(@conditions["cpu5"]["condition"].value) %></td>
       <td><%= @conditions["cpu5"].blank? ? "None" : @conditions["cpu5"]["last_value"] %></td>
     </tr>
     
     <!-- cpu15 -->
     <tr>
       <td>CPU Load average last 15 minutes</td>
-      <td><%= buildOperatorSelectTag "cpu15", @conditions["cpu15"] %></td>
-      <td><%= text_field "conditions", "cpu15", :value => @conditions["cpu15"].blank? ? "" : h(@conditions["cpu15"].value) %></td>
+      <td><%= buildOperatorSelectTag "cpu15", @conditions["cpu15"]["condition"] %></td>
+      <td><%= text_field "conditions", "cpu15", :value => @conditions["cpu15"]["condition"].blank? ? "" : h(@conditions["cpu15"]["condition"].value) %></td>
       <td><%= @conditions["cpu15"].blank? ? "None" : @conditions["cpu15"]["last_value"] %></td>
     </tr>
     
     <!-- fm -->
     <tr>
       <td>Free memory in kilobyte</td>
-      <td><%= buildOperatorSelectTag "fm", @conditions["fm"] %></td>
-      <td><%= text_field "conditions", "fm", :value => @conditions["fm"].blank? ? "" : h(@conditions["fm"].value) %></td>
+      <td><%= buildOperatorSelectTag "fm", @conditions["fm"]["condition"] %></td>
+      <td><%= text_field "conditions", "fm", :value => @conditions["fm"]["condition"].blank? ? "" : h(@conditions["fm"]["condition"].value) %></td>
       <td><%= @conditions["fm"].blank? ? "None" : @conditions["fm"]["last_value"] %></td>
     </tr>
     
     <!-- fs -->
     <tr>
       <td>Free swap space in kilobyte</td>
-      <td><%= buildOperatorSelectTag "fs", @conditions["fs"] %></td>
-      <td><%= text_field "conditions", "fs", :value => @conditions["fs"].blank? ? "" : h(@conditions["fs"].value) %></td>
+      <td><%= buildOperatorSelectTag "fs", @conditions["fs"]["condition"] %></td>
+      <td><%= text_field "conditions", "fs", :value => @conditions["fs"]["condition"].blank? ? "" : h(@conditions["fs"]["condition"].value) %></td>
       <td><%= @conditions["fs"].blank? ? "None" : @conditions["fs"]["last_value"] %></td>
     </tr>
     
     <!-- fi -->
     <tr>
       <td>Number of free inodes</td>
-      <td><%= buildOperatorSelectTag "fi", @conditions["fi"] %></td>
-      <td><%= text_field "conditions", "fi", :value => @conditions["fi"].blank? ? "" : h(@conditions["fi"].value) %></td>
+      <td><%= buildOperatorSelectTag "fi", @conditions["fi"]["condition"] %></td>
+      <td><%= text_field "conditions", "fi", :value => @conditions["fi"]["condition"].blank? ? "" : h(@conditions["fi"]["condition"].value) %></td>
       <td><%= @conditions["fi"].blank? ? "None" : @conditions["fi"]["last_value"] %></td>
     </tr>
 
     <!-- of -->
     <tr>
       <td>Number of currently opened files</td>
-      <td><%= buildOperatorSelectTag "of", @conditions["of"] %></td>
-      <td><%= text_field "conditions", "of", :value => @conditions["of"].blank? ? "" : h(@conditions["of"].value) %></td>
+      <td><%= buildOperatorSelectTag "of", @conditions["of"]["condition"] %></td>
+      <td><%= text_field "conditions", "of", :value => @conditions["of"]["condition"].blank? ? "" : h(@conditions["of"]["condition"].value) %></td>
       <td><%= @conditions["of"].blank? ? "None" : @conditions["of"]["last_value"] %></td>
     </tr>
     
     <!-- rp -->
     <tr>
       <td>Number of currently running processes</td>
-      <td><%= buildOperatorSelectTag "rp", @conditions["rp"] %></td>
-      <td><%= text_field "conditions", "rp", :value => @conditions["rp"].blank? ? "" : h(@conditions["rp"].value) %></td>
+      <td><%= buildOperatorSelectTag "rp", @conditions["rp"]["condition"] %></td>
+      <td><%= text_field "conditions", "rp", :value => @conditions["rp"]["condition"].blank? ? "" : h(@conditions["rp"]["condition"].value) %></td>
       <td><%= @conditions["rp"].blank? ? "None" : @conditions["rp"]["last_value"] %></td>
     </tr>
     
     <!-- tp -->
     <tr>
       <td>Total number of processes</td>
-      <td><%= buildOperatorSelectTag "tp", @conditions["tp"] %></td>
-      <td><%= text_field "conditions", "tp", :value => @conditions["tp"].blank? ? "" : h(@conditions["tp"].value) %></td>
+      <td><%= buildOperatorSelectTag "tp", @conditions["tp"]["condition"] %></td>
+      <td><%= text_field "conditions", "tp", :value => @conditions["tp"]["condition"].blank? ? "" : h(@conditions["tp"]["condition"].value) %></td>
       <td><%= @conditions["tp"].blank? ? "None" : @conditions["tp"]["last_value"] %></td>
     </tr>
 

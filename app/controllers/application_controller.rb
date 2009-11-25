@@ -281,11 +281,4 @@ class ApplicationController < ActionController::Base
       return "sensor-internal-error"
     end
   end
-  
-  def getLastSensorValue host_id, sensor_name
-    sensor = Recentsensorvalue.find_by_host_id_and_name host_id, sensor_name
-    return "N/A" if sensor.blank? or sensor.value == "-0-"
-    return sensor.value
-  end
- 
 end

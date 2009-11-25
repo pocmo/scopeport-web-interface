@@ -278,15 +278,15 @@ class HostsController < ApplicationController
       { "outdated" => host.outdated?,
         "id" => host.id,
         "name" => host.name,
-        "cpu1" => getLastSensorValue(host.id, "cpu_load_average_1"),
-        "cpu5" => getLastSensorValue(host.id, "cpu_load_average_5"),
-        "cpu15" => getLastSensorValue(host.id, "cpu_load_average_15"),
-        "fm" => getLastSensorValue(host.id, "free_memory"),
-        "fs" => getLastSensorValue(host.id, "free_swap"),
-        "of" => getLastSensorValue(host.id, "open_files"),
-        "fi" => getLastSensorValue(host.id, "free_inodes"),
-        "rp" => getLastSensorValue(host.id, "running_processes"),
-        "tp" => getLastSensorValue(host.id, "total_processes") }
+        "cpu1" => Host::getLastSensorValue(host.id, "cpu_load_average_1"),
+        "cpu5" => Host::getLastSensorValue(host.id, "cpu_load_average_5"),
+        "cpu15" => Host::getLastSensorValue(host.id, "cpu_load_average_15"),
+        "fm" => Host::getLastSensorValue(host.id, "free_memory"),
+        "fs" => Host::getLastSensorValue(host.id, "free_swap"),
+        "of" => Host::getLastSensorValue(host.id, "open_files"),
+        "fi" => Host::getLastSensorValue(host.id, "free_inodes"),
+        "rp" => Host::getLastSensorValue(host.id, "running_processes"),
+        "tp" => Host::getLastSensorValue(host.id, "total_processes") }
   end
 
   def get_conditions_hash host

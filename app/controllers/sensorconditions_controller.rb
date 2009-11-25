@@ -1,21 +1,17 @@
-class SensorconditionsController < ApplicationController
+class SensorconditionsController <ApplicationController
   def change
-    @raw_conditions = Sensorcondition.find_all_by_host_id params[:id]
     @host = Host.find params[:id]
-
     @conditions = Hash.new
-    @raw_conditions.each do |condition|
-      @conditions[condition.sensor] = condition
-      long_sensor_name = Host::shortToLongSensorName(condition.sensor)
-      if long_sensor_name.blank?
-        @conditions[condition.sensor]["last_value"] = String.new
+
+    sensors = Host::getSensors
+    sensors.each do |sensor|
+      @conditions[sensor] = Hash.new
+      @conditions[sensor]["condition"] = Sensorcondition.find_by_host_id_and_sensor @host, sensor
+      recent = Recentsensorvalue.find_by_host_id_and_name @host, Host::shortToLongSensorName(sensor)
+      if recent.blank? or recent.value.blank?
+        @conditions[sensor]["last_value"] = nil
       else
-        @last_value = Recentsensorvalue.find_by_host_id_and_name @host.id, Host::shortToLongSensorName(condition.sensor)
-        if @last_value.blank? or @last_value.value.blank?
-          @conditions[condition.sensor]["last_value"] = String.new
-        else
-          @conditions[condition.sensor]["last_value"] = @last_value.value
-        end
+        @conditions[sensor]["last_value"] = recent.value
       end
     end
   end

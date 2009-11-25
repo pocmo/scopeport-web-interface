@@ -11,7 +11,7 @@
 			<%= label :password, "Password" %>
 			<%= f.password_field :password %> <%= error_message_on(:host, :password) %>
 			
-      <%= label :desctiption, "Short description" %>
+      <%= label :description, "Short description" %>
 			<%= f.text_field :description %> <%= error_message_on(:host, :description) %>
 
 			<%= label :os, "Operating system type" %>
@@ -25,4 +25,23 @@
       </p>
 	  <% end %>
   </div>
+	
+  <div id="host-new-help">
+		<h2>Help</h2>
+		<dl>
+			<dt>Name</dt>
+			<dd id="formhelp-name">A descriptive name of the new host</dd>
+			<dt>Password</dt>
+			<dd id="formhelp-password">The password this host uses to identify against the ScopePort server</dd>
+			<dt>Description</dt>
+			<dd id="formhelp-description">A short description of this host</dd>
+			<dt>Operating system type</dt>
+			<dd id="formhelp-os">The type of operating system this host is running</dd>
+			<dt>Hostgroup</dt>
+			<dd id="formhelp-hostgroup_id">You can add this host to a host group. This will help you keep the overview of hosts.</dd>
+    </dl>
+  </div>
+
 </div>
+
+<br style="clear: both;" />

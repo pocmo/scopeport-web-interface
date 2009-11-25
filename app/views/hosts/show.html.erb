@@ -116,11 +116,11 @@
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "fi", @sensors["fi"] %>">
     <td class="hosts-host-sensors-title">Free inodes</td>
-    <td><%= @sensors["fi"] %> <%= @conditions["cpu15"].blank? ? "" : "(#{@conditions["fi"]})" %></td>
+    <td><%= @sensors["fi"] %> <%= @conditions["fi"].blank? ? "" : "(#{@conditions["fi"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "of", @sensors["of"] %>">
     <td class="hosts-host-sensors-title">Number of currently opened files</td>
-    <td><%= @sensors["of"] %> <%= @conditions["cpu15"].blank? ? "" : "(#{@conditions["of"]})" %></td>
+    <td><%= @sensors["of"] %> <%= @conditions["of"].blank? ? "" : "(#{@conditions["of"]})" %></td>
   </tr>
   <tr class="<%= getSensorStateColumnColor @sensors, "rp", @sensors["rp"] %>">
     <td class="hosts-host-sensors-title">Number of currently running processes</td>
