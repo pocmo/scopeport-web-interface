@@ -89,6 +89,25 @@ class Host < ActiveRecord::Base
       else "unknown"
     end
   end 
-  
 
+  def self.getSensors
+    sensors = Array.new
+    sensors << "cpu1"
+    sensors << "cpu5"
+    sensors << "cpu15"
+    sensors << "of"
+    sensors << "rp"
+    sensors << "tp"
+    sensors << "fi"
+    sensors << "fm"
+    sensors << "fs"
+    return sensors
+  end
+
+  def self.getLastSensorValue host_id, sensor_name
+    sensor = Recentsensorvalue.find_by_host_id_and_name host_id, sensor_name
+    return "N/A" if sensor.blank? or sensor.value == "-0-"
+    return sensor.value
+  end
+  
 end

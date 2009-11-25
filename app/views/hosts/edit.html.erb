@@ -1,34 +1,31 @@
-<h1>Add host</h1>
+<h1>Edit host &raquo;<%= @host.name %>&laquo;</h1>
 
 <%= javascript_include_tag "scopeport-forms" %>
 
 <script type="text/javascript">
-  <%= remote_function :update => "host-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => "0" } %>
+  <%= remote_function :update => "host-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => "#{@host.notificationgroup_id}" } %>
 </script>
 
 <div id="host-new">
   <div id="host-new-form">
-	  <% form_for :host, :url => { :action => "create" } do |f| %>
+	  <% form_for :host, :url => { :action => "update", :id => @host.id } do |f| %>
 			<%= label :name, "Name" %>
 			<%= f.text_field :name %> <%= error_message_on(:host, :name) %>
 
-			<%= label :password, "Password" %>
-			<%= f.password_field :password %> <%= error_message_on(:host, :password) %>
-			
       <%= label :description, "Short description" %>
 			<%= f.text_field :description %> <%= error_message_on(:host, :description) %>
 
 			<%= label :os, "Operating system type" %>
-			<%= f.select :os, @os_types %> <%= error_message_on(:host, :os) %>
+			<%= f.select :os, @os_types, :selected => @host.os %> <%= error_message_on(:host, :os) %>
 			
       <%= label :notificationgroup_id, "Notification group" %>
-			<%= f.select :notificationgroup_id, @notigroups, { :selected => "0" }, { :onchange => "new Ajax.Updater('host-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('host-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
+			<%= f.select :notificationgroup_id, @notigroups, { :selected => @host.notificationgroup_id }, { :onchange => "new Ajax.Updater('host-new-receivers-list', '/notificationgroups/show_receivers/' + this.value , {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('" + form_authenticity_token + "')}); new Effect.Highlight(document.getElementById('host-new-receivers'), { delay: 0.5, duration: 4, startcolor: '#ffff99', endcolor: '#ffffff' }); return false;" } %>
 
 			<%= label :hostgroup, "Hostgroup" %>
-			<%= f.select :hostgroup_id, @hostgroups, :selected => 0 %> <%= error_message_on(:host, :hostgroup) %>
+			<%= f.select :hostgroup_id, @hostgroups, :selected => @host.hostgroup_id %> <%= error_message_on(:host, :hostgroup) %>
 
       <p>
-			  <%= submit_tag "Add host" %>
+			  <%= submit_tag "Edit host" %>
       </p>
 	  <% end %>
   </div>
@@ -38,8 +35,6 @@
 		<dl>
 			<dt>Name</dt>
 			<dd id="formhelp-name">A descriptive name of the new host</dd>
-			<dt>Password</dt>
-			<dd id="formhelp-password">The password this host uses to identify against the ScopePort server</dd>
 			<dt>Description</dt>
 			<dd id="formhelp-description">A short description of this host</dd>
 			<dt>Operating system type</dt>

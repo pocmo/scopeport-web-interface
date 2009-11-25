@@ -89,17 +89,41 @@
   font-weight: bold;
 }
 
-#add-host dl {
-	padding: 0px;
-	margin: 0px;
+#host-new {
+	margin-top: 5px;
 }
 
-#add-host dt {
+#host-new-form {
 	float: left;
+	height: 100%;
 }
 
-#add-host dd {
-	padding-left: 90px;
+#host-new-help {
+	margin-left: 350px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
+}
+
+#host-new-help dt {
+	float: left;
+	font-weight: bold;
+}
+
+#host-new-help dd {
+	margin-left: 140px;
+}
+
+#host-new-receivers {
+	margin-top: 25px;
+	margin-left: 350px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#host-new-receivers-list {
+	margin-top: 10px;
 }
 
 #hosts-host-profile-sensors dt {
@@ -702,11 +726,6 @@
 
 #sensor-conditions-table {
   margin-top: 10px;
-}
-
-#sensor-conditions-table input, select {
-  padding: 0px;
-  font-size: 10px;
 }
 
 #sensor-conditions-save {

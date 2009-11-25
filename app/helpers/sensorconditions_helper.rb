@@ -1,6 +1,6 @@
 module SensorconditionsHelper
   def buildOperatorSelectTag sensor, condition
-    options = ["<", "<"], [">", ">"], ["=", "="]
+    options = ["< (lower than)", "<"], ["> (higher than)", ">"], ["= (equals)", "="]
     if condition.blank?
       select_tag "operators[#{h(sensor)}]", options_for_select(options, :selected => "<")
     else
