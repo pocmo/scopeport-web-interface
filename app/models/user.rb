@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   # Only validate presence of :gravatar_email if use_gravatar is true
   validates_presence_of :gravatar_email, :if => Proc.new { |user| user.use_gravatar == true }
 
+  # oauth api
+  has_many :client_applications
+  has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
+
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
