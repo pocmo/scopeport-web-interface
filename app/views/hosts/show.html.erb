@@ -47,6 +47,9 @@
   </dl>
 </div>
 
+<%= link_to "Edit this host", :action => "edit", :id => @host.id %>
+<br /><br />
+
 <div id="hosts-host-cpus">
   <% if @host.cpus.blank? %>
 	<strong>No CPU cores detected</strong>
@@ -138,66 +141,50 @@
 
 <br style="clear: both;" />
 
-<script type="text/javascript">
-  <%= remote_function :url => { :action => "show_processes_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                                :update => "hosts-host-graph-processes" %>
-  <%= remote_function :url => { :action => "show_free_memory_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                                :update => "hosts-host-graph-free-memory" %>
-  <%= remote_function :url => { :action => "show_open_files_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                                :update => "hosts-host-graph-open-files" %>
-  <%= remote_function :url => { :action => "show_disk_read_ops_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                                :update => "hosts-host-graph-disk-read-ops" %>
-  <%= remote_function :url => { :action => "show_disk_write_ops_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                                :update => "hosts-host-graph-disk-write-ops" %>
-</script>
-
-<div id="hosts-host-graph-processes" class="hosts-host-graph">
-  <div id="graph-loading">
+<div id="hosts-host-graph-rp" class="hosts-host-graph">
+  <%= showGraphDummy "rp", @host.id %>
+  <div class="graph-loading" id="graph-rp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
-    <p>Generating running processes time graph.</p>
+    <p>Generating running processes graph.</p>
   </div>
 </div>
 
-<div id="hosts-host-graph-free-memory" class="hosts-host-graph">
-  <div id="graph-loading">
+<div id="hosts-host-graph-tp" class="hosts-host-graph">
+  <%= showGraphDummy "tp", @host.id %>
+  <div class="graph-loading" id="graph-tp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
-    <p>Generating free memory time graph.</p>
+    <p>Generating total processes graph.</p>
   </div>
 </div>
 
-<div id="hosts-host-graph-open-files" class="hosts-host-graph">
-  <div id="graph-loading">
+<div id="hosts-host-graph-fm" class="hosts-host-graph">
+  <%= showGraphDummy "fm", @host.id %>
+  <div class="graph-loading" id="graph-fm-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
-    <p>Generating free memory time graph.</p>
+    <p>Generating free memory graph.</p>
   </div>
 </div>
 
-<div id="hosts-host-graph-disk-read-ops" class="hosts-host-graph">
-  <div id="graph-loading">
+<div id="hosts-host-graph-of" class="hosts-host-graph">
+  <%= showGraphDummy "of", @host.id %>
+  <div class="graph-loading" id="graph-of-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
-    <p>Generating free memory time graph.</p>
+    <p>Generating open files graph.</p>
   </div>
 </div>
 
-<div id="hosts-host-graph-disk-write-ops" class="hosts-host-graph">
-  <div id="graph-loading">
+<div id="hosts-host-graph-dr" class="hosts-host-graph">
+  <%= showGraphDummy "dr", @host.id %>
+  <div class="graph-loading" id="graph-dr-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
-    <p>Generating free memory time graph.</p>
+    <p>Generating read operations graph.</p>
   </div>
 </div>
 
-<%= periodically_call_remote :url => { :action => "show_processes_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                             :update => "hosts-host-graph-processes",
-                             :frequency => "61" %>
-<%= periodically_call_remote :url => { :action => "show_free_memory_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                             :update => "hosts-host-graph-free-memory",
-                             :frequency => "61" %>
-<%= periodically_call_remote :url => { :action => "show_open_files_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                             :update => "hosts-host-graph-open-files",
-                             :frequency => "61" %>
-<%= periodically_call_remote :url => { :action => "show_disk_read_ops_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                             :update => "hosts-host-graph-disk-read-ops",
-                             :frequency => "61" %>
-<%= periodically_call_remote :url => { :action => "show_disk_write_ops_graph", :id => @host.id, :graph_days => params[:graph_days] },
-                             :update => "hosts-host-graph-disk-write-ops",
-                             :frequency => "61" %>
+<div id="hosts-host-graph-dw" class="hosts-host-graph">
+  <%= showGraphDummy "dw", @host.id %>
+  <div class="graph-loading" id="graph-dw-loading" style="display: none;">
+    <%= image_tag "ajax-loader.gif" %>
+    <p>Generating write operations graph.</p>
+  </div>
+</div>

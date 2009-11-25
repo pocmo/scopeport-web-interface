@@ -162,3 +162,16 @@ function showCpus(){
 	jQuery('#hosts-host-cpus').fadeIn();
 	jQuery('#hosts-host-show-cpus').fadeOut();
 }
+
+function showGraph(name, hostId, token){
+  // Remove blurred graph.
+  loading = document.getElementById("graph-" + name + "-blurred");
+  loading.style.display = "none";
+
+  // Show loading symbol.
+  loading = document.getElementById("graph-" + name + "-loading");
+  loading.style.display = "";
+
+  // Load graph.
+  new Ajax.Updater('hosts-host-graph-' + name, '/hosts/show_graph_' + name + '/' + hostId, {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token)})
+}
