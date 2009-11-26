@@ -1,3 +1,8 @@
+// framebuster (against clickjacking)
+if (top != self) {
+	self.document.location = 'about:blank';
+}
+
 window.onload = function(){
   var rows = document.getElementsByTagName("tr");
   for(var i=0,l=rows.length;i<l;i++){
