@@ -142,7 +142,7 @@
 <br style="clear: both;" />
 
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
-  <%= showGraphDummy "rp", @host.id %>
+  <%= showGraphDummy "rp", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating running processes graph.</p>
@@ -150,7 +150,7 @@
 </div>
 
 <div id="hosts-host-graph-tp" class="hosts-host-graph">
-  <%= showGraphDummy "tp", @host.id %>
+  <%= showGraphDummy "tp", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-tp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating total processes graph.</p>
@@ -158,7 +158,7 @@
 </div>
 
 <div id="hosts-host-graph-fm" class="hosts-host-graph">
-  <%= showGraphDummy "fm", @host.id %>
+  <%= showGraphDummy "fm", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-fm-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating free memory graph.</p>
@@ -166,7 +166,7 @@
 </div>
 
 <div id="hosts-host-graph-of" class="hosts-host-graph">
-  <%= showGraphDummy "of", @host.id %>
+  <%= showGraphDummy "of", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-of-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating open files graph.</p>
@@ -174,7 +174,7 @@
 </div>
 
 <div id="hosts-host-graph-dr" class="hosts-host-graph">
-  <%= showGraphDummy "dr", @host.id %>
+  <%= showGraphDummy "dr", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-dr-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating read operations graph.</p>
@@ -182,7 +182,7 @@
 </div>
 
 <div id="hosts-host-graph-dw" class="hosts-host-graph">
-  <%= showGraphDummy "dw", @host.id %>
+  <%= showGraphDummy "dw", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-dw-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating write operations graph.</p>
