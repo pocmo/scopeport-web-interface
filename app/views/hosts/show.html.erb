@@ -141,6 +141,14 @@
 
 <br style="clear: both;" />
 
+<div id="hosts-host-graph-cpuload" class="hosts-host-graph">
+  <%= showGraphDummy "cpuload", @host.id, form_authenticity_token %>
+  <div class="graph-loading" id="graph-cpuload-loading" style="display: none;">
+    <%= image_tag "ajax-loader.gif" %>
+    <p>Generating CPU load average graph.</p>
+  </div>
+</div>
+
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
   <%= showGraphDummy "rp", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">

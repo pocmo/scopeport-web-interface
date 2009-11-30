@@ -86,6 +86,75 @@ class HostsController < ApplicationController
 			render :action => "edit"
     end
   end
+  
+  def show_graph_cpuload
+		@host = Host.find_by_id params[:id]
+    redirect_to :action => "index" if @host.blank?
+
+    # Create graph (will be skipped if it already exists)
+    @graph = RRDGraph.new "host-cpuload-#{@host.id}"
+    @graph.create_rrd "--start #{31.days.ago.to_i} --step 60 DS:cpu1:GAUGE:600:U:U DS:cpu5:GAUGE:600:U:U DS:cpu15:GAUGE:600:U:U RRA:AVERAGE:0.5:3:44640"
+
+    # Fill graph
+    params[:graph_days].blank? ? days = 1 : days = params[:graph_days].to_i
+    data1 = Sensorvalue.find :all,
+              :conditions => ["created_at > ? AND host_id = ? AND name = 'cpu_load_average_1'", Time.at(@graph.get_last_rrd_update.to_i), @host.id]
+    data5 = Sensorvalue.find :all,
+              :conditions => ["created_at > ? AND host_id = ? AND name = 'cpu_load_average_5'", Time.at(@graph.get_last_rrd_update.to_i), @host.id]
+    data15 = Sensorvalue.find :all,
+              :conditions => ["created_at > ? AND host_id = ? AND name = 'cpu_load_average_15'", Time.at(@graph.get_last_rrd_update.to_i), @host.id]
+
+    data = Array.new
+    i = 0
+    data1.each do |d|
+      data[i] = { "timestamp" => d.created_at.to_i, "cpu1" => d.value, "cpu5" => nil, "cpu15" => nil }
+      i += 1
+    end
+
+    i = 0
+    data5.each do |d|
+      data[i]["cpu5"] = d.value unless data[i].blank?
+      i += 1
+    end
+    
+    i = 0
+    data15.each do |d|
+      data[i]["cpu15"] = d.value unless data[i].blank?
+      i += 1
+    end
+
+    data.each do |d|
+      @graph.insert "#{d["timestamp"]}:#{d["cpu1"]}:#{d["cpu5"]}:#{d["cpu15"]}"
+    end
+
+    # Graph image
+    lines = Array.new
+    lines << "DEF:cpu1=#{@graph.get_path_of_rrd}:cpu1:AVERAGE AREA:cpu1#fbcf00:'CPU load average, last minute'"
+    lines << "DEF:cpu5=#{@graph.get_path_of_rrd}:cpu5:AVERAGE LINE2:cpu5#ff0000:'CPU load average, last 5 minutes'"
+    lines << "DEF:cpu15=#{@graph.get_path_of_rrd}:cpu15:AVERAGE LINE2:cpu15#ff00ff:'CPU load average, last 15 minutes'"
+    title = "CPU load average - #{Time.now.to_s}"
+    width = "800"
+    height = "150"
+    options = ""
+    colors = { "SHADEA" => "#F8F8F8",
+               "SHADEB" => "#F8F8F8",
+               "FONT" => "#000000",
+               "BACK" => "#F8F8F8",
+               "CANVAS" => "#F8F8F8",
+               "GRID" => "#696969",
+               "MGRID" => "#877254",
+               "AXIS" => "#BDBDBD",
+               "ARROW" => "#BDBDBD" }
+
+    backwards = (Time.now - (86400*days)).to_i
+    @graph.update_image backwards, Time.now.to_i, lines, title, width, height, colors, options
+
+    # Read the graph.
+    graph_file = File.new @graph.get_path_of_png, "r"
+
+    # Return the inlined image HTML code to avoid AJAX madness.
+    render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
+  end
 
   def show_graph_rp
 		@host = Host.find_by_id params[:id]
