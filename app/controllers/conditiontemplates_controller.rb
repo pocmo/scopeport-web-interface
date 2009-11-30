@@ -53,6 +53,19 @@ class ConditiontemplatesController < ApplicationController
     redirect_to :action => "show", :id => params[:id]
   end
 
+  def api
+    conditions = Conditiontemplatevalue.find_all_by_conditiontemplate_id params[:id]
+    cc = Array.new
+    conditions.each do |c|
+      temp = Hash.new
+      temp = {  "sensor" => c.sensor,
+                    "operator" => c.operator,
+                    "value" => c.value}
+      cc << temp
+    end
+    render :text => cc.to_json
+  end
+
   private
 
   def validOperator? operator

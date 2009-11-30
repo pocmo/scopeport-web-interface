@@ -175,3 +175,47 @@ function showGraph(name, hostId, token){
   // Load graph.
   new Ajax.Updater('hosts-host-graph-' + name, '/hosts/show_graph_' + name + '/' + hostId, {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token)})
 }
+
+function updateSensorConditionFieldsFromTemplate(templateId){
+  // Clear all fields and exit if this is the blank select option.
+  if(templateId == 0) {
+    var inputs = document.getElementsByTagName("input");
+    for(i=0,l=inputs.length;i<l;i++){
+      field = inputs[i];
+      if(field.name.substr(0, 9) == "condition") {
+        field.value = "";
+      }
+    }
+
+    var selects = document.getElementsByTagName("select");
+    for(i=0,l=selects.length;i<l;i++){
+      field = selects[i];
+      if(field.name.substr(0, 8) == "operator") {
+        field.value = "<";
+      }
+    }
+    return false;
+  }
+
+  // Get the template values.
+  new Ajax.Request("/conditiontemplates/api/" + templateId, {
+    method: "get",
+    onSuccess: function(transport) {
+      // Great success. Parse the JSON
+      template = transport.responseText.evalJSON(true);
+      for(i=0,l=template.length;i<l;i++){
+        sensor = template[i];
+        operatorfield = document.getElementById("operators_" + sensor.sensor);
+        operatorfield.value = sensor.operator;
+
+        valuefield = document.getElementById("conditions_" + sensor.sensor);
+        valuefield.value = sensor.value;
+      }
+    },
+    onFailure: function() {
+      alert("Sorry, could not fetch template.");
+    }
+  });
+
+  return false;
+}
