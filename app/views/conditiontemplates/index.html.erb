@@ -1,0 +1,21 @@
+<h1>Sensor condition templates</h1>
+
+You can create sensor condition templates that define sensor conditions of common host types. Just create a template if you have a few database servers on the same hardware and be able to add a new host even faster.
+
+<ul>
+  <% if @templates.blank? %>
+    <li>No templates defined</li>
+  <% else %>
+    <% @templates.each do |template| %>
+      <li><%= link_to h(template.name), :action => "show", :id => template.id %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div id="new-conditiontemplate">
+	<% form_for :new_template, :url => { :action => "create" } do |f| %>
+		<%= f.label :name, "Name of new template" %>
+		<%= f.text_field :name %>
+		<%= submit_tag "Add template" %>
+	<% end %>
+</div>
