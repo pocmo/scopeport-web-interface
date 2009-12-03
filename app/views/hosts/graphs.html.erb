@@ -1,0 +1,47 @@
+<h1>Edit graphs of host &raquo;<%=h @host.name %>&laquo;</h1>
+
+<% form_tag "/hosts/updategraphs/#{@host.id}" do %>
+  <table id="hosts-host-edit-graphs">
+    <tr class="doNotHighlightMe">
+      <th>Graph</th>
+      <th>Disabled</th>
+    </tr>
+
+    <tr>
+      <td>CPU load averages</td>
+      <td><%= check_box "graph", "cpuload", :checked => !@disabled_graphs["cpuload"].blank? or @disabled_graphs["cpuload"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Running processes</td>
+      <td><%= check_box "graph", "rp", :checked => !@disabled_graphs["rp"].blank? or @disabled_graphs["rp"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Total processes</td>
+      <td><%= check_box "graph", "tp", :checked => !@disabled_graphs["tp"].blank? or @disabled_graphs["tp"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Free memory</td>
+      <td><%= check_box "graph", "fm", :checked => !@disabled_graphs["fm"].blank? or @disabled_graphs["fm"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Open files</td>
+      <td><%= check_box "graph", "of", :checked => !@disabled_graphs["of"].blank? or @disabled_graphs["of"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Read operations</td>
+      <td><%= check_box "graph", "dr", :checked => !@disabled_graphs["dr"].blank? or @disabled_graphs["dr"] == true %></td>
+    </tr>
+
+    <tr>
+      <td>Write operations</td>
+      <td><%= check_box "graph", "dw", :checked => !@disabled_graphs["dw"].blank? or @disabled_graphs["dw"] == true %></td>
+    </tr>
+  </table>
+
+  <%= submit_tag "Save" %>
+<% end %>

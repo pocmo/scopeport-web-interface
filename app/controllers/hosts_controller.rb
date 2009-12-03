@@ -31,6 +31,7 @@ class HostsController < ApplicationController
     @host = Host.find params[:id]
     @sensors = get_host_sensors_hash @host
     @conditions = get_conditions_hash @host
+    @disabled_graphs = get_disabled_graphs_hash params[:id]
   end
 
 	def new
@@ -86,7 +87,39 @@ class HostsController < ApplicationController
 			render :action => "edit"
     end
   end
-  
+
+  def graphs
+    @host = Host.find params[:id]
+    @disabled_graphs = get_disabled_graphs_hash params[:id]
+  end
+
+  def updategraphs
+    # Delete all existing disabled graphs from this host.
+    Disabledgraph.delete_all ["host_id = ?", params[:id]]
+
+    redirect_to :action => "show", :id => params[:id] if params[:graph].blank?
+
+    # Insert all selected graphs into database.
+    begin
+      params[:graph].each do |graph, disable|
+        if disable == "1"
+          d = Disabledgraph.new
+          d.host_id = params[:id]
+          d.name = graph
+          d.disabled = true
+          d.save
+        end
+      end
+    rescue
+      flash[:error] = "Could not update graphs."
+      redirect_to :action => "show", :id => params[:id]
+      return
+    end
+
+    flash[:notice] = "Graphs have been updated!"
+    redirect_to :action => "show", :id => params[:id]
+  end
+
   def show_graph_cpuload
 		@host = Host.find_by_id params[:id]
     redirect_to :action => "index" if @host.blank?
@@ -438,6 +471,16 @@ class HostsController < ApplicationController
       ret[condition.sensor] = "#{condition.operator} #{condition.value}"
     end
     return ret
+  end
+
+  def get_disabled_graphs_hash host_id
+    graphs = Disabledgraph.find_all_by_host_id host_id
+    @disabled_graphs = Hash.new
+    graphs.each do |graph|
+      @disabled_graphs[graph.name] = true
+    end
+
+    return @disabled_graphs
   end
 
 end
