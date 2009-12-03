@@ -207,7 +207,7 @@ class HostsController < ApplicationController
     end
 
     # Graph image
-    lines = ["DEF:runprocs=#{@graph.get_path_of_rrd}:runprocs:AVERAGE LINE:runprocs#eb7f00:'Running processes'"]
+    lines = ["DEF:runprocs=#{@graph.get_path_of_rrd}:runprocs:AVERAGE DEF:runprocs2=#{@graph.get_path_of_rrd}:runprocs:AVERAGE:step=750 LINE:runprocs#eb7f00:'Running processes' LINE2:runprocs2#ff0000"]
     title = "Running processes - #{Time.now.to_s}"
     width = "800"
     height = "150"
@@ -250,7 +250,7 @@ class HostsController < ApplicationController
     end
 
     # Graph image
-    lines = ["DEF:totprocs=#{@graph.get_path_of_rrd}:totprocs:AVERAGE LINE:totprocs#eb7f00:'Total processes'"]
+    lines = ["DEF:totprocs=#{@graph.get_path_of_rrd}:totprocs:AVERAGE DEF:totprocs2=#{@graph.get_path_of_rrd}:totprocs:AVERAGE:step=750 LINE:totprocs#eb7f00:'Total processes' LINE2:totprocs2#ff0000"]
     title = "Total processes - #{Time.now.to_s}"
     width = "800"
     height = "150"
