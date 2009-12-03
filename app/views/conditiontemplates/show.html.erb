@@ -1,0 +1,80 @@
+<h1>Condition template &raquo;<%=h @ct.name %>&laquo;</h1>
+
+<% form_tag "/conditiontemplates/update/#{@ct.id}" do %>
+  <table id="sensor-conditions-table">
+    <tr class="doNotHighlightMe">
+      <th>Sensor name</th>
+      <th>Operator</th>
+      <th>Condition value</th>
+    </tr>
+    
+    <!-- cpu1 -->
+    <tr>
+      <td>CPU Load average last minute</td>
+      <td><%= buildOperatorSelectTag "cpu1", @conditions["cpu1"] %></td>
+      <td><%= text_field "conditions", "cpu1", :value => @conditions["cpu1"].blank? ? "" : h(@conditions["cpu1"].value) %></td>
+    </tr>
+    
+    <!-- cpu5 -->
+    <tr>
+      <td>CPU Load average last 5 minutes</td>
+      <td><%= buildOperatorSelectTag "cpu5", @conditions["cpu5"] %></td>
+      <td><%= text_field "conditions", "cpu5", :value => @conditions["cpu5"].blank? ? "" : h(@conditions["cpu5"].value) %></td>
+    </tr>
+    
+    <!-- cpu15 -->
+    <tr>
+      <td>CPU Load average last 15 minutes</td>
+      <td><%= buildOperatorSelectTag "cpu15", @conditions["cpu15"] %></td>
+      <td><%= text_field "conditions", "cpu15", :value => @conditions["cpu15"].blank? ? "" : h(@conditions["cpu15"].value) %></td>
+    </tr>
+    
+    <!-- fm -->
+    <tr>
+      <td>Free memory in kilobyte</td>
+      <td><%= buildOperatorSelectTag "fm", @conditions["fm"] %></td>
+      <td><%= text_field "conditions", "fm", :value => @conditions["fm"].blank? ? "" : h(@conditions["fm"].value) %></td>
+    </tr>
+    
+    <!-- fs -->
+    <tr>
+      <td>Free swap space in kilobyte</td>
+      <td><%= buildOperatorSelectTag "fs", @conditions["fs"] %></td>
+      <td><%= text_field "conditions", "fs", :value => @conditions["fs"].blank? ? "" : h(@conditions["fs"].value) %></td>
+    </tr>
+    
+    <!-- fi -->
+    <tr>
+      <td>Number of free inodes</td>
+      <td><%= buildOperatorSelectTag "fi", @conditions["fi"] %></td>
+      <td><%= text_field "conditions", "fi", :value => @conditions["fi"].blank? ? "" : h(@conditions["fi"].value) %></td>
+    </tr>
+
+    <!-- of -->
+    <tr>
+      <td>Number of currently opened files</td>
+      <td><%= buildOperatorSelectTag "of", @conditions["of"] %></td>
+      <td><%= text_field "conditions", "of", :value => @conditions["of"].blank? ? "" : h(@conditions["of"].value) %></td>
+    </tr>
+    
+    <!-- rp -->
+    <tr>
+      <td>Number of currently running processes</td>
+      <td><%= buildOperatorSelectTag "rp", @conditions["rp"] %></td>
+      <td><%= text_field "conditions", "rp", :value => @conditions["rp"].blank? ? "" : h(@conditions["rp"].value) %></td>
+    </tr>
+    
+    <!-- tp -->
+    <tr>
+      <td>Total number of processes</td>
+      <td><%= buildOperatorSelectTag "tp", @conditions["tp"] %></td>
+      <td><%= text_field "conditions", "tp", :value => @conditions["tp"].blank? ? "" : h(@conditions["tp"].value) %></td>
+    </tr>
+
+  </table>
+
+  <div id="conditiontemplates-save">
+    <%= submit_tag "Save conditions" %>
+  </div>
+
+<% end %>

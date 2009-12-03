@@ -83,8 +83,15 @@
 
   </table>
 
+  <div id="sensor-conditions-load-template">
+    <strong>Load from template:</strong>
+			<%= select_tag :fromtemplate, options_for_select(@templates), :onchange => "updateSensorConditionFieldsFromTemplate(this.value)" %>
+  </div>
+
   <div id="sensor-conditions-save">
     <%= submit_tag "Save conditions" %>
   </div>
+
+  <br style="clear: both;" />
 
 <% end %>

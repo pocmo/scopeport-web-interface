@@ -1,0 +1,2 @@
+module ConditiontemplatesHelper
+end
