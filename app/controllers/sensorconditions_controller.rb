@@ -14,6 +14,10 @@ class SensorconditionsController <ApplicationController
         @conditions[sensor]["last_value"] = recent.value
       end
     end
+		
+    @templates = Conditiontemplate.find(:all).collect { |ct| [ct.name, ct.id] }
+    @templates << [ "", 0]
+    @templates = @templates.sort
   end
 
   def update

@@ -170,6 +170,14 @@
   height: 225px;
 }
 
+#hosts-host-instantstate {
+  margin-top: 10px;
+}
+
+#hosts-host-configure-conditions {
+  float: right;
+}
+
 /*
  * Notification groups
  */
@@ -728,14 +736,13 @@
   margin-top: 10px;
 }
 
-#sensor-conditions-save {
+#sensor-conditions-load-template {
+  float: right;
+  padding-right: 50px;
   margin-top: 5px;
 }
 
-#hosts-host-instantstate {
-  margin-top: 10px;
-}
-
-#hosts-host-configure-conditions {
-  float: right;
+#sensor-conditions-save {
+  float: left;
+  margin-top: 5px;
 }
