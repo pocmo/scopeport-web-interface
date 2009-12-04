@@ -37,9 +37,9 @@
 
   <dl>
     <dt>Total Memory:</dt>
-    <dd><%= @host.total_memory.blank? || @host.total_memory == "-0-" ? "N/A" : "#{h(@host.total_memory)} kB" %></dd>
+    <dd><%= @host.total_memory.blank? || @host.total_memory == "-0-" ? "N/A" : "#{number_to_human_size(@host.total_memory.to_i * 1024)}" %></dd>
     <dt>Total Swap:</dt>
-    <dd><%= @host.total_swap.blank? || @host.total_swap == "-0-" ? "N/A" : "#{h(@host.total_swap)} kB" %></dd>
+    <dd><%= @host.total_swap.blank? || @host.total_swap == "-0-" ? "N/A" : "#{number_to_human_size(@host.total_swap.to_i * 1024)}" %></dd>
     <dt>CPU Cores:</dt>
     <dd><%= @host.cpus.count.blank? ? "N/A" : "#{h(@host.cpus.count)} <span id='hosts-host-show-cpus'>(#{link_to "show", "#", :onclick => "showCpus()"})</span>" %></dd>
     <dt>Network interfaces:</dt>
