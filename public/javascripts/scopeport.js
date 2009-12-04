@@ -168,7 +168,24 @@ function showCpus(){
 	jQuery('#hosts-host-show-cpus').fadeOut();
 }
 
-function showGraph(name, hostId, token){
+function showGraphError(name) {
+  box = document.getElementById('hosts-host-graph-' + name);
+  box.style.display = "none";
+
+  jQuery.gritter.add({
+    title: "Could not generate graph!",
+    text: "Sorry, but I was not able to generate the graph. Make sure that rrdtool is installed and you have write permission to the graphs directory."
+  });
+}
+
+function showServiceGraphError() {
+  jQuery.gritter.add({
+    title: "Could not generate graph!",
+    text: "Sorry, but I was not able to generate the graph. Make sure that rrdtool is installed and you have write permission to the graphs directory."
+  });
+}
+
+function showGraph(name, hostId, graphDays, token){
   // Remove blurred graph.
   loading = document.getElementById("graph-" + name + "-blurred");
   loading.style.display = "none";
@@ -178,7 +195,7 @@ function showGraph(name, hostId, token){
   loading.style.display = "";
 
   // Load graph.
-  new Ajax.Updater('hosts-host-graph-' + name, '/hosts/show_graph_' + name + '/' + hostId, {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token)})
+  new Ajax.Updater({ success: 'hosts-host-graph-' + name, failure: null }, '/hosts/show_graph_' + name + '/' + hostId + '?graph_days=' + graphDays, { asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token), onFailure: function() { showGraphError(name) } });
 }
 
 function updateSensorConditionFieldsFromTemplate(templateId){

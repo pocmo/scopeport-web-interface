@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
 		if @service.save
 			flash[:notice] = "Service has been added!"
 			log("created", "a service", [@service.name, @service.id])
-			redirect_to :action => "index"
+			redirect_to :action => "show", :id => @service.id
 		else
 			flash[:error] = "Could not add service. Check error messages."
 			render :action => "new"
@@ -92,19 +92,6 @@ class ServicesController < ApplicationController
 
     # Return the inlined image HTML code to avoid AJAX madness.
     render :text => "<img src=\"data:image/png;base64,#{Base64.encode64(graph_file.read)}\" alt=\"Graph\">"
-  end
-
-  def show_ms
-    service = Service.find params[:id]
-    returnage = ""
-    unless service.blank? && service.responsetime.blank?
-      if service.state and service.state > 0 and service.state != 4
-        returnage = "#{service.responsetime} ms (Maximum: #{service.maxres} ms)"
-      else
-        returnage = "N/A"
-      end
-    end
-    render :text => returnage
   end
 
   def edit

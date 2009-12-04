@@ -249,7 +249,7 @@ class ApplicationController < ActionController::Base
    			logmsg += " (name: #{name_or_id})"
    		#Array [name, id]
    		else
-   			logmsg += " (name: #{name_or_id[0]}[id: #{name_or_id[1]}])"
+   			logmsg += " (name: #{name_or_id[0]} [id: #{name_or_id[1]}])"
    		end
    	end
   	

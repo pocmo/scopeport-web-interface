@@ -12,23 +12,46 @@ class AlarmsController < ApplicationController
                                 :conditions => "alarm_type = 2 AND services.name != ''",
 																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, services.name AS servicename, alarms.service_state",
 																:joins => "LEFT JOIN services ON services.id = alarms.service_id"
+		
+    @host_alarms = Alarm.paginate :page => params[:page], :order => "alarms.timestamp DESC",
+                                :conditions => "alarm_type = 1 AND hosts.name != ''",
+																:select => "alarms.id, alarms.timestamp, alarms.status, alarms.ms, alarms.attendee, alarms.sensor, alarms.value, hosts.name AS hostname",
+																:joins => "LEFT JOIN hosts ON hosts.id = alarms.host_id"
   end
 
 	def showservicealarm
     @alarm = Alarm.find params[:id]
+    @service = Service.find @alarm.service_id
 
-    if @alarm.service.blank?
+    if @alarm.blank? or @service.blank?
       flash[:error] = "This alarm does not exist."
       redirect_to :controller => "alarms"
       return
     end
     
-    if @alarm.service.name.blank?
+    if @service.name.blank?
       flash[:error] = "The service of this alarm does not exist."
       redirect_to :controller => "alarms"
       return
     end
 	end
+
+	def showhostalarm
+    @alarm = Alarm.find params[:id]
+    @host = Host.find @alarm.host_id
+
+    if @alarm.blank? or @host.blank?
+      flash[:error] = "This alarm does not exist."
+      redirect_to :controller => "alarms"
+      return
+    end
+    
+    if @host.name.blank?
+      flash[:error] = "The host of this alarm does not exist."
+      redirect_to :controller => "alarms"
+      return
+    end
+  end
 
   def attend
     alarm = Alarm.find params[:id]
@@ -47,10 +70,18 @@ class AlarmsController < ApplicationController
     end
 
     # Set last warning time of service to 0.
-    unless alarm.service_id.blank?
-      service = Service.find_by_id alarm.service_id
-      service.lastwarn = 0
-      service.save
+    if alarm.alarm_type == 1
+      unless alarm.host_id.blank? or alarm.sensor.blank? or Host::longToShortSensorName(alarm.sensor).blank?
+        sensor = Sensorcondition.find_by_host_id_and_sensor alarm.host_id, Host::longToShortSensorName(alarm.sensor)
+        sensor.last_warning = 0
+        sensor.save
+      end
+    else
+      unless alarm.service_id.blank?
+        service = Service.find_by_id alarm.service_id
+        service.lastwarn = 0
+        service.save
+      end
     end
 
     # Mark the alarm as "attended".
@@ -60,9 +91,13 @@ class AlarmsController < ApplicationController
 
     if alarm.save
       flash[:notice] = "Status changed."
-      redirect_to :action => "showservicealarm", :id => params[:id]
     else
       flash[:notice] = "Could not update status! Database error."
+    end
+
+    if alarm.alarm_type == 1
+      redirect_to :action => "showhostalarm", :id => params[:id]
+    else
       redirect_to :action => "showservicealarm", :id => params[:id]
     end
   end
@@ -89,9 +124,13 @@ class AlarmsController < ApplicationController
 
     if alarm.save
       flash[:notice] = "Status changed."
-      redirect_to :action => "showservicealarm", :id => params[:id]
     else
       flash[:notice] = "Could not update status! Database error."
+    end
+    
+    if alarm.alarm_type == 1
+      redirect_to :action => "showhostalarm", :id => params[:id]
+    else
       redirect_to :action => "showservicealarm", :id => params[:id]
     end
   end
@@ -150,7 +189,9 @@ class AlarmsController < ApplicationController
 
     alarm_id = params[:new_comment][:alarm_id]
     user_id = current_user.id
-    if alarm_id.blank? || user_id.blank?
+    alarm_type = params[:misc][:alarm_type]
+
+    if alarm_id.blank? or user_id.blank? or alarm_type.blank?
       flash[:error] = "Could not add comment: Missing parameters."
       redirect_to :action => "index"
       return
@@ -165,7 +206,12 @@ class AlarmsController < ApplicationController
     else
       flash[:error] = "Could not add comment! Please fill out all fields."
     end
-    redirect_to :action => "showservicealarm", :id => alarm_id
+
+    if alarm_type == "1"
+      redirect_to :action => "showhostalarm", :id => alarm_id
+    else
+      redirect_to :action => "showservicealarm", :id => alarm_id
+    end
   end
   
   def deletecomment

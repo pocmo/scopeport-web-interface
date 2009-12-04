@@ -25,6 +25,8 @@
   <dl>
     <dt>Last contact:</dt>
     <dd><%= @host.last_sensor_time.blank? ? "Unknown" : @host.last_sensor_time %></dd>
+    <dt>Notification group:</dt>
+    <dd><%= h(@notificationgroup_name) %></dd>
     <dt>Client version:</dt>
     <dd><%= @host.clientversion.blank? ? "Unknown" : h(@host.clientversion) %></dd>
     <dt>Hostname:</dt>
@@ -37,9 +39,9 @@
 
   <dl>
     <dt>Total Memory:</dt>
-    <dd><%= @host.total_memory.blank? || @host.total_memory == "-0-" ? "N/A" : "#{h(@host.total_memory)} kB" %></dd>
+    <dd><%= @host.total_memory.blank? || @host.total_memory == "-0-" ? "N/A" : "#{number_to_human_size(@host.total_memory.to_i * 1024)}" %></dd>
     <dt>Total Swap:</dt>
-    <dd><%= @host.total_swap.blank? || @host.total_swap == "-0-" ? "N/A" : "#{h(@host.total_swap)} kB" %></dd>
+    <dd><%= @host.total_swap.blank? || @host.total_swap == "-0-" ? "N/A" : "#{number_to_human_size(@host.total_swap.to_i * 1024)}" %></dd>
     <dt>CPU Cores:</dt>
     <dd><%= @host.cpus.count.blank? ? "N/A" : "#{h(@host.cpus.count)} <span id='hosts-host-show-cpus'>(#{link_to "show", "#", :onclick => "showCpus()"})</span>" %></dd>
     <dt>Network interfaces:</dt>
@@ -143,9 +145,67 @@
 
 <br style="clear: both;" />
 
+<% unless @linked_services.blank? %>
+  <table class="services">
+    <tr class="doNotHighlightMe">
+      <th>Linked service</th>
+      <th>Host:Port</th>
+      <th>Protocol</th>
+      <th>Response</th>
+      <th>Last checked</th>
+      <th>Notification group</th>
+    </tr>
+    <% @linked_services.each do |service| %>
+      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
+        <td>
+          <span style="float: left;">
+            <%= link_to service.name, { :controller => "services", :action => "show", :id => service.id }, :class => "link-title" %>
+          </span>
+          <%= new_comment_mark if service.new_comment? %>
+        </td>
+        <td><%=h service.host %>:<%=h service.port %></td>
+        <% if service.service_type == "none" %>
+          <td>None</td>
+        <% else %>
+          <td><%=h service.service_type.upcase %></td>
+        <% end %>
+        <% if !service.responsetime.blank? %>
+          <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
+            <td><%=h service.responsetime %> ms</td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
+        <% else %>
+          <td>Unknown</td>
+        <% end %>
+        <% if service.lastcheck == 0 %>
+          <td>Never</td>
+        <% else %>
+          <td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
+        <% end %>
+          <td><%= getNameOfWarningGroup service.warninggroup %></td>
+        </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br /><br />
+
+<div id="hosts-host-graph-timespan">
+  <strong>Time span:</strong>
+  <%= link_to "1 days", :graph_days => 1 %> |
+  <%= link_to "2 days", :graph_days => 2 %> |
+  <%= link_to "3 days", :graph_days => 3 %> |
+  <%= link_to "1 week", :graph_days => 7 %> |
+  <%= link_to "2 weeks", :graph_days => 14 %> |
+  <%= link_to "1 month", :graph_days => 31 %> 
+</div>
+
+<br style="clear: both;">
+
 <% if @disabled_graphs["cpuload"].blank? %>
 <div id="hosts-host-graph-cpuload" class="hosts-host-graph">
-  <%= showGraphDummy "cpuload", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "cpuload", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-cpuload-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating CPU load average graph.</p>
@@ -155,7 +215,7 @@
 
 <% if @disabled_graphs["rp"].blank? %>
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
-  <%= showGraphDummy "rp", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "rp", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating running processes graph.</p>
@@ -165,7 +225,7 @@
 
 <% if @disabled_graphs["tp"].blank? %>
 <div id="hosts-host-graph-tp" class="hosts-host-graph">
-  <%= showGraphDummy "tp", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "tp", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-tp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating total processes graph.</p>
@@ -175,7 +235,7 @@
 
 <% if @disabled_graphs["fm"].blank? %>
 <div id="hosts-host-graph-fm" class="hosts-host-graph">
-  <%= showGraphDummy "fm", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "fm", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-fm-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating free memory graph.</p>
@@ -185,7 +245,7 @@
 
 <% if @disabled_graphs["of"].blank? %>
 <div id="hosts-host-graph-of" class="hosts-host-graph">
-  <%= showGraphDummy "of", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "of", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-of-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating open files graph.</p>
@@ -195,7 +255,7 @@
 
 <% if @disabled_graphs["dr"].blank? %>
 <div id="hosts-host-graph-dr" class="hosts-host-graph">
-  <%= showGraphDummy "dr", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "dr", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-dr-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating read operations graph.</p>
@@ -205,10 +265,66 @@
 
 <% if @disabled_graphs["dw"].blank? %>
 <div id="hosts-host-graph-dw" class="hosts-host-graph">
-  <%= showGraphDummy "dw", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "dw", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-dw-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating write operations graph.</p>
   </div>
 </div>
 <% end %>
+
+<div class="comments">
+  <h2>Comments</h2><br />
+  <% if @host.hostcomments.blank? %>
+    <div class="comment-body">
+      <strong>No comments on this host yet.</strong>
+    </div>
+  <% end %>
+
+<% @host.hostcomments.each do |comment| %>
+    <div class="comment" id="comment_<%= comment.id %>">
+      <div class="comment-head">
+        <%= showIcon "comment" %>
+        <span class="comment-title">
+          <%= buildUserLink comment.user_id %>
+          <%=h comment.title %>
+        </span>
+        <span class="comment-date"><%=h comment.created_at %></span>
+        <% if comment.user.id == current_user.id %>
+          <span class="comment-delete">
+            <%= link_to_remote "Delete", :url => { :action => "deletecomment", :id => comment.id },
+                                         :complete => "hideComment(#{comment.id})" %>
+          </span>
+        <% end %>
+      </div>
+      <div class="comment-body">
+        <%= simple_format h(comment.comment) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="new-comment">
+  <h2>New comment</h2>
+  <% form_for :new_comment, :url => { :action => "store_comment" } do |f| %>
+    <div class="new-comment-form">
+      <%= f.hidden_field :host_id, :value => @host.id %>
+      <%= f.label :title, "Title", :float => "left" %>
+      <%= f.text_field :title %>
+      <%= f.label :comment, "Comment", :float => "left" %>
+      <%= f.text_area :comment, :cols => "80", :rows => "5" %>
+    </div>
+    <div class="new-comment-description">
+      <strong>Use this form to leave a comment on this host.</strong>
+      You can delete your own comments at any time. Note that your name
+      will be visible above the comment.
+
+      <br /><br />
+
+      No HTML allowed. Lines break automatically.
+    </div>
+    <p><%= submit_tag "Add comment", :disable_with => "Please wait" %></p>
+  <% end %>
+</div>
+
+

@@ -16,7 +16,6 @@
 # along with ScopePort (Web Interface).  If not, see <http://www.gnu.org/licenses/>.
 
 class Alarm < ActiveRecord::Base
-  belongs_to :service
   has_one :user, :primary_key => :attendee, :foreign_key => :id
 	has_many :alarmcomments, :order => "created_at DESC"
 	

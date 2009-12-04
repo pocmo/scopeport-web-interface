@@ -29,9 +29,21 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find params[:id]
+    unless @host.notificationgroup_id.blank?
+      notification_group = Notificationgroupdetail.find @host.notificationgroup_id
+      unless notification_group.blank? or notification_group.name.blank?
+       @notificationgroup_name = notification_group.name
+      else
+        @notificationgroup_name = "None"
+      end
+    else
+      @notificationgroup_name = "None"
+    end
     @sensors = get_host_sensors_hash @host
     @conditions = get_conditions_hash @host
     @disabled_graphs = get_disabled_graphs_hash params[:id]
+
+    @linked_services = Service.find_all_by_linkedhost params[:id]
   end
 
 	def new
@@ -86,6 +98,48 @@ class HostsController < ApplicationController
       flash[:error] = "Could not update host."
 			render :action => "edit"
     end
+  end
+	
+  def store_comment
+    comment = Hostcomment.new params[:new_comment]
+
+    host_id = params[:new_comment][:host_id]
+    user_id = current_user.id
+    if host_id.blank? || user_id.blank?
+      flash[:error] = "Could not add comment: Missing parameters."
+      redirect_to :action => "index"
+      return
+    end
+
+    comment.host_id = host_id
+    comment.user_id = user_id
+
+    if comment.save
+      flash[:notice] = "Comment has been added."
+      log("commented", "on a host", comment.host_id)
+    else
+      flash[:error] = "Could not add comment! Please fill out all fields."
+    end
+    redirect_to :action => "show", :id => host_id
+  end
+  
+  def deletecomment
+    comment = Hostcomment.find params[:id]
+    if comment.nil?
+      render :text => "Comment not found"
+      return
+    end
+    
+    if comment.user_id == current_user.id
+      if comment.destroy
+        render :text => "Comment deleted."
+      else
+        render :text => "Could not delete comment."
+      end
+      return
+    end
+
+    render :text => "This is not your comment."
   end
 
   def graphs
@@ -450,7 +504,8 @@ class HostsController < ApplicationController
   private
 
   def get_host_sensors_hash host
-      { "outdated" => host.outdated?,
+      { "new_comment" => host.new_comment?,
+        "outdated" => host.outdated?,
         "id" => host.id,
         "name" => host.name,
         "cpu1" => Host::getLastSensorValue(host.id, "cpu_load_average_1"),

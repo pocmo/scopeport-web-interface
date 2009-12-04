@@ -137,7 +137,6 @@
 
 #hosts-host-sensors {
   margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .hosts-host-sensors-title {
@@ -162,6 +161,11 @@
 #hosts-host-cpus-table {
   margin-top: 2px;
   margin-bottom: 10px;
+}
+
+#hosts-host-graph-timespan {
+  float: right;
+  margin-bottom: 3px;
 }
 
 .hosts-host-graph {
@@ -321,8 +325,12 @@
  * Alarms
  */
 
-#alarms-service-alarms {
+#alarms-host-alarms {
 	margin-top: 15px;
+}
+
+#alarms-service-alarms {
+	margin-top: 5px;
 }
 
 #alarms-alarmdetails dt {
@@ -417,6 +425,15 @@
 
 #user-permissions-table {
   margin-top: 15px;
+}
+
+#user-image {
+  padding-top: 10px;
+  float: left;
+}
+
+.user-details-with-gravatar {
+  padding-left: 100px;
 }
 
 #user-details dt {

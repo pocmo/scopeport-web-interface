@@ -25,6 +25,15 @@ class UsersController < ApplicationController
  
   def show
     @user = User.find params[:id]
+    settings = Setting.find :first
+
+    @user_image = String.new
+    unless settings.blank? or !settings.allow_gravatar or !@user.use_gravatar or @user.gravatar_email.blank?
+      require "md5"
+      email_hash = MD5::md5 @user.gravatar_email
+      @user_image = "<img src=\"http://www.gravatar.com/avatar/#{email_hash}?s=80\" alt=\"User avatar\">"
+      @with_gravatar = true
+    end
   end
 
   def create
