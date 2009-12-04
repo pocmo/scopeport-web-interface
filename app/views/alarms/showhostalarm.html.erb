@@ -1,5 +1,5 @@
-<h1>Service alarm #<%= @alarm.id.to_s %> (Caused by service &raquo;<%=@service.name%>&laquo;)</h1>
-<%= getServiceAlarmMessage @alarm.service_state, @alarm.ms %>
+<h1>Host alarm #<%= @alarm.id %> (Caused by host &raquo;<%=h @host.name %>&laquo;)</h1>
+<%= getHostAlarmMessage(@alarm.sensor, @alarm.value) %>
 
 <div id="alarms-alarmdetails">
 	<dl>
@@ -71,7 +71,7 @@
   <% form_for :new_comment, :url => { :action => "store_comment" } do |f| %>
     <div class="new-comment-form">
       <%= f.hidden_field :alarm_id, :value => @alarm.id %>
-      <%= hidden_field :misc, :alarm_type, :value => 2 %>
+      <%= hidden_field :misc, :alarm_type, :value => 1 %>
       <%= f.label :title, "Title", :float => "left" %>
       <%= f.text_field :title %>
       <%= f.label :comment, "Comment", :float => "left" %>
