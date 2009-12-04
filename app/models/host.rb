@@ -28,6 +28,8 @@ class Host < ActiveRecord::Base
  
   has_many :networkinterfaces
   has_many :cpus
+	
+  has_many :hostcomments, :order => "created_at DESC"
 
   def last_sensor_time
     time = Recentsensorvalue.find_by_host_id self.id, :order => "created_at DESC", :limit => 1
@@ -59,6 +61,10 @@ class Host < ActiveRecord::Base
     end
     return false
   end
+	
+	def new_comment?(time = 24.hour.ago)
+		!hostcomments.recent(time).empty?
+	end
 
   def self.longToShortSensorName sensor
     case sensor

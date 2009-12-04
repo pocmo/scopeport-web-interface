@@ -87,6 +87,48 @@ class HostsController < ApplicationController
 			render :action => "edit"
     end
   end
+	
+  def store_comment
+    comment = Hostcomment.new params[:new_comment]
+
+    host_id = params[:new_comment][:host_id]
+    user_id = current_user.id
+    if host_id.blank? || user_id.blank?
+      flash[:error] = "Could not add comment: Missing parameters."
+      redirect_to :action => "index"
+      return
+    end
+
+    comment.host_id = host_id
+    comment.user_id = user_id
+
+    if comment.save
+      flash[:notice] = "Comment has been added."
+      log("commented", "on a host", comment.host_id)
+    else
+      flash[:error] = "Could not add comment! Please fill out all fields."
+    end
+    redirect_to :action => "show", :id => host_id
+  end
+  
+  def deletecomment
+    comment = Hostcomment.find params[:id]
+    if comment.nil?
+      render :text => "Comment not found"
+      return
+    end
+    
+    if comment.user_id == current_user.id
+      if comment.destroy
+        render :text => "Comment deleted."
+      else
+        render :text => "Could not delete comment."
+      end
+      return
+    end
+
+    render :text => "This is not your comment."
+  end
 
   def graphs
     @host = Host.find params[:id]
