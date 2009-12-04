@@ -29,6 +29,16 @@ class HostsController < ApplicationController
 
   def show
     @host = Host.find params[:id]
+    unless @host.notificationgroup_id.blank?
+      notification_group = Notificationgroupdetail.find @host.notificationgroup_id
+      unless notification_group.blank? or notification_group.name.blank?
+       @notificationgroup_name = notification_group.name
+      else
+        @notificationgroup_name = "None"
+      end
+    else
+      @notificationgroup_name = "None"
+    end
     @sensors = get_host_sensors_hash @host
     @conditions = get_conditions_hash @host
     @disabled_graphs = get_disabled_graphs_hash params[:id]

@@ -25,6 +25,8 @@
   <dl>
     <dt>Last contact:</dt>
     <dd><%= @host.last_sensor_time.blank? ? "Unknown" : @host.last_sensor_time %></dd>
+    <dt>Notification group:</dt>
+    <dd><%= h(@notificationgroup_name) %></dd>
     <dt>Client version:</dt>
     <dd><%= @host.clientversion.blank? ? "Unknown" : h(@host.clientversion) %></dd>
     <dt>Hostname:</dt>
