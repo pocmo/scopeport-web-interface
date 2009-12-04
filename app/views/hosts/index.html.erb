@@ -19,7 +19,10 @@
   </tr>
   <% @hosts.each do |host| %>
     <tr>
-      <td class="hosts-list-column-name"><%= link_to h(host["name"]), :action => "show", :id => host["id"] %></td>
+      <td class="hosts-list-column-name">
+			  <%= new_comment_mark if host["new_comment"] %>
+        <%= link_to h(host["name"]), :action => "show", :id => host["id"] %>
+      </td>
       <td class="<%= getSensorStateColumnColor host, "cpu1", host["cpu1"] %>"><%=h host["cpu1"] %></td>
       <td class="<%= getSensorStateColumnColor host, "cpu5", host["cpu5"] %>"><%=h host["cpu5"] %></td>
       <td class="<%= getSensorStateColumnColor host, "cpu15", host["cpu15"] %>"><%=h host["cpu15"] %></td>
