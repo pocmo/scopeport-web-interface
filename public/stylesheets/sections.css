@@ -423,6 +423,15 @@
   margin-top: 15px;
 }
 
+#user-image {
+  padding-top: 10px;
+  float: left;
+}
+
+.user-details-with-gravatar {
+  padding-left: 100px;
+}
+
 #user-details dt {
   float: left;
   font-weight: bold;

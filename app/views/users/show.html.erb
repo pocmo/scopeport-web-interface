@@ -1,6 +1,10 @@
 <h1><%=h @user.name %></h1>
 
-<dl id="user-details">
+<div id="user-image">
+  <%= @user_image %>
+</div>
+
+<dl id="user-details" <%= @with_gravatar.blank? or !@with_gravatar ? "" : "class=\"user-details-with-gravatar\"" %>>
   <dt>Username</dt>
   <dd><%=h @user.login %></dd>
 
