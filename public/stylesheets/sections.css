@@ -178,6 +178,10 @@
   float: right;
 }
 
+#hosts-host-edit-graphs {
+  margin-top: 15px;
+}
+
 /*
  * Notification groups
  */
