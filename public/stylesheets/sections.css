@@ -321,8 +321,12 @@
  * Alarms
  */
 
-#alarms-service-alarms {
+#alarms-host-alarms {
 	margin-top: 15px;
+}
+
+#alarms-service-alarms {
+	margin-top: 5px;
 }
 
 #alarms-alarmdetails dt {
