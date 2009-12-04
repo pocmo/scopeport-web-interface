@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
 		if @service.save
 			flash[:notice] = "Service has been added!"
 			log("created", "a service", [@service.name, @service.id])
-			redirect_to :action => "index"
+			redirect_to :action => "show", :id => @service.id
 		else
 			flash[:error] = "Could not add service. Check error messages."
 			render :action => "new"
