@@ -21,6 +21,8 @@
 	</dl>
 </div>
 
+<%= link_to "Configure sensor conditions of this host", :controller => "sensorconditions", :action => "change", :id => @host.id %>
+
 <div id="alarms-attendalarm">
   <% if @alarm.status == false or @alarm.status.blank? %>
   	<% form_tag :action => "attend", :id => @alarm.id do %>
