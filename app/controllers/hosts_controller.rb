@@ -42,6 +42,8 @@ class HostsController < ApplicationController
     @sensors = get_host_sensors_hash @host
     @conditions = get_conditions_hash @host
     @disabled_graphs = get_disabled_graphs_hash params[:id]
+
+    @linked_services = Service.find_all_by_linkedhost params[:id]
   end
 
 	def new

@@ -145,6 +145,52 @@
 
 <br style="clear: both;" />
 
+<% unless @linked_services.blank? %>
+  <table class="services">
+    <tr class="doNotHighlightMe">
+      <th>Linked service</th>
+      <th>Host:Port</th>
+      <th>Protocol</th>
+      <th>Response</th>
+      <th>Last checked</th>
+      <th>Notification group</th>
+    </tr>
+    <% @linked_services.each do |service| %>
+      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
+        <td>
+          <span style="float: left;">
+            <%= link_to service.name, { :controller => "services", :action => "show", :id => service.id }, :class => "link-title" %>
+          </span>
+          <%= new_comment_mark if service.new_comment? %>
+        </td>
+        <td><%=h service.host %>:<%=h service.port %></td>
+        <% if service.service_type == "none" %>
+          <td>None</td>
+        <% else %>
+          <td><%=h service.service_type.upcase %></td>
+        <% end %>
+        <% if !service.responsetime.blank? %>
+          <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
+            <td><%=h service.responsetime %> ms</td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
+        <% else %>
+          <td>Unknown</td>
+        <% end %>
+        <% if service.lastcheck == 0 %>
+          <td>Never</td>
+        <% else %>
+          <td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
+        <% end %>
+          <td><%= getNameOfWarningGroup service.warninggroup %></td>
+        </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br /><br />
+
 <% if @disabled_graphs["cpuload"].blank? %>
 <div id="hosts-host-graph-cpuload" class="hosts-host-graph">
   <%= showGraphDummy "cpuload", @host.id, form_authenticity_token %>
