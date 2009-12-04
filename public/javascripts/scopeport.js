@@ -163,7 +163,7 @@ function showCpus(){
 	jQuery('#hosts-host-show-cpus').fadeOut();
 }
 
-function showGraph(name, hostId, token){
+function showGraph(name, hostId, graphDays, token){
   // Remove blurred graph.
   loading = document.getElementById("graph-" + name + "-blurred");
   loading.style.display = "none";
@@ -173,7 +173,7 @@ function showGraph(name, hostId, token){
   loading.style.display = "";
 
   // Load graph.
-  new Ajax.Updater('hosts-host-graph-' + name, '/hosts/show_graph_' + name + '/' + hostId, {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token)})
+  new Ajax.Updater('hosts-host-graph-' + name, '/hosts/show_graph_' + name + '/' + hostId + '?graph_days=' + graphDays, {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent(token)})
 }
 
 function updateSensorConditionFieldsFromTemplate(templateId){

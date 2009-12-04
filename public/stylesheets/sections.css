@@ -163,6 +163,11 @@
   margin-bottom: 10px;
 }
 
+#hosts-host-graph-timespan {
+  float: right;
+  margin-bottom: 3px;
+}
+
 .hosts-host-graph {
   margin-top: 5px;
   text-align: center;

@@ -191,9 +191,21 @@
 
 <br /><br />
 
+<div id="hosts-host-graph-timespan">
+  <strong>Time span:</strong>
+  <%= link_to "1 days", :graph_days => 1 %> |
+  <%= link_to "2 days", :graph_days => 2 %> |
+  <%= link_to "3 days", :graph_days => 3 %> |
+  <%= link_to "1 week", :graph_days => 7 %> |
+  <%= link_to "2 weeks", :graph_days => 14 %> |
+  <%= link_to "1 month", :graph_days => 31 %> 
+</div>
+
+<br style="clear: both;">
+
 <% if @disabled_graphs["cpuload"].blank? %>
 <div id="hosts-host-graph-cpuload" class="hosts-host-graph">
-  <%= showGraphDummy "cpuload", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "cpuload", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-cpuload-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating CPU load average graph.</p>
@@ -203,7 +215,7 @@
 
 <% if @disabled_graphs["rp"].blank? %>
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
-  <%= showGraphDummy "rp", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "rp", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating running processes graph.</p>
@@ -213,7 +225,7 @@
 
 <% if @disabled_graphs["tp"].blank? %>
 <div id="hosts-host-graph-tp" class="hosts-host-graph">
-  <%= showGraphDummy "tp", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "tp", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-tp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating total processes graph.</p>
@@ -223,7 +235,7 @@
 
 <% if @disabled_graphs["fm"].blank? %>
 <div id="hosts-host-graph-fm" class="hosts-host-graph">
-  <%= showGraphDummy "fm", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "fm", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-fm-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating free memory graph.</p>
@@ -233,7 +245,7 @@
 
 <% if @disabled_graphs["of"].blank? %>
 <div id="hosts-host-graph-of" class="hosts-host-graph">
-  <%= showGraphDummy "of", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "of", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-of-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating open files graph.</p>
@@ -243,7 +255,7 @@
 
 <% if @disabled_graphs["dr"].blank? %>
 <div id="hosts-host-graph-dr" class="hosts-host-graph">
-  <%= showGraphDummy "dr", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "dr", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-dr-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating read operations graph.</p>
@@ -253,7 +265,7 @@
 
 <% if @disabled_graphs["dw"].blank? %>
 <div id="hosts-host-graph-dw" class="hosts-host-graph">
-  <%= showGraphDummy "dw", @host.id, form_authenticity_token %>
+  <%= showGraphDummy "dw", @host.id, params[:graph_days], form_authenticity_token %>
   <div class="graph-loading" id="graph-dw-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating write operations graph.</p>
