@@ -39,7 +39,7 @@
   <h2>Comments</h2><br />
   <% if @alarm.alarmcomments.blank? %>
     <div class="comment-body">
-      <strong>No comments on this service yet.</strong>
+      <strong>No comments on this alarm yet.</strong>
     </div>
   <% end %>
 
@@ -48,7 +48,7 @@
       <div class="comment-head">
         <%= showIcon "comment" %>
         <span class="comment-title">
-          <%= buildUserLink comment.user.id %>
+          <%= buildUserLink comment.user_id %>
           <%=h comment.title %>
         </span>
         <span class="comment-date"><%=h comment.created_at %></span>
@@ -77,7 +77,7 @@
       <%= f.text_area :comment, :cols => "80", :rows => "5" %>
     </div>
     <div class="new-comment-description">
-      <strong>Use this form to leave a comment on this service.</strong>
+      <strong>Use this form to leave a comment on this alarm.</strong>
       You can delete your own comments at any time. Note that your name
       will be visible above the comment.
 

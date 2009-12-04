@@ -48,6 +48,8 @@
 </div>
 
 <%= link_to "Edit this host", :action => "edit", :id => @host.id %>
+|
+<%= link_to "Edit graphs", :action => "graphs", :id => @host.id %>
 <br /><br />
 
 <div id="hosts-host-cpus">
@@ -141,6 +143,7 @@
 
 <br style="clear: both;" />
 
+<% if @disabled_graphs["cpuload"].blank? %>
 <div id="hosts-host-graph-cpuload" class="hosts-host-graph">
   <%= showGraphDummy "cpuload", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-cpuload-loading" style="display: none;">
@@ -148,7 +151,9 @@
     <p>Generating CPU load average graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["rp"].blank? %>
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
   <%= showGraphDummy "rp", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">
@@ -156,7 +161,9 @@
     <p>Generating running processes graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["tp"].blank? %>
 <div id="hosts-host-graph-tp" class="hosts-host-graph">
   <%= showGraphDummy "tp", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-tp-loading" style="display: none;">
@@ -164,7 +171,9 @@
     <p>Generating total processes graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["fm"].blank? %>
 <div id="hosts-host-graph-fm" class="hosts-host-graph">
   <%= showGraphDummy "fm", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-fm-loading" style="display: none;">
@@ -172,7 +181,9 @@
     <p>Generating free memory graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["of"].blank? %>
 <div id="hosts-host-graph-of" class="hosts-host-graph">
   <%= showGraphDummy "of", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-of-loading" style="display: none;">
@@ -180,7 +191,9 @@
     <p>Generating open files graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["dr"].blank? %>
 <div id="hosts-host-graph-dr" class="hosts-host-graph">
   <%= showGraphDummy "dr", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-dr-loading" style="display: none;">
@@ -188,7 +201,9 @@
     <p>Generating read operations graph.</p>
   </div>
 </div>
+<% end %>
 
+<% if @disabled_graphs["dw"].blank? %>
 <div id="hosts-host-graph-dw" class="hosts-host-graph">
   <%= showGraphDummy "dw", @host.id, form_authenticity_token %>
   <div class="graph-loading" id="graph-dw-loading" style="display: none;">
@@ -196,3 +211,4 @@
     <p>Generating write operations graph.</p>
   </div>
 </div>
+<% end %>
