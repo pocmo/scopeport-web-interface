@@ -173,6 +173,13 @@ function showGraphError(name) {
   });
 }
 
+function showServiceGraphError() {
+  jQuery.gritter.add({
+    title: "Could not generate graph!",
+    text: "Sorry, but I was not able to generate the graph. Make sure that rrdtool is installed and you have write permission to the graphs directory."
+  });
+}
+
 function showGraph(name, hostId, graphDays, token){
   // Remove blurred graph.
   loading = document.getElementById("graph-" + name + "-blurred");
