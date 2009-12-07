@@ -5,6 +5,9 @@ class AlarmsController < ApplicationController
 	include AlarmsHelper
 	
 	def index
+    # fix annoying checkbox bug on reload (force firefox to cache NOTHING)
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0, pre-check=0, post-check=0"
+    
 		#Here it gets all users, all services, all... to use as a filter
 		@filters = generate_filters
 		
