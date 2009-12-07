@@ -40,7 +40,7 @@ class PopupController < ApplicationController
         popups.push({
           "id"     => id,
           "title"  => "Alarm (" + alarm.servicename + ")",
-          "text"   => getServiceAlarmMessage(alarm.service_state, alarm.ms),
+          "text"   => getServiceAlarmMessage(alarm.service_state, alarm.ms) + ' <a href="' + url_for(:controller => 'alarms', :action => "showservicealarm", :id => alarm.id) + '">Details</a>',
           "sticky" => true,
           "image"  => "/images/icons/alarm.png"
         })
@@ -65,7 +65,7 @@ class PopupController < ApplicationController
         popups.push({
           "id"     => id,
           "title"  => "Alarm (" + alarm.hostname + ")",
-          "text"   => getHostAlarmMessage(alarm.sensor, alarm.value),
+          "text"   => getHostAlarmMessage(alarm.sensor, alarm.value) + ' <a href="' + url_for(:controller => 'alarms', :action => "showhostalarm", :id => alarm.id) + '">Details</a>',
           "sticky" => true,
           "image"  => "/images/icons/alarm.png"
         })
