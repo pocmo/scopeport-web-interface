@@ -31,6 +31,7 @@ class PopupController < ApplicationController
     
     alarms.each do |alarm|
       id = Digest::SHA1.hexdigest(alarm.id.to_s + '|alarm|' + alarm.timestamp.to_s);
+      alarm.servicename = "?" if alarm.servicename.nil?
       if ! session[:popups].include? id
         popup = {
           "id"     => id,
