@@ -1,5 +1,5 @@
 (function($) {
-	var timeout = 30000;
+	var timeout = 10000;
 	var timestamp = Math.round(new Date().getTime() / 1000);
 	check = function() {
 		$.getJSON('/popup/getalarms', { 'timestamp': timestamp }, function(data, textStatus) {
