@@ -10,7 +10,10 @@
 						url: '/popup/closepopup'
 					});
 				};
-				$.gritter.add(popup)
+				var id = $.gritter.add(popup)
+				$('#alarm' + popup.id).bind('click', function (e) {
+					$.gritter.remove(id);
+				});
 			});
 		});
 		timestamp = Math.round(new Date().getTime() / 1000);

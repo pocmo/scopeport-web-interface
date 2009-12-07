@@ -15,6 +15,7 @@ class PopupController < ApplicationController
     render :text => popups.to_json
   end
   
+  
   def closepopup
     session[:popups].push params[:id]
     render :text => ""
