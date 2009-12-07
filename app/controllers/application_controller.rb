@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
   helper_method :getSensorStateColumnColor
   
   helper_method :getServiceAlarmMessage
+  helper_method :getHostAlarmMessage
 
   before_filter :login_required
 	before_filter :update_last_online
@@ -293,4 +294,9 @@ class ApplicationController < ActionController::Base
     return "The service timed out" if status == 4
     return "Unknown"
   end
+  
+  def getHostAlarmMessage sensor, value
+    return "Sensor \"#{h(sensor)}\" had value \"#{h(value)}\""
+  end
+  
 end

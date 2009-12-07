@@ -30,10 +30,6 @@ module AlarmsHelper
 		return "sensor-okay"
 	end
 
-  def getHostAlarmMessage sensor, value
-    return "Sensor \"#{h(sensor)}\" had value \"#{h(value)}\""
-  end
-
   def updateAlarmStatusAJAX id, status
     return "" if id.blank?
 
