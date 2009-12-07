@@ -32,4 +32,7 @@ class Alarm < ActiveRecord::Base
 		!alarmcomments.recent(time).empty?
 	end
 
+  def get_popup_id
+    Digest::SHA1.hexdigest(id.to_s + '|alarm|' + timestamp.to_s)
+  end
 end

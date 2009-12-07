@@ -71,6 +71,9 @@ class AlarmsController < ApplicationController
       redirect_to :controller => "alarms"
       return
     end
+    
+    # remove from session
+    session[:popups].push alarm.get_popup_id
 
     # Set last warning time of service to 0.
     if alarm.alarm_type == 1

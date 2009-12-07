@@ -10,7 +10,7 @@ class PopupController < ApplicationController
     
     popups = []
     
-    popups = popups | getServiceAlarmPopups(timestamp) | getHostAlarmPopups(timestamp)
+    popups = popups | get_service_alarm_popups(timestamp) | get_host_alarm_popups(timestamp)
     
     render :text => popups.to_json
   end
@@ -25,7 +25,7 @@ class PopupController < ApplicationController
   private
   
   
-  def getServiceAlarmPopups timestamp
+  def get_service_alarm_popups timestamp
     popups = []
     
     alarms = Alarm.find :all,
@@ -34,7 +34,7 @@ class PopupController < ApplicationController
       :joins => "LEFT JOIN services ON services.id = alarms.service_id"
     
     alarms.each do |alarm|
-      id = Digest::SHA1.hexdigest(alarm.id.to_s + '|alarm|' + alarm.timestamp.to_s);
+      id = alarm.get_popup_id
       alarm.servicename = "?" if alarm.servicename.nil?
       if ! session[:popups].include? id
         popups.push({
@@ -51,7 +51,7 @@ class PopupController < ApplicationController
   end
   
   
-  def getHostAlarmPopups timestamp
+  def get_host_alarm_popups timestamp
     popups = []
     
     alarms = Alarm.find :all,
@@ -60,7 +60,7 @@ class PopupController < ApplicationController
       :joins => "LEFT JOIN hosts ON hosts.id = alarms.host_id"
 
     alarms.each do |alarm|
-      id = Digest::SHA1.hexdigest(alarm.id.to_s + '|alarm|' + alarm.timestamp.to_s);
+      id = alarm.get_popup_id
       if ! session[:alarm].include? id
         popups.push({
           "id"     => id,

@@ -21,7 +21,7 @@ Every alarm of that has been caused by an existing service is listed here. Click
 			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
         <td>
           <input type="checkbox"
-                  id="alarm<%= Digest::SHA1.hexdigest(alarm.id.to_s + '|alarm|' + alarm.timestamp.to_s) %>"
+                  id="alarm<%= alarm.get_popup_id %>"
                   onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
                   <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
                     disabled="disabled"
@@ -64,7 +64,7 @@ Every alarm of that has been caused by an existing service is listed here. Click
 			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
         <td>
           <input type="checkbox"
-		          id="alarm<%= Digest::SHA1.hexdigest(alarm.id.to_s + '|alarm|' + alarm.timestamp.to_s) %>"
+		          id="alarm<%= alarm.get_popup_id %>"
                   onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
                   <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
                     disabled="disabled"
