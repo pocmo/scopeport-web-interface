@@ -2,6 +2,8 @@ class ApiController < ApplicationController
   #skip_before_filter :login_required # will be handled by oauth
   #before_filter :oauth_required
   
+  private
+  
   def host
       build_response(Host, ["index", "show"])
   end
@@ -21,8 +23,6 @@ class ApiController < ApplicationController
   def nodes
     build_response(Node, ["index", "show"])
   end
-  
-  private
   
   def build_response(model, actions)
     if actions.include? params[:api_action]
