@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   config.gem "mysql"
   config.gem "xmpp4r"
   config.gem "oauth"
+  config.gem "json"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
