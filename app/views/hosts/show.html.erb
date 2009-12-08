@@ -205,7 +205,7 @@
 
 <% if @disabled_graphs["cpuload"].blank? %>
 <div id="hosts-host-graph-cpuload" class="hosts-host-graph">
-  <%= showGraphDummy "cpuload", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "cpuload", @host.id, params[:graph_days], form_authenticity_token, "CPU load average" %>
   <div class="graph-loading" id="graph-cpuload-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating CPU load average graph.</p>
@@ -215,7 +215,7 @@
 
 <% if @disabled_graphs["rp"].blank? %>
 <div id="hosts-host-graph-rp" class="hosts-host-graph">
-  <%= showGraphDummy "rp", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "rp", @host.id, params[:graph_days], form_authenticity_token, "running processes" %>
   <div class="graph-loading" id="graph-rp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating running processes graph.</p>
@@ -225,7 +225,7 @@
 
 <% if @disabled_graphs["tp"].blank? %>
 <div id="hosts-host-graph-tp" class="hosts-host-graph">
-  <%= showGraphDummy "tp", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "tp", @host.id, params[:graph_days], form_authenticity_token, "total processes" %>
   <div class="graph-loading" id="graph-tp-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating total processes graph.</p>
@@ -235,7 +235,7 @@
 
 <% if @disabled_graphs["fm"].blank? %>
 <div id="hosts-host-graph-fm" class="hosts-host-graph">
-  <%= showGraphDummy "fm", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "fm", @host.id, params[:graph_days], form_authenticity_token, "free memory" %>
   <div class="graph-loading" id="graph-fm-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating free memory graph.</p>
@@ -245,7 +245,7 @@
 
 <% if @disabled_graphs["of"].blank? %>
 <div id="hosts-host-graph-of" class="hosts-host-graph">
-  <%= showGraphDummy "of", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "of", @host.id, params[:graph_days], form_authenticity_token, "open files" %>
   <div class="graph-loading" id="graph-of-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating open files graph.</p>
@@ -255,7 +255,7 @@
 
 <% if @disabled_graphs["dr"].blank? %>
 <div id="hosts-host-graph-dr" class="hosts-host-graph">
-  <%= showGraphDummy "dr", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "dr", @host.id, params[:graph_days], form_authenticity_token, "read operations" %>
   <div class="graph-loading" id="graph-dr-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating read operations graph.</p>
@@ -265,7 +265,7 @@
 
 <% if @disabled_graphs["dw"].blank? %>
 <div id="hosts-host-graph-dw" class="hosts-host-graph">
-  <%= showGraphDummy "dw", @host.id, params[:graph_days], form_authenticity_token %>
+  <%= showGraphDummy "dw", @host.id, params[:graph_days], form_authenticity_token, "write operations" %>
   <div class="graph-loading" id="graph-dw-loading" style="display: none;">
     <%= image_tag "ajax-loader.gif" %>
     <p>Generating write operations graph.</p>
