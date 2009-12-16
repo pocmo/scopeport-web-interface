@@ -8,15 +8,18 @@ Every alarm of that has been caused by an existing service is listed here. Click
 
 <div id="alarms-host-alarms">
 	<h2>Host alarms</h2>
-	<table>
-		<tr class="doNotHighlightMe">
-      <th>&nbsp;</th>
-			<th>ID</th>
-			<th>Time</th>
-			<th>Host</th>
-			<th>Status</th>
-			<th colspan="2">Message</th>
-		</tr>
+	<table id="host-alarms">
+		<thead>
+			<tr class="doNotHighlightMe">
+	            <th>&nbsp;</th>
+				<th>ID</th>
+				<th>Time</th>
+				<th>Host</th>
+				<th>Status</th>
+				<th colspan="2">Message</th>
+			</tr>
+		</thead>
+		<tbody>
 		<% @host_alarms.each do |alarm| %>
 			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
         <td>
@@ -43,6 +46,7 @@ Every alarm of that has been caused by an existing service is listed here. Click
 				</td>
 			</tr>
 		<% end %>
+		</tbody>
 	</table>
 	<div class="pagination">
 		<%= will_paginate @host_alarms %>
@@ -51,8 +55,9 @@ Every alarm of that has been caused by an existing service is listed here. Click
 
 <div id="alarms-service-alarms">
 	<h2>Service alarms</h2>
-	<table>
-		<tr class="doNotHighlightMe">
+	<table id="service-alarms">
+	   <thead>
+        <tr class="doNotHighlightMe">
       <th>&nbsp;</th>
 			<th>ID</th>
 			<th>Time</th>
@@ -60,6 +65,8 @@ Every alarm of that has been caused by an existing service is listed here. Click
 			<th>Status</th>
 			<th colspan="2">Message</th>
 		</tr>
+        </thead>
+		<tbody>
 		<% @service_alarms.each do |alarm| %>
 			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
         <td>
@@ -86,6 +93,7 @@ Every alarm of that has been caused by an existing service is listed here. Click
 				</td>
 			</tr>
 		<% end %>
+		</tbody>
 	</table>
 	<div class="pagination">
 		<%= will_paginate @service_alarms %>

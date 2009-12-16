@@ -245,7 +245,7 @@ function updateSensorConditionFieldsFromTemplate(templateId){
 // init table sorter
 (function($) {
 	// Add parser for anchors in rows
-	$.tablesorter.addParser({ 
+	$.tablesorter.addParser({
         id: 'anchorColumn', 
         is: function(s) { 
 			return s.match(/<a[^>]+>(.*?)<\/a>/);
@@ -272,7 +272,7 @@ function updateSensorConditionFieldsFromTemplate(templateId){
 
 	// Try to find tables and apply table sorter
 	$(document).ready(function() {
-		$('table.services').tablesorter({
+		$('table.services, table#host-alarms, table#service-alarms').tablesorter({
 			cssAsc: 'column-sort-asc',
 			cssDesc: 'column-sort-desc',
 			cssHeader: 'column-header'
