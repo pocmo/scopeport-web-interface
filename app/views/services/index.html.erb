@@ -14,18 +14,21 @@ Monitored services: <%= @service_count %>.
 
     <% unless group.services.blank? %>
 	    <table class="services">
-		    <tr class="doNotHighlightMe">
-			    <th>Name</th>
-			    <th>Host:Port</th>
-			    <th>Protocol</th>
-			    <th>Response</th>
-			    <th>Last checked</th>
-			    <th>Notification group</th>
-			    <th>Linked to host</th>
-          <% if Node.count > 0 %>
-            <th>Node</th>
-          <% end %>
-		    </tr>
+	    	<thead>
+			    <tr class="doNotHighlightMe">
+				    <th>Name</th>
+				    <th>Host:Port</th>
+				    <th>Protocol</th>
+				    <th>Response</th>
+				    <th>Last checked</th>
+				    <th>Notification group</th>
+				    <th>Linked to host</th>
+	          <% if Node.count > 0 %>
+	            <th>Node</th>
+	          <% end %>
+			    </tr>
+			</thead>
+			<tbody>
         <% group.services.each do |service| %>
 		      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
 			      <td>
@@ -61,6 +64,7 @@ Monitored services: <%= @service_count %>.
               <% end %>
             </tr>
         <% end %>
+		</tbody>
       </table>
     <% else %>
       <div class="centered-text">

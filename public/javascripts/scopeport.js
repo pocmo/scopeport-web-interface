@@ -241,3 +241,37 @@ function updateSensorConditionFieldsFromTemplate(templateId){
 
   return false;
 }
+
+// init table sorter
+(function($) {
+	// Add parser for anchors in rows
+	$.tablesorter.addParser({ 
+        id: 'anchorColumn', 
+        is: function(s) { 
+			return s.match(/<a[^>]+>(.*?)<\/a>/);
+        }, 
+        format: function(s) { 
+    		var value = s.match(/<a[^>]+>(.*?)<\/a>/);
+            return value[1]; 
+        }, 
+        type: 'text' 
+    });
+	
+	// Add parser for milliseconds in rows
+	$.tablesorter.addParser({ 
+        id: 'millisecondsColumn', 
+        is: function(s) { 
+			return s.match(/([0-9]+) ms/);
+        }, 
+        format: function(s) { 
+    		var value = s.match(/([0-9]+) ms/);
+            return value[1]; 
+        }, 
+        type: 'numeric' 
+    });
+
+	// Try to find tables and apply table sorter
+	$(document).ready(function() {
+		$('table.services').tablesorter();
+	});
+})(jQuery);
