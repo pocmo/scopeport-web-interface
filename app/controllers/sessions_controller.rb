@@ -17,6 +17,17 @@ class SessionsController < ApplicationController
     logout_keeping_session!
     user = User.authenticate(params[:login], params[:password])
     if user
+      # welcome popup
+      host_alarms = Alarm.count :conditions => ["timestamp >= ? AND alarm_type = 1", user.last_online.to_datetime.to_f.to_i]
+      service_alarms = Alarm.count :conditions => ["timestamp >= ? AND alarm_type = 2", user.last_online.to_datetime.to_f.to_i]
+      session[:temporary_popups] = [{
+        "id"     => Digest::SHA1.hexdigest("login-popup"),
+        "title"  => "Hi " + user.login + "!",
+        "text"   => "You missed #{host_alarms} host alarms and #{service_alarms} service alarms in your absence.",
+        "sticky" => true,
+        "image"  => "/images/icons/info.png"
+      }]
+      
       #Updates the last online attribute 
     	user.update_attribute("last_online", Time.now)
       # Protects against session fixation attacks, causes request forgery

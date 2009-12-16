@@ -6,11 +6,12 @@ class PopupController < ApplicationController
   # get all popups to show
   def getpopups
     session[:popups] = [] if session[:popups].blank?
+    
     timestamp = params[:timestamp].to_i == 0 ? session[:login_at].to_i : params[:timestamp]
     
     popups = []
     
-    popups = popups | get_service_alarm_popups(timestamp) | get_host_alarm_popups(timestamp)
+    popups = popups | get_service_alarm_popups(timestamp) | get_host_alarm_popups(timestamp) | get_temp_popups(timestamp)
     
     render :text => popups.to_json
   end
@@ -61,7 +62,7 @@ class PopupController < ApplicationController
 
     alarms.each do |alarm|
       id = alarm.get_popup_id
-      if ! session[:alarm].include? id
+      if ! session[:popups].include? id
         popups.push({
           "id"     => id,
           "title"  => "Alarm (" + alarm.hostname + ")",
@@ -69,6 +70,26 @@ class PopupController < ApplicationController
           "sticky" => true,
           "image"  => "/images/icons/alarm.png"
         })
+      end
+    end
+    
+    return popups
+  end
+  
+  
+  def get_temp_popups timestamp
+    #session[:temporary_popups] = [] if session[:temporary_popups].blank?
+    popups = []
+    
+    # only show temporary popups on first request of every "page"
+    if timestamp.to_i == session[:login_at].to_i 
+      session[:temporary_popups].each do |popup|
+        if ! session[:popups].include? popup["id"]
+          popups.push(popup)
+        else
+          session[:temporary_popups].delete popup
+          session[:popups].delete popup["id"]
+        end
       end
     end
     
