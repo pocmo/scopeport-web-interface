@@ -626,12 +626,12 @@ background-image:url(../images/shortcuts_arrow.gif); background-repeat:no-repeat
 
 .column-sort-asc {
     background-image: url(/images/icons/asc.gif) ! important;
-    background-color: #EC6600;
+    background-color: #EBAB4A;
     color:#ffffff;
 } 
 .column-sort-desc {
     background-image: url(/images/icons/desc.gif) ! important;
-    background-color: #EC6600;
+    background-color: #EBAB4A;
 	color:#ffffff;
 }
 .column-header {
