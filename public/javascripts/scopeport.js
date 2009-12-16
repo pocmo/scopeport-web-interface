@@ -272,6 +272,10 @@ function updateSensorConditionFieldsFromTemplate(templateId){
 
 	// Try to find tables and apply table sorter
 	$(document).ready(function() {
-		$('table.services').tablesorter();
+		$('table.services').tablesorter({
+			cssAsc: 'column-sort-asc',
+			cssDesc: 'column-sort-desc',
+			cssHeader: 'column-header'
+		});
 	});
 })(jQuery);

@@ -622,3 +622,21 @@ background-image:url(../images/shortcuts_arrow.gif); background-repeat:no-repeat
 #gritter-notice-wrapper {
   margin-top: 125px;
 }
+
+
+.column-sort-asc {
+    background-image: url(/images/icons/asc.gif) ! important;
+    background-color: #EC6600;
+    color:#ffffff;
+} 
+.column-sort-desc {
+    background-image: url(/images/icons/desc.gif) ! important;
+    background-color: #EC6600;
+	color:#ffffff;
+}
+.column-header {
+    background-image: url(/images/icons/sort.gif);
+    background-repeat: no-repeat; 
+    background-position: center left; 
+    padding-left: 20px; 
+}
