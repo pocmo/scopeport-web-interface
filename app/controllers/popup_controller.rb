@@ -78,7 +78,7 @@ class PopupController < ApplicationController
   
   
   def get_temp_popups timestamp
-    #session[:temporary_popups] = [] if session[:temporary_popups].blank?
+    session[:temporary_popups] = [] if session[:temporary_popups].blank?
     popups = []
     
     # only show temporary popups on first request of every "page"
