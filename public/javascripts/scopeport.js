@@ -260,12 +260,15 @@ function updateSensorConditionFieldsFromTemplate(templateId){
 	// Add parser for milliseconds in rows
 	$.tablesorter.addParser({ 
         id: 'millisecondsColumn', 
-        is: function(s) { 
+        is: function(s) {
 			return s.match(/([0-9]+) ms/);
         }, 
-        format: function(s) { 
+        format: function(s) {
     		var value = s.match(/([0-9]+) ms/);
-            return value[1]; 
+            if (value && value[1]) { // XXX: This should always be called (see "is" function), but it doesn't
+            	return value[1];
+            }
+            return 0;
         }, 
         type: 'numeric' 
     });
