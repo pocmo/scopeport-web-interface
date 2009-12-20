@@ -1,0 +1,33 @@
+<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
+  <td>
+    <span style="float: left;">
+      <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-title" %>
+    </span>
+    <%= new_comment_mark if service.new_comment? %>
+  </td>
+  <td><%=h service.host %>:<%=h service.port %></td>
+  <% if service.service_type == "none" %>
+    <td>None</td>
+  <% else %>
+    <td><%=h service.service_type.upcase %></td>
+  <% end %>
+  <% if !service.responsetime.blank? %>
+    <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
+      <td><%=h service.responsetime %> ms</td>
+    <% else %>
+      <td>N/A</td>
+    <% end %>
+  <% else %>
+    <td>Unknown</td>
+  <% end %>
+  <% if service.lastcheck == 0 %>
+    <td>Never</td>
+  <% else %>
+    <td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
+  <% end %>
+    <td><%= getNameOfWarningGroup service.warninggroup %></td>
+    <td><%= getNameOfHost service.linkedhost %></td>
+    <% if Node.count > 0 %>
+      <td><%= service.node_id %></td>
+    <% end %>
+</tr>

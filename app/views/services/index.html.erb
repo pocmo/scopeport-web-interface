@@ -30,39 +30,7 @@ Monitored services: <%= @service_count %>.
 			</thead>
 			<tbody>
         <% group.services.each do |service| %>
-		      <tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
-			      <td>
-              <span style="float: left;">
-                <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-title" %>
-              </span>
-					    <%= new_comment_mark if service.new_comment? %>
-            </td>
-			      <td><%=h service.host %>:<%=h service.port %></td>
-			      <% if service.service_type == "none" %>
-				      <td>None</td>
-			      <% else %>
-				      <td><%=h service.service_type.upcase %></td>
-			      <% end %>
-			      <% if !service.responsetime.blank? %>
-              <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
-  				      <td><%=h service.responsetime %> ms</td>
-              <% else %>
-  				      <td>N/A</td>
-              <% end %>
-            <% else %>
-				      <td>Unknown</td>
-			      <% end %>
-			      <% if service.lastcheck == 0 %>
-				      <td>Never</td>
-			      <% else %>
-				      <td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
-			      <% end %>
-			        <td><%= getNameOfWarningGroup service.warninggroup %></td>
-			        <td><%= getNameOfHost service.linkedhost %></td>
-              <% if Node.count > 0 %>
-                <td><%= service.node_id %></td>
-              <% end %>
-            </tr>
+          <%= render :partial => "servicerow", :locals => { :service => service } %>
         <% end %>
 		</tbody>
       </table>
@@ -80,53 +48,25 @@ Monitored services: <%= @service_count %>.
     <h2>Ungrouped services</h2>
   </div>
 	<table class="services">
-		<tr class="doNotHighlightMe">
-			<th>Name</th>
-			<th>Host:Port</th>
-			<th>Protocol</th>
-			<th>Response</th>
-			<th>Last checked</th>
-			<th>Notification group</th>
-			<th>Linked to host</th>
-      <% if Node.count > 0 %>
-        <th>Node</th>
-      <% end %>
-		</tr>
-		<% @services_without_group.each do |service| %>
-		<tr class="sensor-<%= getErrorStyle service.state, service.lastcheck %>">
-			<td>
-          <span style="float: left;">
-            <%= link_to service.name, { :action => "show", :id => service.id }, :class => "link-title" %>
-          </span>
-					<%= new_comment_mark if service.new_comment? %>
-			</td>
-			<td><%=h service.host %>:<%=h service.port %></td>
-			<% if service.service_type == "none" %>
-				<td>None</td>
-			<% else %>
-				<td><%=h service.service_type.upcase %></td>
-			<% end %>
-			<% if !service.responsetime.blank? %>
-        <% if !service.state.blank? and service.state > 0 and service.state != 4 %>
-  				<td><%=h service.responsetime %> ms</td>
-        <% else %>
-  				<td>N/A</td>
+    <thead>
+		  <tr class="doNotHighlightMe">
+        <th>Name</th>
+        <th>Host:Port</th>
+        <th>Protocol</th>
+        <th>Response</th>
+        <th>Last checked</th>
+        <th>Notification group</th>
+        <th>Linked to host</th>
+        <% if Node.count > 0 %>
+          <th>Node</th>
         <% end %>
-      <% else %>
-				<td>Unknown</td>
-			<% end %>
-			<% if service.lastcheck == 0 %>
-				<td>Never</td>
-			<% else %>
-				<td><%= distance_of_time_in_words(Time.at(service.lastcheck), Time.now, true)  %> ago</td>
-			<% end %>
-			<td><%= getNameOfWarningGroup service.warninggroup %></td>
-			<td><%= getNameOfHost service.linkedhost %></td>
-      <% if Node.count > 0 %>
-        <td><%= service.node_id %></td>
-      <% end %>
-		</tr>
-		<% end %>
+		  </tr>
+    </thead>
+    <tbody>
+		  <% @services_without_group.each do |service| %>
+        <%= render :partial => "servicerow", :locals => { :service => service } %>
+		  <% end %>
+    </tbody>
 	</table>
 <% end %>
 
