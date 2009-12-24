@@ -41,9 +41,10 @@
 			The service timed out!
 		</div>
 	<% end %>
-	<dl>
+	
+  <dl>
 		<dt>Host</dt>
-  	<dd><%=h @service.host %></dd>
+  	<dd><%=h @service.host %> <%= @linked_host.blank? ? "" : "(#{link_to h(@linked_host.name), :controller => "hosts", :action => "show", :id => @linked_host.id})" %></dd>
   	<dt>Port</dt>
   	<dd><%=h @service.port %></dd>
   	<dt>Protocol check</dt>
@@ -67,7 +68,8 @@
    	  <dd><%= @service.node.blank? ? "Main" : @service.node.name %></dd>
     <% end %>
   </dl>
-<%= link_to_if admin_or_service_admin?, "Edit this service", :action => "edit", :id => @service.id %>
+
+  <%= link_to_if admin_or_service_admin?, "Edit this service", :action => "edit", :id => @service.id %>
 </div>
 
 <div id="service-graph-response">

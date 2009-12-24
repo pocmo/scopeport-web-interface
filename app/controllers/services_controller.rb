@@ -47,6 +47,12 @@ class ServicesController < ApplicationController
 		@service = Service.find_by_id params[:id]
     redirect_to :action => "index" if @service.blank?
     @new_comment = Servicecomment.new
+
+    begin
+      @linked_host = Host.find @service.linkedhost
+    rescue
+      @linked_host = nil
+    end
 	end
 
   def show_graph
