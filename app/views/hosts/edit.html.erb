@@ -6,6 +6,10 @@
   <%= remote_function :update => "host-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => "#{@host.notificationgroup_id}" } %>
 </script>
 
+<div class="back">
+<%= link_to "Back to host details", :action => "show", :id => @host.id %>
+</div>
+
 <div id="host-new">
   <div id="host-new-form">
 	  <% form_for :host, :url => { :action => "update", :id => @host.id } do |f| %>

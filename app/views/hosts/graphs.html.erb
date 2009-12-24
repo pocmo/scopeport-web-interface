@@ -1,5 +1,9 @@
 <h1>Edit graphs of host &raquo;<%=h @host.name %>&laquo;</h1>
 
+<div class="back">
+<%= link_to "Back to host details", :action => "show", :id => @host.id %>
+</div>
+
 <% form_tag "/hosts/updategraphs/#{@host.id}" do %>
   <table id="hosts-host-edit-graphs">
     <tr class="doNotHighlightMe">

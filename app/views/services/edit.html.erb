@@ -6,6 +6,9 @@
   <%= remote_function :update => "service-new-receivers-list", :url => { :controller => "notificationgroups", :action => "show_receivers", :id => @service.warninggroup } %>
 </script>
 
+<div class="back">
+<%= link_to "Back to service details", :action => "show", :id => @service.id %>
+</div>
 
 <div id="service-new">
 	<div id="service-new-form">
