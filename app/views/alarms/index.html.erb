@@ -7,94 +7,106 @@ Every alarm of that has been caused by an existing service is listed here. Click
 <%= render :partial => "filters", :locals => { :filters => @filters } %>
 
 <div id="alarms-host-alarms">
-	<h2>Host alarms</h2>
-	<table id="host-alarms">
-		<thead>
-			<tr class="doNotHighlightMe">
-	            <th>&nbsp;</th>
-				<th>ID</th>
-				<th>Time</th>
-				<th>Host</th>
-				<th>Status</th>
-				<th colspan="2">Message</th>
-			</tr>
-		</thead>
-		<tbody>
-		<% @host_alarms.each do |alarm| %>
-			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
-        <td>
-          <input type="checkbox"
-                  id="alarm<%= alarm.get_popup_id %>"
-                  onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
-                  <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
-                    disabled="disabled"
-                  <% end %>>
-        </td>
-				<td><%=h alarm.id %></td>
-				<td><%=h Time.at alarm.timestamp %></td>
-				<td class="bold"><%=h alarm.hostname %></td>
-				<td id="alarm-status-<%=h alarm.id %>">
-            <%=h getAlarmStatus alarm.status %>
-          <% if !alarm.attendee.blank? and alarm.attendee == current_user.id %>
-            <strong>(me)</strong>
-          <% end %>
-        </td>
-				<td class="bold"><%= getHostAlarmMessage(alarm.sensor, alarm.value) %></td>
-				<td class="no-background-content">
-				<%= link_to "Details", :action => "showhostalarm", :id => alarm.id %>
-				<%= new_comment_mark if alarm.new_comment? %>
-				</td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+	<div class="centered-text"><h2>Host alarms</h2></div>
+  <% if @host_alarms.blank? %>
+    <div class="centered-text">
+      <strong>No host alarms found</strong>
+    </div>
+  <% else %>
+  	<table id="host-alarms">
+  		<thead>
+  			<tr class="doNotHighlightMe">
+  	      <th>&nbsp;</th>
+  				<th>ID</th>
+  				<th>Time</th>
+  				<th>Host</th>
+  				<th>Status</th>
+  				<th colspan="2">Message</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  		<% @host_alarms.each do |alarm| %>
+  			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
+         <td>
+           <input type="checkbox"
+                   id="alarm<%= alarm.get_popup_id %>"
+                   onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
+                   <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
+                     disabled="disabled"
+                   <% end %>>
+         </td>
+  				<td><%=h alarm.id %></td>
+  				<td><%=h Time.at alarm.timestamp %></td>
+  				<td class="bold"><%=h alarm.hostname %></td>
+  				<td id="alarm-status-<%=h alarm.id %>">
+             <%=h getAlarmStatus alarm.status %>
+           <% if !alarm.attendee.blank? and alarm.attendee == current_user.id %>
+             <strong>(me)</strong>
+           <% end %>
+         </td>
+  				<td class="bold"><%= getHostAlarmMessage(alarm.sensor, alarm.value) %></td>
+  				<td class="no-background-content">
+  				<%= link_to "Details", :action => "showhostalarm", :id => alarm.id %>
+  				<%= new_comment_mark if alarm.new_comment? %>
+  				</td>
+  			</tr>
+  		<% end %>
+  		</tbody>
+  	</table>
+  <% end %>
 	<div class="pagination">
 		<%= will_paginate @host_alarms %>
 	</div>
 </div>
 
 <div id="alarms-service-alarms">
-	<h2>Service alarms</h2>
-	<table id="service-alarms">
-	   <thead>
+	<div class="centered-text"><h2>Service alarms</h2></div>
+  <% if @service_alarms.blank? %>
+    <div class="centered-text">
+      <strong>No service alarms found</strong>
+    </div>
+  <% else %>
+	  <table id="service-alarms">
+	    <thead>
         <tr class="doNotHighlightMe">
-      <th>&nbsp;</th>
-			<th>ID</th>
-			<th>Time</th>
-			<th>Service</th>
-			<th>Status</th>
-			<th colspan="2">Message</th>
-		</tr>
-        </thead>
-		<tbody>
-		<% @service_alarms.each do |alarm| %>
-			<tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
-        <td>
-          <input type="checkbox"
-		          id="alarm<%= alarm.get_popup_id %>"
-                  onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
-                  <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
-                    disabled="disabled"
-                  <% end %>>
-        </td>
-				<td><%=h alarm.id %></td>
-				<td><%=h Time.at alarm.timestamp %></td>
-				<td class="bold"><%=h alarm.servicename %></td>
-				<td id="alarm-status-<%=h alarm.id %>">
+          <th>&nbsp;</th>
+			    <th>ID</th>
+			    <th>Time</th>
+			    <th>Service</th>
+			    <th>Status</th>
+			    <th colspan="2">Message</th>
+		    </tr>
+      </thead>
+		  <tbody>
+		  <% @service_alarms.each do |alarm| %>
+			  <tr id="alarm-<%=h alarm.id %>" class="<%= getAlarmStatusBackgroundClass alarm.status %>">
+          <td>
+            <input type="checkbox"
+		           id="alarm<%= alarm.get_popup_id %>"
+                   onclick="<%= updateAlarmStatusAJAX alarm.id, alarm.status %>"
+                   <% if !alarm.attendee.blank? and alarm.attendee != current_user.id %>
+                     disabled="disabled"
+                   <% end %>>
+          </td>
+				  <td><%=h alarm.id %></td>
+				  <td><%=h Time.at alarm.timestamp %></td>
+				  <td class="bold"><%=h alarm.servicename %></td>
+				  <td id="alarm-status-<%=h alarm.id %>">
             <%=h getAlarmStatus alarm.status %>
-          <% if !alarm.attendee.blank? and alarm.attendee == current_user.id %>
-            <strong>(me)</strong>
-          <% end %>
-        </td>
-				<td class="bold"><%= getServiceAlarmMessage(alarm.service_state, alarm.ms) %></td>
-				<td class="no-background-content">
-				<%= link_to "Details", :action => "showservicealarm", :id => alarm.id %>
-				<%= new_comment_mark if alarm.new_comment? %>
-				</td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+            <% if !alarm.attendee.blank? and alarm.attendee == current_user.id %>
+              <strong>(me)</strong>
+            <% end %>
+          </td>
+				  <td class="bold"><%= getServiceAlarmMessage(alarm.service_state, alarm.ms) %></td>
+				  <td class="no-background-content">
+				  <%= link_to "Details", :action => "showservicealarm", :id => alarm.id %>
+				  <%= new_comment_mark if alarm.new_comment? %>
+				  </td>
+			  </tr>
+		  <% end %>
+		  </tbody>
+	  </table>
+  <% end %>
 	<div class="pagination">
 		<%= will_paginate @service_alarms %>
 	</div>
