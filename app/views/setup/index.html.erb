@@ -47,8 +47,11 @@
 
 <div id="setup-help">
   <h3>System information</h3>
-  You are running ScopePort Web Interface version <i><%=h SP_VERSION %></i> on <i>Ruby <%=h RUBY_VERSION %> <%=h RUBY_PLATFORM %></i>. The host you are running this system on is <i><%=h SP_HOST %></i>.
+  You are running ScopePort Web Interface version <i><%=h SP_VERSION %></i> on <i>Ruby <%=h RUBY_VERSION %> <%=h RUBY_PLATFORM %></i> powered by Ruby On Rails <i><%=h Rails::VERSION::STRING %></i>. The host you are running this system on is <i><%=h SP_HOST %></i>.
   RRDTool has version <i><%=h RRDTOOL_VERSION %></i> and is at <i><%=h RRDTOOL_PATH %></i>.
+  <% if SP_DEV %>
+  <p>This is a development version of ScopePort and has git revision <i><%= SP_GIT_REV %></i></p>
+  <% end %>
 </div>
 
 <br style="clear: both;" />

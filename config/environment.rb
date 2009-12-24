@@ -23,6 +23,15 @@ SP_HOST = `uname -snrm`.chop
 RRDTOOL_VERSION = rrd_parts[1]
 RRDTOOL_PATH = `which rrdtool`.chop
 
+# Get the git revision if this is a development version
+if SP_VERSION.include? "dev"
+  SP_DEV = true
+  SP_GIT_REV = " #{`git describe --always`}"
+else
+  SP_DEV = false
+  SP_GIT_REV = nil
+end
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
