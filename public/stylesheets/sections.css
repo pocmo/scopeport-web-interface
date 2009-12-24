@@ -74,6 +74,14 @@
 
 #setup {
 	margin-top: 20px;
+  float: left;
+}
+
+#setup-help {
+	margin-top: 20px;
+	margin-left: 450px;
+	border-left: 1px dotted #444444;
+	padding-left: 10px;
 }
 
 /*
@@ -180,6 +188,7 @@
 
 #hosts-host-configure-conditions {
   float: right;
+  margin-bottom: 20px;
 }
 
 #hosts-host-edit-graphs {

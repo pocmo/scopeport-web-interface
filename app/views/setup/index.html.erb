@@ -43,5 +43,12 @@
     <li><%= link_to "Notification method debugging", :controller => "conversationmessages" %></li>
 		<li><%= link_to "Blacklist", :controller => "blacklist" %></li>
 	</ul>
-
 </div>
+
+<div id="setup-help">
+  <h3>System information</h3>
+  You are running ScopePort Web Interface version <i><%=h SP_VERSION %></i> on <i>Ruby <%=h RUBY_VERSION %> <%=h RUBY_PLATFORM %></i>. The host you are running this system on is <i><%=h SP_HOST %></i>.
+  RRDTool has version <i><%=h RRDTOOL_VERSION %></i> and is at <i><%=h RRDTOOL_PATH %></i>.
+</div>
+
+<br style="clear: both;" />

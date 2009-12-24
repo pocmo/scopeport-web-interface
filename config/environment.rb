@@ -10,6 +10,19 @@
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+# Check if RRDTool is installed
+rrd_parts = `rrdtool`.split
+
+if rrd_parts[0].blank? or rrd_parts[0] != "RRDtool"
+  puts "ERROR: YOU NEED TO INSTALL RRDTOOL! (i.e. aptitude install rrdtool)"
+  exit
+end
+
+SP_VERSION = "0.3-dev"
+SP_HOST = `uname -snrm`.chop
+RRDTOOL_VERSION = rrd_parts[1]
+RRDTOOL_PATH = `which rrdtool`.chop
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
