@@ -505,6 +505,7 @@ class HostsController < ApplicationController
 
   def get_host_sensors_hash host
       { "new_comment" => host.new_comment?,
+        "last_contact" => host.last_sensor_time,
         "outdated" => host.outdated?,
         "id" => host.id,
         "name" => host.name,
