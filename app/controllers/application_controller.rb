@@ -34,6 +34,9 @@ class ApplicationController < ActionController::Base
   
   helper_method :getServiceAlarmMessage
   helper_method :getHostAlarmMessage
+  
+  helper_method :getTopGraphs
+  helper_method :getTopGraphJS
 
   before_filter :login_required
 	before_filter :update_last_online
@@ -298,5 +301,53 @@ class ApplicationController < ActionController::Base
   def getHostAlarmMessage sensor, value
     return "Sensor \"#{h(sensor)}\" had value \"#{h(value)}\""
   end
-  
+
+  def getTopGraphs
+    #begin
+      returnage = String.new
+      graphs = Topgraph.find_all_by_user_id current_user.id
+      
+      i = 0
+      graphs.each do |graph|
+        returnage << "<span class=\"topgraph-title"
+        returnage << " first" if i == 0
+        returnage << "\">#{graph.name}:</span> <span id=\"topgraph#{i}\"></span>"
+        i += 1
+      end
+
+      return returnage
+    #rescue
+    #  return ""
+    #end
+  end
+
+  def getTopGraphJS
+    begin
+      returnage = "var graph_width = 100;"
+      graphs = Topgraph.find_all_by_user_id current_user.id
+      
+      i = 0
+      graphs.each do |graph|
+        values = Servicerecord.find :all, :conditions => [ "serviceid = ?", graph.target_id ], :order => "timestamp DESC", :limit => 120
+        value_array = "["
+        values = values.reverse
+        values.each do |value|
+          value_array << "#{value.ms},"
+        end
+        value_array << "]"
+
+        returnage << "var values#{i} = #{value_array};"
+        returnage << "jQuery('#topgraph#{i}').sparkline(values#{i}, { width: graph_width, lineColor: \"#EC6600\" });";
+        
+        i += 1
+      end
+
+      return returnage
+    rescue
+      return ""
+    end
+
+    return ""
+  end
+
 end

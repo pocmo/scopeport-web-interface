@@ -77,6 +77,9 @@ class UsersController < ApplicationController
     else
       @gravatar_allowed = false
     end
+
+    @new_topgraph = Topgraph.new
+    @topgraphs = Topgraph.find_all_by_user_id current_user.id
   end
 
   def saveusersettings

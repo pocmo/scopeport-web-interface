@@ -17,6 +17,52 @@
   <p><%= submit_tag "Save my settings", :disable_with => "Please wait" %></p>
 <% end %>
 
+<h1>Quick graphs</h1>
+You can configure up to three graphs that are displayed left of the search bar on every page.
+
+<% form_for @new_topgraph, :url => { :controller => "topgraphs", :action => "create" } do |f| %>
+  <div class="topgraph-new-form-part first">
+    <%= f.label :graph_type, "Type" %>
+    <%= f.select :graph_type, options_for_select({ "Service" => "0" }) %>
+  </div>
+
+  <div class="topgraph-new-form-part">
+    <%= f.label :target_id, "Service" %>
+    <%= f.select :target_id, Service.all.collect {|s| [ s.name, s.id ] }, { :include_blank => true } %>
+  </div>
+
+  <div class="topgraph-new-form-part">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, :maxlength => 5 %>
+  </div>
+  
+  <div class="topgraph-new-form-part">
+    <%= f.label :minutes, "Timespan (Minutes)" %>
+    <%= f.text_field :minutes, :value => "180" %>
+  </div>
+
+  <div class="topgraph-new-form-part topgraph-new-form-submit">
+    <% if @topgraphs.count >= 3 %>
+      <%= submit_tag "Maximum reached", :disabled => true %>
+    <% else %>
+      <%= submit_tag "Create" %>
+    <% end %>
+  </div>
+
+  <br style="clear: both;" />
+<% end %>
+
+<br/>
+
+<h3>Configured graphs</h3>
+
+<ul>
+  <%= @topgraphs.blank? ? "<li>No quick graphs configured</li>" : "" %>
+  <% @topgraphs.each do |graph| %>
+    <li><%=h graph.name %> [<%= link_to "Delete", { :controller => "topgraphs", :action => "destroy", :id => graph.id }, :confirm => "Do you really want to delete this quick graph?" %>]</li>
+  <% end %>
+</ul>
+
 <h1>OAuth</h1>
 <p>
   <%= link_to ("Configure OAuth Client Applications", :controller => "oauth_clients") %>

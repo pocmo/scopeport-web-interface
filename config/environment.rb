@@ -13,7 +13,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 # Check if RRDTool is installed
 rrd_parts = `rrdtool`.split
 
-if rrd_parts[0].blank? or rrd_parts[0] != "RRDtool"
+if rrd_parts[0] == nil or rrd_parts[0] != "RRDtool"
   puts "ERROR: YOU NEED TO INSTALL RRDTOOL! (i.e. aptitude install rrdtool)"
   exit
 end

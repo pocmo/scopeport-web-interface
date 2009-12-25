@@ -84,6 +84,10 @@ dd {
 	margin-bottom: 2px;
 }
 
+.first {
+  margin-left: 0px !important;
+}
+
 #flash-notice {
 	width: 100%;
 	padding-top: 2px;
@@ -317,13 +321,19 @@ dd {
 	margin: 0px auto;
 }
 
-#maincontent-top-breadcrumbs {
-  width: 49%;
+#maincontent-top-graphs {
+  width: 54%;
   float: left;
 }
 
+.topgraph-title {
+  font-size: 8px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 #maincontent-top-search {
-  width: 49%;
+  width: 45%;
   float: right;
 }
 
