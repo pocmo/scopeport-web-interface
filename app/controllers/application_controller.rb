@@ -299,7 +299,7 @@ class ApplicationController < ActionController::Base
   end
   
   def getHostAlarmMessage sensor, value
-    return "Sensor \"#{h(sensor)}\" had value \"#{h(value)}\""
+    return "Sensor \"#{(sensor)}\" had value \"#{(value)}\""
   end
 
   def getTopGraphs
