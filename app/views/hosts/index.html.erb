@@ -37,7 +37,7 @@
       <td class="<%= getSensorStateColumnColor host, "of", host["of"] %>"><%=h host["of"] %></td>
       <td class="<%= getSensorStateColumnColor host, "rp", host["rp"] %>"><%=h host["rp"] %></td>
       <td class="<%= getSensorStateColumnColor host, "tp", host["tp"] %>"><%=h host["tp"] %></td>
-      <td class="<%= host["outdated"] ? "sensor-none" : "sensor-okay" %>"><%= host["last_contact"].blank? ? "Unknown" : "#{distance_of_time_in_words(Time.at(host["last_contact"]), Time.now, true)} ago" %></td>
+      <td class="<%= (host["outdated"] or host["last_contact"].blank?) ? "sensor-none" : "sensor-okay" %>"><%= host["last_contact"].blank? ? "Unknown" : "#{distance_of_time_in_words(Time.at(host["last_contact"]), Time.now, true)} ago" %></td>
     </tr>
   <% end %>
 
