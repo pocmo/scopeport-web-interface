@@ -28,7 +28,7 @@ class EmergenciesController < ApplicationController
         sendEmergencyMessages @emergency, group_id, false
       end
       flash[:notice] = "Emergency has been declared! Notifications have been sent."
-      redirect_to :controller => "hosts"
+      redirect_to :action => "show", :id => @emergency.id
     else
       flash[:error] = "Could not declare emergency!"
       render :action => "new"
